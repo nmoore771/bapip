@@ -1,0 +1,68 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	pre, post, Hysteresis_var : VAR Hysteresis
+	xin1_in, xin2_in, eps_in : var Int(16)
+
+
+	Hysteresis_get_q_gd (Hysteresis_var) : bool
+		 = True
+
+	Hysteresis_set_Inputs_gd (Hysteresis_var) : bool
+		 = True
+
+
+	Hysteresis_get_q (Hysteresis_var) : bool
+		 = Hysteresis_var`q
+
+
+	Hysteresis_t_m_set_Inputs (pre, post, xin1_in, xin2_in, eps_in) : bool =
+		  (post = pre with
+		  [q := if (Hysteresis_set_Inputs_gd(pre))
+		    then (if ( xin1_in < ( xin2_in - eps_in ) )
+			  then False
+			  else if ( ( ( xin2_in - eps_in ) <= xin1_in ) AND ( xin1_in <= ( xin2_in + eps_in ) ) )
+			  then pre`q
+			  else True
+			endif
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	Hysteresis_t (pre, post) : bool =
+		  (post = pre with
+		  [q := (pre`q)
+		  ]
+		)
+
+
+	Hysteresis_t_m_set_Inputs_val (pre, xin1_in, xin2_in, eps_in) : Hysteresis =
+		  (pre with
+		  [q := if (Hysteresis_set_Inputs_gd(pre))
+		    then (if ( xin1_in < ( xin2_in - eps_in ) )
+			  then False
+			  else if ( ( ( xin2_in - eps_in ) <= xin1_in ) AND ( xin1_in <= ( xin2_in + eps_in ) ) )
+			  then pre`q
+			  else True
+			endif
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	Hysteresis_t_val (pre) : Hysteresis =
+		  (pre with
+		  [q := (pre`q)
+		  ]
+		)
+
+
+	
+end Transitions

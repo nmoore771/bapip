@@ -1,0 +1,98 @@
+(Theorems
+ (HYSTERESIS_req_tab_TCC1 0
+  (HYSTERESIS_req_tab_TCC1-1 nil 3722950576
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_TCC2 0
+  (HYSTERESIS_req_tab_TCC2-1 nil 3722950576
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (correctness 0
+  (correctness-1 nil 3722950576 ("" (grind) nil nil)
+   ((nnreal_plus_posreal_is_posreal application-judgement "posreal"
+     real_types nil)
+    (Hysteresis_get_q const-decl "bool" Transitions nil)
+    (HYSTERESIS_req_tab const-decl "bool" Theorems nil)
+    (Hysteresis_t_m_set_Inputs const-decl "bool" Transitions nil)
+    (Hysteresis_set_Inputs_gd const-decl "bool" Transitions nil)
+    (next const-decl "tick" ClockTick nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (NOT const-decl "[bool -> bool]" booleans nil))
+   shostak))
+ (Hysteresis_t_m_set_Inputs_consistency 0
+  (Hysteresis_t_m_set_Inputs_consistency-1 nil 3722950950
+   (""
+    (then (skolem!)
+     (inst +
+      "Hysteresis_t_m_set_Inputs_val (pre!1, xin1_in_nt!1, xin2_in_nt!1, eps_in_nt!1)")
+     (grind))
+    nil)
+   ((bool nonempty-type-eq-decl nil booleans nil)
+    (Hysteresis type-eq-decl nil State nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (/= const-decl "boolean" notequal nil)
+    (>= const-decl "bool" reals nil)
+    (^ const-decl "real" exponentiation nil)
+    (< const-decl "bool" reals nil)
+    (Int type-eq-decl nil TypeDefinitions nil)
+    (Hysteresis_t_m_set_Inputs_val const-decl "Hysteresis" Transitions
+     nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (Hysteresis_t_m_set_Inputs const-decl "bool" Transitions nil)
+    (Hysteresis_set_Inputs_gd const-decl "bool" Transitions nil)
+    (posint_exp application-judgement "posint" exponentiation nil))
+   shostak))
+ (Hysteresis_t_consistency 0
+  (Hysteresis_t_consistency-1 nil 3722950968
+   ("" (then (skolem!) (inst + "Hysteresis_t_val (pre!1)") (grind))
+    nil)
+   nil shostak)))
+

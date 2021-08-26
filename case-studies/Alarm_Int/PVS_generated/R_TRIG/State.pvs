@@ -1,0 +1,21 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	Rising_edge_detector : type =
+		[# clk_prev : bool
+		 , q : bool
+		#]
+
+	Rising_edge_detector_var : var Rising_edge_detector
+
+	mkRising_edge_detector (Rising_edge_detector_var) : bool
+	=	Rising_edge_detector_var`clk_prev	 = False
+	AND	Rising_edge_detector_var`q	 = False
+
+
+	
+end State

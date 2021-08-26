@@ -1,0 +1,19 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	RS_Latch : type =
+		[# q : bool
+		#]
+
+	RS_Latch_var : var RS_Latch
+
+	mkRS_Latch (RS_Latch_var) : bool
+	=	RS_Latch_var`q	 = False
+
+
+	
+end State

@@ -1,0 +1,62 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> RS_Latch]
+	pre, post, RS_Latch_var : VAR RS_Latch
+	i : VAR int
+	r1_in, s_in : VAR [tick -> bool]
+	r1_in_nt, s_in_nt : VAR bool
+	r1, s1, q : VAR [tick -> bool]
+
+  RS_REQ(r1, s1, q)(t): bool = 
+      q(next(t)) =  
+        LET prev = q(t) IN
+         TABLE
+          | r1(t)                 | False ||
+          | NOT r1(t) & s1(t)     | True  ||    
+          | NOT r1(t) & NOT s1(t) | prev  ||
+         ENDTABLE
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkRS_Latch : (pre)
+%	RS_Latch_t_m_set_Inputs (pre, post, r1_in, s_in)
+%	RS_Latch_t (pre, post)
+%	RS_Latch_get_q (RS_Latch_var) : bool
+
+	correctness : theorem
+	RS_Latch_t_m_set_Inputs (s(t), s(next(t)), r1(t), s1(t))
+	and RS_REQ(r1, s1, q)(t)
+	and q(t) = RS_Latch_get_q (s(t))
+	implies q(next(t)) = RS_Latch_get_q (s(next(t)))
+	
+
+	
+%|- RS_Latch_t_m_set_Inputs_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "RS_Latch_t_m_set_Inputs_val (pre!1, r1_in_nt!1, s_in_nt!1)")
+%|-       (grind))
+%|- QED
+		RS_Latch_t_m_set_Inputs_consistency : Theorem
+		FORALL (pre, r1_in_nt, s_in_nt) : 
+		EXISTS (post) : 
+		RS_Latch_t_m_set_Inputs (pre, post, r1_in_nt, s_in_nt)
+
+	
+%|- RS_Latch_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "RS_Latch_t_val (pre!1)")
+%|-       (grind))
+%|- QED
+		RS_Latch_t_consistency : Theorem 
+		FORALL (pre) : 
+		EXISTS (post) : 
+		RS_Latch_t (pre, post)
+
+	
+end Theorems

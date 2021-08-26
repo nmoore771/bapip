@@ -1,0 +1,21 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	Falling_edge_detector : type =
+		[# clk_prev : bool
+		 , q : bool
+		#]
+
+	Falling_edge_detector_var : var Falling_edge_detector
+
+	mkFalling_edge_detector (Falling_edge_detector_var) : bool
+	=	Falling_edge_detector_var`clk_prev	 = False
+	AND	Falling_edge_detector_var`q	 = False
+
+
+	
+end State

@@ -1,0 +1,63 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> Hysteresis]
+	pre, post, Hysteresis_var : VAR Hysteresis
+	i : VAR int
+	xin1_in, xin2_in, eps_in : VAR [tick -> Int(16)]
+	xin1_in_nt, xin2_in_nt, eps_in_nt : VAR Int(16)
+	xin1, xin2, eps : Var [tick -> Int(16)]
+	q : Var [tick -> bool]
+
+  HYSTERESIS_req_tab(xin1,xin2,eps,q)(t): bool = 
+   FORALL t:
+    q(next(t)) = 
+      LET prev = q(t) IN
+       TABLE
+        | xin1(t) < (xin2(t) - eps(t))                                  | False ||
+        | (xin2(t) - eps(t)) <= xin1(t) & xin1(t) <= (xin2(t) + eps(t)) | prev  ||
+        | (xin2(t) + eps(t)) < xin1(t)                                  | True  ||
+       ENDTABLE
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkHysteresis : (pre)
+%	Hysteresis_t_m_set_Inputs (pre, post, xin1_in, xin2_in, eps_in)
+%	Hysteresis_t (pre, post)
+%	Hysteresis_get_q (Hysteresis_var) : bool
+%       HYSTERESIS_req_tab(xin1,xin2,eps,q)(t): bool  
+
+	correctness : Theorem
+	Hysteresis_t_m_set_Inputs (s(t), s(next(t)), xin1(t), xin2(t), eps(t))
+	and HYSTERESIS_req_tab(xin1,xin2,eps,q)(t)
+	and q(t) = Hysteresis_get_q(s(t))
+	implies q(next(t)) = Hysteresis_get_q(s(next(t)))
+	
+%|- Hysteresis_t_m_set_Inputs_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Hysteresis_t_m_set_Inputs_val (pre!1, xin1_in_nt!1, xin2_in_nt!1, eps_in_nt!1)")
+%|-       (grind))
+%|- QED
+		Hysteresis_t_m_set_Inputs_consistency : Theorem
+		FORALL (pre, xin1_in_nt, xin2_in_nt, eps_in_nt) : 
+		EXISTS (post) : 
+		Hysteresis_t_m_set_Inputs (pre, post, xin1_in_nt, xin2_in_nt, eps_in_nt)
+
+	
+%|- Hysteresis_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Hysteresis_t_val (pre!1)")
+%|-       (grind))
+%|- QED
+		Hysteresis_t_consistency : Theorem 
+		FORALL (pre) : 
+		EXISTS (post) : 
+		Hysteresis_t (pre, post)
+
+	
+end Theorems

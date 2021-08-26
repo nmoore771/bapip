@@ -1,0 +1,120 @@
+(Theorems
+ (ALRM_INT_req_1_TCC1 0
+  (ALRM_INT_req_1_TCC1-1 nil 3722867331
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (ALRM_INT_req_1_TCC2 0
+  (ALRM_INT_req_1_TCC2-1 nil 3722867331
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (ALRM_INT_req_2_TCC1 0
+  (ALRM_INT_req_2_TCC1-1 nil 3722867331
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (ALRM_INT_req_2_TCC2 0
+  (ALRM_INT_req_2_TCC2-1 nil 3722867331
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (ALRM_INT_req_3_TCC1 0
+  (ALRM_INT_req_3_TCC1-1 nil 3722867331
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (ALRM_INT_req_3_TCC2 0
+  (ALRM_INT_req_3_TCC2-1 nil 3722867331
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (alrm_int 0
+  (alrm_int-1 nil 3722867336 ("" (grind) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (Alrm_int_set_Inputs_gd const-decl "bool" Transitions nil)
+    (Alrm_int_t_m_set_Inputs const-decl "bool" Transitions nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (next const-decl "tick" ClockTick nil)
+    (ALRM_INT_req_1 const-decl "bool" Theorems nil)
+    (ALRM_INT_req_2 const-decl "bool" Theorems nil)
+    (ALRM_INT_req_3 const-decl "bool" Theorems nil)
+    (Alrm_int_get_hi const-decl "bool" Transitions nil)
+    (Alrm_int_get_lo const-decl "bool" Transitions nil)
+    (Alrm_int_get_alrm_int const-decl "bool" Transitions nil)
+    (nnreal_plus_posreal_is_posreal application-judgement "posreal"
+     real_types nil))
+   shostak))
+ (Alrm_int_t_m_set_Inputs_consistency 0
+  (Alrm_int_t_m_set_Inputs_consistency-2 "" 3722866799
+   ("" (skolem!)
+    ((""
+      (inst +
+       "Alrm_int_t_m_set_Inputs_val (pre!1, inp_in_nt!1, tlo_in_nt!1, thi_in_nt!1)")
+      (("" (grind) nil nil)) nil))
+    nil)
+   nil shostak)
+  (Alrm_int_t_m_set_Inputs_consistency-1 nil 3722866779
+   (""
+    (then (skolem!)
+     (inst +
+      "Alrm_int_t_m_set_Inputs_val (pre!1, inp_in_nt!1, tlo_in_nt!1, thi_in_nt!1)")
+     (grind))
+    nil nil)
+   ((bool nonempty-type-eq-decl nil booleans nil)
+    (Alrm_int type-eq-decl nil State nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (/= const-decl "boolean" notequal nil)
+    (>= const-decl "bool" reals nil)
+    (^ const-decl "real" exponentiation nil)
+    (< const-decl "bool" reals nil)
+    (Int type-eq-decl nil TypeDefinitions nil)
+    (Alrm_int_t_m_set_Inputs_val const-decl "Alrm_int" Transitions nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (Alrm_int_t_m_set_Inputs const-decl "bool" Transitions nil)
+    (Alrm_int_set_Inputs_gd const-decl "bool" Transitions nil)
+    (posint_exp application-judgement "posint" exponentiation nil))
+   shostak))
+ (Alrm_int_t_consistency 0
+  (Alrm_int_t_consistency-1 nil 3722866782
+   ("" (then (skolem!) (inst + "Alrm_int_t_val (pre!1)") (grind)) nil
+    nil)
+   nil shostak)))
+

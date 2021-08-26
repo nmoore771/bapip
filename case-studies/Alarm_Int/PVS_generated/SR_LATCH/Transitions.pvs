@@ -1,0 +1,68 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	pre, post, SR_Latch_var : VAR SR_Latch
+	s1_in, r_in : var bool
+
+
+	SR_Latch_get_q_gd (SR_Latch_var) : bool
+		 = True
+
+	SR_Latch_set_Inputs_gd (SR_Latch_var) : bool
+		 = True
+
+
+	SR_Latch_get_q (SR_Latch_var) : bool
+		 = SR_Latch_var`q
+
+
+	SR_Latch_t_m_set_Inputs (pre, post, s1_in, r_in) : bool =
+		  (post = pre with
+		  [q := if (SR_Latch_set_Inputs_gd(pre))
+		    then (if s1_in
+			  then True
+			  else if ( (NOT s1_in) AND r_in )
+			  then False
+			  else pre`q
+			endif
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	SR_Latch_t (pre, post) : bool =
+		  (post = pre with
+		  [q := (pre`q)
+		  ]
+		)
+
+
+	SR_Latch_t_m_set_Inputs_val (pre, s1_in, r_in) : SR_Latch =
+		  (pre with
+		  [q := if (SR_Latch_set_Inputs_gd(pre))
+		    then (if s1_in
+			  then True
+			  else if ( (NOT s1_in) AND r_in )
+			  then False
+			  else pre`q
+			endif
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	SR_Latch_t_val (pre) : SR_Latch =
+		  (pre with
+		  [q := (pre`q)
+		  ]
+		)
+
+
+	
+end Transitions

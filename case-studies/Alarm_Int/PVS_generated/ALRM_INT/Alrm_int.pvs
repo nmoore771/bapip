@@ -1,0 +1,82 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> Alrm_int]
+	pre, post, Alrm_int_var : VAR Alrm_int
+	i : VAR int
+	inp_in, tlo_in, thi_in : VAR [tick -> Int(16)]
+	inp_in_nt, tlo_in_nt, thi_in_nt : VAR Int(16)
+	inp, thi, tlo : VAR [tick -> Int(16)]
+	hi, lo, alrm_int : Var [tick -> bool]
+
+  ALRM_INT_req_1(inp,thi,hi)(t): bool =
+   hi(next(t)) = 
+    TABLE
+     | inp(t) > thi(t)  | True  ||
+     | inp(t) <= thi(t) | False ||
+    ENDTABLE
+
+  ALRM_INT_req_2(inp,tlo,lo)(t): bool =
+   lo(next(t)) =
+    TABLE
+     | inp(t) < tlo(t)  | True  ||
+     | inp(t) >= tlo(t) | False ||
+    ENDTABLE
+
+  ALRM_INT_req_3(hi,lo,alrm_int)(t): bool =
+   alrm_int(t) = 
+    TABLE
+     | hi(t) & lo(t)         | True  ||
+     | hi(t) & NOT lo(t)     | True  ||
+     | NOT hi(t) & lo(t)     | True  ||
+     | NOT hi(t) & NOT lo(t) | False ||
+    ENDTABLE
+
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkAlrm_int : (pre)
+%	Alrm_int_t_m_set_Inputs (pre, post, inp_in, tlo_in, thi_in)
+%	Alrm_int_t (pre, post)
+%	Alrm_int_get_alrm_int (Alrm_int_var) : bool
+%	Alrm_int_get_hi (Alrm_int_var) : bool
+%	Alrm_int_get_lo (Alrm_int_var) : bool
+
+	alrm_int : Theorem
+              Alrm_int_t_m_set_Inputs (pre, post, inp(t), tlo(t), thi(t))
+	  and ALRM_INT_req_1(inp, thi, hi)(t)
+	  and ALRM_INT_req_2(inp, tlo, lo)(t)
+	  and ALRM_INT_req_3(hi, lo, alrm_int)(next(t))
+	  implies Alrm_int_get_hi(post) = hi(next(t))
+	    and Alrm_int_get_lo(post) = lo(next(t))
+	    and Alrm_int_get_alrm_int(post) = alrm_int(next(t))
+
+	
+%|- Alrm_int_t_m_set_Inputs_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Alrm_int_t_m_set_Inputs_val (pre!1, inp_in_nt!1, tlo_in_nt!1, thi_in_nt!1)")
+%|-       (grind))
+%|- QED
+		Alrm_int_t_m_set_Inputs_consistency : Theorem
+		FORALL (pre, inp_in_nt, tlo_in_nt, thi_in_nt) : 
+		EXISTS (post) : 
+		Alrm_int_t_m_set_Inputs (pre, post, inp_in_nt, tlo_in_nt, thi_in_nt)
+
+	
+%|- Alrm_int_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Alrm_int_t_val (pre!1)")
+%|-       (grind))
+%|- QED
+		Alrm_int_t_consistency : Theorem 
+		FORALL (pre) : 
+		EXISTS (post) : 
+		Alrm_int_t (pre, post)
+
+	
+end Theorems

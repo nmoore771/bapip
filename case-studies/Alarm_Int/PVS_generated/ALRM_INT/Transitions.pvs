@@ -1,0 +1,99 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	pre, post, Alrm_int_var : VAR Alrm_int
+	inp_in, tlo_in, thi_in : var Int(16)
+
+
+	Alrm_int_get_alrm_int_gd (Alrm_int_var) : bool
+		 = True
+
+	Alrm_int_get_hi_gd (Alrm_int_var) : bool
+		 = True
+
+	Alrm_int_get_lo_gd (Alrm_int_var) : bool
+		 = True
+
+	Alrm_int_set_Inputs_gd (Alrm_int_var) : bool
+		 = True
+
+
+	Alrm_int_get_alrm_int (Alrm_int_var) : bool
+		 = if ( Alrm_int_var`hi AND Alrm_int_var`lo )
+			  then True
+			  else if ( Alrm_int_var`hi AND (NOT Alrm_int_var`lo) )
+			  then True
+			  else if ( (NOT Alrm_int_var`hi) AND Alrm_int_var`lo )
+			  then True
+			  else False
+			endif
+			endif
+			endif
+
+	Alrm_int_get_hi (Alrm_int_var) : bool
+		 = Alrm_int_var`hi
+
+	Alrm_int_get_lo (Alrm_int_var) : bool
+		 = Alrm_int_var`lo
+
+
+	Alrm_int_t_m_set_Inputs (pre, post, inp_in, tlo_in, thi_in) : bool =
+		  (post = pre with
+		  [lo := if (Alrm_int_set_Inputs_gd(pre))
+		    then (if ( inp_in < tlo_in )
+			  then True
+			  else False
+			endif)
+		    else (pre`lo)
+		  endif
+		  , hi := if (Alrm_int_set_Inputs_gd(pre))
+		    then (if ( inp_in > thi_in )
+			  then True
+			  else False
+			endif)
+		    else (pre`hi)
+		  endif
+		  ]
+		)
+
+	Alrm_int_t (pre, post) : bool =
+		  (post = pre with
+		  [lo := (pre`lo)
+		  , hi := (pre`hi)
+		  ]
+		)
+
+
+	Alrm_int_t_m_set_Inputs_val (pre, inp_in, tlo_in, thi_in) : Alrm_int =
+		  (pre with
+		  [lo := if (Alrm_int_set_Inputs_gd(pre))
+		    then (if ( inp_in < tlo_in )
+			  then True
+			  else False
+			endif)
+		    else (pre`lo)
+		  endif
+		  , hi := if (Alrm_int_set_Inputs_gd(pre))
+		    then (if ( inp_in > thi_in )
+			  then True
+			  else False
+			endif)
+		    else (pre`hi)
+		  endif
+		  ]
+		)
+
+	Alrm_int_t_val (pre) : Alrm_int =
+		  (pre with
+		  [lo := (pre`lo)
+		  , hi := (pre`hi)
+		  ]
+		)
+
+
+	
+end Transitions

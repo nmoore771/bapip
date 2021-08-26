@@ -1,0 +1,72 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	pre, post, Falling_edge_detector_var : VAR Falling_edge_detector
+	clk_in : var bool
+
+
+	Falling_edge_detector_get_q_gd (Falling_edge_detector_var) : bool
+		 = True
+
+	Falling_edge_detector_set_Inputs_gd (Falling_edge_detector_var) : bool
+		 = True
+
+
+	Falling_edge_detector_get_q (Falling_edge_detector_var) : bool
+		 = Falling_edge_detector_var`q
+
+
+	Falling_edge_detector_t_m_set_Inputs (pre, post, clk_in) : bool =
+		  (post = pre with
+		  [clk_prev := if (Falling_edge_detector_set_Inputs_gd(pre))
+		    then (clk_in)
+		    else (pre`clk_prev)
+		  endif
+		  , q := if (Falling_edge_detector_set_Inputs_gd(pre))
+		    then (if ( pre`clk_prev AND (NOT clk_in) )
+			  then True
+			  else False
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	Falling_edge_detector_t (pre, post) : bool =
+		  (post = pre with
+		  [clk_prev := (pre`clk_prev)
+		  , q := (pre`q)
+		  ]
+		)
+
+
+	Falling_edge_detector_t_m_set_Inputs_val (pre, clk_in) : Falling_edge_detector =
+		  (pre with
+		  [clk_prev := if (Falling_edge_detector_set_Inputs_gd(pre))
+		    then (clk_in)
+		    else (pre`clk_prev)
+		  endif
+		  , q := if (Falling_edge_detector_set_Inputs_gd(pre))
+		    then (if ( pre`clk_prev AND (NOT clk_in) )
+			  then True
+			  else False
+			endif)
+		    else (pre`q)
+		  endif
+		  ]
+		)
+
+	Falling_edge_detector_t_val (pre) : Falling_edge_detector =
+		  (pre with
+		  [clk_prev := (pre`clk_prev)
+		  , q := (pre`q)
+		  ]
+		)
+
+
+	
+end Transitions

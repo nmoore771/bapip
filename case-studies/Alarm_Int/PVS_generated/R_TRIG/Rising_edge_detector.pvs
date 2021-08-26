@@ -1,0 +1,62 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> Rising_edge_detector]
+	pre, post, Rising_edge_detector_var : VAR Rising_edge_detector
+	i : VAR int
+	clk_in : VAR [tick -> bool]
+	clk_in_nt : VAR bool
+
+	clk, q : Var [tick -> bool]
+
+  Rising_REQ(clk,q)(t): bool = 
+    q(next(t)) = 
+      let prev = clk(pre(t)) in
+        TABLE
+         | NOT prev & clk(t)  | True  ||
+         | prev OR NOT clk(t) | False ||
+        ENDTABLE
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkRising_edge_detector : (pre)
+%	Rising_edge_detector_t_m_set_Inputs (pre, post, clk_in)
+%	Rising_edge_detector_t (pre, post)
+%	Rising_edge_detector_get_q (Rising_edge_detector_var) : bool
+
+	correctness : Theorem
+	Rising_edge_detector_t_m_set_Inputs (s(t), s(next(t)), clk(t))
+	and Rising_edge_detector_t_m_set_Inputs (s(pre(t)), s(t), clk(pre(t)))
+	and Rising_REQ(clk,q)(t)
+	and s(t)`clk_prev = clk(pre(t))
+	implies q(next(t)) = Rising_edge_detector_get_q(s(next(t)))
+
+	
+%|- Rising_edge_detector_t_m_set_Inputs_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Rising_edge_detector_t_m_set_Inputs_val (pre!1, clk_in_nt!1)")
+%|-       (grind))
+%|- QED
+		Rising_edge_detector_t_m_set_Inputs_consistency : Theorem
+		FORALL (pre, clk_in_nt) : 
+		EXISTS (post) : 
+		Rising_edge_detector_t_m_set_Inputs (pre, post, clk_in_nt)
+
+	
+%|- Rising_edge_detector_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "Rising_edge_detector_t_val (pre!1)")
+%|-       (grind))
+%|- QED
+		Rising_edge_detector_t_consistency : Theorem 
+		FORALL (pre) : 
+		EXISTS (post) : 
+		Rising_edge_detector_t (pre, post)
+
+	
+end Theorems
