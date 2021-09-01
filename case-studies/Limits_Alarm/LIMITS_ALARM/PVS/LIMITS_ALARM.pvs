@@ -1,0 +1,221 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+	importing defined_operators[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> LIMITS_ALARM]
+	pre, post, LIMITS_ALARM_var : VAR LIMITS_ALARM
+	i : VAR int
+	x, h, l, eps : VAR [tick -> Int(16)]
+	q, qh, ql : VAR [tick -> bool]
+	HYSTERESIS_var : VAR [tick -> HYSTERESIS]
+	x_nt, h_nt, l_nt, eps_nt : VAR Int(16)
+	HYSTERESIS_var_nt : VAR HYSTERESIS
+
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkLIMITS_ALARM : (pre)
+%	LIMITS_ALARM_t_set_Alarms (pre, post, x, h, l, eps)
+%	LIMITS_ALARM_t (pre, post)
+%	LIMITS_ALARM_get_ql (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_qh (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_q (LIMITS_ALARM_var) : bool
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+%  The following theorems were constructed from the tabular expressions for the limits alarm function block.  This method is useful for verifying specifications 
+%    which have not been codified in PVS.  
+
+	% The following theorems correspond to the tabular expression for QH
+	line1_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) > h(t))
+		  implies LIMITS_ALARM_get_qh(s(t)) = True
+
+	line1_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) >= (h(t) - 2*floor(div(eps(t),2))))
+		      and (x(t) <= h(t))
+		  implies LIMITS_ALARM_get_qh(s(pre(t))) = LIMITS_ALARM_get_qh(s(t))
+
+	line1_3 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) < (h(t) - eps(t)))
+		  implies LIMITS_ALARM_get_qh(s(t)) = False
+
+	% The following theorems correspond to the tabular expression for QL
+	line2_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) < l(t))
+		  implies LIMITS_ALARM_get_ql(s(t)) = True
+		  
+	line2_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) >= l(t))
+		      and (x(t) <= (l(t) + 2*floor(div(eps(t),2))))
+		  implies LIMITS_ALARM_get_ql(s(pre(t))) = LIMITS_ALARM_get_ql(s(t))
+
+	line2_3 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and (x(t) > (l(t) + eps(t)))
+		  implies LIMITS_ALARM_get_ql(s(t)) = False
+	
+	% The following theorems correspond to the tabular expression for Q
+	line3_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and ((l(t) + eps(t)) < (h(t) - eps(t)))
+		      and (LIMITS_ALARM_get_qh(s(t)) or LIMITS_ALARM_get_ql(s(t)))
+		  implies LIMITS_ALARM_get_q(s(t)) = True
+
+	line3_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), x(t), h(t), l(t), eps(t))
+		      and (eps(t) > 0)
+		      and ((l(t) + eps(t)) < (h(t) - eps(t)))
+		      and (not(LIMITS_ALARM_get_qh(s(t)) or LIMITS_ALARM_get_ql(s(t))))
+		  implies LIMITS_ALARM_get_q(s(t)) = False
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+% The following requirements tables will be used to automatically generate the above proof obligations.
+
+  f_qh(x,h,eps,qh)(t): bool =
+    qh(next(t)) =  
+      LET prev = qh(t) IN
+      TABLE
+       %----------------------------------------------------------------%
+       | x(t) > h(t)                                    | True  ||
+       %----------------------------------------------------------------%
+       | x(t) >= (h(t) - int_div(eps(t),2) - int_div(eps(t),2) ) & x(t) <= (h(t) - int_div(eps(t),2) + int_div(eps(t),2) )        | prev  ||
+       %----------------------------------------------------------------%
+       | x(t) < (h(t) - int_div(eps(t),2) - int_div(eps(t),2) )                        | False ||
+       %----------------------------------------------------------------%
+      ENDTABLE
+
+  f_ql(x,l,eps,ql)(t): bool = 
+    ql(next(t)) = 
+     LET prev = ql(t) IN
+      TABLE
+       %--------------------------------------------------%
+       | x(t) < l(t)                             | True  ||
+       %--------------------------------------------------%
+       | x(t) <= (l(t) + int_div(eps(t),2) + int_div(eps(t),2) ) & x(t) >= (l(t) - int_div(eps(t),2) + int_div(eps(t),2) ) | prev  ||
+       %--------------------------------------------------%
+       | x(t) > (l(t) + int_div(eps(t),2) + int_div(eps(t),2) )                 | False ||
+       %--------------------------------------------------%
+      ENDTABLE
+
+  f_q(qh,ql,q)(t): bool =
+     q(t) = TABLE
+       | qh(t) OR ql(t)        | True  ||
+       | NOT qh(t) & NOT ql(t) | False ||
+      ENDTABLE
+
+  f_qh_val(x,h,eps)(t): RECURSIVE bool =
+      LET prev = f_qh_val(x,h,eps)(pre(t)) IN
+      TABLE
+       %----------------------------------------------------------------%
+       | x(pre(t)) > h(pre(t))                                    | True  ||
+       %----------------------------------------------------------------%
+       | x(pre(t)) >= (h(pre(t)) - int_div(eps(pre(t)),2) - int_div(eps(pre(t)),2) ) & x(pre(t)) <= (h(pre(t)) - int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) )        | prev  ||
+       %----------------------------------------------------------------%
+       | x(pre(t)) < (h(pre(t)) - int_div(eps(pre(t)),2) - int_div(eps(pre(t)),2) )                        | False ||
+       %----------------------------------------------------------------%
+      ENDTABLE
+      MEASURE rank(t)
+
+  f_ql_val(x,l,eps)(t): RECURSIVE bool = 
+     LET prev = f_ql_val(x,l,eps)(pre(t)) IN
+      TABLE
+       %--------------------------------------------------%
+       | x(pre(t)) < l(pre(t))                             | True  ||
+       %--------------------------------------------------%
+       | x(pre(t)) <= (l(pre(t)) + int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) ) & x(pre(t)) >= (l(pre(t)) - int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) ) | prev  ||
+       %--------------------------------------------------%
+       | x(pre(t)) > (l(pre(t)) + int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) )                 | False ||
+       %--------------------------------------------------%
+      ENDTABLE
+      MEASURE rank(t)
+
+  f_q_val (qh,ql)(t): bool =
+      TABLE
+       | qh(t) OR ql(t)        | True  ||
+       | NOT qh(t) & NOT ql(t) | False ||
+      ENDTABLE
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------
+% The following consistency theorem demonstrates the consistency of the above tabular expression.  
+
+  LIMITS_ALARM_cons: THEOREM
+   FORALL (x,h,l,eps):
+    EXISTS (qh,ql,q):
+          f_qh(x,h,eps,qh)(t)
+      and f_ql(x,l,eps,ql)(t)
+      and f_q(qh,ql,q)(t)
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+%  The following consistency theorems demonstrate the totality of both transition functions included in the transitions file.  
+%  
+
+%|- LIMITS_ALARM_t_set_Alarms_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "LIMITS_ALARM_t_set_Alarms_val (pre!1, x_nt!1, h_nt!1, l_nt!1, eps_nt!1)")
+%|-       (grind))
+%|- QED
+		LIMITS_ALARM_t_set_Alarms_consistency : Theorem
+		FORALL (pre, x_nt, h_nt, l_nt, eps_nt) : 
+		EXISTS (post) : 
+		LIMITS_ALARM_t_set_Alarms (pre, post, x_nt, h_nt, l_nt, eps_nt)
+
+	
+%|- LIMITS_ALARM_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "LIMITS_ALARM_t_val (pre!1)")
+%|-       (grind))
+%|- QED
+		LIMITS_ALARM_t_consistency : Theorem 
+		FORALL (pre) : 
+		EXISTS (post) : 
+		LIMITS_ALARM_t (pre, post)
+		
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+% The following theorem uses the tabular requirements to automatically generate the proof goals for the BAPIP generated transition predicate.  
+
+        LIMITS_ALARM_Req : THEOREM
+	    LIMITS_ALARM_t_set_Alarms (s(t), s(next(t)), x(t), h(t), l(t), eps(t))
+            and (eps(t) > 0) 
+            and f_q(qh,ql,q)(next(t))
+            and f_ql(x,l,eps,ql)(t)
+            and f_qh(x,h,eps,qh)(t)
+            and q(t) = LIMITS_ALARM_get_q(s(t))
+	    and ql(t) = s(t)`low_alarm`q
+	    and qh(t) = s(t)`high_alarm`q
+ 	     implies qh(next(t)) = LIMITS_ALARM_get_qh(s(next(t)))
+	    	and ql(next(t)) = LIMITS_ALARM_get_ql(s(next(t)))
+                and q(next(t)) = LIMITS_ALARM_get_q(s(next(t)))
+
+% It is a safety condition of the LIMITS_AlARM block that the high and low alarms should not trip simulatneously.  The following theorem verifies this.
+        LIMITS_ALARM_Safety : THEOREM
+	    LIMITS_ALARM_t_set_Alarms (s(t), s(next(t)), x(t), h(t), l(t), eps(t))
+            and (eps(t) > 0) 
+            and h(t) - l(t) > 2 * eps(t)
+            and f_q(qh,ql,q)(t)
+            and f_ql(x,l,eps,ql)(t)
+            and f_qh(x,h,eps,qh)(t)
+            and q(t) = LIMITS_ALARM_get_q(s(t))
+	    and ql(t) = s(t)`low_alarm`q
+	    and qh(t) = s(t)`high_alarm`q
+            and (not (ql(t) and qh(t)))
+ 	     implies (not (ql(next(t)) and qh(next(t))))
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+end Theorems

@@ -1,0 +1,312 @@
+(Theorems
+ (line1_TCC1 0
+  (line1_TCC1-1 nil 3682348530 ("" (subtype-tcc) nil nil) nil nil))
+ (line1 0
+  (line1-1 nil 3682348531 ("" (grind :defs explicit) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (pre const-decl "tick" ClockTick nil)
+    (set_Inputs_gd const-decl "bool" Transitions nil)
+    (HYSTERESIS_t_set_Inputs const-decl "bool" Transitions nil)
+    (HYSTERESIS_get_q const-decl "bool" Transitions nil))
+   shostak))
+ (line2 0
+  (line2-1 nil 3682348542 ("" (grind :defs explicit) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (pre const-decl "tick" ClockTick nil)
+    (set_Inputs_gd const-decl "bool" Transitions nil)
+    (HYSTERESIS_t_set_Inputs const-decl "bool" Transitions nil)
+    (HYSTERESIS_get_q const-decl "bool" Transitions nil))
+   shostak))
+ (line3 0
+  (line3-1 nil 3682348555 ("" (grind :defs explicit) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (minus_odd_is_odd application-judgement "odd_int" integers nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_minus_real_is_real application-judgement "real" reals nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (pre const-decl "tick" ClockTick nil)
+    (set_Inputs_gd const-decl "bool" Transitions nil)
+    (HYSTERESIS_t_set_Inputs const-decl "bool" Transitions nil)
+    (HYSTERESIS_get_q const-decl "bool" Transitions nil))
+   shostak))
+ (HYSTERESIS_req_tab_TCC1 0
+  (HYSTERESIS_req_tab_TCC1-1 nil 3682349115
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_TCC2 0
+  (HYSTERESIS_req_tab_TCC2-1 nil 3682349115
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_val_TCC1 0
+  (HYSTERESIS_req_tab_val_TCC1-1 nil 3682349115
+   ("" (subtype-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_val_TCC2 0
+  (HYSTERESIS_req_tab_val_TCC2-1 nil 3682349115
+   ("" (cond-disjoint-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_val_TCC3 0
+  (HYSTERESIS_req_tab_val_TCC3-1 nil 3682349115
+   ("" (cond-coverage-tcc) nil nil) nil nil))
+ (HYSTERESIS_req_tab_val_TCC4 0
+  (HYSTERESIS_req_tab_val_TCC4-1 nil 3682349115
+   ("" (termination-tcc) nil nil) nil nil))
+ (HYSTERESIS_tab_consistency 0
+  (HYSTERESIS_tab_consistency-1 nil 3682349122
+   ("" (skolem!)
+    (("" (inst + "HYSTERESIS_req_tab_val(xin1!1, xin2!1, eps!1)")
+      (("" (grind) nil nil)) nil))
+    nil)
+   ((number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (>= const-decl "bool" reals nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (/= const-decl "boolean" notequal nil)
+    (^ const-decl "real" exponentiation nil)
+    (< const-decl "bool" reals nil)
+    (Int type-eq-decl nil TypeDefinitions nil)
+    (HYSTERESIS_req_tab_val def-decl "bool" Theorems nil)
+    (NOT const-decl "[bool -> bool]" booleans nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (HYSTERESIS_req_tab const-decl "bool" Theorems nil)
+    (pre const-decl "tick" ClockTick nil)
+    (next const-decl "tick" ClockTick nil)
+    (nnreal_plus_posreal_is_posreal application-judgement "posreal"
+     real_types nil))
+   shostak))
+ (HYSTERESIS_set_Inputs_consistency 0
+  (HYSTERESIS_set_Inputs_consistency-1 nil 3682348204
+   ("" (skolem!)
+    ((""
+      (inst +
+       "HYSTERESIS_t_set_Inputs_val(pre!1, xin1_nt!1, xin2_nt!1, eps_nt!1)")
+      (("" (grind :defs explicit) nil nil)) nil))
+    nil)
+   ((bool nonempty-type-eq-decl nil booleans nil)
+    (HYSTERESIS type-eq-decl nil State nil)
+    (number nonempty-type-decl nil numbers nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (AND const-decl "[bool, bool -> bool]" booleans nil)
+    (<= const-decl "bool" reals nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (- const-decl "[numfield -> numfield]" number_fields nil)
+    (OR const-decl "[bool, bool -> bool]" booleans nil)
+    (/= const-decl "boolean" notequal nil)
+    (>= const-decl "bool" reals nil)
+    (^ const-decl "real" exponentiation nil)
+    (< const-decl "bool" reals nil)
+    (Int type-eq-decl nil TypeDefinitions nil)
+    (HYSTERESIS_t_set_Inputs_val const-decl "HYSTERESIS" Transitions
+     nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (HYSTERESIS_t_set_Inputs const-decl "bool" Transitions nil)
+    (set_Inputs_gd const-decl "bool" Transitions nil)
+    (posint_exp application-judgement "posint" exponentiation nil))
+   shostak))
+ (HYSTERESIS_consistency 0
+  (HYSTERESIS_consistency-1 nil 3682348134
+   ("" (skolem!)
+    (("" (inst + "HYSTERESIS_t_val(pre!1)")
+      (("" (grind :defs explicit) nil nil)) nil))
+    nil)
+   ((bool nonempty-type-eq-decl nil booleans nil)
+    (HYSTERESIS type-eq-decl nil State nil)
+    (HYSTERESIS_t_val const-decl "HYSTERESIS" Transitions nil)
+    (HYSTERESIS_t const-decl "bool" Transitions nil))
+   shostak))
+ (HYSTERESIS_Requirements_TCC1 0
+  (HYSTERESIS_Requirements_TCC1-1 nil 3682349695
+   ("" (subtype-tcc) nil nil) nil nil))
+ (HYSTERESIS_Requirements 0
+  (HYSTERESIS_Requirements-1 nil 3682349700
+   ("" (grind :defs explicit) nil nil)
+   ((NOT const-decl "[bool -> bool]" booleans nil)
+    (time nonempty-type-eq-decl nil Time nil)
+    (rational_pred const-decl "[real -> boolean]" rationals nil)
+    (rational nonempty-type-from-decl nil rationals nil)
+    (integer_pred const-decl "[rational -> boolean]" integers nil)
+    (int nonempty-type-eq-decl nil integers nil)
+    (nat nonempty-type-eq-decl nil naturalnumbers nil)
+    (= const-decl "[T, T -> boolean]" equalities nil)
+    (numfield nonempty-type-eq-decl nil number_fields nil)
+    (* const-decl "[numfield, numfield -> numfield]" number_fields nil)
+    (tick type-eq-decl nil ClockTick nil)
+    (nnreal_times_nnreal_is_nnreal application-judgement "nnreal"
+     real_types nil)
+    (real_lt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (real_ge_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (real_gt_is_strict_total_order name-judgement
+     "(strict_total_order?[real])" real_props nil)
+    (posint_exp application-judgement "posint" exponentiation nil)
+    (real_le_is_total_order name-judgement "(total_order?[real])"
+     real_props nil)
+    (int_minus_int_is_int application-judgement "int" integers nil)
+    (int_plus_int_is_int application-judgement "int" integers nil)
+    (delta_t formal-const-decl "posreal" Theorems nil)
+    (posreal nonempty-type-eq-decl nil real_types nil)
+    (> const-decl "bool" reals nil)
+    (nonneg_real nonempty-type-eq-decl nil real_types nil)
+    (>= const-decl "bool" reals nil)
+    (bool nonempty-type-eq-decl nil booleans nil)
+    (real nonempty-type-from-decl nil reals nil)
+    (real_pred const-decl "[number_field -> boolean]" reals nil)
+    (number_field nonempty-type-from-decl nil number_fields nil)
+    (number_field_pred const-decl "[number -> boolean]" number_fields
+     nil)
+    (boolean nonempty-type-decl nil booleans nil)
+    (number nonempty-type-decl nil numbers nil)
+    (init const-decl "bool" ClockTick nil)
+    (mkHYSTERESIS const-decl "bool" State nil)
+    (next const-decl "tick" ClockTick nil)
+    (set_Inputs_gd const-decl "bool" Transitions nil)
+    (HYSTERESIS_t_set_Inputs const-decl "bool" Transitions nil)
+    (HYSTERESIS_req_tab const-decl "bool" Theorems nil)
+    (HYSTERESIS_get_q const-decl "bool" Transitions nil)
+    (nnreal_plus_posreal_is_posreal application-judgement "posreal"
+     real_types nil))
+   shostak)))
+

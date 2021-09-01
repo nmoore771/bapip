@@ -1,0 +1,104 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	pre, post, LIMITS_ALARM_var : VAR LIMITS_ALARM
+	x, h, l, eps : var Int(16)
+	HYSTERESIS_var : var HYSTERESIS
+
+
+	set_Alarms_gd (LIMITS_ALARM_var) : bool
+		 = True
+
+	get_ql_gd (LIMITS_ALARM_var) : bool
+		 = True
+
+	get_qh_gd (LIMITS_ALARM_var) : bool
+		 = True
+
+	get_q_gd (LIMITS_ALARM_var) : bool
+		 = True
+
+	get_q_gd (HYSTERESIS_var) : bool
+		 = True
+
+	set_Inputs_gd (HYSTERESIS_var) : bool
+		 = True
+
+
+	HYSTERESIS_get_q (HYSTERESIS_var) : bool
+		 = HYSTERESIS_var`q
+
+	LIMITS_ALARM_get_ql (LIMITS_ALARM_var) : bool
+		 = (HYSTERESIS_get_q(LIMITS_ALARM_var`low_alarm))
+
+	LIMITS_ALARM_get_qh (LIMITS_ALARM_var) : bool
+		 = (HYSTERESIS_get_q(LIMITS_ALARM_var`high_alarm))
+
+	LIMITS_ALARM_get_q (LIMITS_ALARM_var) : bool
+		 = ( (HYSTERESIS_get_q(LIMITS_ALARM_var`high_alarm)) OR (HYSTERESIS_get_q(LIMITS_ALARM_var`low_alarm)) )
+
+
+	LIMITS_ALARM_t_set_Alarms (pre, post, x, h, l, eps) : bool =
+		  (post = pre with
+		  [low_alarm := pre`low_alarm with
+		    [ q := if (set_Inputs_gd(pre`low_alarm))
+		      then (( ( pre`low_alarm`q AND ( ( ( x - ( div((eps ), (2)) ) ) <= ( l + ( div((eps ), (2)) ) ) ) AND ( ( l + ( div((eps ), (2)) ) ) <= ( x + ( div((eps ), (2)) ) ) ) ) ) OR ( ( l + ( div((eps ), (2)) ) ) > ( x + ( div((eps ), (2)) ) ) ) ))
+		      else (pre`low_alarm`q)
+		    endif
+		    ]
+		  , high_alarm := pre`high_alarm with
+		    [ q := if (set_Inputs_gd(pre`high_alarm))
+		      then (( ( pre`high_alarm`q AND ( ( ( ( h - ( div((eps ), (2)) ) ) - ( div((eps ), (2)) ) ) <= x ) AND ( x <= ( ( h - ( div((eps ), (2)) ) ) + ( div((eps ), (2)) ) ) ) ) ) OR ( x > ( ( h - ( div((eps ), (2)) ) ) + ( div((eps ), (2)) ) ) ) ))
+		      else (pre`high_alarm`q)
+		    endif
+		    ]
+		  ]
+		)
+
+	LIMITS_ALARM_t (pre, post) : bool =
+		  (post = pre with
+		  [low_alarm := pre`low_alarm with
+		    [ q := (pre`low_alarm`q)
+		    ]
+		  , high_alarm := pre`high_alarm with
+		    [ q := (pre`high_alarm`q)
+		    ]
+		  ]
+		)
+
+
+	LIMITS_ALARM_t_set_Alarms_val (pre, x, h, l, eps) : LIMITS_ALARM =
+		  (pre with
+		  [low_alarm := pre`low_alarm with
+		    [ q := if (set_Inputs_gd(pre`low_alarm))
+		      then (( ( pre`low_alarm`q AND ( ( ( x - ( div((eps ), (2)) ) ) <= ( l + ( div((eps ), (2)) ) ) ) AND ( ( l + ( div((eps ), (2)) ) ) <= ( x + ( div((eps ), (2)) ) ) ) ) ) OR ( ( l + ( div((eps ), (2)) ) ) > ( x + ( div((eps ), (2)) ) ) ) ))
+		      else (pre`low_alarm`q)
+		    endif
+		    ]
+		  , high_alarm := pre`high_alarm with
+		    [ q := if (set_Inputs_gd(pre`high_alarm))
+		      then (( ( pre`high_alarm`q AND ( ( ( ( h - ( div((eps ), (2)) ) ) - ( div((eps ), (2)) ) ) <= x ) AND ( x <= ( ( h - ( div((eps ), (2)) ) ) + ( div((eps ), (2)) ) ) ) ) ) OR ( x > ( ( h - ( div((eps ), (2)) ) ) + ( div((eps ), (2)) ) ) ) ))
+		      else (pre`high_alarm`q)
+		    endif
+		    ]
+		  ]
+		)
+
+	LIMITS_ALARM_t_val (pre) : LIMITS_ALARM =
+		  (pre with
+		  [low_alarm := pre`low_alarm with
+		    [ q := (pre`low_alarm`q)
+		    ]
+		  , high_alarm := pre`high_alarm with
+		    [ q := (pre`high_alarm`q)
+		    ]
+		  ]
+		)
+
+
+	
+end Transitions

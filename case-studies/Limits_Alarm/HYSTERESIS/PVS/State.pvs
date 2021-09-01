@@ -1,0 +1,19 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	HYSTERESIS : type =
+		[# q : bool
+		#]
+
+	HYSTERESIS_var : var HYSTERESIS
+
+	mkHYSTERESIS (HYSTERESIS_var) : bool
+	=	HYSTERESIS_var`q	 = False
+
+
+	
+end State

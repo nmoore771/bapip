@@ -1,0 +1,121 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> HYSTERESIS]
+	pre, post, HYSTERESIS_var : VAR HYSTERESIS
+	i : VAR int
+	xin1, xin2, eps : VAR [tick -> Int(16)]
+	xin1_nt, xin2_nt, eps_nt : VAR Int(16)
+	q : VAR [tick -> bool]
+
+	
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkHYSTERESIS : (pre)
+%	HYSTERESIS_t_set_Inputs (pre, post, xin1, xin2, eps)
+%	HYSTERESIS_t (pre, post)
+%	HYSTERESIS_get_q (HYSTERESIS_var) : bool
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+%  The following theorems were constructed from the tabular expression for the hyteresis function block.  This method is useful for verifying specifications 
+%    which have not been codified in PVS.  
+
+	line1 : theorem HYSTERESIS_t_set_Inputs(s(pre(t)), s(t), xin1(t), xin2(t), eps(t)) 
+	      	    and (xin1(t) > (xin2(t) + eps(t)))
+		    and (eps(t) > 0)
+		implies HYSTERESIS_get_q(s(t)) = True
+
+	line2 : theorem HYSTERESIS_t_set_Inputs(s(pre(t)), s(t), xin1(t), xin2(t), eps(t)) 
+	      	    and ((xin2(t) - eps(t)) <= xin1(t))
+		    and (xin1(t) <= (xin2(t) + eps(t)))
+		    and (eps(t) > 0)
+		implies HYSTERESIS_get_q(s(pre(t))) = HYSTERESIS_get_q(s(t))
+	
+	line3 : theorem HYSTERESIS_t_set_Inputs(s(pre(t)), s(t), xin1(t), xin2(t), eps(t))
+	            and (xin1(t) < (xin2(t) - eps(t)))
+		    and (eps(t) > 0)
+		implies HYSTERESIS_get_q(s(t)) = false
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+% The following requirements table will be used to automatically generate the above proof obligations.
+
+  HYSTERESIS_req_tab(xin1,xin2,eps,q)(t): bool = 
+   FORALL t:
+    q(next(t)) =
+       LET prev = q(t) IN
+       TABLE
+        | xin1(t) < (xin2(t) - eps(t))                                  | False ||
+        | (xin2(t) - eps(t)) <= xin1(t) & xin1(t) <= (xin2(t) + eps(t)) | prev  ||
+        | (xin2(t) + eps(t)) < xin1(t)                                  | True  ||
+       ENDTABLE
+
+  HYSTERESIS_req_tab_val (xin1,xin2,eps)(t): RECURSIVE bool = 
+      LET prev = HYSTERESIS_req_tab_val(xin1,xin2,eps)(pre(t))
+      IN
+       TABLE
+        | xin1(pre(t)) < (xin2(pre(t)) - eps(pre(t)))                                  | False ||
+        | (xin2(pre(t)) - eps(pre(t))) <= xin1(pre(t)) & xin1(pre(t)) <= (xin2(pre(t)) + eps(pre(t))) | prev  ||
+        | (xin2(pre(t)) + eps(pre(t))) < xin1(pre(pre(t)))                                  | True  ||
+       ENDTABLE
+       MEASURE rank(t)
+
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------
+% The following consistency theorem demonstrates the consistency of the above tabular expression.  
+
+  HYSTERESIS_tab_consistency : Theorem
+    FORALL (xin1, xin2, eps, t) :
+      EXISTS (q) :
+        HYSTERESIS_req_tab(xin1, xin2, eps, q)(t)
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+%  The following consistency theorems demonstrate the totality of both transition functions included in the transitions file.  
+%
+
+%|- HYSTERESIS_t_set_Inputs_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "HYSTERESIS_t_set_Inputs_val (pre!1, xin1_nt!1, xin2_nt!1, eps_nt!1)")
+%|-       (grind))
+%|- QED
+		HYSTERESIS_t_set_Inputs_consistency : Theorem
+		FORALL (pre, xin1_nt, xin2_nt, eps_nt) : 
+		EXISTS (post) : 
+		HYSTERESIS_t_set_Inputs (pre, post, xin1_nt, xin2_nt, eps_nt)
+
+
+%|- HYSTERESIS_t_consistency : PROOF
+%|- (then (skolem!)
+%|-       (inst + "HYSTERESIS_t_val (pre!1)")
+%|-       (grind))
+%|- QED  
+	HYSTERESIS_consistency : Theorem
+		FORALL (pre) : 
+		EXISTS (post) : 
+		HYSTERESIS_t (pre, post)
+
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+%vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+% The following theorem uses the tabular requirements to automatically generate the proof goals for the BAPIP generated transition predicate.  
+
+        HYSTERESIS_Requirements : THEOREM 
+            FORALL (xin1,xin2,eps):
+	     FORALL t:
+	      mkHYSTERESIS(s(init(t)))
+	      and HYSTERESIS_t_set_Inputs(s(t), s(next(t)), xin1(t), xin2(t), eps(t))
+              and HYSTERESIS_req_tab(xin1, xin2, eps, q)(t)
+              and (eps(t) > 0) 
+	      and q(t) = HYSTERESIS_get_q(s(t))
+              implies q(next(t)) = HYSTERESIS_get_q(s(next(t)))
+	      
+%^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^	      
+	
+end Theorems
