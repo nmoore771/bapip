@@ -1,0 +1,30 @@
+Methods : theory
+
+begin
+
+	importing State
+
+
+	outputs_WdPointer_ (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size, mod : RapidIO_InitEncoder_WdPtr_Size) : WdPointer = IF (index = 0) 
+	THEN pre`reg_WdPointer
+		ELSE 0
+		ENDIF 
+
+	outputs_WdPointer_ (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size, mod : RapidIO_InitEncoder_WdPtr_Size, value_2: Bit(8), value_1: Bit(9), value_0: bool) : WdPointer = IF (index = 1) 
+	THEN pre`reg_WdPointer
+		ELSE 0
+		ENDIF 
+
+	outputs_Size_ (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size, mod : RapidIO_InitEncoder_WdPtr_Size) : Size = IF (index = 0) 
+	THEN pre`reg_Size
+		ELSE 0
+		ENDIF 
+
+	outputs_Size_ (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size, mod : RapidIO_InitEncoder_WdPtr_Size, value_2: Bit(8), value_1: Bit(9), value_0: bool) : Size = IF (index = 1) 
+	THEN pre`reg_Size
+		ELSE 0
+		ENDIF 
+
+
+	
+end Methods

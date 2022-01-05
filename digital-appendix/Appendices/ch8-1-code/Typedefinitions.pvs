@@ -1,0 +1,14 @@
+TypeDefinitions : theory
+
+begin
+
+	Int(n : int): TYPE = {i:int | -(2^(n-1)) <= i AND i < 2^(n-1)}
+	UInt(n : int): TYPE = {i:int | 0 <= i AND i < 2^n}
+	Bit(n : int): TYPE = {i:int | 0 <= i AND i < 2^n}
+
+	
+
+	
+
+	
+end TypeDefinitions

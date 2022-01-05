@@ -1,0 +1,54 @@
+/*
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- RapidIO Configuration Register Offset Defines IP Core
+--
+-- This file is the part of the RapidIO Interconnect v3.0 IP Core Project
+--
+-- Description
+-- It contains the definitions of the Configuration Registers Offset values.  
+--
+-- Author(s):
+-- Chidhambaranathan (cnaathan@gmail.com)
+--
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- 
+-- Copyright (c) 2013, Indian Institute of Technology Madras (IIT Madras)
+-- All rights reserved.
+--
+-- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+--
+-- 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+-- 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
+--    the following disclaimer in the documentation and/or other materials provided with the distribution.
+-- 3. Neither the name of IIT Madras  nor the names of its contributors may be used to endorse or 
+--    promote products derived from this software without specific prior written permission.
+--
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+-- IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+-- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+-- OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+-- OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+// Request FTYPE Definitions
+`define RIO_DEVID_CAR			5'h0
+`define RIO_DEVINFO_CAR 		5'h4
+`define RIO_ASSEMBLYID_CAR		5'h8
+`define RIO_ASSEMBLYINFO_CAR		5'hc
+`define RIO_PROC_ELEMENT_CAR		5'h10
+`define	RIO_SWITCH_PORT_INFO_CAR	5'h14
+`define RIO_SRC_OPERATIONS 		5'h18
+`define RIO_DEST_OPERATIONS		5'h1c
+
+// 5'h20 - 5'h48	Reserved
+
+
+`define RIO_PROC_ELEMENT_LLC_CSR 	5'h4c
+`define RIO_LOC_CONFIG_SBA0_CSR		5'h58
+`define RIO_LOC_CONFIG_SBA1_CSR		5'h5c
+
+

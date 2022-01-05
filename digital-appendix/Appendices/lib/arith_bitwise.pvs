@@ -1,0 +1,59 @@
+% arith_bitwise.pvs
+% author = Nicholas Moore
+% last updated August 3, 2018
+% 
+% The purpose of this library is to provide an alternative to the pvs native bitvector library.  The lack of a good solution for nat2bv really cripples the utility of it, in this author's opinion.  
+% Also, I don't like their implementation of modulo.
+
+arith_bitwise : theory
+
+begin
+
+	w, x, y, z : VAR nat
+
+% div 
+div (x, y) : nat = floor (x / y)
+
+% modulo
+mod (x, y) : nat = x - y * div(x,y)
+
+% rshift
+rshift (x, y) : nat = div (x, 2^y)
+
+% lshift
+lshift (x, y) : nat = x * 2^y
+
+% bit select
+% equivalent to syntax x[y]
+bitSelect (x, y) : nat = mod(rshift (x, y), 2)
+
+% bit range select
+% equivalent to syntax x[y:z]
+bitSelect (x, y, z) : nat = mod(rshift (x,z), 2^(y-z+1))
+
+% bit concatenation
+% equivalent to syntax {x,y}, where z is the bit size of y.
+% at the moment, to concatenate 3 or more things, use nested calls.
+bitConcat (x , y, z) : nat = lshift (x, z) + y 
+	
+% bitwise AND
+
+% bitwise OR
+
+% bitwise NOT
+
+% bitwise XOR
+
+	moduloTest : theorem mod(117,10) = 8
+
+	rshiftTest : theorem rshift (16,2) = 4
+
+	lshiftTest : theorem lshift (8,4) = 127
+
+	bitselect : theorem bitSelect (64, 2) = 0
+
+	bitselect2 : theorem bitSelect (63,3,2) = 5
+
+	bitConcaTest : theorem bitConcat (170,85,8) = 43604
+
+end arith_bitwise

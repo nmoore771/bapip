@@ -1,0 +1,20 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+
+	RapidIO_InitEncoder_WdPtr_Size : type =
+		[# reg_WdPointer : WdPointer
+		, reg_Size : Size
+		#]
+
+	RapidIO_InitEncoder_WdPtr_Size_var : var RapidIO_InitEncoder_WdPtr_Size
+
+	mkRapidIO_InitEncoder_WdPtr_Size (RapidIO_InitEncoder_WdPtr_Size_var) : bool
+	=	RapidIO_InitEncoder_WdPtr_Size_var`reg_WdPointer	 = 0
+	AND	RapidIO_InitEncoder_WdPtr_Size_var`reg_Size	 = 0
+
+
+	
+end State

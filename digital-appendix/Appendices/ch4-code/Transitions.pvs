@@ -1,0 +1,823 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	transition ( index : nat, pre, post : ScedTest) : bool =
+		IF (index = 0) THEN LET wm2 = False
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s1)
+				then False
+				else if (pre`s3)
+				then False
+				else if (pre`s4)
+					then True
+					else False
+				endif
+				endif
+			endif
+		, w1 = if (pre`s1)
+				then True
+				else False
+			endif
+		IN (post = pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s1)
+			then if (pre`s8)
+			then w4
+			else pre`s8
+			endif
+			else if (pre`s3)
+			then if (pre`s8)
+				then w4
+				else pre`s8
+			endif
+			else if (pre`s4)
+				then if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+				else if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+			endif
+			endif
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s72
+				endif
+				else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+					then True
+					else pre`s72
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s1)
+			then pre`s71
+			else if (pre`s3)
+				then pre`s71
+				else if (pre`s4)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s71
+				endif
+				else if (pre`s4)
+				then True
+				else if (pre`s71)
+					then True
+					else pre`s71
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s1)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s3)
+			then if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s6)
+				then True
+				else pre`s6
+				endif
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s1)
+			then True
+			else if (pre`s3)
+			then True
+			else if (pre`s4)
+				then w9
+				else pre`s4
+			endif
+			endif
+		endif
+		, s3 := if (pre`s1)
+			then wm2
+			else if (pre`s3)
+			then True
+			else pre`s3
+			endif
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := if (pre`s1)
+			then True
+			else pre`s1
+		endif
+		, m2 := pre`m2
+		, m1 := pre`m1
+		])
+		ELSE True
+		ENDIF 
+
+	transition ( index : nat, pre, post : ScedTest, i2_in_0 : bool) : bool =
+		IF (index = 1) THEN LET wm2 = True
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s3)
+				then False
+				else if (pre`s4)
+				then True
+				else False
+				endif
+			endif
+		, w1 = False
+		IN (post = pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s8)
+			then w4
+			else pre`s8
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s3)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+				then True
+				else pre`s72
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s3)
+			then pre`s71
+			else if (pre`s4)
+				then True
+				else pre`s71
+			endif
+			endif
+			else if (pre`s3)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s71)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s3)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s4)
+			then True
+			else if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s3)
+			then True
+			else if (pre`s4)
+			then w9
+			else pre`s4
+			endif
+		endif
+		, s3 := if (pre`s3)
+			then True
+			else pre`s3
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := True
+		, m2 := True
+		, m1 := pre`m1
+		])
+		ELSE True
+		ENDIF 
+
+	transition ( index : nat, pre, post : ScedTest, i1_in_0 : bool) : bool =
+		IF (index = 2) THEN LET wm2 = False
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s1)
+				then False
+				else if (pre`s3)
+				then False
+				else if (pre`s4)
+					then True
+					else False
+				endif
+				endif
+			endif
+		, w1 = if (pre`s1)
+				then True
+				else False
+			endif
+		IN (post = pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s1)
+			then if (pre`s8)
+			then w4
+			else pre`s8
+			endif
+			else if (pre`s3)
+			then if (pre`s8)
+				then w4
+				else pre`s8
+			endif
+			else if (pre`s4)
+				then if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+				else if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+			endif
+			endif
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s72
+				endif
+				else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+					then True
+					else pre`s72
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s1)
+			then pre`s71
+			else if (pre`s3)
+				then pre`s71
+				else if (pre`s4)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s71
+				endif
+				else if (pre`s4)
+				then True
+				else if (pre`s71)
+					then True
+					else pre`s71
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s1)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s3)
+			then if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s6)
+				then True
+				else pre`s6
+				endif
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s1)
+			then True
+			else if (pre`s3)
+			then True
+			else if (pre`s4)
+				then w9
+				else pre`s4
+			endif
+			endif
+		endif
+		, s3 := if (pre`s1)
+			then wm2
+			else if (pre`s3)
+			then True
+			else pre`s3
+			endif
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := if (pre`s1)
+			then True
+			else pre`s1
+		endif
+		, m2 := pre`m2
+		, m1 := True
+		])
+		ELSE True
+		ENDIF 
+
+
+	transition_val (index : nat, pre : ScedTest) : ScedTest =
+		IF (index = 0) THEN LET wm2 = False
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s1)
+				then False
+				else if (pre`s3)
+				then False
+				else if (pre`s4)
+					then True
+					else False
+				endif
+				endif
+			endif
+		, w1 = if (pre`s1)
+				then True
+				else False
+			endif
+		IN (pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s1)
+			then if (pre`s8)
+			then w4
+			else pre`s8
+			endif
+			else if (pre`s3)
+			then if (pre`s8)
+				then w4
+				else pre`s8
+			endif
+			else if (pre`s4)
+				then if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+				else if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+			endif
+			endif
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s72
+				endif
+				else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+					then True
+					else pre`s72
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s1)
+			then pre`s71
+			else if (pre`s3)
+				then pre`s71
+				else if (pre`s4)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s71
+				endif
+				else if (pre`s4)
+				then True
+				else if (pre`s71)
+					then True
+					else pre`s71
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s1)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s3)
+			then if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s6)
+				then True
+				else pre`s6
+				endif
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s1)
+			then True
+			else if (pre`s3)
+			then True
+			else if (pre`s4)
+				then w9
+				else pre`s4
+			endif
+			endif
+		endif
+		, s3 := if (pre`s1)
+			then wm2
+			else if (pre`s3)
+			then True
+			else pre`s3
+			endif
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := if (pre`s1)
+			then True
+			else pre`s1
+		endif
+		, m2 := pre`m2
+		, m1 := pre`m1
+		])
+		ELSE pre
+		ENDIF 
+
+	transition_val (index : nat, pre : ScedTest, i2_in_0 : bool) : ScedTest =
+		IF (index = 1) THEN LET wm2 = True
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s3)
+				then False
+				else if (pre`s4)
+				then True
+				else False
+				endif
+			endif
+		, w1 = False
+		IN (pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s8)
+			then w4
+			else pre`s8
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s3)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+				then True
+				else pre`s72
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s3)
+			then pre`s71
+			else if (pre`s4)
+				then True
+				else pre`s71
+			endif
+			endif
+			else if (pre`s3)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s71)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s3)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s4)
+			then True
+			else if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s3)
+			then True
+			else if (pre`s4)
+			then w9
+			else pre`s4
+			endif
+		endif
+		, s3 := if (pre`s3)
+			then True
+			else pre`s3
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := True
+		, m2 := True
+		, m1 := pre`m1
+		])
+		ELSE pre
+		ENDIF 
+
+	transition_val (index : nat, pre : ScedTest, i1_in_0 : bool) : ScedTest =
+		IF (index = 2) THEN LET wm2 = False
+		, w9 = if (pre`s9)
+				then True
+				else False
+			endif
+		, w4 = if (pre`s1)
+				then False
+				else if (pre`s3)
+				then False
+				else if (pre`s4)
+					then True
+					else False
+				endif
+				endif
+			endif
+		, w1 = if (pre`s1)
+				then True
+				else False
+			endif
+		IN (pre with [s9 := if (pre`s9)
+			then w1
+			else pre`s9
+		endif
+		, s8 := if (pre`s1)
+			then if (pre`s8)
+			then w4
+			else pre`s8
+			endif
+			else if (pre`s3)
+			then if (pre`s8)
+				then w4
+				else pre`s8
+			endif
+			else if (pre`s4)
+				then if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+				else if (pre`s8)
+				then w4
+				else pre`s8
+				endif
+			endif
+			endif
+		endif
+		, s72 := if (pre`s5)
+			then True
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s72
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s72
+				endif
+				else if (pre`s4)
+				then pre`s72
+				else if (pre`s71)
+					then True
+					else pre`s72
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s71 := if (pre`s5)
+			then if (pre`s1)
+			then pre`s71
+			else if (pre`s3)
+				then pre`s71
+				else if (pre`s4)
+				then True
+				else pre`s71
+				endif
+			endif
+			endif
+			else if (pre`s1)
+			then if (pre`s71)
+				then True
+				else pre`s71
+			endif
+			else if (pre`s3)
+				then if (pre`s71)
+				then True
+				else pre`s71
+				endif
+				else if (pre`s4)
+				then True
+				else if (pre`s71)
+					then True
+					else pre`s71
+				endif
+				endif
+			endif
+			endif
+		endif
+		, s6 := if (pre`s1)
+			then if (pre`s6)
+			then True
+			else pre`s6
+			endif
+			else if (pre`s3)
+			then if (pre`s6)
+				then True
+				else pre`s6
+			endif
+			else if (pre`s4)
+				then True
+				else if (pre`s6)
+				then True
+				else pre`s6
+				endif
+			endif
+			endif
+		endif
+		, s5 := if (pre`s5)
+			then True
+			else pre`s5
+		endif
+		, s4 := if (pre`s1)
+			then True
+			else if (pre`s3)
+			then True
+			else if (pre`s4)
+				then w9
+				else pre`s4
+			endif
+			endif
+		endif
+		, s3 := if (pre`s1)
+			then wm2
+			else if (pre`s3)
+			then True
+			else pre`s3
+			endif
+		endif
+		, s2 := if (pre`s2)
+			then True
+			else pre`s2
+		endif
+		, s1 := if (pre`s1)
+			then True
+			else pre`s1
+		endif
+		, m2 := pre`m2
+		, m1 := True
+		])
+		ELSE pre
+		ENDIF 
+
+
+	
+end Transitions
+
+

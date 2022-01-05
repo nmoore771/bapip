@@ -1,0 +1,31 @@
+Methods : theory
+
+begin
+
+	importing State
+
+
+	get_lo (index : nat, pre : mkAlrm_int) : bool = IF (index = 0) OR (index = 1) THEN pre`lo
+		ELSE False
+		ENDIF
+
+	get_hi (index : nat, pre : mkAlrm_int) : bool = IF (index = 0) OR (index = 1) THEN pre`hi
+		ELSE False
+		ENDIF
+
+	get_alrm_int (index : nat, pre : mkAlrm_int) : bool = IF (index = 0) OR (index = 1) THEN if ( pre`hi AND pre`lo )
+			then True
+			else if ( pre`hi AND (NOT pre`lo) )
+			then True
+			else if ( (NOT pre`hi) AND pre`lo )
+			then True
+			else False
+			endif
+			endif
+			endif
+		ELSE False
+		ENDIF
+
+
+	
+end Methods

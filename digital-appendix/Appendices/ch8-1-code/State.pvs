@@ -1,0 +1,31 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	HYSTERESIS : type =
+		[# q : bool
+		#]
+
+	LIMITS_ALARM : type =
+		[# low_alarm : HYSTERESIS
+		, high_alarm : HYSTERESIS
+		#]
+
+	HYSTERESIS_var : var HYSTERESIS
+
+	mkHYSTERESIS (HYSTERESIS_var) : bool
+	=	HYSTERESIS_var`q	 = False
+
+
+	LIMITS_ALARM_var : var LIMITS_ALARM
+
+	mkLIMITS_ALARM (LIMITS_ALARM_var) : bool
+	=	mkHYSTERESIS (LIMITS_ALARM_var`low_alarm)
+	AND	mkHYSTERESIS (LIMITS_ALARM_var`high_alarm)
+
+
+	
+end State

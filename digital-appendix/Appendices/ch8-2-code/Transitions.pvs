@@ -1,0 +1,51 @@
+Transitions : theory
+
+begin
+
+	importing State
+
+
+	transition ( index : nat, pre, post : mkAlrm_int) : bool =
+		IF (index = 0) THEN (post = pre with [hi := pre`hi
+		, lo := pre`lo
+		])
+		ELSE True
+		ENDIF 
+
+	transition ( index : nat, pre, post : mkAlrm_int, inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)) : bool =
+		IF (index = 1) THEN (post = pre with [hi := if ( inp_in_0 > thi_in_0 )
+			then True
+			else False
+			endif
+		, lo := if ( inp_in_0 < tlo_in_0 )
+			then True
+			else False
+			endif
+		])
+		ELSE True
+		ENDIF 
+
+
+	transition_val (index : nat, pre : mkAlrm_int) : mkAlrm_int =
+		IF (index = 0) THEN (pre with [hi := pre`hi
+		, lo := pre`lo
+		])
+		ELSE pre
+		ENDIF 
+
+	transition_val (index : nat, pre : mkAlrm_int, inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)) : mkAlrm_int =
+		IF (index = 1) THEN (pre with [hi := if ( inp_in_0 > thi_in_0 )
+			then True
+			else False
+			endif
+		, lo := if ( inp_in_0 < tlo_in_0 )
+			then True
+			else False
+			endif
+		])
+		ELSE pre
+		ENDIF 
+
+
+	
+end Transitions

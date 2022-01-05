@@ -1,0 +1,21 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+	importing ints@mod_nat
+
+	mkAlrm_int : type =
+		[# hi : bool
+		, lo : bool
+		#]
+
+	mkAlrm_int_var : var mkAlrm_int
+
+	mkmkAlrm_int (mkAlrm_int_var) : bool
+	=	mkAlrm_int_var`hi	 = False
+	AND	mkAlrm_int_var`lo	 = False
+
+
+	
+end State

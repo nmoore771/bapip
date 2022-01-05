@@ -1,0 +1,284 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+	importing defined_operators[delta_t]
+	
+
+	t: Var tick
+
+		xin1, xin2: VAR [tick -> Int(16)] 
+		eps: VAR [tick -> UInt(16)]
+	HYSTERESIS_var : VAR HYSTERESIS
+	in1, in2 : VAR Int(16)
+
+	pre, post, LIMITS_ALARM_var : VAR LIMITS_ALARM
+
+	xin, hi, lo : VAR [tick -> Int(16)]
+	ep : VAR [tick -> UInt(16)]
+
+	timed_int: TYPE = [tick -> Int(16)]
+	timed_uint: TYPE = [tick -> UInt(16)]
+
+	dependent_type: TYPE = [l: timed_int, eps: timed_uint ->
+					{ h: timed_int | FORALL (t: tick): h(t) - l(t) > 2 * eps(t) } ]
+			
+		x, l, h : VAR [tick -> Int(16)]
+
+	% outputs
+	s : VAR [tick -> LIMITS_ALARM]
+		qh, ql, q: VAR pred[tick]
+
+	% internal states
+	w1: VAR [tick -> UInt(16)]
+	w2, w3: VAR [tick -> Int(16)]
+
+% ================================================================================================ %
+
+% The following predicates are available from 'Transitions.pvs' and 'State.pvs'
+%	mkLIMITS_ALARM : (pre)
+%	LIMITS_ALARM_t_set_Alarms (pre, post, x, h, l, eps)
+%	LIMITS_ALARM_t (pre, post)
+%	LIMITS_ALARM_get_ql (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_qh (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_q (LIMITS_ALARM_var) : bool
+
+	% The following theorems correspond to the tabular expression for QH
+	% Proved
+	line1_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) > hi(t))
+		implies LIMITS_ALARM_get_qh(s(t)) = True
+
+	% Proved
+	line1_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) >= (hi(t) - 2*floor(div(ep(t),2))))
+			and (xin(t) <= hi(t))
+		implies LIMITS_ALARM_get_qh(s(pre(t))) = LIMITS_ALARM_get_qh(s(t))
+
+	% Proved
+	line1_3 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) < (hi(t) - ep(t)))
+		implies LIMITS_ALARM_get_qh(s(t)) = False
+
+	% The following theorems correspond to the tabular expression for QL
+	% Proved
+	line2_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) < lo(t))
+		implies LIMITS_ALARM_get_ql(s(t)) = True
+
+	% Proved
+	line2_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) >= lo(t))
+			and (xin(t) <= (lo(t) + 2*floor(div(ep(t),2))))
+		implies LIMITS_ALARM_get_ql(s(pre(t))) = LIMITS_ALARM_get_ql(s(t))
+
+	% Proved
+	line2_3 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and (xin(t) > (lo(t) + ep(t)))
+		implies LIMITS_ALARM_get_ql(s(t)) = False
+	
+	% The following theorems correspond to the tabular expression for Q
+	% Proved
+	line3_1 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and ((lo(t) + ep(t)) < (hi(t) - ep(t)))
+			and (LIMITS_ALARM_get_qh(s(t)) or LIMITS_ALARM_get_ql(s(t)))
+		implies LIMITS_ALARM_get_q(s(t)) = True
+
+	% Proved
+	line3_2 : theorem LIMITS_ALARM_t_set_Alarms (s(pre(t)), s(t), xin(t), hi(t), lo(t), ep(t))
+			and (ep(t) > 0)
+			and ((lo(t) + ep(t)) < (hi(t) - ep(t)))
+			and (not(LIMITS_ALARM_get_qh(s(t)) or LIMITS_ALARM_get_ql(s(t))))
+		implies LIMITS_ALARM_get_q(s(t)) = False
+
+% ================================================================================================ %
+HYSTERESIS_req_tab(xin1,xin2,eps,q)(t): bool = 
+FORALL t:
+	q(next(t)) = 
+	LET prev = q(t) IN
+	TABLE
+		| xin1(t) < (xin2(t) - eps(t))                                  | False ||
+		| (xin2(t) - eps(t)) <= xin1(t) & xin1(t) <= (xin2(t) + eps(t)) | prev  ||
+		| (xin2(t) + eps(t)) < xin1(t)                                  | True  ||
+	ENDTABLE     
+
+f_qh(x,h,eps,qh)(t): bool =
+	qh(next(t)) =  
+	LET prev = qh(t) IN
+	TABLE
+	%----------------------------------------------------------------%
+	| x(t) > h(t)                                    | True  ||
+	%----------------------------------------------------------------%
+	| x(t) >= (h(t) - int_div(eps(t),2) - int_div(eps(t),2) ) & x(t) <= (h(t) - int_div(eps(t),2) + int_div(eps(t),2) )        | prev  ||
+	%----------------------------------------------------------------%
+	| x(t) < (h(t) - int_div(eps(t),2) - int_div(eps(t),2) )                        | False ||
+	%----------------------------------------------------------------%
+	ENDTABLE
+
+f_ql(x,l,eps,ql)(t): bool = 
+	ql(next(t)) = 
+	LET prev = ql(t) IN
+	TABLE
+	%--------------------------------------------------%
+	| x(t) < l(t)                             | True  ||
+	%--------------------------------------------------%
+	| x(t) <= (l(t) + int_div(eps(t),2) + int_div(eps(t),2) ) & x(t) >= (l(t) - int_div(eps(t),2) + int_div(eps(t),2) ) | prev  ||
+	%--------------------------------------------------%
+	| x(t) > (l(t) + int_div(eps(t),2) + int_div(eps(t),2) )                 | False ||
+	%--------------------------------------------------%
+	ENDTABLE
+
+f_q(qh,ql,q)(t): bool =
+	q(t) = TABLE
+	| qh(t) OR ql(t)        | True  ||
+	| NOT qh(t) & NOT ql(t) | False ||
+	ENDTABLE
+
+%  P_qh(x,h,l,eps,qh): bool =
+%    FORALL (t:tick): qh(next(t)) = f_qh(x,h,l,eps)(t)
+
+%  P_ql(x,l,eps,ql): bool = 
+%     FORALL (t:tick): ql(next(t)) = f_ql(x,l,eps)(t)
+
+%  P_qh,ql,q): bool = 
+%    FORALL (t:tick): q(next(t)) = f_q(qh,ql)(t)
+
+%  LIMITS_ALARM_REQ(x,h,l,eps,qh,q,ql): bool =
+%    P_qh(x,h,l,eps,qh) & P_ql(x,l,eps,ql) & P_q(qh,ql,q)
+
+%  LIMITS_ALARM_REQ_2(x,h,l,eps,qh,q,ql,t) : bool = 
+%    qh(next(t)) = f_qh(x,h,l,eps)(t)
+%    and ql(next(t)) = f_ql(x,l,eps)(t)
+%    and q(next(t)) = f_q(qh,ql)(t)
+
+%  LIMITS_ALARM_IMPL(x,h,l,eps,qh,q,ql): bool =
+%    EXISTS (w1,w2,w3):
+%      div(eps,LAMBDA (t1:tick): 2,w1) & 
+%      sub(h(l,eps),w1,w2) & 
+%      add(l,w1,w3) &
+%      HYSTERESIS_req_tab(x,w2,w1,qh) &
+%      HYSTERESIS_req_tab(w3,x,w1,ql) &
+%      disj(qh,ql,q)
+% ------------------------------------------------------------------------------------------------ % 
+					
+		LIMITS_ALARM_Safety : THEOREM
+		LIMITS_ALARM_t_set_Alarms (s(t), s(next(t)), x(t), h(t), l(t), eps(t))
+%            and LIMITS_ALARM_REQ_2(x,h,l,eps,qh,q,ql,t) 
+			and (eps(t) > 0) 
+			and h(t) - l(t) > 2 * eps(t)
+			and f_q(qh,ql,q)(t)
+			and f_ql(x,l,eps,ql)(t)
+			and f_qh(x,h,eps,qh)(t)
+			and q(t) = LIMITS_ALARM_get_q(s(t))
+		and ql(t) = s(t)`low_alarm`q
+		and qh(t) = s(t)`high_alarm`q
+%            and q(t) = s(t)`low_alarm`q OR s(t)`high_alarm`q
+%           and ql(t) = LIMITS_ALARM_get_ql(s(t))
+%           and qh(t) = LIMITS_ALARM_get_qh(s(t))
+			and (not (ql(t) and qh(t)))
+		implies (not (ql(next(t)) and qh(next(t))))
+%            implies q(next(t)) = LIMITS_ALARM_get_q(s(next(t)))
+%	    	and ql(next(t)) = LIMITS_ALARM_get_ql(s(next(t)))
+%		and qh(next(t)) = LIMITS_ALARM_get_qh(s(next(t)))
+
+
+		LIMITS_ALARM_Req : THEOREM
+		LIMITS_ALARM_t_set_Alarms (s(t), s(next(t)), x(t), h(t), l(t), eps(t))
+			and (eps(t) > 0) 
+			and f_q(qh,ql,q)(next(t))
+			and f_ql(x,l,eps,ql)(t)
+			and f_qh(x,h,eps,qh)(t)
+			and q(t) = LIMITS_ALARM_get_q(s(t))
+		and ql(t) = s(t)`low_alarm`q
+		and qh(t) = s(t)`high_alarm`q
+		implies qh(next(t)) = LIMITS_ALARM_get_qh(s(next(t)))
+			and ql(next(t)) = LIMITS_ALARM_get_ql(s(next(t)))
+				and q(next(t)) = LIMITS_ALARM_get_q(s(next(t)))
+%	    	and ql(next(t)) = LIMITS_ALARM_get_ql(s(next(t)))
+%		and qh(next(t)) = LIMITS_ALARM_get_qh(s(next(t)))
+
+	LIMITS_ALARM_consistency : Theorem
+		FORALL (pre, x, h, l, eps) :
+		EXISTS (post) :
+			LIMITS_ALARM_t_set_Alarms (pre, post, x(t), h(t), l(t), eps(t))
+
+	LIMITS_ALARM_consistency_2 : Theorem
+		FORALL (pre) :
+		EXISTS (post) :
+			LIMITS_ALARM_t (pre, post)
+
+
+% ================================================================================================ %
+
+HYSTERESIS_req_tab_val (xin1,xin2,eps)(t): RECURSIVE bool = 
+%      IF init(t) THEN False
+%      ELSE LET prev = q(t) IN
+	LET prev = HYSTERESIS_req_tab_val(xin1,xin2,eps)(pre(t))
+	IN
+	TABLE
+		| xin1(pre(t)) < (xin2(pre(t)) - eps(pre(t)))                                  | False ||
+		| (xin2(pre(t)) - eps(pre(t))) <= xin1(pre(t)) & xin1(pre(t)) <= (xin2(pre(t)) + eps(pre(t))) | prev  ||
+		| (xin2(pre(t)) + eps(pre(t))) < xin1(pre(pre(t)))                                  | True  ||
+	ENDTABLE
+	MEASURE rank(t)
+%      ENDIF
+
+f_qh_val(x,h,eps)(t): RECURSIVE bool =
+	LET prev = f_qh_val(x,h,eps)(pre(t)) IN
+	TABLE
+	%----------------------------------------------------------------%
+	| x(pre(t)) > h(pre(t))                                    | True  ||
+	%----------------------------------------------------------------%
+	| x(pre(t)) >= (h(pre(t)) - int_div(eps(pre(t)),2) - int_div(eps(pre(t)),2) ) & x(pre(t)) <= (h(pre(t)) - int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) )        | prev  ||
+	%----------------------------------------------------------------%
+	| x(pre(t)) < (h(pre(t)) - int_div(eps(pre(t)),2) - int_div(eps(pre(t)),2) )                        | False ||
+	%----------------------------------------------------------------%
+	ENDTABLE
+	MEASURE rank(t)
+
+f_ql_val(x,l,eps)(t): RECURSIVE bool = 
+	LET prev = f_ql_val(x,l,eps)(pre(t)) IN
+	TABLE
+	%--------------------------------------------------%
+	| x(pre(t)) < l(pre(t))                             | True  ||
+	%--------------------------------------------------%
+	| x(pre(t)) <= (l(pre(t)) + int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) ) & x(pre(t)) >= (l(pre(t)) - int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) ) | prev  ||
+	%--------------------------------------------------%
+	| x(pre(t)) > (l(pre(t)) + int_div(eps(pre(t)),2) + int_div(eps(pre(t)),2) )                 | False ||
+	%--------------------------------------------------%
+	ENDTABLE
+	MEASURE rank(t)
+
+f_q_val (qh,ql)(t): bool =
+	TABLE
+	| qh(t) OR ql(t)        | True  ||
+	| NOT qh(t) & NOT ql(t) | False ||
+	ENDTABLE
+
+
+LIMITS_ALARM_cons: THEOREM
+FORALL (x,h,l,eps):
+	EXISTS (qh,ql,q):
+		f_qh(x,h,eps,qh)(t)
+	and f_ql(x,l,eps,ql)(t)
+	and f_q(qh,ql,q)(t)
+	
+
+%	LIMITS_ALARM_get_ql (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_qh (LIMITS_ALARM_var) : bool
+%	LIMITS_ALARM_get_q (LIMITS_ALARM_var) : bool
+
+% ================================================================================================ %
+
+
+end Theorems
+

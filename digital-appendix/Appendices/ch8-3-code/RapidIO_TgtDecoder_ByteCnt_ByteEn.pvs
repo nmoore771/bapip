@@ -1,0 +1,51 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing TypeDefinitions
+
+	DC(n:nat) : Bit(8)
+
+	req_ByteEnable(wdptr : Bit(1), rwsize : Bit (4)) : Bit(8) = 
+	TABLE
+					|[ wdptr = 0 | wdptr = 1 ]|
+	| rwsize = 0  |     128    |      8    ||
+	| rwsize = 1  |      64    |      4    ||
+	| rwsize = 2  |      32    |      2    ||
+	| rwsize = 3  |      16    |      1    ||
+	| rwsize = 4  |     192    |     12    ||
+	| rwsize = 5  |     224    |      7    ||
+	| rwsize = 6  |      48    |      3    ||
+	| rwsize = 7  |     248    |     31    ||
+	| rwsize = 8  |     240    |     15    ||
+	| rwsize = 9  |     252    |     63    ||
+	| rwsize = 10 |     254    |    127    ||
+	| rwsize = 11 |     255    |   DC(0)   ||
+	| rwsize = 12 |    DC(1)   |   DC(2)   ||
+	| rwsize = 13 |    DC(3)   |   DC(4)   ||
+	| rwsize = 14 |    DC(5)   |   DC(6)   ||
+	| rwsize = 15 |    DC(7)   |   DC(8)   ||
+	ENDTABLE  
+
+	correctness : theorem
+	FORALL (wr_read : bool, wr_Size : Size, wd_ptr : Bit(1)) :
+		((wr_Size <= 10) OR ((wr_Size = 11) AND (wd_ptr = 0)))
+		implies ( fn_ByteCountDecoder(wr_read, wr_Size, wd_ptr)`byteen_dec = req_ByteEnable(wd_ptr, wr_Size) )
+
+	
+%  The following transitions have been scheduled.
+%  
+% None!
+%  The following arguments must be supplied to invoke the transition predicate.
+%  	index -> The index number corresponding to the schedule you wish to invoke
+%  	pre -> The pre-state of the transition predicate
+%  	post -> The post-state of the transition predicate
+%  	method arguments -> supply the arguments given in the above list of schedules, in the order they appear.
+%  
+%  For an example of how this is intended to work, take a look at the auto-generated consistency theorems below.
+
+	
+
+	
+end Theorems
+

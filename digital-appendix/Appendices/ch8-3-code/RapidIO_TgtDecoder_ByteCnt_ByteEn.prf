@@ -1,0 +1,1669 @@
+(Theorems
+(DC_TCC1 0
+(DC_TCC1-1 nil 3742908859 ("" (existence-tcc) nil nil) nil nil))
+(OppositeBit 0
+(OppositeBit-1 nil 3756310183 ("" (grind) nil nil)
+((mult_divides2 application-judgement "(divides(m))" divides nil)
+	(mult_divides1 application-judgement "(divides(n))" divides nil)
+	(even_times_int_is_even application-judgement "even_int" integers
+	nil)
+	(posint_times_posint_is_posint application-judgement "posint"
+	integers nil)
+	(real_ge_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(posrat_div_posrat_is_posrat application-judgement "posrat"
+	rationals nil)
+	(posnat_expt application-judgement "posnat" exponentiation nil)
+	(posint_exp application-judgement "posint" exponentiation nil)
+	(real_lt_is_strict_total_order name-judgement
+	"(strict_total_order?[real])" real_props nil)
+	(real_le_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(expt def-decl "real" exponentiation nil)
+	(Bit type-eq-decl nil TypeDefinitions nil)
+	(^ const-decl "real" exponentiation nil)
+	(>= const-decl "bool" reals nil)
+	(/= const-decl "boolean" notequal nil)
+	(OR const-decl "[bool, bool -> bool]" booleans nil)
+	(< const-decl "bool" reals nil)
+	(AND const-decl "[bool, bool -> bool]" booleans nil)
+	(int nonempty-type-eq-decl nil integers nil)
+	(integer_pred const-decl "[rational -> boolean]" integers nil)
+	(rational nonempty-type-from-decl nil rationals nil)
+	(rational_pred const-decl "[real -> boolean]" rationals nil)
+	(<= const-decl "bool" reals nil)
+	(real nonempty-type-from-decl nil reals nil)
+	(real_pred const-decl "[number_field -> boolean]" reals nil)
+	(number_field nonempty-type-from-decl nil number_fields nil)
+	(number_field_pred const-decl "[number -> boolean]" number_fields
+	nil)
+	(number nonempty-type-decl nil numbers nil)
+	(NOT const-decl "[bool -> bool]" booleans nil)
+	(bool nonempty-type-eq-decl nil booleans nil)
+	(boolean nonempty-type-decl nil booleans nil))
+shostak))
+(OppositeBit_2 0
+(OppositeBit_2-1 nil 3756310377 ("" (grind) nil nil)
+((mult_divides2 application-judgement "(divides(m))" divides nil)
+	(mult_divides1 application-judgement "(divides(n))" divides nil)
+	(even_times_int_is_even application-judgement "even_int" integers
+	nil)
+	(posint_times_posint_is_posint application-judgement "posint"
+	integers nil)
+	(real_ge_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(posrat_div_posrat_is_posrat application-judgement "posrat"
+	rationals nil)
+	(posnat_expt application-judgement "posnat" exponentiation nil)
+	(posint_exp application-judgement "posint" exponentiation nil)
+	(real_lt_is_strict_total_order name-judgement
+	"(strict_total_order?[real])" real_props nil)
+	(real_le_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(expt def-decl "real" exponentiation nil)
+	(Bit type-eq-decl nil TypeDefinitions nil)
+	(^ const-decl "real" exponentiation nil)
+	(>= const-decl "bool" reals nil)
+	(/= const-decl "boolean" notequal nil)
+	(OR const-decl "[bool, bool -> bool]" booleans nil)
+	(< const-decl "bool" reals nil)
+	(AND const-decl "[bool, bool -> bool]" booleans nil)
+	(int nonempty-type-eq-decl nil integers nil)
+	(integer_pred const-decl "[rational -> boolean]" integers nil)
+	(rational nonempty-type-from-decl nil rationals nil)
+	(rational_pred const-decl "[real -> boolean]" rationals nil)
+	(<= const-decl "bool" reals nil)
+	(real nonempty-type-from-decl nil reals nil)
+	(real_pred const-decl "[number_field -> boolean]" reals nil)
+	(number_field nonempty-type-from-decl nil number_fields nil)
+	(number_field_pred const-decl "[number -> boolean]" number_fields
+	nil)
+	(number nonempty-type-decl nil numbers nil)
+	(NOT const-decl "[bool -> bool]" booleans nil)
+	(bool nonempty-type-eq-decl nil booleans nil)
+	(boolean nonempty-type-decl nil booleans nil))
+shostak))
+(req_ByteEnable_TCC1 0
+(req_ByteEnable_TCC1-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC2 0
+(req_ByteEnable_TCC2-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC3 0
+(req_ByteEnable_TCC3-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC4 0
+(req_ByteEnable_TCC4-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC5 0
+(req_ByteEnable_TCC5-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC6 0
+(req_ByteEnable_TCC6-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC7 0
+(req_ByteEnable_TCC7-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC8 0
+(req_ByteEnable_TCC8-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC9 0
+(req_ByteEnable_TCC9-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC10 0
+(req_ByteEnable_TCC10-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC11 0
+(req_ByteEnable_TCC11-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC12 0
+(req_ByteEnable_TCC12-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC13 0
+(req_ByteEnable_TCC13-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC14 0
+(req_ByteEnable_TCC14-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC15 0
+(req_ByteEnable_TCC15-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC16 0
+(req_ByteEnable_TCC16-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC17 0
+(req_ByteEnable_TCC17-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC18 0
+(req_ByteEnable_TCC18-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC19 0
+(req_ByteEnable_TCC19-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC20 0
+(req_ByteEnable_TCC20-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC21 0
+(req_ByteEnable_TCC21-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC22 0
+(req_ByteEnable_TCC22-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC23 0
+(req_ByteEnable_TCC23-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC24 0
+(req_ByteEnable_TCC24-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC25 0
+(req_ByteEnable_TCC25-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC26 0
+(req_ByteEnable_TCC26-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC27 0
+(req_ByteEnable_TCC27-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC28 0
+(req_ByteEnable_TCC28-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC29 0
+(req_ByteEnable_TCC29-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC30 0
+(req_ByteEnable_TCC30-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC31 0
+(req_ByteEnable_TCC31-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC32 0
+(req_ByteEnable_TCC32-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC33 0
+(req_ByteEnable_TCC33-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC34 0
+(req_ByteEnable_TCC34-1 nil 3742908859 ("" (subtype-tcc) nil nil) nil
+nil))
+(req_ByteEnable_TCC35 0
+(req_ByteEnable_TCC35-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC36 0
+(req_ByteEnable_TCC36-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC37 0
+(req_ByteEnable_TCC37-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC38 0
+(req_ByteEnable_TCC38-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC39 0
+(req_ByteEnable_TCC39-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(req_ByteEnable_TCC40 0
+(req_ByteEnable_TCC40-1 nil 3742908859
+("" (cond-coverage-tcc) nil nil) nil nil))
+(correctness 0
+(correctness-actually-final "You can just grind it apparently!"
+3757444788 ("" (grind) nil nil) nil shostak)
+(correctness-final "The one that worked." 3756312808
+("" (skolem!)
+	(("" (rewrite fn_ByteCountDecoder)
+	(("" (rewrite mkDecode_ByteCount)
+		(("" (rewrite req_ByteEnable)
+		(("" (lift-if)
+			(("" (split)
+			(("1" (flatten)
+				(("1" (lift-if)
+				(("1" (split)
+					(("1" (flatten)
+					(("1" (replace -1) (("1" (grind) nil nil)) nil))
+					nil)
+					("2" (use OppositeBit ("x" "wd_ptr!1"))
+					(("2" (replace -1) (("2" (grind) nil nil)) nil))
+					nil))
+					nil))
+				nil))
+				nil)
+			("2" (flatten)
+				(("2" (lift-if)
+				(("2" (lift-if)
+					(("2" (lift-if)
+					(("2" (lift-if)
+					(("2" (lift-if)
+					(("2" (lift-if)
+					(("2" (lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(lift-if)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(replace
+					-1)
+					(("1"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"0"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"2"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					(("2"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"1"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"4"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"3"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil)
+					("2"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"3"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"6"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(assert)
+					(("2"
+					(grind)
+					(("2"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"5"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"5"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil)
+					("2"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"6"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					nil
+					nil)
+					("2"
+					(grind)
+					(("2"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"8"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(split)
+					(("1"
+					(flatten)
+					(("1"
+					(split)
+					(("1"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"7"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("2"
+					(use
+					OppositeBit
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(use
+					OppositeBit_2
+					("x"
+					"wd_ptr!1"))
+					(("2"
+					(replace
+					-1)
+					(("2"
+					(grind)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil)
+					("2"
+					(flatten)
+					(("2"
+					(grind)
+					(("1"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"7"))
+					(("1"
+					(assert)
+					nil
+					nil))
+					nil)
+					("2"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"8"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+				nil))
+				nil))
+			nil))
+			nil))
+		nil))
+		nil))
+	nil))
+	nil)
+((mult_divides2 application-judgement "(divides(m))" divides nil)
+	(mult_divides1 application-judgement "(divides(n))" divides nil)
+	(even_times_int_is_even application-judgement "even_int" integers
+	nil)
+	(posint_times_posint_is_posint application-judgement "posint"
+	integers nil)
+	(real_ge_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(posrat_div_posrat_is_posrat application-judgement "posrat"
+	rationals nil)
+	(posnat_expt application-judgement "posnat" exponentiation nil)
+	(posint_exp application-judgement "posint" exponentiation nil)
+	(real_lt_is_strict_total_order name-judgement
+	"(strict_total_order?[real])" real_props nil)
+	(real_le_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(expt def-decl "real" exponentiation nil)
+	(Bit type-eq-decl nil TypeDefinitions nil)
+	(Size type-eq-decl nil TypeDefinitions nil)
+	(^ const-decl "real" exponentiation nil)
+	(>= const-decl "bool" reals nil)
+	(/= const-decl "boolean" notequal nil)
+	(OR const-decl "[bool, bool -> bool]" booleans nil)
+	(< const-decl "bool" reals nil)
+	(AND const-decl "[bool, bool -> bool]" booleans nil)
+	(int nonempty-type-eq-decl nil integers nil)
+	(integer_pred const-decl "[rational -> boolean]" integers nil)
+	(rational nonempty-type-from-decl nil rationals nil)
+	(rational_pred const-decl "[real -> boolean]" rationals nil)
+	(<= const-decl "bool" reals nil)
+	(real nonempty-type-from-decl nil reals nil)
+	(real_pred const-decl "[number_field -> boolean]" reals nil)
+	(number_field nonempty-type-from-decl nil number_fields nil)
+	(number_field_pred const-decl "[number -> boolean]" number_fields
+	nil)
+	(number nonempty-type-decl nil numbers nil)
+	(NOT const-decl "[bool -> bool]" booleans nil)
+	(bool nonempty-type-eq-decl nil booleans nil)
+	(boolean nonempty-type-decl nil booleans nil)
+	(mkDecode_ByteCount const-decl "Decode_ByteCount" TypeDefinitions
+	nil)
+	(fn_ByteCountDecoder const-decl "Decode_ByteCount" TypeDefinitions
+	nil)
+	(req_ByteEnable const-decl "Bit(8)" Theorems nil))
+shostak)
+(correctness-5 "" 3756310176
+("" (skolem!)
+	(("" (rewrite fn_ByteCountDecoder)
+	(("" (rewrite mkDecode_ByteCount)
+		(("" (rewrite req_ByteEnable)
+		(("" (lift-if)
+			(("" (split)
+			(("1" (flatten)
+				(("1" (lift-if)
+				(("1" (split)
+					(("1" (flatten)
+					(("1" (replace -1) (("1" (grind) nil nil)) nil))
+					nil)
+					("2" (name q1 "NOT (wd_ptr!1 = 1)")
+					(("2" (replace -1) (("2" (postpone) nil nil))
+					nil))
+					nil))
+					nil))
+				nil))
+				nil)
+			("2" (postpone) nil nil))
+			nil))
+			nil))
+		nil))
+		nil))
+	nil))
+	nil)
+((mkDecode_ByteCount const-decl "Decode_ByteCount" TypeDefinitions
+	nil)
+	(OppositeBit_2 formula-decl nil Theorems nil)
+	(nat nonempty-type-eq-decl nil naturalnumbers nil) nil
+	(real_le_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(real_lt_is_strict_total_order name-judgement
+	"(strict_total_order?[real])" real_props nil)
+	(posint_exp application-judgement "posint" exponentiation nil)
+	(posnat_expt application-judgement "posnat" exponentiation nil)
+	(posrat_div_posrat_is_posrat application-judgement "posrat"
+	rationals nil)
+	(real_ge_is_total_order name-judgement "(total_order?[real])"
+	real_props nil)
+	(posint_times_posint_is_posint application-judgement "posint"
+	integers nil)
+	(even_times_int_is_even application-judgement "even_int" integers
+	nil)
+	(mult_divides1 application-judgement "(divides(n))" divides nil)
+	(mult_divides2 application-judgement "(divides(m))" divides nil)
+	(expt def-decl "real" exponentiation nil)
+	(OppositeBit formula-decl nil Theorems nil)
+	(req_ByteEnable const-decl "Bit(8)" Theorems nil)
+	(Bit type-eq-decl nil TypeDefinitions nil)
+	(Size type-eq-decl nil TypeDefinitions nil)
+	(^ const-decl "real" exponentiation nil)
+	(>= const-decl "bool" reals nil)
+	(/= const-decl "boolean" notequal nil)
+	(OR const-decl "[bool, bool -> bool]" booleans nil)
+	(< const-decl "bool" reals nil) (<= const-decl "bool" reals nil)
+	(AND const-decl "[bool, bool -> bool]" booleans nil)
+	(int nonempty-type-eq-decl nil integers nil)
+	(integer_pred const-decl "[rational -> boolean]" integers nil)
+	(rational nonempty-type-from-decl nil rationals nil)
+	(rational_pred const-decl "[real -> boolean]" rationals nil)
+	(real nonempty-type-from-decl nil reals nil)
+	(real_pred const-decl "[number_field -> boolean]" reals nil)
+	(number_field nonempty-type-from-decl nil number_fields nil)
+	(number_field_pred const-decl "[number -> boolean]" number_fields
+	nil)
+	(number nonempty-type-decl nil numbers nil)
+	(bool nonempty-type-eq-decl nil booleans nil)
+	(boolean nonempty-type-decl nil booleans nil)
+	(fn_ByteCountDecoder const-decl "Decode_ByteCount" TypeDefinitions
+	nil))
+shostak)
+(correctness-4 "pretty close" 3756308033
+("" (skolem!)
+	(("" (ground)
+	(("" (rewrite fn_ByteCountDecoder)
+		(("" (rewrite req_ByteEnable)
+		(("" (ground)
+			(("" (lift-if)
+			(("" (lift-if)
+				(("" (bddsimp)
+				(("1" (grind) nil nil)
+				("2" (grind) (("2" (postpone) nil nil)) nil)
+				("3" (grind) nil nil) ("4" (grind) nil nil)
+				("5" (grind) nil nil) ("6" (grind) nil nil)
+				("7" (grind) nil nil) ("8" (grind) nil nil)
+				("9" (grind) nil nil) ("10" (grind) nil nil)
+				("11" (grind) nil nil) ("12" (grind) nil nil)
+				("13" (grind)
+					(("13" (use DC_ax ("x" "255" "n" "0"))
+					(("13" (assert) nil nil)) nil))
+					nil)
+				("14" (grind)
+					(("1" (use DC_ax ("x" "255" "n" "1"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "255" "n" "1"))
+					(("2" (use DC_ax ("x" "255" "n" "2"))
+					(("2" (assert) nil nil)) nil))
+					nil))
+					nil)
+				("15" (grind)
+					(("15" (use DC_ax ("x" "255" "n" "4"))
+					(("15" (assert) nil nil)) nil))
+					nil)
+				("16" (grind)
+					(("1" (use DC_ax ("x" "255" "n" "5"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "255" "n" "6"))
+					(("2" (assert) nil nil)) nil))
+					nil)
+				("17" (grind)
+					(("17" (use DC_ax ("x" "255" "n" "8"))
+					(("17" (assert) nil nil)) nil))
+					nil)
+				("18" (grind)
+					(("1" (use DC_ax ("x" "0" "n" "5"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "0" "n" "6"))
+					(("2" (assert) nil nil)) nil))
+					nil)
+				("19" (grind)
+					(("19" (grind)
+					(("19" (grind) (("19" (postpone) nil nil)) nil))
+					nil))
+					nil)
+				("20" (grind)
+					(("20" (grind) (("20" (postpone) nil nil)) nil))
+					nil)
+				("21" (grind) (("21" (postpone) nil nil)) nil)
+				("22" (grind) (("22" (postpone) nil nil)) nil)
+				("23" (grind) (("23" (postpone) nil nil)) nil)
+				("24" (grind) (("24" (postpone) nil nil)) nil)
+				("25" (grind) (("25" (postpone) nil nil)) nil)
+				("26" (grind) (("26" (postpone) nil nil)) nil)
+				("27" (grind) (("27" (postpone) nil nil)) nil)
+				("28" (grind) (("28" (postpone) nil nil)) nil)
+				("29" (grind)
+					(("1" (use DC_ax ("x" "0" "n" "3"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "0" "n" "4"))
+					(("2" (assert) nil nil)) nil))
+					nil)
+				("30" (grind)
+					(("1" (use DC_ax ("x" "255" "n" "3"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "255" "n" "4"))
+					(("2" (assert) nil nil)) nil))
+					nil)
+				("31" (grind)
+					(("1" (use DC_ax ("x" "255" "n" "7"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "255" "n" "8"))
+					(("2" (assert) nil nil)) nil))
+					nil)
+				("32" (grind)
+					(("1" (use DC_ax ("x" "0" "n" "7"))
+					(("1" (assert) nil nil)) nil)
+					("2" (use DC_ax ("x" "0" "n" "8"))
+					(("2" (assert) nil nil)) nil))
+					nil))
+				nil))
+				nil))
+			nil))
+			nil))
+		nil))
+		nil))
+	nil))
+	nil)
+nil shostak)
+(correctness-3 "" 3756212247
+("" (grind :theories ("Theorems"))
+	(("1" (grind) (("1" (postpone) nil nil)) nil)
+	("2" (postpone) nil nil) ("3" (postpone) nil nil)
+	("4" (postpone) nil nil) ("5" (postpone) nil nil)
+	("6" (postpone) nil nil) ("7" (postpone) nil nil)
+	("8" (postpone) nil nil) ("9" (postpone) nil nil)
+	("10" (postpone) nil nil) ("11" (postpone) nil nil)
+	("12" (use DC_ax ("x" "255" "n" "0")) (("12" (assert) nil nil))
+	nil)
+	("13" (use DC_ax ("x" "255" "n" "1")) (("13" (assert) nil nil))
+	nil)
+	("14" (use DC_ax ("x" "255" "n" "2")) (("14" (assert) nil nil))
+	nil)
+	("15" (use DC_ax ("x" "255" "n" "3")) (("15" (assert) nil nil))
+	nil)
+	("16" (use DC_ax ("x" "255" "n" "4")) (("16" (assert) nil nil))
+	nil)
+	("17" (use DC_ax ("x" "0" "n" "4")) (("17" (assert) nil nil)) nil)
+	("18" (use DC_ax ("x" "255" "n" "5")) (("18" (assert) nil nil))
+	nil)
+	("19" (use DC_ax ("x" "255" "n" "6")) (("19" (assert) nil nil))
+	nil)
+	("20" (use DC_ax ("x" "255" "n" "7")) (("20" (assert) nil nil))
+	nil)
+	("21" (use DC_ax ("x" "0" "n" "5")) (("21" (assert) nil nil)) nil)
+	("22" (use DC_ax ("x" "0" "n" "6")) (("22" (assert) nil nil)) nil)
+	("23" (use DC_ax ("x" "0" "n" "8"))
+	(("23" (assert)
+		(("23" (use DC_ax ("x" "255" "n" "8"))
+		(("23" (assert) nil nil)) nil))
+		nil))
+	nil)
+	("24" (use DC_ax ("x" "0" "n" "8")) (("24" (assert) nil nil))
+	nil))
+	nil)
+nil shostak)
+(correctness-2 "Got pretty far" 3743422810
+("" (skolem!)
+	(("" (rewrite fn_ByteCountDecoder)
+	(("" (rewrite req_ByteEnable)
+		(("" (lift-if)
+		(("" (lift-if)
+			(("" (lift-if)
+			(("" (lift-if)
+				(("" (lift-if)
+				(("" (lift-if)
+					(("" (lift-if)
+					(("" (lift-if)
+					(("" (lift-if)
+					(("" (lift-if)
+					(("" (lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(lift-if)
+					((""
+					(rewrite
+					mkDecode_ByteCount)
+					((""
+					(grind)
+					(("1"
+					(postpone)
+					nil
+					nil)
+					("2"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"5"))
+					(("2"
+					(assert)
+					nil
+					nil))
+					nil)
+					("3"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"0"))
+					(("3"
+					(assert)
+					nil
+					nil))
+					nil)
+					("4"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"2"))
+					(("4"
+					(assert)
+					nil
+					nil))
+					nil)
+					("5"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"4"))
+					(("5"
+					(assert)
+					nil
+					nil))
+					nil)
+					("6"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"6"))
+					(("6"
+					(assert)
+					nil
+					nil))
+					nil)
+					("7"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"6"))
+					(("7"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"8"))
+					(("7"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("8"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"6"))
+					(("8"
+					(assert)
+					nil
+					nil))
+					nil)
+					("9"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"1"))
+					(("9"
+					(assert)
+					nil
+					nil))
+					nil)
+					("10"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"3"))
+					(("10"
+					(assert)
+					nil
+					nil))
+					nil)
+					("11"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"3"))
+					(("11"
+					(assert)
+					nil
+					nil))
+					nil)
+					("12"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"5"))
+					(("12"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"5"))
+					(("12"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("13"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"7"))
+					(("13"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"7"))
+					(("13"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil)
+					("14"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"7"))
+					(("14"
+					(assert)
+					nil
+					nil))
+					nil)
+					("15"
+					(postpone)
+					nil
+					nil)
+					("16"
+					(postpone)
+					nil
+					nil)
+					("17"
+					(postpone)
+					nil
+					nil)
+					("18"
+					(postpone)
+					nil
+					nil)
+					("19"
+					(postpone)
+					nil
+					nil)
+					("20"
+					(postpone)
+					nil
+					nil)
+					("21"
+					(postpone)
+					nil
+					nil)
+					("22"
+					(postpone)
+					nil
+					nil)
+					("23"
+					(postpone)
+					nil
+					nil)
+					("24"
+					(postpone)
+					nil
+					nil)
+					("25"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"0"))
+					(("25"
+					(assert)
+					nil
+					nil))
+					nil)
+					("26"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"2"))
+					(("26"
+					(assert)
+					nil
+					nil))
+					nil)
+					("27"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"4"))
+					(("27"
+					(assert)
+					nil
+					nil))
+					nil)
+					("28"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"4"))
+					(("28"
+					(assert)
+					nil
+					nil))
+					nil)
+					("29"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"6"))
+					(("29"
+					(assert)
+					nil
+					nil))
+					nil)
+					("30"
+					(use
+					DC_ax
+					("x"
+					"255"
+					"n"
+					"8"))
+					(("30"
+					(assert)
+					nil
+					nil))
+					nil)
+					("31"
+					(use
+					DC_ax
+					("x"
+					"0"
+					"n"
+					"8"))
+					(("31"
+					(assert)
+					nil
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+					nil))
+				nil))
+				nil))
+			nil))
+			nil))
+		nil))
+		nil))
+	nil))
+	nil)
+nil shostak)
+(correctness-1 nil 3742908864
+("" (skolem!)
+	(("" (grind)
+	(("1" (postpone) nil nil) ("2" (postpone) nil nil)
+	("3" (postpone) nil nil) ("4" (postpone) nil nil)
+	("5" (postpone) nil nil) ("6" (postpone) nil nil)
+	("7" (postpone) nil nil) ("8" (postpone) nil nil)
+	("9" (postpone) nil nil) ("10" (postpone) nil nil)
+	("11" (postpone) nil nil) ("12" (postpone) nil nil)
+	("13" (postpone) nil nil) ("14" (postpone) nil nil)
+	("15" (postpone) nil nil) ("16" (postpone) nil nil)
+	("17" (postpone) nil nil) ("18" (postpone) nil nil)
+	("19" (postpone) nil nil) ("20" (postpone) nil nil)
+	("21" (postpone) nil nil) ("22" (postpone) nil nil)
+	("23" (postpone) nil nil) ("24" (postpone) nil nil)
+	("25" (postpone) nil nil) ("26" (postpone) nil nil)
+	("27" (postpone) nil nil) ("28" (postpone) nil nil))
+	nil))
+	nil)
+nil shostak)))
+
+

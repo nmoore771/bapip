@@ -1,0 +1,99 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing Methods
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> mkAlrm_int]
+	pre, post, mkAlrm_int_var : VAR mkAlrm_int
+
+	alrm_int, hi, lo : VAR [ tick -> bool ]
+	inp, thi, tlo : VAR [ tick -> Int(16) ]
+	
+
+	ALRM_INT_req_3(hi,lo,alrm_int)(t) : bool =
+	alrm_int(t) = 
+		TABLE
+			| ( hi(t) AND lo(t) ) | True ||
+			| ( hi(t) AND (NOT lo(t)) ) | True ||
+			| ( (NOT hi(t)) AND lo(t) ) | True ||
+			| ( (NOT hi(t)) AND (NOT lo(t)) ) | False ||
+		ENDTABLE
+
+	ALRM_INT_req_2(inp,tlo,lo)(t) : bool =
+	lo(next(t)) = 
+		TABLE
+			| ( inp(t) < tlo(t) ) | True ||
+			| ( inp(t) >= tlo(t) ) | False ||
+		ENDTABLE
+
+	ALRM_INT_req_1(inp,thi,hi)(t) : bool =
+	hi(next(t)) = 
+		TABLE
+			| ( inp(t) > thi(t) ) | True ||
+			| ( inp(t) <= thi(t) ) | False ||
+		ENDTABLE
+
+	
+%  The following transitions have been scheduled.
+%  0	: Methods Invoked = {none} 
+%  	: Input Args = {none} 
+%  
+%  1	: Methods Invoked = {set_Inputs}
+%  	: Input Args = {inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)}
+%  
+%  The following arguments must be supplied to invoke the transition predicate.
+%  	index -> The index number corresponding to the schedule you wish to invoke
+%  	pre -> The pre-state of the transition predicate
+%  	post -> The post-state of the transition predicate
+%  	method arguments -> supply the arguments given in the above list of schedules, in the order they appear.
+%  
+%  For an example of how this is intended to work, take a look at the auto-generated consistency theorems below.
+
+	
+%|- mkAlrm_int_REQ : PROOF
+%|- (then (grind))
+%|- QED
+
+mkAlrm_int_REQ : THEOREM 
+		transition (1, s(t), s(next(t)), inp(t), tlo(t), thi(t))
+	AND ALRM_INT_req_3(hi,lo,alrm_int)(next(t))
+	AND ALRM_INT_req_2(inp,tlo,lo)(t)
+	AND ALRM_INT_req_1(inp,thi,hi)(t)
+	AND (init(t) IMPLIES mkmkAlrm_int(s(t)))
+	IMPLIES alrm_int(next(t)) = get_alrm_int(1, s(next(t)))
+		AND lo(next(t)) = get_lo(1, s(next(t)))
+		AND hi(next(t)) = get_hi(1, s(next(t)))
+
+	
+%|- consistency_0 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_0 : Theorem
+	FORALL (i : nat, pre : mkAlrm_int) :
+		EXISTS (post : mkAlrm_int) : 
+		transition(i, pre, post)
+
+	
+%|- consistency_1 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1, inp_in!1, tlo_in!1, thi_in!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_1 : Theorem
+	FORALL (i : nat, pre : mkAlrm_int, inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)) :
+		EXISTS (post : mkAlrm_int) : 
+		transition(i, pre, post, inp_in_0, tlo_in_0, thi_in_0)
+
+	
+end Theorems

@@ -1,0 +1,60 @@
+ClockTick[delta_t: posreal]: THEORY
+BEGIN
+
+IMPORTING Time
+
+n: VAR nat
+
+tick: TYPE = {t: time | EXISTS (n: nat): t = n * delta_t}
+
+x: VAR tick
+
+init(x): bool = (x = 0)
+
+snd(x): bool = (x = delta_t) % t = 1
+
+trd(x) : bool = (x = 2 * delta_t) % t = 2
+
+fth(x) : bool = (x = 3 * delta_t) % t = 3
+
+noninit_elem: TYPE = {x | NOT init(x)}
+
+from_2nd_tick: TYPE = { x | NOT init(x) & NOT snd(x) }
+
+from_3rd_tick: TYPE = { x | NOT init(x) & NOT snd(x) & NOT trd(x) }
+
+y: VAR noninit_elem
+
+yy: VAR from_2nd_tick
+
+yyy: VAR from_3rd_tick
+
+pre(y): tick = y - delta_t
+
+pre_2(yy): tick = yy - 2*delta_t % new
+
+pre_3(yyy): tick = yyy - 3*delta_t % new
+
+next(x): tick = x + delta_t
+
+rank(x): nat = x / delta_t
+
+time_induct: LEMMA
+	FORALL (P: pred[tick]):
+	(FORALL x, n: rank(x) = n IMPLIES P(x)) IMPLIES (FORALL x: P(x))
+
+time_induction: PROPOSITION
+	FORALL (P: pred[tick]):
+	(FORALL (t: tick): init(t) IMPLIES P(t)) AND
+	(FORALL (t: noninit_elem): P(pre(t)) IMPLIES P(t))
+	IMPLIES (FORALL (t: tick): P(t))
+
+tick_PROPERTY0: LEMMA
+	FORALL (n1, n2: nat):
+	n1 * delta_t > n2 * delta_t IFF n1 * delta_t - delta_t >= n2 * delta_t
+
+tick_PROPERTY1: LEMMA FORALL (t: tick | t > 0): t > x IFF pre(t) >= x
+END ClockTick
+
+
+
