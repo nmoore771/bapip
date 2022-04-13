@@ -73,10 +73,12 @@ solveSchedule' tds st (x:xs) total done sat = do
   return (r ++ rs)
   
 unaddressedConflicts :: RuleSchedule -> [ActionPath]
-unaddressedConflicts rule = [ x | x <- conflicts, not (x `elem` resolvedConflicts)]
+unaddressedConflicts rule = trace tracy $ result
   where
       conflicts = conflictsWith rule
       resolvedConflicts = (preempts rule) ++ (isPreemptedBy rule) ++ (executesAfter rule) ++ (executesBefore rule)
+      tracy = ">>>Unaddressed Conflicts for <" ++ (show (rName rule)) ++ "> : " ++ (show result) ++ "\n\tresolvedConflicts = " ++ (show resolvedConflicts) ++ "\n\truleSchedule = " ++ (show rule) ++ "\n----------"
+      result = [ x | x <- conflicts, not (x `elem` resolvedConflicts)]
 
   
 procResults :: [(ActionPath, ActionPath, Bool)] -> [ModuleAttribute]
@@ -104,8 +106,8 @@ invokeSBV tds st (n1, exp1) (n2, exp2) = do
 --   let env = M.fromList (\ x -> (x , (findType st x))) $ nub (c1symbList ++ c2symbList)
 --   let c1 = exp2Cnst tds st exp1 
 --       c2 = exp2Cnst tds st exp2
-  let exp1' = sizeThemLiterals tds st Nothing exp1
-  let exp2' = sizeThemLiterals tds st Nothing exp2
+  let exp1' = (\ x -> trace (show x) x) $ sizeThemLiterals tds st Nothing exp1
+  let exp2' = (\ x -> trace (show x) x) $ sizeThemLiterals tds st Nothing exp2
   --putStrLn $ "Guard Expression 1: " ++ (show exp1') ++ "\n"
   --putStrLn $ "Guard Expression 2: " ++ (show exp2') ++ "\n"
   result <- Data.SBV.Dynamic.satWith yices $ (makePredicate tds st exp1' exp2')
@@ -117,10 +119,10 @@ invokeSBV tds st (n1, exp1) (n2, exp2) = do
   
 makePredicate :: [BSVTypeDef] -> [BSVstateDec] -> Expression -> Expression -> Symbolic SVal
 makePredicate tds st exp1 exp2 = do
-  let c1symbList = extractSymbols exp1 
-  let c2symbList = extractSymbols exp2
-  let vs = nub (c1symbList ++ c2symbList)
-  let vts = map (\ x -> (x , (findType st x))) $ nub (c1symbList ++ c2symbList)
+  let c1symbList = (\ x -> trace (show x) x) $ extractSymbols exp1 
+  let c2symbList = (\ x -> trace (show x) x) $ extractSymbols exp2 
+  let vs = (\ x -> trace (show x) x) $ nub (c1symbList ++ c2symbList)
+  let vts = (\ x -> trace (show x) x) $ map (\ x -> (x , (findType st x))) $ nub (c1symbList ++ c2symbList)
   syms <- mapM (mkVS tds) vts
   let env = M.fromList (zip vs syms) 
   let interp = interpret tds env 

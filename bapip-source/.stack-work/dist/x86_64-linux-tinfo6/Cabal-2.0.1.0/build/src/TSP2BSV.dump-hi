@@ -1,0 +1,1774 @@
+
+==================== FINAL INTERFACE ====================
+2022-04-13 02:59:06.081219499 UTC
+
+interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:TSP2BSV 8022
+  interface hash: 5ec9fcfcb63fe553a5972b54c56388a3
+  ABI hash: 5ed73f33fc00140b2cf3ade9d210c529
+  export-list hash: 84c60f33a498a2352c5f16f665ede89b
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: aa1a6078e28560b315026c49539ca393
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  TSP2BSV.addIn
+  TSP2BSV.addInputRefs
+  TSP2BSV.addRegRefsReps
+  TSP2BSV.addTimeRefReplacements
+  TSP2BSV.applyRepsToReps
+  TSP2BSV.atrr
+  TSP2BSV.cleanseVars
+  TSP2BSV.constructReturnStatement
+  TSP2BSV.convertExpressionToReplacement
+  TSP2BSV.convertToRegister
+  TSP2BSV.crush
+  TSP2BSV.deMaybe
+  TSP2BSV.emptyPackage
+  TSP2BSV.eqStateID
+  TSP2BSV.extractHistoryReferences
+  TSP2BSV.fetchInit
+  TSP2BSV.fetchType
+  TSP2BSV.findExpressionsContaining
+  TSP2BSV.findType
+  TSP2BSV.findTypeInFields
+  TSP2BSV.findTypeInRecord
+  TSP2BSV.funcOrId
+  TSP2BSV.gatherHistory
+  TSP2BSV.gatherInputs
+  TSP2BSV.gatherInputs'
+  TSP2BSV.gatherOutputs
+  TSP2BSV.genArgs
+  TSP2BSV.genInputMeth
+  TSP2BSV.genInputMethod
+  TSP2BSV.genInputMethod'
+  TSP2BSV.genInterface
+  TSP2BSV.genInterfaces
+  TSP2BSV.genMethDecs
+  TSP2BSV.genMethods'
+  TSP2BSV.genModule
+  TSP2BSV.genOutputMeth
+  TSP2BSV.genOutputMethods
+  TSP2BSV.genOutputMeths
+  TSP2BSV.genRules'
+  TSP2BSV.genSecondaryOutputMethods
+  TSP2BSV.genStates'
+  TSP2BSV.genStates''
+  TSP2BSV.genStates'''
+  TSP2BSV.genStatesFromVar'
+  TSP2BSV.generateTableStatement
+  TSP2BSV.generateTableStatement'
+  TSP2BSV.historyWrites
+  TSP2BSV.inputEQ
+  TSP2BSV.inputNEQ
+  TSP2BSV.ioVarsList
+  TSP2BSV.isSecondaryTable
+  TSP2BSV.kludgeInit
+  TSP2BSV.p2bArg
+  TSP2BSV.p2bFunc
+  TSP2BSV.p2bMacro
+  TSP2BSV.p2bType
+  TSP2BSV.p2bTypeDef
+  TSP2BSV.removeIn
+  TSP2BSV.showIDPath
+  TSP2BSV.showIDPath'
+  TSP2BSV.tsp2bsv
+module dependencies: BSV2PVS LexerTypes PVSGenerator
+package dependencies: array-0.5.2.0 base-4.10.1.0 binary-0.8.5.1
+                      bytestring-0.10.8.2 containers-0.5.10.2 deepseq-1.4.3.0 extra-1.6.8
+                      ghc-prim-0.5.1.1 integer-gmp-1.0.1.0 split-0.2.3.3 text-1.2.3.0
+orphans: text-1.2.3.0:Data.Text binary-0.8.5.1:Data.Binary.Generic
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         text-1.2.3.0:Data.Text.Show base-4.10.1.0:GHC.Float
+         base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Complex base-4.10.1.0:Data.Either
+                         base-4.10.1.0:Data.Functor.Compose base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity
+                         base-4.10.1.0:Data.Functor.Product base-4.10.1.0:Data.Functor.Sum
+                         base-4.10.1.0:Data.List.NonEmpty base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Semigroup base-4.10.1.0:Data.Type.Equality
+                         base-4.10.1.0:Data.Version base-4.10.1.0:Data.Void
+                         base-4.10.1.0:GHC.Exts base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats containers-0.5.10.2:Data.IntMap.Internal
+                         containers-0.5.10.2:Data.IntSet.Internal
+                         containers-0.5.10.2:Data.Map.Internal
+                         containers-0.5.10.2:Data.Sequence.Internal
+                         containers-0.5.10.2:Data.Set.Internal containers-0.5.10.2:Data.Tree
+                         text-1.2.3.0:Data.Text
+import  -/  BSV2PVS eb3ee6b0bd303dee9acbaec2ddf297aa
+  exports: 8e63f2db6cb8b79e8d3539121d9787c0
+  applyReplacementExp 06f89af14be10de4d0fe5fb9de5cf550
+  rmRF a3f3adf2fcd04946bb1a5453e420333b
+import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
+  exports: 24099e1d1a603a4b110bad9ae51c8629
+  Action e0098cb1d9678619d5aeab522d9aa7d4
+  Add 36538cb76d628c0acd4a4cf71078cdb4
+  And e22c6395cd4b23e2790ce49d4543b755
+  Argument 93c68e38876debf7336af4b4cf3614b5
+  BSVFunction 543f7b92bb23936b640d985e609f9f1f
+  BSVMacro 150b9413fc0ca585963b402f9a2b8cb8
+  BSVModuleDec 074780e36a5923bf79c4d10eacc7b193
+  BSVModuleDec 6a9e148802acadaa54114400a09553a4
+  BSVPackage 3a2e6daacdb9fafe12eb62fa2818e2c8
+  BSVPackage dca7bfb1a37746d89b662b651361e667
+  BSVType 4a6fa266ef9464fb93f2d34d394bedde
+  BSVTypeDef 8e4fa46f3b3e0dfb841487fd74787a36
+  BSV_Bit b7bdba10c8eb1b1e91e90f40be229e2c
+  BSV_Bool 01eddf3beaa8c7925d8ccb76e15f4fc4
+  BSV_Custom 3e037feb3dae439d4704b3fad55dd49b
+  BSV_Enumeration bedc0fcd727049aa2e0541fbd11f84b4
+  BSV_Int 4204bd688ea42600a7a56fbf7a805572
+  BSV_Real 74fd7cf943d91608036060a198b78300
+  BSV_Reg bebd524f4e8ace342acec9513d4ad26a
+  BSV_Struct e68a86d94ad261d6d0d40e01c97f4031
+  BSV_Synonym dcaabe3758db3247f01951246c828702
+  BSV_UInt 188b355edf0c4b3f1e8d57c4aeebe56f
+  BSVstateDec 8c52b7703dbf130a1d71c377ab4031f7
+  BitwiseAND 7e507419ece991ad7ce0f2956c9aa213
+  BitwiseOR 302153d3c58ce21102a7455a65b88105
+  BitwiseXOR c9cc2432ec74bae8bc7895c9ccd99e77
+  Divide 4e0e22b926cf6cc14d39a04fc286fe36
+  Equals 61c8e1ea5b6b779f6da6a09d78deda00
+  Exp_FunctionCall e2d5fa7c978122cee21bc7c2633d698e
+  Exp_If 8f8ce8dc133821fef9f9cd8882f50996
+  Exp_MethodCall e0fa569420d352ff8a5c69ead86bec0f
+  Expression 6b58178d3226f5dcfa379df74cd7f6b5
+  Greater 6b9689f45536195da18383e5326b97a8
+  GreaterEquals 6d9a338a7609c353aeb3bdce17362ec6
+  ID 162ab617d5709f209b382d729b114647
+  ID_Path 6b58178d3226f5dcfa379df74cd7f6b5
+  ID_Submod_Struct 463de23e5c7996a7d7e8c379f21535c2
+  ID_Vect ac4504a9362ebe24ddb26ea1baec8978
+  Identifier f34a421e3991b38924384ea37d474049
+  If 32fa666fb38bd1ab23f33b637083b1ac
+  InterfaceDec 1499c0615b3c44798666b03c4c00ca8f
+  LShift a6a4b281298d1b8a75f764462c15d6a1
+  Less d59e317442af542f318ae1618692d2bb
+  LessEquals 0253bd2afe07783f24a5580881609c67
+  LitBool f9036459d5bfa3180b25936630b48534
+  LitReal 1718a0fd8087fa703023fd43c6f0504f
+  LitSizedInt 8b76517d0d11aa759dbd7f9307ca74b7
+  LitStructConstructor a91bdcbd8e359522c690b7666c6b98b4
+  LitVoid 78667fcb5e09de66105a1d72dda08978
+  Literal 337aee2c7f9cd9dd951f930c9b9dbe73
+  Literal 6b58178d3226f5dcfa379df74cd7f6b5
+  MethodBody b57efcbb684bd3a4b73bc89a60f4ae60
+  MethodDec d322641a77af09ae68c30d0c7b8ae44a
+  Modulo ef51c13e1735d14b66d320257e21a593
+  Multiply 2e1955b341ad5724899f6d2460f61d10
+  Negative 9890405dd1a0c5764d6155433ae9484e
+  Not 22d1103f357094a67193828970d4b051
+  NotEquals ca898c161ed932983a471d3d692c86bf
+  Or 29cc9a489f4941fb8f760730dd0dff52
+  PVSArgument 7d8a7e836795cb9d22f15bbe05b0f092
+  PVSFunction bd8391fe6aa4b9aeeace864d9f179cb4
+  PVSMacro 352e0a39a83babb6fa7b7da1356b7d31
+  PVSPackage dc3bf8ecc9848020fdad1884e49329c4
+  PVSPackage 2ebe3fda021fa922603a337269985adf
+  PVSType 5293579e9cbbf6986dcf46fee97434cb
+  PVSTypeDef 263d5987ddec79fadf35563de5be9f0c
+  PVS_Bit 22acc7100431b38432c9c3c07d2b2a41
+  PVS_Bool 9e0621e80245a1f11c51a0ee4357c949
+  PVS_Custom 3b7a0ad00510c97e677113fc5dcc2393
+  PVS_Enumeration 4c8f7f14ccc0ee1299e205bd31c7048b
+  PVS_Field 907934b371d6291fd472d601c345122a
+  PVS_Int 00b5ec9b246ed8c7086e269060a6072e
+  PVS_Real 92e906bfc31d0cbaed8d7427f91679ca
+  PVS_Struct 3e464b1a1f5a13bed37a0a89c99f7fb7
+  PVS_Synonym 8a9d46d2cacf21d3788db9f5d6b38bde
+  PVS_UInt db0d5cc35fbfe6395496e1c360f6dd95
+  RPFlag fd68b5813118d833864d10cc9b8844fd
+  RShift 6a6e1d65a10e1f1cbb73413d5cb25175
+  Replacement e8e0dabb470ed6767d6eeba2a104c650
+  Return 469e4383a60a510108937994587a9aec
+  RuleDec bdce4999eb06aa1f9b7a13dd2d78793f
+  SimpleMacro 0882c8cbfd0670e074cbb22fa6641f68
+  Skip c4d4e47795a29b6972a451ca43a86c1a
+  Statement cadc4dd88ae52d1939dfeb3e511aff3a
+  Subtract 8f6065598203e3e8d21db427badb1bf6
+  TSPTable 8b6d1afccd9c3b1fa2d8d2ad6c723805
+  TSPpackage c811cfd5a607fccc3baae6462b8eca1f
+  TVarDec e24892224e84f179f5d881ea6ad6b8d1
+  Value 32de6853cb64c8109f36358d63ce8808
+  Write 9fdf095920f28fc4f1944f4c4fbe9211
+  actions 6a9e148802acadaa54114400a09553a4
+  attributes 6a9e148802acadaa54114400a09553a4
+  bsv_constants dca7bfb1a37746d89b662b651361e667
+  bsv_functions dca7bfb1a37746d89b662b651361e667
+  bsv_instDefs dca7bfb1a37746d89b662b651361e667
+  bsv_macros dca7bfb1a37746d89b662b651361e667
+  bsv_modules dca7bfb1a37746d89b662b651361e667
+  bsv_packageName dca7bfb1a37746d89b662b651361e667
+  bsv_typedefs dca7bfb1a37746d89b662b651361e667
+  defInsts c811cfd5a607fccc3baae6462b8eca1f
+  hexFiles dca7bfb1a37746d89b662b651361e667
+  imports dca7bfb1a37746d89b662b651361e667
+  including dca7bfb1a37746d89b662b651361e667
+  instanceName 6a9e148802acadaa54114400a09553a4
+  instances 6a9e148802acadaa54114400a09553a4
+  interfaceDecs 6a9e148802acadaa54114400a09553a4
+  interfaceName 6a9e148802acadaa54114400a09553a4
+  interfaces dca7bfb1a37746d89b662b651361e667
+  mName 6a9e148802acadaa54114400a09553a4
+  macros c811cfd5a607fccc3baae6462b8eca1f
+  methods 6a9e148802acadaa54114400a09553a4
+  pvs_constants 2ebe3fda021fa922603a337269985adf
+  pvs_functions 2ebe3fda021fa922603a337269985adf
+  pvs_instantiations 2ebe3fda021fa922603a337269985adf
+  pvs_packageName 2ebe3fda021fa922603a337269985adf
+  pvs_state 2ebe3fda021fa922603a337269985adf
+  pvs_typedefs 2ebe3fda021fa922603a337269985adf
+  rules 6a9e148802acadaa54114400a09553a4
+  state 6a9e148802acadaa54114400a09553a4
+  tName c811cfd5a607fccc3baae6462b8eca1f
+  transitions 2ebe3fda021fa922603a337269985adf
+  tsp_funcs c811cfd5a607fccc3baae6462b8eca1f
+  tsps c811cfd5a607fccc3baae6462b8eca1f
+  typedefs c811cfd5a607fccc3baae6462b8eca1f
+  varDecs c811cfd5a607fccc3baae6462b8eca1f
+import  -/  PVSGenerator 8d4e4e859980febfddaf00c386ee1b0d
+  exports: 639d2548fffd793017ab14a56364f58d
+  showPVSExpression 7561ce23fd78c68b19fa698293fd1d56
+import  -/  base-4.10.1.0:Data.Bits e0790a03e1e51e2d053ee3f563937f85
+import  -/  base-4.10.1.0:Data.Foldable 9ed87455d68e87ff2b5b8725eae9897e
+import  -/  base-4.10.1.0:Data.List 4ab7fa2a1b87502b23af891a384f0506
+import  -/  base-4.10.1.0:Data.OldList 555420b092ca8cf0a8f9666bc0e07dcf
+import  -/  base-4.10.1.0:Data.Tuple 8fa1305aa5032ea35e2a54fa5f1e78f9
+import  -/  base-4.10.1.0:GHC.Base 782fd99b5e36f3698a26179a49afca64
+import  -/  base-4.10.1.0:GHC.Err 514b3a24b22e9d7d731c2d0d02d10842
+import  -/  base-4.10.1.0:GHC.List e3060fbeb44ce0038e6b4dedf2dd9cf1
+import  -/  base-4.10.1.0:GHC.Show 0a8ce2b5e533d1c2cfb7954e6736be45
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  ghc-prim-0.5.1.1:GHC.Classes 93e2660065dce9329577e83d76d8f0d4
+47011ed84ca1deae7a3ef3ec8d67180c
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   TSP2BSV.$trModule3
+                   TSP2BSV.$trModule1) -}
+63e87cbc189e1be60fb921bd45fd8a7f
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS TSP2BSV.$trModule2) -}
+6d215dc80d98c0bde21e3ba25f79762b
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("TSP2BSV"#) -}
+9c081693fe60b012f6e5b7a0b8194b1f
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS TSP2BSV.$trModule4) -}
+7c9cab33a181d3dac8cb89065960c23a
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD"#) -}
+97559031e3e96e39b3c7fc65ed8e752b
+  $wconvertExpressionToReplacement ::
+    LexerTypes.Expression
+    -> GHC.Types.Bool
+    -> (# LexerTypes.Expression, LexerTypes.Expression #)
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (w :: LexerTypes.Expression)
+                   (w1 :: GHC.Types.Bool) ->
+                 case w of wild {
+                   DEFAULT
+                   -> case TSP2BSV.convertExpressionToReplacement6
+                      ret_ty (# LexerTypes.Expression, LexerTypes.Expression #)
+                      of {}
+                   LexerTypes.Exp_FunctionCall x ys
+                   -> (# wild,
+                         LexerTypes.Identifier
+                           (LexerTypes.ID
+                              (case ys of wild1 {
+                                 [] -> case GHC.List.badHead ret_ty GHC.Base.String of {}
+                                 : x1 ds1
+                                 -> case x1 of wild2 {
+                                      DEFAULT
+                                      -> case TSP2BSV.convertExpressionToReplacement5
+                                         ret_ty GHC.Base.String
+                                         of {}
+                                      LexerTypes.Identifier ds
+                                      -> case w1 of wild3 {
+                                           GHC.Types.False
+                                           -> GHC.Base.++
+                                                @ GHC.Types.Char
+                                                x
+                                                TSP2BSV.convertExpressionToReplacement3
+                                           GHC.Types.True -> x }
+                                      LexerTypes.Exp_FunctionCall ds ds2
+                                      -> GHC.Base.++
+                                           @ GHC.Types.Char
+                                           x
+                                           TSP2BSV.convertExpressionToReplacement1 } })) #) }) -}
+fe684db59ea3eb8c890941c2ca402eae
+  $wdeprev :: LexerTypes.ID_Path -> (# GHC.Base.String #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: LexerTypes.ID_Path) ->
+                 case w of wild {
+                   DEFAULT
+                   -> case TSP2BSV.historyWrites3 ret_ty (# GHC.Base.String #) of {}
+                   LexerTypes.ID x
+                   -> (# case GHC.List.dropWhile
+                                @ GHC.Types.Char
+                                TSP2BSV.historyWrites2
+                                (GHC.List.reverse1
+                                   @ GHC.Types.Char
+                                   x
+                                   (GHC.Types.[] @ GHC.Types.Char)) of wild1 {
+                           [] -> case GHC.List.scanl2 ret_ty GHC.Base.String of {}
+                           : ds1 xs
+                           -> GHC.List.reverse1
+                                @ GHC.Types.Char
+                                xs
+                                (GHC.Types.[] @ GHC.Types.Char) } #) }) -}
+6c6d6ac11555abf587a8602602a880a9
+  $wgatherHistory ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.Replacement]
+    -> [LexerTypes.TSPLine]
+    -> [LexerTypes.BSVstateDec]
+  {- Arity: 3, Strictness: <L,U><S,U><L,U>, Inline: [0],
+     Unfolding: (\ (w :: [LexerTypes.TVarDec])
+                   (ww :: [LexerTypes.Replacement])
+                   (ww1 :: [LexerTypes.TSPLine]) ->
+                 let {
+                   z :: [LexerTypes.Expression]
+                   = letrec {
+                       go11 :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                               -> [LexerTypes.Expression]
+                         {- Arity: 1, Strictness: <S,1*U> -}
+                       = \ (ds :: [(LexerTypes.Expression, LexerTypes.Expression)]) ->
+                         case ds of wild {
+                           [] -> GHC.Types.[] @ LexerTypes.Expression
+                           : y ys
+                           -> TSP2BSV.gatherHistory_c
+                                (GHC.Base.map
+                                   @ (LexerTypes.Guard, LexerTypes.Expression)
+                                   @ LexerTypes.Expression
+                                   (\ (x :: (LexerTypes.Guard, LexerTypes.Expression)) ->
+                                    case x of wild1 { (,) ds1 y1 ->
+                                    BSV2PVS.applyReplacementExp y y1 })
+                                   ww1)
+                                (go11 ys) }
+                     } in
+                     go11 ww
+                 } in
+                 letrec {
+                   go11 :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                           -> [LexerTypes.Expression]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(LexerTypes.Expression, LexerTypes.Expression)]) ->
+                     case ds of wild {
+                       [] -> z
+                       : y ys
+                       -> TSP2BSV.gatherHistory_c
+                            (GHC.Base.map
+                               @ (LexerTypes.Guard, LexerTypes.Expression)
+                               @ LexerTypes.Expression
+                               (\ (x :: (LexerTypes.Guard, LexerTypes.Expression)) ->
+                                case x of wild1 { (,) x1 ds1 -> BSV2PVS.applyReplacementExp y x1 })
+                               ww1)
+                            (go11 ys) }
+                 } in
+                 TSP2BSV.convertToRegister
+                   (TSP2BSV.extractHistoryReferences
+                      (Data.OldList.nubBy
+                         @ LexerTypes.Expression
+                         LexerTypes.$fEqExpression_$c==
+                         (go11 ww)))
+                   w) -}
+b551b525933db66cf06d764d5ff21e3d
+  $wgenInputMethod' ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> (# LexerTypes.MethodName, LexerTypes.ReturnType,
+          LexerTypes.UTArgs, LexerTypes.Guard, [LexerTypes.Statement],
+          [LexerTypes.MethodBodyAttribute] #)
+  {- Arity: 2, Strictness: <L,U><L,U>, Inline: [0],
+     Unfolding: (\ (w :: [LexerTypes.TVarDec])
+                   (w1 :: [LexerTypes.TSPTable]) ->
+                 let {
+                   inputs :: [GHC.Base.String] = TSP2BSV.gatherInputs' w1
+                 } in
+                 (# TSP2BSV.genInputMeth1, LexerTypes.Action,
+                    GHC.Base.map
+                      @ [GHC.Types.Char]
+                      @ ([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)
+                      TSP2BSV.genInputMethod4
+                      inputs,
+                    TSP2BSV.genInputMethod2,
+                    letrec {
+                      outputs :: [LexerTypes.ID_Path]
+                      = GHC.Base.map
+                          @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                             LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                             [LexerTypes.TSPLine])
+                          @ LexerTypes.ID_Path
+                          TSP2BSV.gatherInputs'1
+                          tabs'
+                      tabs' :: [LexerTypes.TSPTable]
+                      = GHC.Base.map
+                          @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                             [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                          @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                             [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                          (\ (x :: LexerTypes.TSPTable) ->
+                           case x of wild { (,,,,,) a reg b reps d tspLines ->
+                           (a, reg, b, TSP2BSV.atrr reps GHC.Types.False outputs, d,
+                            TSP2BSV.atrr tspLines GHC.Types.False outputs) })
+                          w1
+                    } in
+                    let {
+                      newReps :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                      = GHC.Base.map
+                          @ LexerTypes.ID_Path
+                          @ (LexerTypes.Expression, LexerTypes.Expression)
+                          TSP2BSV.addRegRefsReps1
+                          outputs
+                    } in
+                    letrec {
+                      go11 :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                              -> [(LexerTypes.Expression, LexerTypes.Expression)]
+                        {- Arity: 1, Strictness: <S,1*U> -}
+                      = \ (ds :: [(LexerTypes.Expression, LexerTypes.Expression)]) ->
+                        case ds of wild {
+                          [] -> newReps
+                          : y ys
+                          -> GHC.Types.:
+                               @ (LexerTypes.Expression, LexerTypes.Expression)
+                               (TSP2BSV.applyRepsToReps y newReps)
+                               (go11 ys) }
+                    } in
+                    let {
+                      z :: [LexerTypes.Statement]
+                      = TSP2BSV.historyWrites w w1 outputs inputs
+                    } in
+                    letrec {
+                      go12 :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                                LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                                [LexerTypes.TSPLine])]
+                              -> [LexerTypes.Statement]
+                        {- Arity: 1, Strictness: <S,1*U> -}
+                      = \ (ds :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                                   LexerTypes.Expression, [LexerTypes.Replacement],
+                                   [GHC.Base.String], [LexerTypes.TSPLine])]) ->
+                        case ds of wild {
+                          [] -> z
+                          : y ys
+                          -> GHC.Types.:
+                               @ LexerTypes.Statement
+                               (case y of wild1 { (,,,,,) a reg b reps d tspLines ->
+                                TSP2BSV.$wgenerateTableStatement
+                                  reg
+                                  (GHC.Base.++
+                                     @ (LexerTypes.Expression, LexerTypes.Expression)
+                                     (go11 reps)
+                                     (GHC.Base.map
+                                        @ [GHC.Types.Char]
+                                        @ (LexerTypes.Expression, LexerTypes.Expression)
+                                        TSP2BSV.addInputRefs1
+                                        d))
+                                  tspLines })
+                               (go12 ys) }
+                    } in
+                    go12 tabs',
+                    GHC.Types.[] @ LexerTypes.MethodBodyAttribute #)) -}
+a4bff93a8528e65e69f4ea0ef5482400
+  $wgenMethods' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> (# LexerTypes.MethodBody, [LexerTypes.MethodBody] #)
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>, Inline: [0],
+     Unfolding: (\ (w :: [LexerTypes.PVSTypeDef])
+                   (w1 :: [LexerTypes.TVarDec])
+                   (w2 :: [LexerTypes.TSPTable]) ->
+                 let {
+                   outVars :: [LexerTypes.ID_Path]
+                   = GHC.Base.map
+                       @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                          LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                          [LexerTypes.TSPLine])
+                       @ LexerTypes.ID_Path
+                       TSP2BSV.gatherInputs'1
+                       w2
+                 } in
+                 (# case TSP2BSV.$wgenInputMethod'
+                           w1
+                           (GHC.List.filter
+                              @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                                 [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                              (\ (x :: LexerTypes.TSPTable) ->
+                               case x of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                               case TSP2BSV.$wisSecondaryTable ww5 outVars of wild {
+                                 GHC.Types.False -> GHC.Types.True
+                                 GHC.Types.True -> GHC.Types.False } })
+                              w2) of ww { (#,,,,,#) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                    (ww1, ww2, ww3, ww4, ww5, ww6) },
+                    GHC.Base.++
+                      @ (LexerTypes.MethodName, LexerTypes.ReturnType, LexerTypes.UTArgs,
+                         LexerTypes.Guard, [LexerTypes.Statement],
+                         [LexerTypes.MethodBodyAttribute])
+                      (TSP2BSV.genOutputMethods
+                         w
+                         w1
+                         (GHC.List.filter
+                            @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                               [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                            (\ (x :: LexerTypes.TSPTable) ->
+                             case x of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                             case TSP2BSV.$wisSecondaryTable ww5 outVars of wild {
+                               GHC.Types.False -> GHC.Types.True
+                               GHC.Types.True -> GHC.Types.False } })
+                            w2))
+                      (TSP2BSV.genSecondaryOutputMethods
+                         w
+                         w1
+                         (GHC.List.filter
+                            @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                               [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                            (\ (x :: LexerTypes.TSPTable) ->
+                             TSP2BSV.isSecondaryTable x outVars)
+                            w2)) #)) -}
+8f05b0a7d4790a43875f1e36c10072ae
+  $wgenStatesFromVar' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [GHC.Base.String]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.BSVstateDec]
+  {- Arity: 4, Strictness: <L,U><L,U><S,1*U><L,U>, Inline: [0] -}
+dfa0c59088b929882118159798f5b3b0
+  $wgenerateTableStatement ::
+    LexerTypes.TSPOutVar
+    -> [LexerTypes.Replacement]
+    -> [LexerTypes.TSPLine]
+    -> LexerTypes.Statement
+  {- Arity: 3, Strictness: <L,U(U,A)><L,U><S,1*U>, Inline: [0] -}
+9329b823fcc5cc0fe858dcaa1972cc3e
+  $wgenerateTableStatement' ::
+    [LexerTypes.Replacement]
+    -> [LexerTypes.TSPLine] -> LexerTypes.Statement
+  {- Arity: 2, Strictness: <L,1*U><S,1*U>, Inline: [0] -}
+2b0a2e20be7ace1c02032819917ceda1
+  $wisSecondaryTable ::
+    [GHC.Base.String] -> [LexerTypes.ID_Path] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: [GHC.Base.String])
+                   (w :: [LexerTypes.ID_Path]) ->
+                 let {
+                   ds :: [GHC.Base.String]
+                   = GHC.Base.map
+                       @ LexerTypes.ID_Path
+                       @ [GHC.Types.Char]
+                       TSP2BSV.showIDPath
+                       w
+                 } in
+                 letrec {
+                   go11 :: [[GHC.Types.Char]] -> GHC.Types.Bool
+                     <join 1> {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds1 :: [[GHC.Types.Char]]) ->
+                     case ds1 of wild {
+                       [] -> GHC.Types.True
+                       : y ys
+                       -> case GHC.List.elem
+                                 @ GHC.Base.String
+                                 GHC.Classes.$fEq[]_$s$fEq[]1
+                                 y
+                                 ds of wild1 {
+                            GHC.Types.False -> GHC.Types.False GHC.Types.True -> go11 ys } }
+                 } in
+                 go11 ww) -}
+defe889e6985cd3310f813115533e4b8
+  addIn :: LexerTypes.ID_Path -> LexerTypes.ID_Path
+  {- Arity: 1, Strictness: <S,1*U> -}
+2fe1c9aef91e626d42fdeb4d275498e8
+  addInputRefs :: LexerTypes.TSPTable -> LexerTypes.TSPTable
+  {- Arity: 1, Strictness: <S,1*U(U,U,U,1*U,U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (LexerTypes.TName, LexerTypes.TSPOutVar,
+                           LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                           [LexerTypes.TSPLine])) ->
+                 case ds of wild { (,,,,,) a b c reps inputs f ->
+                 (a, b, c,
+                  GHC.Base.build
+                    @ (LexerTypes.Expression, LexerTypes.Expression)
+                    (\ @ b1
+                       (c1 :: (LexerTypes.Expression, LexerTypes.Expression)
+                              -> b1 -> b1)[OneShot]
+                       (n :: b1)[OneShot] ->
+                     GHC.Base.foldr
+                       @ (LexerTypes.Expression, LexerTypes.Expression)
+                       @ b1
+                       c1
+                       (GHC.Base.foldr
+                          @ [GHC.Types.Char]
+                          @ b1
+                          (GHC.Base.mapFB
+                             @ (LexerTypes.Expression, LexerTypes.Expression)
+                             @ b1
+                             @ [GHC.Types.Char]
+                             c1
+                             TSP2BSV.addInputRefs1)
+                          n
+                          inputs)
+                       reps),
+                  inputs, f) }) -}
+a65d86f439ac8dc46622791d51835b78
+  addInputRefs1 ::
+    GHC.Base.String -> (LexerTypes.Expression, LexerTypes.Expression)
+  {- Arity: 1, Strictness: <L,U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: GHC.Base.String) ->
+                 (LexerTypes.Identifier (LexerTypes.ID x),
+                  LexerTypes.Identifier (TSP2BSV.addIn (LexerTypes.ID x)))) -}
+172f29e3d97c3bac1374b63f1071a428
+  addRegRefsReps ::
+    [LexerTypes.ID_Path] -> LexerTypes.TSPTable -> LexerTypes.TSPTable
+  {- Arity: 2, Strictness: <L,1*U><S,1*U(U,U,U,1*U,U,U)>m,
+     Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.ID_Path]) (w1 :: LexerTypes.TSPTable) ->
+                 case w1 of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 (ww1, ww2, ww3,
+                  let {
+                    newReps :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                    = GHC.Base.map
+                        @ LexerTypes.ID_Path
+                        @ (LexerTypes.Expression, LexerTypes.Expression)
+                        TSP2BSV.addRegRefsReps1
+                        w
+                  } in
+                  letrec {
+                    go11 :: [(LexerTypes.Expression, LexerTypes.Expression)]
+                            -> [(LexerTypes.Expression, LexerTypes.Expression)]
+                      {- Arity: 1, Strictness: <S,U> -}
+                    = \ (ds :: [(LexerTypes.Expression, LexerTypes.Expression)]) ->
+                      case ds of wild {
+                        [] -> newReps
+                        : y ys
+                        -> GHC.Types.:
+                             @ (LexerTypes.Expression, LexerTypes.Expression)
+                             (TSP2BSV.applyRepsToReps y newReps)
+                             (go11 ys) }
+                  } in
+                  go11 ww4,
+                  ww5, ww6) }) -}
+f27f30d0888d95e8ff23240ed20ddb93
+  addRegRefsReps1 ::
+    LexerTypes.ID_Path
+    -> (LexerTypes.Expression, LexerTypes.Expression)
+  {- Arity: 1, Strictness: <L,U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.ID_Path) ->
+                 (LexerTypes.Identifier (TSP2BSV.addIn x),
+                  LexerTypes.Identifier x)) -}
+7fa138a4bf28b7d90fc7e3578d5d0c6e
+  addTimeRefReplacements ::
+    LexerTypes.TSPTable
+    -> GHC.Types.Bool -> [LexerTypes.ID_Path] -> LexerTypes.TSPTable
+  {- Arity: 3, Strictness: <S,1*U(U,U,U,U,U,U)><L,U><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: (LexerTypes.TName, LexerTypes.TSPOutVar,
+                           LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                           [LexerTypes.TSPLine]))
+                   (mode :: GHC.Types.Bool)
+                   (outputs :: [LexerTypes.ID_Path]) ->
+                 case ds of wild { (,,,,,) a reg b reps d tspLines ->
+                 (a, reg, b, TSP2BSV.atrr reps mode outputs, d,
+                  TSP2BSV.atrr tspLines mode outputs) }) -}
+14cfa81ee3811a2d0b455c7291d41f98
+  applyRepsToReps ::
+    LexerTypes.Replacement
+    -> [LexerTypes.Replacement] -> LexerTypes.Replacement
+  {- Arity: 2, Strictness: <S,1*U(U,U)><S,1*U>m, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: LexerTypes.Replacement)
+                   (w1 :: [LexerTypes.Replacement]) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 case w1 of wild {
+                   [] -> (ww1, ww2)
+                   : ipv ipv1
+                   -> (ww1,
+                       letrec {
+                         go11 :: [LexerTypes.Replacement]
+                                 -> LexerTypes.Expression -> LexerTypes.Expression
+                           <join 2> {- Arity: 2, Strictness: <S,U><S,U> -}
+                         = \ (ds :: [LexerTypes.Replacement])
+                             (eta :: LexerTypes.Expression) ->
+                           case ds of wild1 {
+                             [] -> eta
+                             : y ys
+                             -> case y of ww3 { (,) ww4 ww5 ->
+                                go11 ys (BSV2PVS.$wapplyReplacementExp ww4 ww5 eta) } }
+                       } in
+                       go11 wild ww2) } }) -}
+c3b3e4b3f3130edd3f69ca0b23f076e0
+  atrr ::
+    [(LexerTypes.Expression, LexerTypes.Expression)]
+    -> GHC.Types.Bool
+    -> [LexerTypes.ID_Path]
+    -> [(LexerTypes.Expression, LexerTypes.Expression)]
+  {- Arity: 3, Strictness: <S,U><L,U><L,1*U> -}
+35952aeea7254bb9a186b3398b1d4eb4
+  cleanseVars ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable] -> [LexerTypes.TVarDec]
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+115761b4cf5b2c48ca190614624c7b8f
+  constructReturnStatement ::
+    LexerTypes.Expression -> LexerTypes.Statement
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+b5783b655f655e56e4824d9ba4984c9b
+  convertExpressionToReplacement ::
+    LexerTypes.Expression
+    -> GHC.Types.Bool -> (LexerTypes.Expression, LexerTypes.Expression)
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>m, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: LexerTypes.Expression) (w1 :: GHC.Types.Bool) ->
+                 case TSP2BSV.$wconvertExpressionToReplacement
+                        w
+                        w1 of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+5ed9ab15a2209df61d8de1c87f2c3886
+  convertExpressionToReplacement1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   TSP2BSV.convertExpressionToReplacement2) -}
+2f2d485492dc578ae179f4a1b4fd3135
+  convertExpressionToReplacement2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("_prev"#) -}
+b5b5337263f0815d9ae3d09058fe787c
+  convertExpressionToReplacement3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   TSP2BSV.convertExpressionToReplacement4) -}
+5b8e27225968bc2b644cb9c72f8092f4
+  convertExpressionToReplacement4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("_in"#) -}
+361706862d5966fa228644c53fb6a157
+  convertExpressionToReplacement5 :: GHC.Types.Bool
+  {- Strictness: x -}
+e337789fcc7dcc8be7daa272623defe5
+  convertExpressionToReplacement6 ::
+    (LexerTypes.Expression, LexerTypes.Expression)
+  {- Strictness: x -}
+ee525042c281939419d05ed992c3ac16
+  convertToRegister ::
+    [GHC.Base.String]
+    -> [LexerTypes.TVarDec] -> [LexerTypes.BSVstateDec]
+  {- Arity: 2, Strictness: <S,1*U><L,U> -}
+cb7c6af6cb83fd70b7ed9127d929e1cc
+  crush :: GHC.Classes.Eq a => [a] -> [a] -> [a]
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <L,U(C(C1(U)),A)><S,U><S,U> -}
+e1bf32e31154564c85245920d7ff1188
+  crush_$scrush ::
+    [GHC.Base.String] -> [GHC.Base.String] -> [GHC.Base.String]
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,U><S,U> -}
+cfeddb0f3085b0750ba88cb244712a0b
+  deMaybe :: GHC.Base.Maybe a -> a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ @ a (ds :: GHC.Base.Maybe a) ->
+                 case ds of wild {
+                   GHC.Base.Nothing -> TSP2BSV.deMaybe1 @ a GHC.Base.Just x -> x }) -}
+d62ffdddb1418a455cbd6995e26a44b0
+  deMaybe1 :: a
+  {- Strictness: x -}
+ee6110a4df29460db5ec42c25cd7e155
+  emptyPackage :: LexerTypes.PVSPackage
+  {- Strictness: m,
+     Unfolding: (LexerTypes.PVSPackage
+                   TSP2BSV.emptyPackage1
+                   (GHC.Types.[] @ LexerTypes.PVSConstantDec)
+                   (GHC.Types.[] @ LexerTypes.PVSTypeDef)
+                   (GHC.Types.[] @ LexerTypes.PVStransition)
+                   (GHC.Types.[] @ LexerTypes.PVSstateDec)
+                   (GHC.Types.[] @ LexerTypes.PVSInstDef)
+                   (GHC.Types.[] @ LexerTypes.PVSFunction)) -}
+15715f3127141b4a9543d0cb1d7cbe48
+  emptyPackage1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.emptyPackage2) -}
+eb5f17c064e1bc1729e64481a5f70a74
+  emptyPackage2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("null"#) -}
+35c0dc88367d539fe3175b3ec099ca27
+  eqStateID ::
+    GHC.Base.String -> LexerTypes.ID_Path -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (x :: GHC.Base.String) (ds :: LexerTypes.ID_Path) ->
+                 case ds of wild {
+                   LexerTypes.ID_Submod_Struct y z -> GHC.Base.eqString x y
+                   LexerTypes.ID y -> GHC.Base.eqString x y
+                   LexerTypes.ID_Vect y n -> GHC.Base.eqString x y }) -}
+e3f2d523c49c4af044f272fd5b4e1bf3
+  extractHistoryReferences ::
+    [LexerTypes.Expression] -> [GHC.Base.String]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+236714fac6c1e9d65f6b5b821a9e2d52
+  fetchInit ::
+    [LexerTypes.PVSTypeDef]
+    -> LexerTypes.PVSType
+    -> GHC.Base.String
+    -> [LexerTypes.TSPTable]
+    -> LexerTypes.Expression
+  {- Arity: 4, Strictness: <S,1*U><L,1*U><L,U><L,1*U> -}
+87dea6283799d1871677d7de5aa060f2
+  fetchType ::
+    GHC.Base.String -> [LexerTypes.TVarDec] -> LexerTypes.PVSType
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+37fe336a2ec349ea4858612cf4c6ffa3
+  findExpressionsContaining ::
+    LexerTypes.Expression
+    -> LexerTypes.Expression -> [LexerTypes.Expression]
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+9a41b85a5059dd3de143a0bf3387b204
+  findType ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec] -> LexerTypes.ID_Path -> LexerTypes.PVSType
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U> -}
+52094d91436a99e0a84733082983aae6
+  findTypeInFields ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.PVS_Field]
+    -> LexerTypes.ID_Path
+    -> LexerTypes.PVSType
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>,
+     Unfolding: (\ (p :: [LexerTypes.PVSTypeDef])
+                   (f :: [LexerTypes.PVS_Field])
+                   (ds :: LexerTypes.ID_Path) ->
+                 case ds of wild {
+                   LexerTypes.ID_Submod_Struct nom path
+                   -> case GHC.List.lookup
+                             @ LexerTypes.ModuleInst
+                             @ LexerTypes.PVSType
+                             GHC.Classes.$fEq[]_$s$fEq[]1
+                             nom
+                             f of wild1 {
+                        GHC.Base.Nothing
+                        -> case TSP2BSV.deMaybe1 ret_ty LexerTypes.PVSType of {}
+                        GHC.Base.Just x -> TSP2BSV.findTypeInRecord p p x path }
+                   LexerTypes.ID nom
+                   -> case GHC.List.lookup
+                             @ GHC.Base.String
+                             @ LexerTypes.PVSType
+                             GHC.Classes.$fEq[]_$s$fEq[]1
+                             nom
+                             f of wild1 {
+                        GHC.Base.Nothing -> TSP2BSV.deMaybe1 @ LexerTypes.PVSType
+                        GHC.Base.Just x -> x }
+                   LexerTypes.ID_Vect nom n
+                   -> case GHC.List.lookup
+                             @ GHC.Base.String
+                             @ LexerTypes.PVSType
+                             GHC.Classes.$fEq[]_$s$fEq[]1
+                             nom
+                             f of wild1 {
+                        GHC.Base.Nothing -> TSP2BSV.deMaybe1 @ LexerTypes.PVSType
+                        GHC.Base.Just x -> x } }) -}
+33e1f366b269aebe3f60830872e1cd1f
+  findTypeInRecord ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.PVSTypeDef]
+    -> LexerTypes.PVSType
+    -> LexerTypes.ID_Path
+    -> LexerTypes.PVSType
+  {- Arity: 4, Strictness: <L,U><S,1*U><S,1*U><S,1*U> -}
+06490766d69259e288808451256d1a14
+  funcOrId :: LexerTypes.Expression -> GHC.Types.Bool
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: LexerTypes.Expression) ->
+                 case ds of wild {
+                   DEFAULT -> TSP2BSV.convertExpressionToReplacement5
+                   LexerTypes.Identifier ds1 -> GHC.Types.False
+                   LexerTypes.Exp_FunctionCall ds1 ds2 -> GHC.Types.True }) -}
+3b1ba9c460648634e954442c61e43680
+  gatherHistory ::
+    [LexerTypes.TVarDec]
+    -> LexerTypes.TSPTable -> [LexerTypes.BSVstateDec]
+  {- Arity: 2, Strictness: <L,U><S(LLLSLL),1*U(A,A,A,U,A,U)>,
+     Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.TVarDec]) (w1 :: LexerTypes.TSPTable) ->
+                 case w1 of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 TSP2BSV.$wgatherHistory w ww4 ww6 }) -}
+a27b382618434b63005cf64cae666cdf
+  gatherHistory1 :: LexerTypes.Expression
+  {- Strictness: m27,
+     Unfolding: (LexerTypes.Exp_FunctionCall
+                   TSP2BSV.gatherHistory7
+                   TSP2BSV.gatherHistory2) -}
+1fe9dfea6087fef047acd47df462fac6
+  gatherHistory2 :: [LexerTypes.Expression]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ LexerTypes.Expression
+                   TSP2BSV.gatherHistory3
+                   (GHC.Types.[] @ LexerTypes.Expression)) -}
+3c9e15e5bc36f86b629c33bd0e078dd2
+  gatherHistory3 :: LexerTypes.Expression
+  {- Strictness: m25,
+     Unfolding: (LexerTypes.Identifier TSP2BSV.gatherHistory4) -}
+87e2ba564385d4c62ac2d2f5bbdd1f20
+  gatherHistory4 :: LexerTypes.ID_Path
+  {- Strictness: m2,
+     Unfolding: (LexerTypes.ID TSP2BSV.gatherHistory5) -}
+7a1be8a07e0361b298d7c4fcb50cd738
+  gatherHistory5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   TSP2BSV.gatherHistory6) -}
+ace19a9004553b78ab1d6249b0c8fc7d
+  gatherHistory6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("t"#) -}
+fcf3954916e1dca139d671f2fe69ce69
+  gatherHistory7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   TSP2BSV.gatherHistory8) -}
+8233afa54488f5b2c49c9499c0a12a52
+  gatherHistory8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("pre"#) -}
+bcbc09d392758ad1d6399c989e08b801
+  gatherHistory_c ::
+    [LexerTypes.Expression]
+    -> [LexerTypes.Expression] -> [LexerTypes.Expression]
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (x :: [LexerTypes.Expression])
+                   (y :: [LexerTypes.Expression])[OneShot] ->
+                 letrec {
+                   go11 :: [LexerTypes.Expression] -> [LexerTypes.Expression]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [LexerTypes.Expression]) ->
+                     case ds of wild {
+                       [] -> y
+                       : y1 ys
+                       -> GHC.Base.++
+                            @ LexerTypes.Expression
+                            (TSP2BSV.findExpressionsContaining TSP2BSV.gatherHistory1 y1)
+                            (go11 ys) }
+                 } in
+                 go11 x) -}
+a33a5fad19ef4ad91e5a3409feb3f0a7
+  gatherInputs :: [LexerTypes.TSPTable] -> [[GHC.Base.String]]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+ccef44036f5b38f4e6baceafdfc099cd
+  gatherInputs' :: [LexerTypes.TSPTable] -> [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (xs :: [LexerTypes.TSPTable]) ->
+                 TSP2BSV.crush_$scrush
+                   (GHC.Base.map
+                      @ LexerTypes.ID_Path
+                      @ [GHC.Types.Char]
+                      TSP2BSV.showIDPath
+                      (Data.OldList.nubBy
+                         @ LexerTypes.ID_Path
+                         LexerTypes.$fEqID_Path_$c==
+                         (GHC.Base.map
+                            @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                               LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                               [LexerTypes.TSPLine])
+                            @ LexerTypes.ID_Path
+                            TSP2BSV.gatherInputs'1
+                            xs)))
+                   (Data.OldList.nubBy
+                      @ GHC.Base.String
+                      GHC.Base.eqString
+                      (TSP2BSV.gatherInputs'_go (TSP2BSV.gatherInputs xs)))) -}
+69628ceca67168daf7d14bf61e9d480c
+  gatherInputs'1 ::
+    (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+     LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+     [LexerTypes.TSPLine])
+    -> LexerTypes.ID_Path
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LS(SL)LLLL),1*U(A,1*U(1*U,A),A,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (LexerTypes.TName,
+                           (LexerTypes.ID_Path, LexerTypes.Temporal), LexerTypes.Expression,
+                           [LexerTypes.Replacement], [GHC.Base.String],
+                           [LexerTypes.TSPLine])) ->
+                 case ds of wild { (,,,,,) ds1 y ds2 ds3 ds4 ds5 ->
+                 Data.Tuple.fst @ LexerTypes.ID_Path @ LexerTypes.Temporal y }) -}
+118d079f86c69fd0b3cba946823c0730
+  gatherInputs'_go :: [[GHC.Base.String]] -> [GHC.Base.String]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+e7d39e02257d6126920eb6063d122ef0
+  gatherOutputs :: [LexerTypes.TSPTable] -> [LexerTypes.ID_Path]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (xs :: [LexerTypes.TSPTable]) ->
+                 GHC.Base.build
+                   @ LexerTypes.ID_Path
+                   (\ @ b1
+                      (c :: LexerTypes.ID_Path -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                         LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                         [LexerTypes.TSPLine])
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ LexerTypes.ID_Path
+                         @ b1
+                         @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                            LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                            [LexerTypes.TSPLine])
+                         c
+                         TSP2BSV.gatherInputs'1)
+                      n
+                      xs)) -}
+eadfa70a4eec282ce4df0ffe644dd18a
+  genArgs ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [GHC.Base.String]
+    -> [LexerTypes.Argument]
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U> -}
+41cd09cb477ef9c890ab1647215a3af4
+  genInputMeth ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> LexerTypes.MethodDec
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>m,
+     Unfolding: InlineRule (3, True, False)
+                (\ (p :: [LexerTypes.PVSTypeDef])
+                   (var :: [LexerTypes.TVarDec])
+                   (tab :: [LexerTypes.TSPTable]) ->
+                 (TSP2BSV.genInputMeth1, LexerTypes.Action,
+                  TSP2BSV.genArgs p var (TSP2BSV.gatherInputs' tab),
+                  GHC.Types.[] @ LexerTypes.MethodDecAttribute)) -}
+b32bbf7281e764716660c0c3cce0089e
+  genInputMeth1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.genInputMeth2) -}
+229f4162a79384d855cbcd243a868745
+  genInputMeth2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("set_Inputs"#) -}
+cfd4ff3c54a4d5cab3d762ccad60b7cf
+  genInputMethod ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable] -> LexerTypes.MethodBody
+  {- Arity: 2, Strictness: <L,A><L,U>m, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.TVarDec]) (w1 :: [LexerTypes.TSPTable]) ->
+                 let {
+                   inputs :: [GHC.Base.String] = TSP2BSV.gatherInputs' w1
+                 } in
+                 (TSP2BSV.genInputMeth1, LexerTypes.Action,
+                  GHC.Base.map
+                    @ [GHC.Types.Char]
+                    @ ([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)
+                    TSP2BSV.genInputMethod4
+                    inputs,
+                  TSP2BSV.genInputMethod2,
+                  GHC.Base.map
+                    @ [GHC.Types.Char]
+                    @ LexerTypes.Statement
+                    TSP2BSV.genInputMethod1
+                    inputs,
+                  GHC.Types.[] @ LexerTypes.MethodBodyAttribute)) -}
+e95345a8b1d1cc1cf7822f1bcfba634c
+  genInputMethod' ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable] -> LexerTypes.MethodBody
+  {- Arity: 2, Strictness: <L,U><L,U>m, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.TVarDec]) (w1 :: [LexerTypes.TSPTable]) ->
+                 case TSP2BSV.$wgenInputMethod'
+                        w
+                        w1 of ww { (#,,,,,#) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 (ww1, ww2, ww3, ww4, ww5, ww6) }) -}
+af0347b1ad3f992f91de124b391f7cab
+  genInputMethod1 :: GHC.Base.String -> LexerTypes.Statement
+  {- Arity: 1, Strictness: <L,U>m1, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: GHC.Base.String) ->
+                 LexerTypes.Write
+                   (LexerTypes.ID w)
+                   (LexerTypes.Identifier
+                      (LexerTypes.ID
+                         (GHC.Base.++
+                            @ GHC.Types.Char
+                            w
+                            (GHC.CString.unpackCString#
+                               TSP2BSV.convertExpressionToReplacement4))))
+                   (GHC.Types.[] @ LexerTypes.StatementAttribute)) -}
+501bbb0143832009a14d3656e83cfaa5
+  genInputMethod2 :: LexerTypes.Expression
+  {- HasNoCafRefs, Strictness: m24,
+     Unfolding: (LexerTypes.Literal TSP2BSV.genInputMethod3) -}
+81dbf5ec9d947cc793ee201b61cfbd5d
+  genInputMethod3 :: LexerTypes.Lit
+  {- HasNoCafRefs, Strictness: m4,
+     Unfolding: (LexerTypes.LitBool GHC.Types.True) -}
+4aed9c5878e753aafa52fd6d4cdbe84e
+  genInputMethod4 ::
+    [GHC.Types.Char]
+    -> ([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)
+  {- Arity: 1, Strictness: <L,1*U>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: [GHC.Types.Char]) ->
+                 (GHC.Base.build
+                    @ GHC.Types.Char
+                    (\ @ b
+                       (c :: GHC.Types.Char -> b -> b)[OneShot]
+                       (n :: b)[OneShot] ->
+                     GHC.Base.foldr
+                       @ GHC.Types.Char
+                       @ b
+                       c
+                       (GHC.CString.unpackFoldrCString#
+                          @ b
+                          TSP2BSV.convertExpressionToReplacement4
+                          c
+                          n)
+                       x),
+                  GHC.Base.Nothing @ LexerTypes.BSVType)) -}
+3f5510ae241dbeae424ae40146d70a18
+  genInterface ::
+    [LexerTypes.PVSTypeDef]
+    -> GHC.Base.String
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> LexerTypes.InterfaceDec
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>m,
+     Unfolding: InlineRule (4, True, False)
+                (\ (p :: [LexerTypes.PVSTypeDef])
+                   (nom :: GHC.Base.String)
+                   (var :: [LexerTypes.TVarDec])
+                   (tab :: [LexerTypes.TSPTable]) ->
+                 (nom, TSP2BSV.genMethDecs p var tab,
+                  GHC.Types.[] @ LexerTypes.InterfaceRef,
+                  GHC.Types.[] @ LexerTypes.InterfaceAttribute)) -}
+97943b4233d53e2ba7c73a793db6c3e5
+  genInterfaces ::
+    [LexerTypes.PVSTypeDef]
+    -> GHC.Base.String
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.InterfaceDec]
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>m2,
+     Unfolding: InlineRule (4, True, False)
+                (\ (p :: [LexerTypes.PVSTypeDef])
+                   (nom :: GHC.Base.String)
+                   (var :: [LexerTypes.TVarDec])
+                   (tab :: [LexerTypes.TSPTable]) ->
+                 GHC.Types.:
+                   @ LexerTypes.InterfaceDec
+                   (nom, TSP2BSV.genMethDecs p var tab,
+                    GHC.Types.[] @ LexerTypes.InterfaceRef,
+                    GHC.Types.[] @ LexerTypes.InterfaceAttribute)
+                   (GHC.Types.[] @ LexerTypes.InterfaceDec)) -}
+90ec8b67f179f3c9faf5db5488b8bd62
+  genMethDecs ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.MethodDec]
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>m2,
+     Unfolding: InlineRule (3, True, False)
+                (\ (p :: [LexerTypes.PVSTypeDef])
+                   (var :: [LexerTypes.TVarDec])
+                   (tab :: [LexerTypes.TSPTable]) ->
+                 GHC.Types.:
+                   @ LexerTypes.MethodDec
+                   (TSP2BSV.genInputMeth p var tab)
+                   (TSP2BSV.genOutputMeths p var tab)) -}
+837b09d32eb3d802408afa82fbd4fe60
+  genMethods' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.MethodBody]
+  {- Arity: 3, Strictness: <L,U><L,U><L,U>m2, Inline: [0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: [LexerTypes.PVSTypeDef])
+                   (w1 :: [LexerTypes.TVarDec])
+                   (w2 :: [LexerTypes.TSPTable]) ->
+                 case TSP2BSV.$wgenMethods' w w1 w2 of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ LexerTypes.MethodBody ww1 ww2 }) -}
+fa0d0bdf7dca70f3024f10256e99e15f
+  genModule ::
+    [LexerTypes.PVSTypeDef]
+    -> GHC.Base.String
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> LexerTypes.BSVModuleDec
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U>m, Inline: [0],
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: [LexerTypes.PVSTypeDef])
+                   (w1 :: GHC.Base.String)
+                   (w2 :: [LexerTypes.TVarDec])
+                   (w3 :: [LexerTypes.TSPTable]) ->
+                 LexerTypes.BSVModuleDec
+                   (GHC.CString.unpackAppendCString# "mk"# w1)
+                   TSP2BSV.genModule1
+                   (GHC.Types.[] @ LexerTypes.BSVModuleDec)
+                   w1
+                   (GHC.Types.[] @ LexerTypes.MidModInterfaceDec)
+                   (GHC.Types.[] @ LexerTypes.ModuleAttribute)
+                   (TSP2BSV.genStates' w w2 w3)
+                   (GHC.Types.[] @ LexerTypes.ActionDec)
+                   (GHC.Types.[] @ LexerTypes.RuleDec)
+                   (TSP2BSV.genMethods' w w2 w3)) -}
+ca65df36da3a11f765a5a0cdf127669c
+  genModule1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.genModule2) -}
+de609c5af75bc9e57b2271a1613b7d13
+  genModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("root"#) -}
+f3577f94a23331c0edbda4811acbbc49
+  genOutputMeth ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> LexerTypes.TSPTable
+    -> LexerTypes.MethodDec
+  {- Arity: 3, Strictness: <L,U><L,1*U><S,1*U(A,U(U,A),A,A,A,A)>m,
+     Inline: [0],
+     Unfolding: InlineRule (3, True, False)
+                (\ (w :: [LexerTypes.PVSTypeDef])
+                   (w1 :: [LexerTypes.TVarDec])
+                   (w2 :: LexerTypes.TSPTable) ->
+                 case w2 of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 (GHC.CString.unpackAppendCString#
+                    "get_"#
+                    (case ww2 of wild { (,) x ds1 -> TSP2BSV.showIDPath x }),
+                  LexerTypes.Value
+                    (case ww2 of wild { (,) x ds1 ->
+                     TSP2BSV.p2bType (TSP2BSV.findType w w1 x) }),
+                  GHC.Types.[] @ LexerTypes.Argument,
+                  GHC.Types.[] @ LexerTypes.MethodDecAttribute) }) -}
+e2ea7df388ed0a39562f5b19faae764b
+  genOutputMethods ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.MethodBody]
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U> -}
+6ac8c37a0c626ec29dfa42706be364bc
+  genOutputMeths ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.MethodDec]
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U> -}
+ee2b56abc39207fe830f1294ad7d85f2
+  genRules' ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable] -> [LexerTypes.RuleDec]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><L,A>,
+     Unfolding: InlineRule (2, True, True)
+                (\ (ds :: [LexerTypes.TVarDec]) (ds1 :: [LexerTypes.TSPTable]) ->
+                 GHC.Types.[] @ LexerTypes.RuleDec) -}
+b9f2ac85ad4af23992710e483ae084da
+  genSecondaryOutputMethods ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.MethodBody]
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U> -}
+5b466a4d604af1bd1d9e6fae3df3d28d
+  genStates' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.BSVstateDec]
+  {- Arity: 3, Strictness: <L,U><S,U><L,U>,
+     Unfolding: (\ (tds :: [LexerTypes.PVSTypeDef])
+                   (vars :: [LexerTypes.TVarDec])
+                   (tabs :: [LexerTypes.TSPTable]) ->
+                 TSP2BSV.genStates''
+                   tds
+                   vars
+                   (let {
+                      outVars :: [LexerTypes.ID_Path]
+                      = GHC.Base.map
+                          @ (LexerTypes.TName, (LexerTypes.ID_Path, LexerTypes.Temporal),
+                             LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                             [LexerTypes.TSPLine])
+                          @ LexerTypes.ID_Path
+                          TSP2BSV.gatherInputs'1
+                          tabs
+                    } in
+                    GHC.List.filter
+                      @ (LexerTypes.TName, LexerTypes.TSPOutVar, LexerTypes.Expression,
+                         [LexerTypes.Replacement], [GHC.Base.String], [LexerTypes.TSPLine])
+                      (\ (x :: LexerTypes.TSPTable) ->
+                       case x of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                       case TSP2BSV.$wisSecondaryTable ww5 outVars of wild {
+                         GHC.Types.False -> GHC.Types.True
+                         GHC.Types.True -> GHC.Types.False } })
+                      tabs)) -}
+38f702a25cfdda4bfcaf61ab9f2a12f1
+  genStates'' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.BSVstateDec]
+  {- Arity: 3, Strictness: <L,U><S,U><L,U>,
+     Unfolding: (\ (tds :: [LexerTypes.PVSTypeDef])
+                   (xs :: [LexerTypes.TVarDec])
+                   (tabs :: [LexerTypes.TSPTable]) ->
+                 letrec {
+                   go11 :: [([GHC.Base.String], LexerTypes.PVSType)]
+                           -> [LexerTypes.BSVstateDec]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [([GHC.Base.String], LexerTypes.PVSType)]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ LexerTypes.BSVstateDec
+                       : y ys
+                       -> case y of ww { (,) ww1 ww2 ->
+                          GHC.Base.++
+                            @ LexerTypes.BSVstateDec
+                            (TSP2BSV.$wgenStatesFromVar' tds xs ww1 tabs)
+                            (go11 ys) } }
+                 } in
+                 go11 xs) -}
+157120d9ef4b08ea8607154d1fa7541f
+  genStates''' ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable] -> [LexerTypes.BSVstateDec]
+  {- Arity: 2, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (vars :: [LexerTypes.TVarDec])
+                   (ts :: [LexerTypes.TSPTable]) ->
+                 letrec {
+                   go11 :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                             LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                             [LexerTypes.TSPLine])]
+                           -> [LexerTypes.BSVstateDec]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                                LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                                [LexerTypes.TSPLine])]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ LexerTypes.BSVstateDec
+                       : y ys
+                       -> case y of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                          GHC.Base.++
+                            @ LexerTypes.BSVstateDec
+                            (TSP2BSV.$wgatherHistory vars ww4 ww6)
+                            (go11 ys) } }
+                 } in
+                 go11 ts) -}
+c3d978a9b79e8209628e3967a7a8afde
+  genStatesFromVar' ::
+    [LexerTypes.PVSTypeDef]
+    -> [LexerTypes.TVarDec]
+    -> LexerTypes.TVarDec
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.BSVstateDec]
+  {- Arity: 4, Strictness: <L,U><L,U><S(SL),1*U(1*U,A)><L,U>,
+     Inline: [0],
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: [LexerTypes.PVSTypeDef])
+                   (w1 :: [LexerTypes.TVarDec])
+                   (w2 :: LexerTypes.TVarDec)
+                   (w3 :: [LexerTypes.TSPTable]) ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 TSP2BSV.$wgenStatesFromVar' w w1 ww1 w3 }) -}
+f07dceb9a3f9125739db39b169fd0a46
+  generateTableStatement ::
+    LexerTypes.TSPTable -> LexerTypes.Statement
+  {- Arity: 1, Strictness: <S(LLLLLS),1*U(A,U(U,A),A,U,A,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.TSPTable) ->
+                 case w of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 TSP2BSV.$wgenerateTableStatement ww2 ww4 ww6 }) -}
+e499767a4d239b687c437f4ece600bdf
+  generateTableStatement' ::
+    LexerTypes.TSPTable -> LexerTypes.Statement
+  {- Arity: 1, Strictness: <S(LLLLLS),1*U(A,A,A,1*U,A,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.TSPTable) ->
+                 case w of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 TSP2BSV.$wgenerateTableStatement' ww4 ww6 }) -}
+76b1dcdfd941a48f7e4619eeb6ee5e11
+  historyWrites ::
+    [LexerTypes.TVarDec]
+    -> [LexerTypes.TSPTable]
+    -> [LexerTypes.ID_Path]
+    -> [GHC.Base.String]
+    -> [LexerTypes.Statement]
+  {- Arity: 4, Strictness: <L,U><S,1*U><L,1*U><L,U>,
+     Unfolding: (\ (vars :: [LexerTypes.TVarDec])
+                   (tabs :: [LexerTypes.TSPTable])
+                   (outputs :: [LexerTypes.ID_Path])
+                   (inputs :: [GHC.Base.String]) ->
+                 let {
+                   lvl39 :: [[GHC.Types.Char]]
+                   = letrec {
+                       go11 :: [LexerTypes.ID_Path] -> [[GHC.Types.Char]]
+                         {- Arity: 1, Strictness: <S,1*U> -}
+                       = \ (ds :: [LexerTypes.ID_Path]) ->
+                         case ds of wild {
+                           [] -> inputs
+                           : y ys
+                           -> GHC.Types.:
+                                @ [GHC.Types.Char]
+                                (TSP2BSV.showIDPath y)
+                                (go11 ys) }
+                     } in
+                     go11 outputs
+                 } in
+                 letrec {
+                   go11 :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                             LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                             [LexerTypes.TSPLine])]
+                           -> [LexerTypes.Statement]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [(LexerTypes.TName, LexerTypes.TSPOutVar,
+                                LexerTypes.Expression, [LexerTypes.Replacement], [GHC.Base.String],
+                                [LexerTypes.TSPLine])]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ LexerTypes.Statement
+                       : y ys
+                       -> case y of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                          let {
+                            ys1 :: [LexerTypes.Statement] = go11 ys
+                          } in
+                          letrec {
+                            go12 :: [LexerTypes.BSVstateDec] -> [LexerTypes.Statement]
+                              {- Arity: 1, Strictness: <S,1*U> -}
+                            = \ (ds1 :: [LexerTypes.BSVstateDec]) ->
+                              case ds1 of wild1 {
+                                [] -> ys1
+                                : y1 ys2
+                                -> GHC.Types.:
+                                     @ LexerTypes.Statement
+                                     (let {
+                                        x :: LexerTypes.ID_Path
+                                        = case y1 of wild2 {
+                                            DEFAULT -> TSP2BSV.historyWrites4
+                                            LexerTypes.BSV_Reg x1 ds2 ds3 -> x1 }
+                                      } in
+                                      LexerTypes.Write
+                                        x
+                                        (case GHC.List.elem
+                                                @ GHC.Base.String
+                                                GHC.Classes.$fEq[]_$s$fEq[]1
+                                                (case TSP2BSV.$wdeprev x of ww7 { Unit# ww8 ->
+                                                 TSP2BSV.showIDPath (LexerTypes.ID ww8) })
+                                                lvl39 of wild2 {
+                                           GHC.Types.False
+                                           -> LexerTypes.Identifier (TSP2BSV.historyWrites_deprev x)
+                                           GHC.Types.True
+                                           -> LexerTypes.Identifier
+                                                (case x of wild3 {
+                                                   DEFAULT -> TSP2BSV.historyWrites1
+                                                   LexerTypes.ID y2
+                                                   -> LexerTypes.ID
+                                                        (GHC.Base.++
+                                                           @ GHC.Types.Char
+                                                           y2
+                                                           TSP2BSV.convertExpressionToReplacement3) }) })
+                                        (GHC.Types.[] @ LexerTypes.StatementAttribute))
+                                     (go12 ys2) }
+                          } in
+                          go12 (TSP2BSV.$wgatherHistory vars ww4 ww6) } }
+                 } in
+                 go11 tabs) -}
+536afe849c2d90eee720208149be664f
+  historyWrites1 :: LexerTypes.ID_Path
+  {- Strictness: x -}
+995f6ac4aed8065246f061a7b61c0854
+  historyWrites2 :: GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: GHC.Types.Char) ->
+                 case ds of wild { GHC.Types.C# x ->
+                 case x of wild1 {
+                   DEFAULT -> GHC.Types.True '_'# -> GHC.Types.False } }) -}
+985e12666fcfa821f8c83bcf56ea38fe
+  historyWrites3 :: LexerTypes.ID_Path
+  {- Strictness: x -}
+5c6a50e38d12ab6ebaa9b5cd2d5896d8
+  historyWrites4 :: LexerTypes.ID_Path
+  {- Strictness: x -}
+6836cf12cc48904432c5c43a15de9138
+  historyWrites_deprev :: LexerTypes.ID_Path -> LexerTypes.ID_Path
+  {- Arity: 1, Strictness: <S,1*U>m2, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.ID_Path) ->
+                 case TSP2BSV.$wdeprev w of ww { Unit# ww1 ->
+                 LexerTypes.ID ww1 }) -}
+13718dc6c19a7c575f825f8f955b3ed5
+  inputEQ :: LexerTypes.ID_Path -> GHC.Base.String -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.ID_Path) (y :: GHC.Base.String) ->
+                 case ds of wild {
+                   LexerTypes.ID_Submod_Struct m x -> GHC.Base.eqString m y
+                   LexerTypes.ID x -> GHC.Base.eqString x y
+                   LexerTypes.ID_Vect x n -> GHC.Base.eqString x y }) -}
+0794400f648b2fbd5e4946aa5e16ed05
+  inputNEQ :: LexerTypes.ID_Path -> GHC.Base.String -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (x :: LexerTypes.ID_Path) (y :: GHC.Base.String) ->
+                 case TSP2BSV.inputEQ x y of wild {
+                   GHC.Types.False -> GHC.Types.True
+                   GHC.Types.True -> GHC.Types.False }) -}
+199e140a536936d1133bd286bc159540
+  ioVarsList :: [LexerTypes.TSPTable] -> [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,1*U> -}
+6f62cd0ebf7d4bab2a6f734b2863d0b5
+  isSecondaryTable ::
+    LexerTypes.TSPTable -> [LexerTypes.ID_Path] -> GHC.Types.Bool
+  {- Arity: 2, Strictness: <S(LLLLSL),1*U(A,A,A,A,1*U,A)><L,1*U>,
+     Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: LexerTypes.TSPTable) (w1 :: [LexerTypes.ID_Path]) ->
+                 case w of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 TSP2BSV.$wisSecondaryTable ww5 w1 }) -}
+8527dea2a4d41fc63bd20622930c1622
+  kludgeInit :: LexerTypes.PVSType -> LexerTypes.Literal
+  {- Arity: 1, Strictness: <S,1*U>m24, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.PVSType) ->
+                 case w of wild {
+                   LexerTypes.PVS_Bool -> LexerTypes.Literal TSP2BSV.kludgeInit5
+                   LexerTypes.PVS_Bit n
+                   -> LexerTypes.Literal
+                        (LexerTypes.LitSizedInt n TSP2BSV.kludgeInit4)
+                   LexerTypes.PVS_Int n
+                   -> LexerTypes.Literal
+                        (LexerTypes.LitSizedInt n TSP2BSV.kludgeInit4)
+                   LexerTypes.PVS_UInt n
+                   -> LexerTypes.Literal
+                        (LexerTypes.LitSizedInt n TSP2BSV.kludgeInit4)
+                   LexerTypes.PVS_Real -> LexerTypes.Literal TSP2BSV.kludgeInit2
+                   LexerTypes.PVS_Custom n -> LexerTypes.Literal LexerTypes.LitVoid
+                   LexerTypes.PVS_Maybe ipv -> TSP2BSV.kludgeInit1 }) -}
+5ac53b2004f38209f1c39281ef843013
+  kludgeInit1 :: LexerTypes.Literal
+  {- Strictness: x -}
+2b1580719c331ef4c3d6024bd198b4cb
+  kludgeInit2 :: LexerTypes.Lit
+  {- HasNoCafRefs, Strictness: m5,
+     Unfolding: (LexerTypes.LitReal TSP2BSV.kludgeInit3) -}
+5cb567d3bc85597478e4ebc0882399ab
+  kludgeInit3 :: GHC.Types.Float
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.F# 0.0#) -}
+1c7c31c4a4c1397eb2b4753f95bdbfbc
+  kludgeInit4 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+6272807fbe4b0d7488957736a47a2ff4
+  kludgeInit5 :: LexerTypes.Lit
+  {- HasNoCafRefs, Strictness: m4,
+     Unfolding: (LexerTypes.LitBool GHC.Types.False) -}
+9c8cfc1a062487a340c9a0a942b835ac
+  p2bArg :: LexerTypes.PVSArgument -> LexerTypes.Argument
+  {- Arity: 1, Strictness: <S,1*U(U,1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (GHC.Base.String, LexerTypes.PVSType)) ->
+                 case ds of wild { (,) nom typ ->
+                 (nom, TSP2BSV.p2bType typ,
+                  GHC.Types.[] @ LexerTypes.ArgumentAttribute) }) -}
+bc8eaa1bad0eae849b758c80b802f587
+  p2bFunc :: LexerTypes.PVSFunction -> LexerTypes.BSVFunction
+  {- Arity: 1, Strictness: <S,1*U(U,1*U,1*U,1*U)>m, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.PVSFunction) ->
+                 case w of ww { (,,,) ww1 ww2 ww3 ww4 ->
+                 (ww1,
+                  GHC.Base.map
+                    @ (GHC.Base.String, LexerTypes.PVSType)
+                    @ (LexerTypes.Name, LexerTypes.BSVType,
+                       [LexerTypes.ArgumentAttribute])
+                    TSP2BSV.p2bArg
+                    ww2,
+                  TSP2BSV.p2bType ww3,
+                  GHC.Types.:
+                    @ LexerTypes.Statement
+                    (TSP2BSV.constructReturnStatement ww4)
+                    (GHC.Types.[] @ LexerTypes.Statement)) }) -}
+756a1f5b25ccd86fc9de1b8170a61c33
+  p2bMacro :: LexerTypes.PVSMacro -> LexerTypes.BSVMacro
+  {- Arity: 1, Strictness: <S,1*U(U,A,U)>m1, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.PVSMacro) ->
+                 case w of ww { (,,) ww1 ww2 ww3 ->
+                 LexerTypes.SimpleMacro
+                   ww1
+                   (PVSGenerator.showPVSExpression
+                      TSP2BSV.emptyPackage
+                      (GHC.Types.[] @ LexerTypes.LocalVar)
+                      (GHC.Base.Nothing @ LexerTypes.DefaultValue)
+                      (GHC.Base.Nothing @ LexerTypes.PVSType)
+                      ww3
+                      (GHC.Base.Nothing @ (GHC.Base.String, GHC.Base.String))
+                      (GHC.Types.[] @ GHC.Types.Char)) }) -}
+04ca13c730476d9a9ed39309bd2423f2
+  p2bType :: LexerTypes.PVSType -> LexerTypes.BSVType
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.PVSType) ->
+                 case ds of wild {
+                   LexerTypes.PVS_Bool -> LexerTypes.BSV_Bool
+                   LexerTypes.PVS_Bit n -> LexerTypes.BSV_Bit n
+                   LexerTypes.PVS_Int n -> LexerTypes.BSV_Int n
+                   LexerTypes.PVS_UInt n -> LexerTypes.BSV_UInt n
+                   LexerTypes.PVS_Real -> LexerTypes.BSV_Real
+                   LexerTypes.PVS_Custom n -> LexerTypes.BSV_Custom n
+                   LexerTypes.PVS_Maybe ipv -> TSP2BSV.p2bType1 }) -}
+5b1b9e78cc66778ced65967725a20e3f
+  p2bType1 :: LexerTypes.BSVType
+  {- Strictness: x -}
+acaee8100ceb8f4b52ae561472335726
+  p2bTypeDef :: LexerTypes.PVSTypeDef -> LexerTypes.BSVTypeDef
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.PVSTypeDef) ->
+                 case ds of wild {
+                   LexerTypes.PVS_Synonym nom typ
+                   -> LexerTypes.BSV_Synonym nom (TSP2BSV.p2bType typ)
+                   LexerTypes.PVS_Enumeration nom enums
+                   -> LexerTypes.BSV_Enumeration nom enums
+                   LexerTypes.PVS_Struct nom fields
+                   -> LexerTypes.BSV_Struct
+                        nom
+                        (GHC.Base.map
+                           @ (LexerTypes.Name, LexerTypes.PVSType)
+                           @ (LexerTypes.Name, LexerTypes.BSVType)
+                           TSP2BSV.p2bTypeDef1
+                           fields) }) -}
+77d79cc58a61b74fafde9660d0907061
+  p2bTypeDef1 ::
+    (LexerTypes.Name, LexerTypes.PVSType)
+    -> (LexerTypes.Name, LexerTypes.BSVType)
+  {- Arity: 1, Strictness: <S,1*U(U,1*U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (LexerTypes.Name, LexerTypes.PVSType)) ->
+                 case ds of wild { (,) x y -> (x, TSP2BSV.p2bType y) }) -}
+55763a04d7a16c61c9d9116e57f36283
+  removeIn :: [LexerTypes.Replacement] -> [LexerTypes.Replacement]
+  {- Arity: 1, Strictness: <S,1*U> -}
+f5cfff61d81d09482ea5fc85f6393594
+  showIDPath :: LexerTypes.ID_Path -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+769b4223b8dd9eaa9b4bac0d3f27b845
+  showIDPath' :: LexerTypes.ID_Path -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.ID_Path) ->
+                 case ds of wild {
+                   LexerTypes.ID_Submod_Struct m p -> m
+                   LexerTypes.ID x -> x
+                   LexerTypes.ID_Vect x n
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        x
+                        (GHC.CString.unpackAppendCString#
+                           TSP2BSV.showIDPath'3
+                           (GHC.Base.++
+                              @ GHC.Types.Char
+                              (LexerTypes.$fShowExpression_$cshowsPrec
+                                 LexerTypes.$fShowArgumentAttribute2
+                                 n
+                                 (GHC.Types.[] @ GHC.Types.Char))
+                              TSP2BSV.showIDPath'1)) }) -}
+2215cd3265aed7545dfc225561936e64
+  showIDPath'1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.showIDPath'2) -}
+f03ab947ec0ca19f558c2e8d63ac904c
+  showIDPath'2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("]"#) -}
+a6c179ae53afa29bf48e5db70880772d
+  showIDPath'3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("["#) -}
+3d66f9a33e5d8be9440c416234b0d5e3
+  tsp2bsv :: LexerTypes.TSPpackage -> LexerTypes.BSVPackage
+  {- Arity: 1, Strictness: <L,U(1*U,1*U,1*U,1*U,1*U,1*U,U)>,
+     Unfolding: (\ (tsp :: LexerTypes.TSPpackage) ->
+                 let {
+                   tds :: [LexerTypes.PVSTypeDef]
+                   = case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                     ds2 }
+                 } in
+                 let {
+                   teaspoons :: [LexerTypes.TSPTable]
+                   = case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                     ds5 }
+                 } in
+                 let {
+                   vars :: [LexerTypes.TVarDec]
+                   = case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                     TSP2BSV.cleanseVars ds4 teaspoons }
+                 } in
+                 let {
+                   nom :: GHC.Base.String
+                   = case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                     ds1 }
+                 } in
+                 LexerTypes.BSVPackage
+                   nom
+                   TSP2BSV.tsp2bsv3
+                   (case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                    case ds7 of wild1 {
+                      [] -> GHC.Types.[] @ GHC.Base.String
+                      : ds11 ds12
+                      -> GHC.Types.:
+                           @ [GHC.Types.Char]
+                           (GHC.Base.++ @ GHC.Types.Char nom TSP2BSV.tsp2bsv1)
+                           (GHC.Types.[] @ [GHC.Types.Char]) } })
+                   (GHC.Types.:
+                      @ LexerTypes.InterfaceDec
+                      (nom, TSP2BSV.genMethDecs tds vars teaspoons,
+                       GHC.Types.[] @ LexerTypes.InterfaceRef,
+                       GHC.Types.[] @ LexerTypes.InterfaceAttribute)
+                      (GHC.Types.[] @ LexerTypes.InterfaceDec))
+                   (GHC.Types.[] @ LexerTypes.BSVConstantDec)
+                   (GHC.Base.map
+                      @ LexerTypes.PVSTypeDef
+                      @ LexerTypes.BSVTypeDef
+                      TSP2BSV.p2bTypeDef
+                      tds)
+                   (case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                    ds3 })
+                   (GHC.Types.:
+                      @ LexerTypes.BSVModuleDec
+                      (TSP2BSV.genModule tds nom vars teaspoons)
+                      (GHC.Types.[] @ LexerTypes.BSVModuleDec))
+                   (case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                    GHC.Base.map
+                      @ (GHC.Base.String, [LexerTypes.PVSArgument], LexerTypes.PVSType,
+                         LexerTypes.Expression)
+                      @ (GHC.Base.String, [LexerTypes.Argument], LexerTypes.BSVType,
+                         [LexerTypes.Statement])
+                      TSP2BSV.p2bFunc
+                      ds6 })
+                   (case tsp of wild { LexerTypes.TSPpackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ->
+                    GHC.Base.map
+                      @ (GHC.Base.String, LexerTypes.PVSType, LexerTypes.Literal)
+                      @ LexerTypes.BSVMacro
+                      TSP2BSV.p2bMacro
+                      ds7 })
+                   (GHC.Types.[] @ LexerTypes.HexFile)) -}
+a3a8e91fbca3e383edbe8fddfeddec62
+  tsp2bsv1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.tsp2bsv2) -}
+8f4ddbf4355cee49db25f5ccb1fda8c4
+  tsp2bsv2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (".defines"#) -}
+913b304b343abec5d45cc39bcaa6ad33
+  tsp2bsv3 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   TSP2BSV.tsp2bsv4
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+e14f0f7aef57ebfe6e71cf94c13d657c
+  tsp2bsv4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# TSP2BSV.tsp2bsv5) -}
+ce647cb1c07506d21eb7ac3e58704b49
+  tsp2bsv5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("DefaultValue"#) -}
+"SPEC crush @ String" forall ($dEq :: GHC.Classes.Eq
+                                        GHC.Base.String)
+  TSP2BSV.crush @ [GHC.Types.Char] $dEq = TSP2BSV.crush_$scrush
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

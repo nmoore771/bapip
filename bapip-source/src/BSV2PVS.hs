@@ -2164,7 +2164,7 @@ genTrans _ mod absPath prefixes mArgs (THeap n' tree _) (BSV_Vector n x y z) = (
     tables = map (\ q -> ((applyRootPrefix mArgs prefixes q), (tablify (Just q)))) (vectorWrites n)
     n' = if absPath /= [] then mergeIDPaths (strings2idpath absPath) n else n
     tablify p = makeTreesSpecific mod (BSV_Vector n' x y z) prefixes mArgs tree p
-genTrans uni mod absPath prefixes mArgs (THeap n tree _) (DWire x y z) = trace tracy $ (TransDWire x (scrubDwireSkips (redefault) specificTree) z) -- Records? 
+genTrans uni mod absPath prefixes mArgs (THeap n tree _) (DWire x y z) = (TransDWire x (scrubDwireSkips (redefault) specificTree) z) -- Records? 
     where 
         tracy = if (show x) == "wr_WdPointer" 
                    then "[genTrans] wire = " ++ (show x) ++ "totalTree = " ++ (show tree) ++ "\n\nspecific tree = " ++ (show specificTree)
@@ -2173,7 +2173,7 @@ genTrans uni mod absPath prefixes mArgs (THeap n tree _) (DWire x y z) = trace t
         redefault = if (z == (Literal LitStructConstructor)) then constructDefaultValue uni mod y else z
         specificTree = makeTreesSpecific mod (DWire x' y z) prefixes mArgs tree Nothing
 genTrans universe mod absPath prefixes mArgs (THeap nom tree hs) (BSV_Reg n x y) = if (n == (ID_Submod_Struct "rg_InitReqDataCount" (ID "lastdata"))) 
-                                                                                      then trace tracy $ result 
+                                                                                      then result 
                                                                                       else result
   where 
     tracy = "[genTrans] register = " ++ (show n) ++ "\nmoduleInstance = " ++ (show (instanceName mod)) ++ "\nstructName = " ++ (show struct) ++ "\nIs a submod = " ++ (show (isSubmod n)) ++ "\nTree Heap Name = " ++ (show nom) ++ "\nrefactored tree = " ++ (show newTree)
@@ -3000,14 +3000,15 @@ genRuleSchedule universe mod path meths (nom, guard, stmts, rAtts) = RuleSchedul
                , executesBefore = anteriors 
                } 
   where 
-    tracy = "\n\n\n[GenRuleSchedule] rule - " ++ (show (makeActionPath (path ++ nom:[]))) ++ "\n\nstatements = " ++ (intercalate "\n" (map show stmts)) 
-    --"\nmeths = " ++ (show meths) ++ "\nwritesTo = " ++ (show (fst sortedWrites)) ++ "\nDWire Writes = " ++ (show (snd sortedWrites)) ++ "\ndWireReads = " ++ (show wireReads) ++ "\n" ++ "\n\nstatements = " ++ (intercalate "\n" (map show stmts)) ++ "\n\npreempts = " ++ (show prempts)
+    tracy = "\n\n\n[GenRuleSchedule] rule - " ++ (show (makeActionPath (path ++ nom:[]))) ++ "\n\nstatements = " ++ (intercalate "\n" (map show stmts)) ++ "\nmeths = " ++ (show meths) ++ "\nwritesTo = " ++ (show (fst sortedWrites)) ++ "\nDWire Writes = " ++ (show (snd sortedWrites)) ++ "\ndWireReads = " ++ (show wireReads) ++ "\n" ++ "\n\nstatements = " ++ (intercalate "\n" (map show stmts)) ++ "\n\npreempts = " ++ (show prempts)
     writesTo = getWrites universe mod stmts 
     methCalls = getMethCalls universe mod False stmts 
     imps = if (check4imps rAtts) then [] else getImplicitConditions universe mod stmts
     confs = getConflicts universe mod (removeSelf nom (removeNonConflicts (attributes mod) (rules mod) nom)) writesTo (enqs, deqs)
     nonConfs = map (\ (x,_,_,_) -> x) $ filter (\ (x,_,_,_) -> not (x `elem` confs)) (removeSelf nom (rules mod))
-    prempts = if finalIDPathEqWithStrings nom meths then ( (getPreempts' universe mod path confs meths) , [] ) else getPreempts universe mod path nom confs meths implicitPreempts
+    prempts = if finalIDPathEqWithStrings nom meths 
+      then ( (getPreempts' universe mod path confs meths) ++ (methDescUrgPragma mod nom path) , (methDescUrgPragmaInverse mod nom path) ) 
+      else getPreempts universe mod path nom confs meths implicitPreempts
     -- tracy = "[getPreempts'] - meths = " ++ (show meths) ++ "\nnom = " ++ (show nom) ++ "\nresult = " ++ (show (elemWith nom meths (finalIDPathEqWithStrings) ))
     rawWrites = nub $ getWrites universe mod stmts 
     sortedWrites = sortWires mod rawWrites 
@@ -3026,8 +3027,47 @@ genRuleSchedule universe mod path meths (nom, guard, stmts, rAtts) = RuleSchedul
     firsts = methCalls `getAllInvokationsOf` "first"
         -- (\ x -> twace ("[genRuleSchedule] - firsts = " ++ (show x)) x) $ methCalls `getAllInvokationsOf` "first"
 
+methDescUrgPragmaInverse :: BSVModuleDec -> String -> [String] -> [ActionPath]
+methDescUrgPragmaInverse mod nom path = map (\x -> makeActionPath (path ++ (x:[]))) $ concat $ map (getHigherUrgencies nom) descUrgs
+  where
+    descUrgs = filterDesUrgsForName (filterDesUrgs (attributes mod)) nom
+
+methDescUrgPragma :: BSVModuleDec -> String -> [String] -> [ActionPath]
+methDescUrgPragma mod nom path = map (\x -> makeActionPath (path ++ (x:[]))) $ concat $ map (getLowerUrgencies nom) descUrgs
+  where
+    descUrgs = filterDesUrgsForName (filterDesUrgs (attributes mod)) nom
+ 
+filterDesUrgsForName :: [ModuleAttribute] -> String -> [[String]]
+filterDesUrgsForName [] _ = []
+filterDesUrgsForName ((Descending_Urgency xs):ys) nom = if nom `elem` xs 
+  then (xs) : (filterDesUrgsForName ys nom)
+  else (filterDesUrgsForName ys nom)
+  
+getLowerUrgencies :: String -> [String] -> [String]
+getLowerUrgencies _ [] = []
+getLowerUrgencies nom (x:xs) = if x == nom
+  then xs 
+  else getLowerUrgencies nom xs
+  
+getHigherUrgencies :: String -> [String] -> [String]
+getHigherUrgencies _ [] = []
+getHigherUrgencies nom (xs) = takeWhile (\q -> nom /= q) (xs)
+   
+  
+ 
+filterDesUrgs :: [ModuleAttribute] -> [ModuleAttribute]
+filterDesUrgs [] = []
+filterDesUrgs ((Descending_Urgency q):xs) = (Descending_Urgency q) : (filterDesUrgs xs)
+filterDesUrgs (_:xs) = (filterDesUrgs xs)
+ 
 filterForWires :: BSVModuleDec -> [ID_Path] -> [ID_Path]
-filterForWires mod = id
+filterForWires mod [] = []
+filterForWires mod (x:xs) = if isDWire mod x 
+  then (x:(filterForWires mod xs))
+  else filterForWires mod xs
+
+
+
         
 finalIDPathEqWithStrings :: String -> [String] -> Bool
 finalIDPathEqWithStrings _ [] = False 
@@ -3128,21 +3168,21 @@ makeTreesSpecific :: BSVModuleDec -> BSVstateDec -> [String] -> [String] -> Tota
 makeTreesSpecific mod (BSV_Reg n t ini) prefixes ex tree _       = tree'
     where
         tree_mid = makeSpecificTree mod n prefixes ex tree 
-        tree' = simplifySpecificTree' $ tree_mid
+        tree' = simplifySpecificTree' mod n $ tree_mid
         tracy = error $ "[makeTreesSpecific] name - " ++ (show n) ++ "\nmidtree =" ++ (show tree_mid) ++ "\ntree' = " ++ (show tree')
-makeTreesSpecific mod (DWire n t ini) prefixes ex tree _         = simplifySpecificTree' $ makeSpecificTree mod n prefixes ex tree 
+makeTreesSpecific mod (DWire n t ini) prefixes ex tree _         = simplifySpecificTree' mod n $ makeSpecificTree mod n prefixes ex tree 
   where
     tree_mid = makeSpecificTree mod n prefixes ex tree 
-    tree' = simplifySpecificTree' $ tree_mid
+    tree' = simplifySpecificTree' mod n $ tree_mid
     tracy = if ((show n) == "rio_ModInsIOPktGeneration.wr_RxReady_In") 
                then "[makeTreesSpecific] name - " ++ (show n) ++ "\nmidtree =" ++ (show tree_mid) ++ "\ntree' = " ++ (show tree')
                else ""
-makeTreesSpecific mod (BSV_Fifo f n t) prefixes ex tree _          = simplifySpecificTree' $ makeSpecificTree mod n prefixes ex tree 
-makeTreesSpecific mod (BSV_Vector (ID n) t num ini) prefixes ex tree (Just exp) = simplifySpecificTree' $ makeSpecificTree mod (ID_Vect n exp) prefixes ex tree 
+makeTreesSpecific mod (BSV_Fifo f n t) prefixes ex tree _          = simplifySpecificTree' mod n $ makeSpecificTree mod n prefixes ex tree 
+makeTreesSpecific mod (BSV_Vector (ID n) t num ini) prefixes ex tree (Just exp) = simplifySpecificTree' mod (ID "Nothing") $ makeSpecificTree mod (ID_Vect n exp) prefixes ex tree 
 makeTreesSpecific mod (BSV_Vector n t num ini) prefixes ex tree (Nothing) = error "Internal BSV2PVS Error!" 
 
 makeCallTreesSpecific :: BSVModuleDec -> ID_Path -> String -> [String] -> [String] -> TotalTree -> SpecificTree
-makeCallTreesSpecific mod fifoName methName prefixes ex tree = simplifySpecificTree' $ makeCallSpecificTree mod fifoName methName prefixes ex tree  
+makeCallTreesSpecific mod fifoName methName prefixes ex tree = simplifySpecificTree' mod (ID "Nothing") $ makeCallSpecificTree mod fifoName methName prefixes ex tree  
     -- simplifySpecificTree' $ makeCallSpecificTree mod fifoName methName prefixes ex tree 
 
 makeCallSpecificTree :: BSVModuleDec -> ID_Path -> String -> [String] -> [String] -> TotalTree -> SpecificTree
@@ -3160,8 +3200,9 @@ makeCallSpecificTree mod x meth prefixes exclusions (TotalLeaf g ss) = (SpecLeaf
     unMaybe (Just z) = extractExpression exclusions x prefixes z
     g' = applyRootPrefix exclusions prefixes g
 
---simplifySpecificTree' = id
-simplifySpecificTree' = simplifySpecificTree
+
+simplifySpecificTree' :: BSVModuleDec -> ID_Path -> SpecificTree -> SpecificTree
+simplifySpecificTree' mod n t = simplifySpecificTree2 $ simplifySpecificTree $ replaceSkips n $ simplifySpecificTree4 t
 
 makeSpecificTree :: BSVModuleDec -> ID_Path -> [String] -> [String] -> TotalTree -> SpecificTree
 makeSpecificTree mod x prefixes exclusions (TotalStem g ss tt ft) = (SpecStem g' (unMaybe mStmt) (makeSpecificTree mod x prefixes exclusions ft))
@@ -3202,7 +3243,95 @@ simplifySpecificTree (SpecLeaf gd y z) = if (gd ==  (Literal (LitBool True)))
 	  then (SpecEx y) 
 	  else (SpecLeaf gd y z)
 
+-- simplifySpecificTree2 applies the following simplification:
+{-
+
+if cond then true else false ==> cond
+
+if cond then false else true ==> not cond
+
+-}
+
+simplifySpecificTree2 :: SpecificTree -> SpecificTree
+simplifySpecificTree2 (SpecStem gd (Left (Literal (LitBool True))) (SpecEx (Literal (LitBool False)))) = SpecEx $ gd
+simplifySpecificTree2 (SpecStem gd (Left (Literal (LitBool False))) (SpecEx (Literal (LitBool True)))) = SpecEx $ Not $ gd
+simplifySpecificTree2 (SpecStem gd (Right t1) t2) = if t1 /= t1' || t2 /= t2' 
+  then simplifySpecificTree2 (SpecStem gd (Right t1') t2')
+  else (SpecStem gd (Right t1) t2)
+	where
+		t1' = simplifySpecificTree2 t1
+		t2' = simplifySpecificTree2 t2 
+simplifySpecificTree2 (SpecStem gd (Left exp1) t2) = if t2 /= t2' 
+  then simplifySpecificTree2 (SpecStem gd (Left exp1) t2')
+  else (SpecStem gd (Left exp1) t2)
+	where
+		t2' = simplifySpecificTree2 t2 
+simplifySpecificTree2 (SpecLeaf gd (Literal (LitBool True)) (Literal (LitBool False))) = SpecEx $ gd
+simplifySpecificTree2 (SpecLeaf gd (Literal (LitBool False)) (Literal (LitBool True))) = SpecEx $ Not $ gd
+simplifySpecificTree2 (SpecLeaf gd exp1 exp2) = (SpecLeaf gd exp1 exp2)
+simplifySpecificTree2 (SpecEx x) = (SpecEx x)
+
+simplifySpecificTree3 :: BSVModuleDec -> ID_Path -> SpecificTree -> SpecificTree
+simplifySpecificTree3 mod n (SpecStem gd (Left exp) t2) = (SpecStem gd (Left exp) t2')
+  where
+  	t2' = simplifySpecificTree3 mod n t2
+simplifySpecificTree3 mod n (SpecStem gd (Right t1) t2) = (SpecStem gd (Right t1') t2')
+  where
+   	t1' = simplifySpecificTree3 mod n t1
+  	t2' = simplifySpecificTree3 mod n t2
+simplifySpecificTree3 mod n (SpecLeaf (Identifier id) (Literal (LitBool True)) (Skip)) = if typ_gd == BSV_Bool && typ_n == BSV_Bool && id == n
+  then (SpecEx (Skip))
+  else (SpecLeaf (Identifier id) (Literal (LitBool True)) (Skip))
+    where
+      typ_gd = getStateType mod (state mod) (ID (lastID id))
+      typ_n = getStateType mod (state mod) (ID (lastID n))
+simplifySpecificTree3 mod n (SpecLeaf gd e1 e2) = (SpecLeaf gd e1 e2)
+simplifySpecificTree3 mod n (SpecEx e) = SpecEx e
 -- if gd == gd', the true path of the false branch will never be executed.	  
+
+replaceSkips ::  ID_Path -> SpecificTree -> SpecificTree
+replaceSkips n (SpecStem gd (Left exp1) t2) = (SpecStem gd (Left exp1') t2')
+  where
+    exp1' = if exp1 == Skip then (Identifier n) else exp1
+    t2' = simplifySpecificTree4 t2
+replaceSkips n (SpecStem gd (Right t1) t2) = (SpecStem gd (Right t1') t2')
+  where
+   	t1' = simplifySpecificTree4 t1
+  	t2' = simplifySpecificTree4 t2
+replaceSkips n (SpecLeaf gd exp1 exp2) = (SpecLeaf gd exp1' exp2')
+  where
+    exp1' = if exp1 == Skip 
+    	then (Identifier n)
+    	else exp1
+    exp2' = if exp2 == Skip
+    	then (Identifier n)
+    	else exp2
+replaceSkips n (SpecEx exp1) = SpecEx exp1'
+  where
+    exp1' = if exp1 == Skip 
+    	then (Identifier n)
+    	else exp1
+
+simplifySpecificTree4 :: SpecificTree -> SpecificTree
+simplifySpecificTree4 (SpecStem gd (Left exp1) t2) = (SpecStem gd (Left exp1') t2')
+  where
+    exp1' = if exp1 == (Literal (LitBool True)) then gd else exp1
+    t2' = simplifySpecificTree4 t2
+simplifySpecificTree4 (SpecStem gd (Right t1) t2) = (SpecStem gd (Right t1') t2')
+  where
+   	t1' = simplifySpecificTree4 t1
+  	t2' = simplifySpecificTree4 t2
+simplifySpecificTree4 (SpecLeaf gd exp1 exp2) = (SpecLeaf gd exp1' exp2')
+  where
+    exp1' = if exp1 == (Literal (LitBool True)) 
+    	then gd
+    	else exp1
+    exp2' = if exp2 == (Literal (LitBool False))
+    	then gd
+    	else exp2
+simplifySpecificTree4 (SpecEx e) = SpecEx e
+-- if gd == gd', the true path of the false branch will never be executed.	  
+
 	  
 ----------------------------------------------------------------------------------------------------------------------------------------
 -- (supremum, trueSet, falseSet)
@@ -3218,7 +3347,7 @@ findSupremum (rs) = (supremum, (winnowRuleSchedules (rName supremum) baseSet), b
 -- Preemptions -> Priors -> 
 arbitrateRuleSchemes :: [RuleSchedule] -> [RuleSchedule] -> RuleSchedule
 arbitrateRuleSchemes [] x = error $ "Scheduling BSV2PVS Error! Circular preemption scheme! Abort! Abort!\n\n" ++ (intercalate "\n\n" (map show x))
-arbitrateRuleSchemes _ [] = error "Scheduling BSV2PVS Error! Circular wire accesses! Mayday! Mayday!"
+arbitrateRuleSchemes x [] = error $ "Scheduling BSV2PVS Error! Circular wire accesses! Mayday! Mayday!\n\n" ++ (intercalate "\n\n" (map show x))
 arbitrateRuleSchemes noPreempts noPriors 
   | length both >= 1 		=  head both
   | otherwise                   = error $ "Scheduling BSV2PVS Error! Conflict Preemption scheme inverts ordering produced by wire accesses!\n\nRules with no preemptions: " ++ (intercalate "\n\t" (map show noPreempts)) ++ "\n\nRules at top of wire ordering" ++ (intercalate "\n\t" (map show noPriors))
@@ -3290,7 +3419,9 @@ isDWire' (_:xs) n = isDWire' xs n
 
 getPreempts' :: BSVPackage -> BSVModuleDec -> [String] -> [String] -> [String] -> [ActionPath]
 getPreempts' _ _ _ [] _ = []
-getPreempts' universe mod path (c:cs) meths = if finalIDPathEqWithStrings c meths then (getPreempts' universe mod path cs meths) else ((makeActionPath (path ++ c:[])) : (getPreempts' universe mod path cs meths))
+getPreempts' universe mod path (c:cs) meths = if finalIDPathEqWithStrings c meths 
+  then (getPreempts' universe mod path cs meths) 
+  else ((makeActionPath (path ++ c:[])) : (getPreempts' universe mod path cs meths))
 
 getMethCalls :: BSVPackage -> BSVModuleDec -> Bool -> [Statement] -> [Expression]
 getMethCalls universe mod v [] = []
@@ -3388,7 +3519,7 @@ tailID (ID x) = error "This function is being used improperly"
 tailID (ID_Submod_Struct x y) = y
 
 getPreempts :: BSVPackage -> BSVModuleDec -> [String] -> String -> [String] -> [String] -> [ActionPath] -> ([ActionPath],[ActionPath])
-getPreempts universe mod path rName confs meths implicits = ( (nub ((fst sortedUrgs) ++ apPrempting)), (nub ((snd sortedUrgs) ++ apPrempted)))  
+getPreempts universe mod path rName confs meths implicits = trace tracy $ ( (nub ((fst sortedUrgs) ++ apPrempting)), (nub ((snd sortedUrgs) ++ apPrempted)))  
 -- twace ("[T] - getPreempts - mod " ++ (show mod)) $
     {- if (addressesAllConflicts' confs' premptingRaw premptedbyRaw) 
       then ( (nub ((fst sortedUrgs) ++ apPrempting))
@@ -3396,6 +3527,7 @@ getPreempts universe mod path rName confs meths implicits = ( (nub ((fst sortedU
            ) 
            else error  $ "BSV2PVS Error! Unresolved rule conflicts for rule "++ (show rName) ++", in module \""++ (mName mod) ++ "\".  Please add either \"preempt\" or \"descending_urgency\" attributes to your BSV Source!\n\n" ++  "rName : " ++ (show rName) ++ "\nConflicts: "  ++ (show confs') ++ "\nPreemptedBy: " ++ (show preemptedBy) ++ "\nsortedUrgs: " ++ (show sortedUrgs') -- -}
   where 
+    tracy = "[getPreempts] desUrgs = " ++ (show desUrgs)
     atts = attributes mod 
     preempting = (findPreemptingList atts rName) ++ (map removeActionPath implicits)
     preemptedBy = findPreemptedByList atts rName ++ meths

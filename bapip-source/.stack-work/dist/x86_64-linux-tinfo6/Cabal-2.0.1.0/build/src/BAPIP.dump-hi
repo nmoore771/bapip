@@ -1,0 +1,1057 @@
+
+==================== FINAL INTERFACE ====================
+2022-04-13 02:59:07.201923786 UTC
+
+interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:BAPIP 8022
+  interface hash: c90bf6d979abfdd4d893abcf86af6ff3
+  ABI hash: 5ff7510f0360687d5536c4a02a61bdc2
+  export-list hash: 7d9dde5938e9290dfd354ee22911c1e6
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: aa1a6078e28560b315026c49539ca393
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  BAPIP.bapip
+  BAPIP.copyFileName1
+  BAPIP.copyFileName2
+  BAPIP.createAvailableDir
+  BAPIP.desensitizeHead
+  BAPIP.dispatch
+  BAPIP.dottify
+  BAPIP.excludedImports
+  BAPIP.getTopMod
+  BAPIP.getTopPackageName
+  BAPIP.getUserSchedules
+  BAPIP.noCommandMessage
+  BAPIP.openBSVLexer
+  BAPIP.openPVSLexer
+  BAPIP.openTSPLexer
+  BAPIP.procHexFiles
+  BAPIP.processBSVFiles
+  BAPIP.runBSV2BSV
+  BAPIP.runMacroPreprocessing
+  BAPIP.scrubUnderscore
+  BAPIP.showHelp
+  BAPIP.writeFileList
+module dependencies: BSV2PVS BSVGenerator BSVLexer ConflictSolver
+                     HEXLexer LexerTypes LiteralLexer MacroProcessor PVS2BSV
+                     PVSGenerator SourceFiles TSP2BSV TSPLexer
+package dependencies: FloatingHex-0.4 QuickCheck-2.10.1
+                      array-0.5.2.0 async-2.1.1.1 base-4.10.1.0 binary-0.8.5.1
+                      bytestring-0.10.8.2 containers-0.5.10.2 crackNum-1.9
+                      data-binary-ieee754-0.4.4 deepseq-1.4.3.0 directory-1.3.0.2
+                      extra-1.6.8 filepath-1.4.1.2 generic-deriving-1.12.1
+                      ghc-boot-th-8.2.2 ghc-prim-0.5.1.1 ieee754-0.8.0
+                      integer-gmp-1.0.1.0 mtl-2.2.2 parsec-3.1.13.0 pretty-1.1.3.3
+                      primitive-0.6.4.0 process-1.6.1.0 random-1.1 sbv-7.5 split-0.2.3.3
+                      stm-2.4.5.0 syb-0.7 template-haskell-2.12.0.0 text-1.2.3.0
+                      tf-random-0.5 time-1.8.0.2 transformers-0.5.2.0 unix-2.7.2.2
+orphans: text-1.2.3.0:Data.Text.Lazy text-1.2.3.0:Data.Text
+         binary-0.8.5.1:Data.Binary.Generic text-1.2.3.0:Data.Text.Show
+         sbv-7.5:Data.SBV sbv-7.5:Data.SBV.Core.Model
+         stm-2.4.5.0:Control.Monad.STM sbv-7.5:Data.SBV.Control.Utils
+         crackNum-1.9:Data.Numbers.CrackNum
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         sbv-7.5:Data.SBV.Core.Symbolic sbv-7.5:Data.SBV.Core.Kind
+         syb-0.7:Data.Generics.Instances sbv-7.5:Data.SBV.Core.AlgReals
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         transformers-0.5.2.0:Control.Monad.Trans.Error
+         base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Complex base-4.10.1.0:Data.Either
+                         base-4.10.1.0:Data.Functor.Compose base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity
+                         base-4.10.1.0:Data.Functor.Product base-4.10.1.0:Data.Functor.Sum
+                         base-4.10.1.0:Data.List.NonEmpty base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Semigroup base-4.10.1.0:Data.Type.Equality
+                         base-4.10.1.0:Data.Version base-4.10.1.0:Data.Void
+                         base-4.10.1.0:GHC.Exts base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats containers-0.5.10.2:Data.IntMap.Internal
+                         containers-0.5.10.2:Data.IntSet.Internal
+                         containers-0.5.10.2:Data.Map.Internal
+                         containers-0.5.10.2:Data.Sequence.Internal
+                         containers-0.5.10.2:Data.Set.Internal containers-0.5.10.2:Data.Tree
+                         ghc-boot-th-8.2.2:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.2.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.4.0:Control.Monad.Primitive
+                         primitive-0.6.4.0:Data.Primitive.ByteArray
+                         sbv-7.5:Data.SBV.Control.Types sbv-7.5:Data.SBV.Core.Data
+                         template-haskell-2.12.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.0:Data.Text text-1.2.3.0:Data.Text.Lazy
+import  -/  BSV2PVS eb3ee6b0bd303dee9acbaec2ddf297aa
+  exports: 8e63f2db6cb8b79e8d3539121d9787c0
+  bsv2pvs 0bd517946d8b462af0565efd7d1ac47a
+  strings2idpath ac1cacfb7d38e56850f736a3238339b6
+import  -/  BSVGenerator 1e8f5f4e7330e872fac61a6792e9e7e2
+  exports: 1655fca8e40a18e42b012041e7204bcb
+  showBSVPackage 7414bbf98668af4cf60fff43ded98231
+  showBSVPackages 03d5c2eaa67c68fb7e39a469a350a60e
+import  -/  BSVLexer 6aaf2ae11e30c50025bd90358119342b
+  exports: b32c42d5194fb94f9cfacaa64ab4e943
+  getImports 3fc405de4ec744896080234afe2ad7ff
+  getOmnia ad2d6712f05809d2308b3da67cfeabb7
+  runParser 3deb501cda89aded2df23163be49ffef
+import  -/  ConflictSolver debb583616ce9d1f0674dd10bd83ad79
+  exports: c1166f329d37d8d1f2ec1465ca958062
+  getSolvedSchedule 14958cc693b99dffe9b9e24e929e4761
+import  -/  HEXLexer e87c61e0cca872edaf4888e97f18fe7a
+  exports: 83111592352c8ae261afec4056d275db
+  hexParser 86b77c13d3fe72c7c1af0c2da83d3a8e
+import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
+  exports: 24099e1d1a603a4b110bad9ae51c8629
+  B2B 3ce50cdcf961553a1ce63ddda9ea5337
+  B2P cfc7eadebeb7b41bcaa365f0a8dc9a6d
+  BSVPackage dca7bfb1a37746d89b662b651361e667
+  File c24aa2ddc97c4de99fb79219c2e2ad5c
+  HexFile d5583e90e36cd3f094dbc709feddd25d
+  ID_Path 6b58178d3226f5dcfa379df74cd7f6b5
+  Mode 2882a2cad63f6474f30d3fc20714ae61
+  P2B 94256f01c4bf628f158742f371a9d75f
+  P2P f42830242ac9a86bf92bf5f14a4b4d25
+  PackageName 6454d16386f2f0fea028840e593a69c1
+  T2B 45577693a741d847c34d314e755da107
+  T2P 386111f44fd6383d5326a7d2e464fd12
+  bsv_macros dca7bfb1a37746d89b662b651361e667
+  bsv_modules dca7bfb1a37746d89b662b651361e667
+  bsv_packageName dca7bfb1a37746d89b662b651361e667
+  mName 6a9e148802acadaa54114400a09553a4
+import  -/  MacroProcessor 2c2415f09b4b3233b0792b794431eae7
+  exports: 2d124b5aa6a917785832657971745b50
+  dropAllComments 14c605a2ad2889785dd6ffd90aefb754
+  findIncludes b5b7e160feec6d42702e15618e2657c2
+  findLocalDefines 14d01e797e6f6bfd0aad7edbf0a24e41
+  genDefineFile cd966aa723fc324aeb7811af0efda8bd
+  parseMacros' 28cbd18700c13a5db4edb88c47225813
+  removeDefines 537137108c4525081e5d9c2715d5786b
+  removeIncludes 88a71bf91e7bfb1259da78409023af8c
+  runBSVMacros 1fa066d430ee4c5f091118d6b4ea48bc
+import  -/  PVS2BSV 7cd79edec2d6fd8545b2a44f96cde8c7
+  exports: 517b0820feb41e5eb54fa0ffb8a8c7da
+import  -/  PVSGenerator 8d4e4e859980febfddaf00c386ee1b0d
+  exports: 639d2548fffd793017ab14a56364f58d
+  showPVSPackage 3850dba28f87abcdc155c19a0d85e57d
+import  -/  SourceFiles 51270efe185be5c6763a4b8edd8bc350
+  exports: 591d8e4526b7a949c08ba934e7fe0d63
+  arith_BWFile 8a2be438ba2609a7dc0c48952ce94a12
+  clockTick 58de5d80210fc3250510191536e5839a
+  definedOperators 11aa81173a0689f16a470bc5f17e0f12
+  fifoFile 1ae377f8909d7bdf499aadb30fe63d82
+  maybeFile de55bd7872e545f216ac1b396cff23e3
+  readMe 394aa1ce155c229e786ad64c4f5635ed
+  timeFile 477c80ad12135d4b8251ae2e7afb056a
+import  -/  TSP2BSV 5ed73f33fc00140b2cf3ade9d210c529
+  exports: 84c60f33a498a2352c5f16f665ede89b
+  tsp2bsv 3d66f9a33e5d8be9440c416234b0d5e3
+import  -/  TSPLexer 50a24e203925f9f6caa2cb8c46316854
+  exports: 15b83e96609bd39ec480b9a5b3577709
+  parseTSP 570739c89a1836f2701972e747ee40b7
+  runTSPparser 5083c995b57a2bcf3c8b3a994ad90546
+import  -/  base-4.10.1.0:Data.Char fe4e3458190deeac19969ce15e33bed9
+import  -/  base-4.10.1.0:Data.Foldable 9ed87455d68e87ff2b5b8725eae9897e
+import  -/  base-4.10.1.0:Data.List 4ab7fa2a1b87502b23af891a384f0506
+import  -/  base-4.10.1.0:Data.OldList 555420b092ca8cf0a8f9666bc0e07dcf
+import  -/  base-4.10.1.0:Data.Traversable 60ea7c2973e63de7d08d5d0269f96e67
+import  -/  base-4.10.1.0:Data.Tuple 8fa1305aa5032ea35e2a54fa5f1e78f9
+import  -/  base-4.10.1.0:GHC.Base 782fd99b5e36f3698a26179a49afca64
+import  -/  base-4.10.1.0:GHC.Err 514b3a24b22e9d7d731c2d0d02d10842
+import  -/  base-4.10.1.0:GHC.IO e261d8b68ccf81a359626fa520b57d1d
+import  -/  base-4.10.1.0:GHC.List e3060fbeb44ce0038e6b4dedf2dd9cf1
+import  -/  base-4.10.1.0:GHC.Num 6e1dc5d36d99a802edb39b92bb1923b8
+import  -/  base-4.10.1.0:GHC.Show 0a8ce2b5e533d1c2cfb7954e6736be45
+import  -/  base-4.10.1.0:GHC.Unicode 49c9de4fffed0d9be65aaeb6a60b757c
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  base-4.10.1.0:System.Environment c9f912affeed5beb387a8c5d2b2c6102
+import  -/  base-4.10.1.0:System.IO 6e5bb580370d8d71dc5888f723cea4b4
+import  -/  directory-1.3.0.2:System.Directory c9e1b06708e6791ef125173fcae240d4
+import  -/  ghc-prim-0.5.1.1:GHC.Classes 93e2660065dce9329577e83d76d8f0d4
+import  -/  ghc-prim-0.5.1.1:GHC.Types b1fd0716441595db508c1a74387bf394
+import  -/  split-0.2.3.3:Data.List.Split d6f07f97ee293e86e1952e7427bfffa3
+import  -/  split-0.2.3.3:Data.List.Split.Internals 07f8f22ebfb54f941d103ac266ac982b
+a379dae3b982f946f63308270f7aa356
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module BAPIP.$trModule3 BAPIP.$trModule1) -}
+d7de0587ae3b0f33719016b355e9e50a
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BAPIP.$trModule2) -}
+11eedd894d49ee92b583ed3cce45d1c3
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("BAPIP"#) -}
+ca05352c21d4b970a1ef3c9cc6181651
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BAPIP.$trModule4) -}
+0163bbb312667af9baf9356807a59fb3
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD"#) -}
+ce2d7451a9a77ce0775f4669265115d7
+  $wgo :: [GHC.Types.Char] -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U>, Inline: [0] -}
+29ba03b752c201c1f6c4cabd34cc43a0
+  $wshowl ::
+    [[GHC.Types.Char]] -> (# GHC.Types.Char, [GHC.Types.Char] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+4baac19101a02e2f5a52d413db925a97
+  $wxs :: GHC.Prim.Int# -> [[GHC.Types.Char]]
+  {- Arity: 1, Strictness: <S,1*U>m2, Inline: [0] -}
+09dfdb0c019c5b958ba29984b17048cf
+  bapip :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.bapip1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+7b7d4e0130e907f4c7e19c846da71131
+  bapip1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: (\ (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case (Foreign.Marshal.Alloc.allocaBytesAligned
+                         @ Foreign.C.Types.CInt
+                         @ [GHC.Base.String]
+                         Foreign.Storable.$fStorableBool7
+                         Foreign.Storable.$fStorableBool7
+                         System.Environment.getArgs1
+                           `cast`
+                         (<GHC.Ptr.Ptr Foreign.C.Types.CInt>_R
+                          ->_R Sym (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)))
+                        `cast`
+                      (GHC.Types.N:IO[0] <[GHC.Base.String]>_R)
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.bapip3
+                        GHC.Types.True
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.bapip5
+                        GHC.Types.True
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.bapip10
+                        GHC.Types.True
+                        ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                 case ipv1 of wild {
+                   []
+                   -> case BAPIP.bapip9
+                             (GHC.Types.[] @ GHC.Base.String)
+                             ipv6 of ds5 { (#,#) ipv8 ipv9 ->
+                      BAPIP.bapip2 ipv8 ipv9 }
+                   : x xs
+                   -> case BAPIP.bapip9
+                             (GHC.Types.: @ [GHC.Types.Char] (BAPIP.bapip_go x) xs)
+                             ipv6 of ds5 { (#,#) ipv8 ipv9 ->
+                      BAPIP.bapip2 ipv8 ipv9 } } } } } }) -}
+a16a851e6a7f142b737bab561ffbb77c
+  bapip10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.bapip11) -}
+e28902d718e26484b086449150ccf590
+  bapip11 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Commencing Execution of BAPIP"#) -}
+9c1a7d93409e848d0f21502935639914
+  bapip2 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> () -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,U><L,A>,
+     Unfolding: (\ (ipv :: GHC.Prim.State# GHC.Prim.RealWorld)[OneShot]
+                   (ipv1 :: ())[OneShot] ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.bapip7
+                        GHC.Types.True
+                        ipv of ds1 { (#,#) ipv2 ipv3 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.bapip5
+                        GHC.Types.True
+                        ipv2 of ds2 { (#,#) ipv4 ipv5 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   BAPIP.bapip3
+                   GHC.Types.True
+                   ipv4 } }) -}
+37c413fc98cd58919d4f960ea8319502
+  bapip3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.bapip4) -}
+ba7f1f4c060fedf2fb7d85bf1dc196a9
+  bapip4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><<>><"#) -}
+ef9c554f5af4e1d67281632fe6ab6c83
+  bapip5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.bapip6) -}
+c51886f8efe3ec0272b1a34ec377515c
+  bapip6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"#) -}
+915d0d052098608c523f09ce131ab980
+  bapip7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.bapip8) -}
+f462f1479abe13324fb6657b785e41e8
+  bapip8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Terminating Excecution of BAPIP"#) -}
+3a4fbaeb51a277b8230cbac78bd3408a
+  bapip9 ::
+    [GHC.Base.String]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+c32af9c2a8738cd460e0d1cb54e29bde
+  bapip_go :: [GHC.Types.Char] -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S,1*U> -}
+b421ae9fa59304a47526b87427c6f533
+  copyFileName1 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.copyFileName4) -}
+b06025d2904d0a80215bf7f48b203e37
+  copyFileName2 :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.copyFileName5) -}
+c8c81b8808d4a7396d3d412877043985
+  copyFileName4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ClockTick.pvs"#) -}
+7b3044f423a31639ac807c3456f64dfe
+  copyFileName5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("defined_operators.pvs"#) -}
+4bcba71bf5e6e9b53f8aa9478790c8bb
+  createAvailableDir ::
+    GHC.IO.FilePath -> GHC.Types.Int -> GHC.Types.IO GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><L,U(U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.createAvailableDir1
+                  `cast`
+                (<GHC.IO.FilePath>_R
+                 ->_R <GHC.Types.Int>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+ffb7492dbfeb30fe641db0eaf8ec24fd
+  createAvailableDir1 ::
+    GHC.IO.FilePath
+    -> GHC.Types.Int
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 3, Strictness: <L,U><L,U(U)><S,U> -}
+f170b854d3fab37715e9b1aa93cf44a7
+  desensitizeHead :: [GHC.Base.String] -> [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: [GHC.Base.String]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Base.String
+                   : x xs
+                   -> GHC.Types.:
+                        @ [GHC.Types.Char]
+                        (GHC.Base.build
+                           @ GHC.Types.Char
+                           (\ @ b1
+                              (c :: GHC.Types.Char -> b1 -> b1)[OneShot]
+                              (n2 :: b1)[OneShot] ->
+                            GHC.Base.foldr
+                              @ GHC.Types.Char
+                              @ b1
+                              (GHC.Base.mapFB
+                                 @ GHC.Types.Char
+                                 @ b1
+                                 @ GHC.Types.Char
+                                 c
+                                 GHC.Unicode.toLower)
+                              n2
+                              x))
+                        xs }) -}
+22d86dd6f520596a73a1144a37df5943
+  dispatch :: [GHC.Base.String] -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.bapip9
+                  `cast`
+                (<[GHC.Base.String]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+1c1784966c625091def4b23bc957776d
+  dottify :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (xs :: GHC.Base.String) ->
+                 case BAPIP.$wgo xs 0# of ww { DEFAULT ->
+                 let {
+                   y :: GHC.Prim.Int# = GHC.Prim.+# ww 1#
+                 } in
+                 case GHC.Prim.tagToEnum#
+                        @ GHC.Types.Bool
+                        (GHC.Prim.<# 0# y) of wild {
+                   GHC.Types.False -> GHC.Types.[] @ GHC.Types.Char
+                   GHC.Types.True
+                   -> case BAPIP.$wxs y of wild1 {
+                        [] -> GHC.Types.[] @ GHC.Types.Char
+                        : x xs1
+                        -> Data.OldList.intercalate_$spoly_go
+                             @ GHC.Types.Char
+                             x
+                             (Data.OldList.prependToAll
+                                @ [GHC.Types.Char]
+                                BAPIP.dottify1
+                                xs1) } } }) -}
+742249e20df289d77d003bbb3f326fe8
+  dottify1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.dottify2) -}
+442d1ea991356f73dd4f79049f57a98b
+  dottify2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("/"#) -}
+6e894e7028c61e16cdc6aa8b84ebadfc
+  excludedImports :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports19
+                   BAPIP.excludedImports1) -}
+9ec2efca9cfc4bddcc7e4870bb2f1da9
+  excludedImports1 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports17
+                   BAPIP.excludedImports2) -}
+f7fcefe80a2f0e4f8b61fab15579f3f5
+  excludedImports10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("FIFO"#) -}
+196a21a5a5f8ba6ad668687679161535
+  excludedImports11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports12) -}
+93cd78581506ba83df6ac8bb0fcd3aed
+  excludedImports12 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("SpecialFIFOs"#) -}
+db77bc5120550644ec208e7df9d645fc
+  excludedImports13 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports14) -}
+92f8fdf32d5bf9703a664763944922c1
+  excludedImports14 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("RegFile"#) -}
+07f86b5235000da1c1aafd22091eea13
+  excludedImports15 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports16) -}
+374dd79f54993b76f86d3e4fb2ec3c7e
+  excludedImports16 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("DefaultValue"#) -}
+d858932dbb705a57b50cb6515ff8b878
+  excludedImports17 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports18) -}
+f2b36a6172ea35dd9ffc859f8311715e
+  excludedImports18 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Vector"#) -}
+68dd3b3b0cf88dcd104cc567b4b97b31
+  excludedImports19 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports20) -}
+1d8685bc6ab3cdafa91291edb2452219
+  excludedImports2 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports15
+                   BAPIP.excludedImports3) -}
+443ad66e847d11fe6c8be69f1e163d87
+  excludedImports20 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("FloatingPoint"#) -}
+dd63e1b903e880527183f3b9e0de4967
+  excludedImports3 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports13
+                   BAPIP.excludedImports4) -}
+20bf885b61cfc81f56754226ab520d00
+  excludedImports4 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports11
+                   BAPIP.excludedImports5) -}
+7facd879e3a7292499ad39ad325609d1
+  excludedImports5 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports9
+                   BAPIP.excludedImports6) -}
+175a409fa4123feee2695c4b24580818
+  excludedImports6 :: [GHC.Base.String]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   BAPIP.excludedImports7
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+0bf01fd87a53f23947729ecc89d16afd
+  excludedImports7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports8) -}
+da1404a5ab1b30e3ac6a00467c83f1ee
+  excludedImports8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("FIFOF"#) -}
+802d9fa0c0debfc374544fafc6ae60ae
+  excludedImports9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.excludedImports10) -}
+0a26521423955849ac1a4f06c72061b8
+  getTopMod :: LexerTypes.BSVPackage -> GHC.Base.String
+  {- Arity: 1,
+     Strictness: <S(LLLLLLLSLLL),1*U(A,A,A,A,A,A,A,1*U,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (package :: LexerTypes.BSVPackage) ->
+                 case package of wild { LexerTypes.BSVPackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                 case ds8 of wild1 {
+                   [] -> case GHC.List.badHead ret_ty GHC.Base.String of {}
+                   : x ds16
+                   -> case x of wild2 { LexerTypes.BSVModuleDec ds17 ds18 ds19 ds20 ds21 ds22 ds23 ds24 ds25 ds26 ->
+                      ds17 } } }) -}
+692cd1b9943c9c5487357f33b5a79d7f
+  getTopPackageName ::
+    GHC.Base.String
+    -> [LexerTypes.BSVPackage] -> LexerTypes.PackageName
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+0fafc11283a1051a5a4748cac6416448
+  getUserSchedules ::
+    GHC.IO.FilePath -> GHC.Types.IO [[LexerTypes.ID_Path]]
+  {- Arity: 2, Strictness: <L,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.getUserSchedules1
+                  `cast`
+                (<GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[[LexerTypes.ID_Path]]>_R)) -}
+f8fd427e4851dc14eaf4c83c846a2d62
+  getUserSchedules1 ::
+    GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [[LexerTypes.ID_Path]] #)
+  {- Arity: 2, Strictness: <L,1*U><S,U>,
+     Unfolding: (\ (filePath :: GHC.IO.FilePath)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 let {
+                   filePath' :: [GHC.Types.Char]
+                   = GHC.Base.++
+                       @ GHC.Types.Char
+                       (GHC.List.reverse1
+                          @ GHC.Types.Char
+                          (GHC.List.dropWhile
+                             @ GHC.Types.Char
+                             BAPIP.getUserSchedules9
+                             (GHC.List.reverse1
+                                @ GHC.Types.Char
+                                filePath
+                                (GHC.Types.[] @ GHC.Types.Char)))
+                          (GHC.Types.[] @ GHC.Types.Char))
+                       BAPIP.getUserSchedules7
+                 } in
+                 case System.Directory.doesFileExist1
+                        filePath'
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case ipv1 of wild {
+                   GHC.Types.False
+                   -> case GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             BAPIP.getUserSchedules5
+                             GHC.Types.True
+                             ipv of ds2 { (#,#) ipv2 ipv3 ->
+                      (# ipv2, GHC.Types.[] @ [LexerTypes.ID_Path] #) }
+                   GHC.Types.True
+                   -> case GHC.IO.Handle.Text.hPutStr2
+                             GHC.IO.Handle.FD.stdout
+                             BAPIP.getUserSchedules3
+                             GHC.Types.True
+                             ipv of ds2 { (#,#) ipv2 ipv3 ->
+                      case GHC.IO.Handle.FD.openFile1
+                             filePath'
+                             GHC.IO.IOMode.ReadMode
+                             ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                      case GHC.IO.Handle.Text.hGetContents1
+                             ipv5
+                             ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                      (# ipv6,
+                         GHC.Types.:
+                           @ [LexerTypes.ID_Path]
+                           (GHC.Types.[] @ LexerTypes.ID_Path)
+                           (GHC.Base.map
+                              @ [GHC.Types.Char]
+                              @ [LexerTypes.ID_Path]
+                              BAPIP.getUserSchedules2
+                              (Data.OldList.lines ipv7)) #) } } } } }) -}
+f30d8345cbc1bc2dce0d39448151e857
+  getUserSchedules2 :: [GHC.Types.Char] -> [LexerTypes.ID_Path]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (x :: [GHC.Types.Char]) ->
+                 BAPIP.getUserSchedules_go x) -}
+a98817e64248be2c0e8afd98b1996681
+  getUserSchedules3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.getUserSchedules4) -}
+5680f092309ff5c895c56da36d9f6e17
+  getUserSchedules4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("User specified schedules detected!"#) -}
+fc313bc18beca6e01741ba92c4573c8c
+  getUserSchedules5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.getUserSchedules6) -}
+4b15e750f2b669a448f6bd368fc4411a
+  getUserSchedules6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("No user specified schedules found."#) -}
+c04f414e5e564eebc27fc30c1cc4134b
+  getUserSchedules7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.getUserSchedules8) -}
+7a3559e7e92072ef02db1ff530dd58bc
+  getUserSchedules8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("schedules.bapip"#) -}
+1a3e8c1522124385d111c0e036259d21
+  getUserSchedules9 :: GHC.Types.Char -> GHC.Types.Bool
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(S),1*U(1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: GHC.Types.Char) ->
+                 case ds of wild { GHC.Types.C# x ->
+                 case x of wild1 {
+                   DEFAULT -> GHC.Types.True '/'# -> GHC.Types.False } }) -}
+6db9f2297bfc1dcba1913f72d8dd152f
+  getUserSchedules_go :: [GHC.Types.Char] -> [LexerTypes.ID_Path]
+  {- Arity: 1, Strictness: <S,1*U> -}
+2b2d98263d992b57ae964042894083aa
+  noCommandMessage :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.noCommandMessage1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+5b34913b0b1337f9dfa47c1dfc72de49
+  noCommandMessage1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   BAPIP.noCommandMessage2
+                   GHC.Types.False) -}
+a4d13da20635bc78fdc8c9e28c8d1fc3
+  noCommandMessage2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BAPIP.noCommandMessage3) -}
+0d0478e1c7d1375d6462f92744cd83ab
+  noCommandMessage3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("Command not recognized.  Use \"help\" to view available commands.\n\
+                 \\n\
+                 \\n"#) -}
+d78607f7519915893cbb2e4e9a55240e
+  openBSVLexer ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.IO.FilePath
+    -> GHC.Types.IO ()
+  {- Arity: 5, Strictness: <S,1*U><L,U><S,1*U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.openBSVLexer1
+                  `cast`
+                (<LexerTypes.Mode>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R <GHC.Base.Maybe GHC.Base.String>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+7c0a1e8e6ae7aa4ef1a6d61f9f5586a0
+  openBSVLexer1 ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 5, Strictness: <S,1*U><L,U><S,1*U><L,U><S,U> -}
+a2dc58438ed5b0ba30bb6ff13c4f411d
+  openPVSLexer ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath -> GHC.IO.FilePath -> GHC.Types.IO ()
+  {- Arity: 4, Strictness: <S,1*U><L,A><L,A><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.openPVSLexer1
+                  `cast`
+                (<LexerTypes.Mode>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+1c13a629cc168936292c011b41ce7a81
+  openPVSLexer1 ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath
+    -> GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4, Strictness: <S,1*U><L,A><L,A><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ (ds :: LexerTypes.Mode)
+                   (inputDir :: GHC.IO.FilePath)
+                   (outputDir :: GHC.IO.FilePath)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case ds of wild {
+                   DEFAULT
+                   -> case BAPIP.openPVSLexer6
+                      ret_ty (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+                      of {}
+                   LexerTypes.P2B
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.openPVSLexer4
+                        GHC.Types.False
+                        eta
+                   LexerTypes.P2P
+                   -> GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        BAPIP.openPVSLexer2
+                        GHC.Types.False
+                        eta }) -}
+88a1c19af57b773511cb1d67226847fe
+  openPVSLexer2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.openPVSLexer3) -}
+e11662a39aa605d3d9854088ffdd99df
+  openPVSLexer3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("PVS2PVS mode not yet implemented!  Nor is it likely to be!"#) -}
+0ed4fa52481cdd869aaa95fb46357b27
+  openPVSLexer4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.openPVSLexer5) -}
+32ce006c6f8a1e2571b342c4f97daeb2
+  openPVSLexer5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("PVS2BSV mode not yet implemented!  Nor is it likely to be!"#) -}
+a616e5049d03d5a095ef60bd34a256b6
+  openPVSLexer6 :: GHC.Types.IO ()
+  {- Strictness: x -}
+0f400e3188ad592afbef0fdb17891589
+  openTSPLexer ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath -> GHC.IO.FilePath -> GHC.Types.IO ()
+  {- Arity: 4, Strictness: <S,1*U><L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.openTSPLexer1
+                  `cast`
+                (<LexerTypes.Mode>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+4ca3c47b12870cbfb2f0da7cff1e1180
+  openTSPLexer1 ::
+    LexerTypes.Mode
+    -> GHC.IO.FilePath
+    -> GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 4, Strictness: <S,1*U><L,U><L,U><S,U> -}
+5302b00625f41635c0121a347f4b1742
+  procHexFiles ::
+    GHC.IO.FilePath
+    -> [GHC.IO.FilePath] -> GHC.Types.IO [LexerTypes.HexFile]
+  {- Arity: 3, Strictness: <L,1*U><L,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.procHexFiles1
+                  `cast`
+                (<GHC.IO.FilePath>_R
+                 ->_R <[GHC.IO.FilePath]>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[LexerTypes.HexFile]>_R)) -}
+752c6f28d61111cb7a0cb3d8fbda9069
+  procHexFiles1 ::
+    GHC.IO.FilePath
+    -> [GHC.IO.FilePath]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [LexerTypes.HexFile] #)
+  {- Arity: 3, Strictness: <L,1*U><L,1*U><S,U>,
+     Unfolding: (\ (inputFile :: GHC.IO.FilePath)
+                   (toProc' :: [GHC.IO.FilePath])
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 let {
+                   toProc :: [[GHC.Types.Char]]
+                   = let {
+                       lvl103 :: [GHC.Types.Char]
+                       = GHC.List.reverse1
+                           @ GHC.Types.Char
+                           (GHC.List.dropWhile
+                              @ GHC.Types.Char
+                              BAPIP.getUserSchedules9
+                              (GHC.List.reverse1
+                                 @ GHC.Types.Char
+                                 inputFile
+                                 (GHC.Types.[] @ GHC.Types.Char)))
+                           (GHC.Types.[] @ GHC.Types.Char)
+                     } in
+                     GHC.Base.map
+                       @ [GHC.Types.Char]
+                       @ [GHC.Types.Char]
+                       (\ (x :: [GHC.Types.Char]) ->
+                        GHC.Base.++ @ GHC.Types.Char lvl103 x)
+                       toProc'
+                 } in
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        (GHC.CString.unpackAppendCString#
+                           BAPIP.procHexFiles4
+                           (case toProc of wild {
+                              [] -> BAPIP.procHexFiles3
+                              : x xs
+                              -> GHC.Types.:
+                                   @ GHC.Types.Char
+                                   GHC.Show.showList__3
+                                   (GHC.Types.:
+                                      @ GHC.Types.Char
+                                      GHC.Show.$fShow(,)3
+                                      (GHC.Show.showLitString
+                                         x
+                                         (GHC.Types.:
+                                            @ GHC.Types.Char
+                                            GHC.Show.$fShow(,)3
+                                            (BAPIP.procHexFiles_showl xs)))) }))
+                        GHC.Types.True
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 case BAPIP.procHexFiles2 toProc ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 (# ipv2, BAPIP.procHexFiles_go2 toProc ipv3 #) } }) -}
+dee497d8fb9a8e963f761d80c47932d3
+  procHexFiles2 ::
+    [GHC.IO.FilePath]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Base.String] #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+f5656789c4a840e7af60058d0fb433cf
+  procHexFiles3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackAppendCString#
+                   GHC.Show.showList__4
+                   (GHC.Types.[] @ GHC.Types.Char)) -}
+632385f10bed6250a4d35936279992d7
+  procHexFiles4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("    Processing Hex Files : "#) -}
+701680a8b3fc4d4a80cec2ce3475a5c0
+  procHexFiles_go2 ::
+    [[GHC.Types.Char]]
+    -> [[GHC.Types.Char]] -> [(GHC.Base.String, [LexerTypes.Literal])]
+  {- Arity: 2, Strictness: <S,1*U><L,1*U> -}
+a9ab19e73f043f50d57b07d37ad0d995
+  procHexFiles_showl :: [[GHC.Types.Char]] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>m2, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: [[GHC.Types.Char]]) ->
+                 case BAPIP.$wshowl w of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ GHC.Types.Char ww1 ww2 }) -}
+1ca949eae32bc958048f42d5d14caf8f
+  processBSVFiles ::
+    LexerTypes.Mode
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.IO.FilePath
+    -> [GHC.IO.FilePath]
+    -> [GHC.IO.FilePath]
+    -> GHC.IO.FilePath
+    -> GHC.Types.IO ()
+  {- Arity: 7, Strictness: <S,1*U><L,U><L,U><S,1*U><L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.processBSVFiles1
+                  `cast`
+                (<LexerTypes.Mode>_R
+                 ->_R <GHC.Base.Maybe GHC.Base.String>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R <[GHC.IO.FilePath]>_R
+                 ->_R <[GHC.IO.FilePath]>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+47c4862d0aa7ef68f333c5f5a6806989
+  processBSVFiles1 ::
+    LexerTypes.Mode
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.IO.FilePath
+    -> [GHC.IO.FilePath]
+    -> [GHC.IO.FilePath]
+    -> GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 7, Strictness: <S,1*U><L,U><L,U><S,1*U><L,U><L,U><S,U> -}
+772c3cde280dd7c52adb42e35b8431b9
+  runBSV2BSV :: GHC.IO.FilePath -> GHC.IO.FilePath -> GHC.Types.IO ()
+  {- Arity: 3, Strictness: <L,U><L,U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.runBSV2BSV1
+                  `cast`
+                (<GHC.IO.FilePath>_R
+                 ->_R <GHC.IO.FilePath>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+39ca69a9b5ae097f268f85d600a3eb94
+  runBSV2BSV1 ::
+    GHC.IO.FilePath
+    -> GHC.IO.FilePath
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 3, Strictness: <L,U><L,U><S,U>,
+     Unfolding: (\ (input :: GHC.IO.FilePath)
+                   (output :: GHC.IO.FilePath)
+                   (s1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case GHC.IO.Handle.FD.openFile1
+                        input
+                        GHC.IO.IOMode.ReadMode
+                        s1 of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hGetContents1
+                        ipv1
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 case BAPIP.createAvailableDir1
+                        output
+                        BAPIP.runBSV2BSV6
+                        ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                 case BAPIP.processBSVFiles1
+                        LexerTypes.B2B
+                        (GHC.Base.Nothing @ GHC.Base.String)
+                        input
+                        (GHC.Types.[] @ GHC.IO.FilePath)
+                        (GHC.Types.[] @ GHC.IO.FilePath)
+                        ipv5
+                        ipv4 of ds4 { (#,#) ipv6 ipv7 ->
+                 case System.Posix.Directory.changeWorkingDirectory1
+                        BAPIP.runBSV2BSV4
+                        ipv6 of ds5 { (#,#) ipv8 ipv9 ->
+                 GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   BAPIP.runBSV2BSV2
+                   GHC.Types.True
+                   ipv8 } } } } }) -}
+272d928c8758f7b55c0e37038d5fdf1e
+  runBSV2BSV2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.runBSV2BSV3) -}
+b26f806188708e0d98d91e8116fb0cc2
+  runBSV2BSV3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: (">> Translation was Successful! <<"#) -}
+1cacf1f1e95face7cfe896cc332290e3
+  runBSV2BSV4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# BAPIP.runBSV2BSV5) -}
+950181c38de752c826ce0496d3229d09
+  runBSV2BSV5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (".."#) -}
+ac5aaa5f4cd4405d0e28124715d09fe3
+  runBSV2BSV6 :: GHC.Types.Int
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
+5489f89c54e8ef3e878cc6235a3679ae
+  runMacroPreprocessing ::
+    GHC.Base.String -> GHC.Base.String -> GHC.Types.IO GHC.Base.String
+  {- Arity: 3, Strictness: <S,U><L,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.runMacroPreprocessing1
+                  `cast`
+                (<GHC.Base.String>_R
+                 ->_R <GHC.Base.String>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
+3fabe5c1a9c70ea584b7c8f4776f1c30
+  runMacroPreprocessing1 ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Base.String #)
+  {- Arity: 3, Strictness: <S,U><L,1*U><S,U>,
+     Unfolding: (\ (file :: GHC.Base.String)
+                   (filePath :: GHC.Base.String)
+                   (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 let {
+                   lvl103 :: [GHC.Types.Char]
+                   = GHC.List.reverse1
+                       @ GHC.Types.Char
+                       (GHC.List.dropWhile
+                          @ GHC.Types.Char
+                          BAPIP.getUserSchedules9
+                          (GHC.List.reverse1
+                             @ GHC.Types.Char
+                             filePath
+                             (GHC.Types.[] @ GHC.Types.Char)))
+                       (GHC.Types.[] @ GHC.Types.Char)
+                 } in
+                 letrec {
+                   go7 :: [[GHC.Types.Char]]
+                          -> GHC.Prim.State# GHC.Prim.RealWorld
+                          -> (# GHC.Prim.State# GHC.Prim.RealWorld, [GHC.Base.String] #)
+                     {- Arity: 2, Strictness: <S,1*U><S,U> -}
+                   = \ (ds :: [[GHC.Types.Char]])
+                       (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                     case ds of wild {
+                       [] -> (# eta1, GHC.Types.[] @ GHC.Base.String #)
+                       : y ys
+                       -> case GHC.IO.Handle.FD.openFile1
+                                 (GHC.Base.++ @ GHC.Types.Char lvl103 y)
+                                 GHC.IO.IOMode.ReadMode
+                                 eta1 of ds1 { (#,#) ipv ipv1 ->
+                          case GHC.IO.Handle.Text.hGetContents1
+                                 ipv1
+                                 ipv of ds2 { (#,#) ipv2 ipv3 ->
+                          case go7 ys ipv2 of ds3 { (#,#) ipv4 ipv5 ->
+                          (# ipv4, GHC.Types.: @ GHC.Base.String ipv3 ipv5 #) } } } }
+                 } in
+                 case go7
+                        (MacroProcessor.findIncludes file)
+                        eta of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    letrec {
+                      go8 :: [LexerTypes.BSVMacro]
+                             -> LexerTypes.FileContents -> LexerTypes.FileContents
+                        <join 2> {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+                      = \ (ds :: [LexerTypes.BSVMacro])
+                          (eta1 :: LexerTypes.FileContents) ->
+                        case ds of wild {
+                          [] -> BAPIP.runMacroPreprocessing_go ipv1 eta1
+                          : y ys -> go8 ys (MacroProcessor.runBSVMacro eta1 y) }
+                    } in
+                    go8
+                      (MacroProcessor.findLocalDefines file)
+                      (MacroProcessor.removeDefines
+                         (MacroProcessor.removeIncludes file)) #) }) -}
+b52a8cc524b998103b79f4cdfbb7f73d
+  runMacroPreprocessing_go ::
+    [[GHC.Types.Char]]
+    -> LexerTypes.FileContents -> LexerTypes.FileContents
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+91bac77f134a6a6f1a518025eda226ae
+  scrubUnderscore :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: [GHC.Types.Char]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ds1 xs
+                   -> case ds1 of wild1 { GHC.Types.C# ds2 ->
+                      case ds2 of ds3 { DEFAULT -> wild '_'# -> xs } } }) -}
+c603d1c243b8fc15dc9e1a90edd2093b
+  showHelp :: GHC.Types.IO ()
+  {- Arity: 1,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.showHelp1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+722da107a8e35b9bbe0a839597aa9757
+  showHelp1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.IO.Handle.Text.hPutStr2
+                   GHC.IO.Handle.FD.stdout
+                   SourceFiles.readMe
+                   GHC.Types.False) -}
+b10c91d18930cfa7aef25e7b2f9febd2
+  writeFileList :: [LexerTypes.File] -> GHC.Types.IO ()
+  {- Arity: 2, Strictness: <S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.writeFileList1
+                  `cast`
+                (<[LexerTypes.File]>_R ->_R Sym (GHC.Types.N:IO[0] <()>_R)) -}
+bac94319b54503f35962e781af52db40
+  writeFileList1 ::
+    [LexerTypes.File]
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

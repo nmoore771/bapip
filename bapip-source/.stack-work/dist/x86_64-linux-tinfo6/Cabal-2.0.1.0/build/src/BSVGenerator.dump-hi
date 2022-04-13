@@ -1,0 +1,2435 @@
+
+==================== FINAL INTERFACE ====================
+2022-03-30 13:21:42.225080938 UTC
+
+interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:BSVGenerator 8022
+  interface hash: 2d5b28f39fdd65e4c9f291244bc67adc
+  ABI hash: 1e8f5f4e7330e872fac61a6792e9e7e2
+  export-list hash: 1655fca8e40a18e42b012041e7204bcb
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: aa1a6078e28560b315026c49539ca393
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  BSVGenerator.expression2BSV
+  BSVGenerator.idPath2BSV
+  BSVGenerator.killVoidModuleAttributes
+  BSVGenerator.showArgumentAttribute
+  BSVGenerator.showArgumentAttributes
+  BSVGenerator.showBSVActionAttribute
+  BSVGenerator.showBSVActionAttributes
+  BSVGenerator.showBSVActionHeader
+  BSVGenerator.showBSVArgument
+  BSVGenerator.showBSVCase
+  BSVGenerator.showBSVConstant
+  BSVGenerator.showBSVConstants
+  BSVGenerator.showBSVFunction
+  BSVGenerator.showBSVFunctions
+  BSVGenerator.showBSVHeader
+  BSVGenerator.showBSVImport
+  BSVGenerator.showBSVImports
+  BSVGenerator.showBSVInterface
+  BSVGenerator.showBSVInterfaces
+  BSVGenerator.showBSVMethodBodyAttribute
+  BSVGenerator.showBSVMethodBodyAttributes
+  BSVGenerator.showBSVMethodDec
+  BSVGenerator.showBSVModule
+  BSVGenerator.showBSVModuleAction
+  BSVGenerator.showBSVModuleActions
+  BSVGenerator.showBSVModuleHeader
+  BSVGenerator.showBSVModuleMethod
+  BSVGenerator.showBSVModuleMethods
+  BSVGenerator.showBSVModuleRule
+  BSVGenerator.showBSVModuleRules
+  BSVGenerator.showBSVModuleStateDec
+  BSVGenerator.showBSVModuleStateDecs
+  BSVGenerator.showBSVModules
+  BSVGenerator.showBSVPackage
+  BSVGenerator.showBSVPackages
+  BSVGenerator.showBSVReturnType
+  BSVGenerator.showBSVRuleAttribute
+  BSVGenerator.showBSVRuleAttributes
+  BSVGenerator.showBSVStatement
+  BSVGenerator.showBSVStatementAttribute
+  BSVGenerator.showBSVStatementAttributes
+  BSVGenerator.showBSVStatements
+  BSVGenerator.showBSVSubInt
+  BSVGenerator.showBSVType
+  BSVGenerator.showBSVTypeDef
+  BSVGenerator.showBSVTypeDefs
+  BSVGenerator.showBSVfooter
+  BSVGenerator.showBSVinclude
+  BSVGenerator.showBSVincludes
+  BSVGenerator.showDefInst
+  BSVGenerator.showIDPath
+  BSVGenerator.showInterfaceAttribute
+  BSVGenerator.showInterfaceAttributes
+  BSVGenerator.showInterfaceHeader
+  BSVGenerator.showLit
+  BSVGenerator.showMethodDecAttribute
+  BSVGenerator.showMethodDecAttributes
+  BSVGenerator.showModuleAttribute
+  BSVGenerator.showModuleAttributes
+  BSVGenerator.showUTArgs
+  BSVGenerator.showUType
+  BSVGenerator.showUninterpretedStatement
+  BSVGenerator.showVectInit
+module dependencies: LexerTypes
+package dependencies: array-0.5.2.0 base-4.10.1.0 binary-0.8.5.1
+                      bytestring-0.10.8.2 containers-0.5.10.2 deepseq-1.4.3.0
+                      ghc-prim-0.5.1.1 integer-gmp-1.0.1.0 text-1.2.3.0
+orphans: text-1.2.3.0:Data.Text binary-0.8.5.1:Data.Binary.Generic
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         text-1.2.3.0:Data.Text.Show base-4.10.1.0:GHC.Float
+         base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Complex base-4.10.1.0:Data.Either
+                         base-4.10.1.0:Data.Functor.Compose base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity
+                         base-4.10.1.0:Data.Functor.Product base-4.10.1.0:Data.Functor.Sum
+                         base-4.10.1.0:Data.List.NonEmpty base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Semigroup base-4.10.1.0:Data.Type.Equality
+                         base-4.10.1.0:Data.Version base-4.10.1.0:Data.Void
+                         base-4.10.1.0:GHC.Exts base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats containers-0.5.10.2:Data.IntMap.Internal
+                         containers-0.5.10.2:Data.IntSet.Internal
+                         containers-0.5.10.2:Data.Map.Internal
+                         containers-0.5.10.2:Data.Sequence.Internal
+                         containers-0.5.10.2:Data.Set.Internal containers-0.5.10.2:Data.Tree
+                         text-1.2.3.0:Data.Text
+import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
+  exports: 24099e1d1a603a4b110bad9ae51c8629
+  Act_Doc a8f3973fadeab3779e3e669126948045
+  Action e0098cb1d9678619d5aeab522d9aa7d4
+  ActionAttribute 826bf9b3273fb2f15950fa50da194ba0
+  ActionCall 5f00c2c285beee0562ba8fcf273c888d
+  ActionDec 36a81895e6f17b2fffb92c53815c425d
+  ActionValue cfc33ec4ed956b78136d21dfb4a7b1e8
+  Add 36538cb76d628c0acd4a4cf71078cdb4
+  And e22c6395cd4b23e2790ce49d4543b755
+  Arg_Always_Enabled 7cdc18899dea604ebee0d72d3f0ef148
+  Arg_Always_Ready 4b506403dcdf39e65ddf0637a06d2a6b
+  Arg_Doc 9cfcabfe288b050d09ccaa785bc6bc83
+  Arg_Enable e50e57b3ff97116745191cff93d321d5
+  Arg_Port 9be038d3339ee3e47d03fc69d6d89e87
+  Arg_Prefix 91d7a82e8bcad1a60037c4680376ab63
+  Arg_Ready a0c4d1bed97e29c6ddc1fb762b240136
+  Arg_Result 796be5ba7b8c266b290882f4fb2376e3
+  Argument 93c68e38876debf7336af4b4cf3614b5
+  ArgumentAttribute 9843a91dd1e7fc3f97d724b817ded62a
+  BSVConstantDec b88fa7e6b37f6f00493a89357f127044
+  BSVFunction 543f7b92bb23936b640d985e609f9f1f
+  BSVInstDef d4c3f0df3b23e82596dcee695e4732f4
+  BSVModuleDec 6a9e148802acadaa54114400a09553a4
+  BSVPackage dca7bfb1a37746d89b662b651361e667
+  BSVType 4a6fa266ef9464fb93f2d34d394bedde
+  BSVTypeDef 8e4fa46f3b3e0dfb841487fd74787a36
+  BSV_Bit b7bdba10c8eb1b1e91e90f40be229e2c
+  BSV_Bool 01eddf3beaa8c7925d8ccb76e15f4fc4
+  BSV_Custom 3e037feb3dae439d4704b3fad55dd49b
+  BSV_Enumeration bedc0fcd727049aa2e0541fbd11f84b4
+  BSV_Fifo 03f2d7df610a9ffc10dbe487dc910e79
+  BSV_Int 4204bd688ea42600a7a56fbf7a805572
+  BSV_Real 74fd7cf943d91608036060a198b78300
+  BSV_Reg bebd524f4e8ace342acec9513d4ad26a
+  BSV_Struct e68a86d94ad261d6d0d40e01c97f4031
+  BSV_SubModuleDec 4cfcb5f0ea07b81fd12b2088e2957c5e
+  BSV_Synonym dcaabe3758db3247f01951246c828702
+  BSV_UInt 188b355edf0c4b3f1e8d57c4aeebe56f
+  BSV_Vector 3ee79272024b25ce68888eea8399c371
+  BSVstateDec 8c52b7703dbf130a1d71c377ab4031f7
+  BitwiseAND 7e507419ece991ad7ce0f2956c9aa213
+  BitwiseOR 302153d3c58ce21102a7455a65b88105
+  BitwiseXOR c9cc2432ec74bae8bc7895c9ccd99e77
+  Case cadc4dd88ae52d1939dfeb3e511aff3a
+  Clock_Ancestors 624011b5c379b0e190e4c4151d1a0ed3
+  Clock_Family a7edba3bfd02544fab50db6604257c8c
+  Clock_Prefix cd43f072a7e01f496398e327caa5dbe9
+  DeclAssign 441df763bd5b6dee0b7aca2740e5a2b2
+  Default_Clock_Gate 49607fc19b84fb9e3891d02226111ea3
+  Default_Clock_OSC 676ee189232308966e73f133e488d21a
+  Default_Gate_Inhigh 8849ce38bf90367cfb34a3bafc851367
+  Default_Gate_Unused 28498d1aa52fdc953160f3cfddb7c83d
+  Default_Reset 572f8913e07e0361882547f42e73f982
+  Descending_Urgency c3d7b3e2fe1741bd5b0c7b40a1155a91
+  Divide 4e0e22b926cf6cc14d39a04fc286fe36
+  Equals 61c8e1ea5b6b779f6da6a09d78deda00
+  Exp_FunctionCall e2d5fa7c978122cee21bc7c2633d698e
+  Exp_If 8f8ce8dc133821fef9f9cd8882f50996
+  Exp_MethodCall e0fa569420d352ff8a5c69ead86bec0f
+  Expression 6b58178d3226f5dcfa379df74cd7f6b5
+  File c24aa2ddc97c4de99fb79219c2e2ad5c
+  Fire_When_Enabled af1d9e688b6c93667f1e1dd76470ee52
+  ForLoop 9f373b5c95392dade3a453dbcd756f31
+  Gate_All_Clocks 1f1124b788b37e0efba7ea8aa6e35970
+  Gate_Input_Clocks c60b7047c672e49dd8ef675a2bb1992f
+  Gate_Prefix 7cee54c3337c3f78021e29c4b53f7db4
+  Greater 6b9689f45536195da18383e5326b97a8
+  GreaterEquals 6d9a338a7609c353aeb3bdce17362ec6
+  ID 162ab617d5709f209b382d729b114647
+  ID_Path 6b58178d3226f5dcfa379df74cd7f6b5
+  ID_Submod_Struct 463de23e5c7996a7d7e8c379f21535c2
+  Identifier f34a421e3991b38924384ea37d474049
+  If 32fa666fb38bd1ab23f33b637083b1ac
+  Int_Always_Enabled 05ad0d036c02f1cb0d4b6e19745237a6
+  Int_Always_Ready 20f1544f8be8d06cdab74ea6f9c51daf
+  Int_Doc 65c29fb24fc143a026c73be55e1f6c04
+  InterfaceAttribute a509f8cd27c185b7680a841781f3b25f
+  InterfaceDec 1499c0615b3c44798666b03c4c00ca8f
+  InterfaceRef e3860765508607c28be1ec3e51cc1625
+  LShift a6a4b281298d1b8a75f764462c15d6a1
+  Less d59e317442af542f318ae1618692d2bb
+  LessEquals 0253bd2afe07783f24a5580881609c67
+  Lit e03304d97e0d6aca513132b576af286a
+  LitBool f9036459d5bfa3180b25936630b48534
+  LitChar 7f94333a3e51272aed4b39115a5953fa
+  LitEnum 3534e76614187a07c69c8d39073a6f24
+  LitInt 85e98ff38658a058a373ff0d13101497
+  LitReal 1718a0fd8087fa703023fd43c6f0504f
+  LitSizedInt 8b76517d0d11aa759dbd7f9307ca74b7
+  LitString 3e963e81617eb1025a56f6d00be3e486
+  Literal 337aee2c7f9cd9dd951f930c9b9dbe73
+  MAvoid 19c39b09049ac996bc16c75c424ff9d4
+  MDc_Always_Enabled 21aa4d45fc7b168c83baf2ca9518fcea
+  MDc_Always_Ready a43037e3e4bd8ccaec4ace8f65b72672
+  MDc_Doc 1b8ab1102be133493dd7661d4c9fecb8
+  MDc_Enable 90af82ea6db8b0e78d7a24147d9faab9
+  MDc_Port 660f3b220dbc50b11521e197a1377930
+  MDc_Prefix 20bdabd68c4fa26c300f7e0e247ac55c
+  MDc_Ready 30391c5a8ce58375fb7051da50c5ce39
+  MDc_Result 3d9faba4817a6a57721cb8277a292d70
+  Met_Doc c6cc715506ed1c2b52588dff03c0460f
+  MethodBody b57efcbb684bd3a4b73bc89a60f4ae60
+  MethodBodyAttribute b4aecb172444b05b089bf49557976776
+  MethodCall 6bfa118d40a28636a7c1093e08fceffa
+  MethodDec d322641a77af09ae68c30d0c7b8ae44a
+  MethodDecAttribute 43646e54358077c291b127f0bcee7b7b
+  Mod_Always_Enabled 05bc2c2f5557d356cb6f7b3dd5923dad
+  Mod_Always_Ready dedfbcf77ca86cd57edaaa8039f99633
+  Mod_Conflict_Free d4986d564e3e3b31465e372f7bf1d438
+  Mod_Doc 5a928c189cb3cd6eab0d831b361b1c23
+  Mod_Execution_Order 9046f61fa63b7900b715414af9787383
+  Mod_Mutually_Exclusive 1bf8807f93263dd15548a7cc35984646
+  Mod_Preempts d00b425747f1b6bc6c7e35c1766ce7a9
+  ModuleAttribute 38c8cfc922a8b6609d6630c27049fe7f
+  Modulo ef51c13e1735d14b66d320257e21a593
+  Multiply 2e1955b341ad5724899f6d2460f61d10
+  Name 7c6cc0f4ece946a46df101a52b2e2642
+  Negative 9890405dd1a0c5764d6155433ae9484e
+  NoSplit c647b54d6c1e7d413d15b3a44d2dc445
+  No_Default_Reset 5872910f1d326edf4d5f803370f862bb
+  No_Implicit_Conditions 5d4fe9142fa6b81ef9c295f6475e45aa
+  Not 22d1103f357094a67193828970d4b051
+  NotEquals ca898c161ed932983a471d3d692c86bf
+  Or 29cc9a489f4941fb8f760730dd0dff52
+  PackageName 6454d16386f2f0fea028840e593a69c1
+  RPFlag fd68b5813118d833864d10cc9b8844fd
+  RShift 6a6e1d65a10e1f1cbb73413d5cb25175
+  Replicate 0596cb6a1d5f7590a004891e465925ab
+  Reset_Prefix f55191e50ab224a12b7ccfb7f9c77bec
+  Return 469e4383a60a510108937994587a9aec
+  ReturnType edbdd3627cba53012a786daa322eb050
+  Rul_Conflict_Free aefa06c95a2e66037eba4b353858ddef
+  Rul_Descending_Urgency 1fa42a52e33757f1d4226f5693925bcf
+  Rul_Doc 6b9522f4dc9be3f4faef9836a72687f6
+  Rul_Execution_Order 85efe91879f19663eb0bf2a0b5cf7e04
+  Rul_Mutually_Exclusive f7d96a49ebc106db423d281b616d874d
+  Rul_Preempts 4fc6ba0be2c16875a8ea7da3f039897c
+  RuleAttribute 2bdb464ecda2ca4646f2cafd65165658
+  RuleDec bdce4999eb06aa1f9b7a13dd2d78793f
+  Skip c4d4e47795a29b6972a451ca43a86c1a
+  Spacing 5bc55a56264b01133d205d6e40b8b28c
+  Split df8f6e79a78ac0faed13b537105b8d25
+  Sta_Conflict_Free bcfdff681b96a2ec3702e425d2fcc235
+  Sta_Descending_Urgency 160b16b9fa3b5ccdc3b013f529d49726
+  Sta_Doc fd17a69e5644ba2644feebad619ea0e1
+  Sta_Execution_Order 2a55531ba0fb345b36b47a66fb7a2e78
+  Sta_Mutually_Exclusive a203853c00f71328fd3f6dd705be4bff
+  Sta_Preempts 85ea85b7bede5725034fe50e49268bb1
+  Statement cadc4dd88ae52d1939dfeb3e511aff3a
+  StatementAttribute 5526f020d66208751c85b3afb1bd43de
+  Subtract 8f6065598203e3e8d21db427badb1bf6
+  Switch e42c16c106ee6bcb283f690c7a3d4cb9
+  Synthesize 3db43c26ebb240dd3f5a4986fa21e144
+  UAssign 0195556360eda39554390b675e822912
+  UStatement 4d08ca0e73729c67fbd812bf662e0e37
+  UTArgs 8a1cde95035b2dfb2cead8c0bc76f244
+  UType e4f1694534b5add5fe23c9bcaf082473
+  U_Int 47d6bef54e597c56ab202a9e8032c0d3
+  U_String f278bee86f97b71c9bcbfaa463882931
+  Value 32de6853cb64c8109f36358d63ce8808
+  ValueMethodCall 6e178be71a4412cc4bda1ba94fdf869f
+  VectorInit c2b979719dd3c7dfe36e1834bf38f676
+  Void cda459ef3d6a19157711e69f6b75291b
+  Write 9fdf095920f28fc4f1944f4c4fbe9211
+  actions 6a9e148802acadaa54114400a09553a4
+  attributes 6a9e148802acadaa54114400a09553a4
+  bsv_constants dca7bfb1a37746d89b662b651361e667
+  bsv_functions dca7bfb1a37746d89b662b651361e667
+  bsv_instDefs dca7bfb1a37746d89b662b651361e667
+  bsv_modules dca7bfb1a37746d89b662b651361e667
+  bsv_packageName dca7bfb1a37746d89b662b651361e667
+  bsv_typedefs dca7bfb1a37746d89b662b651361e667
+  imports dca7bfb1a37746d89b662b651361e667
+  including dca7bfb1a37746d89b662b651361e667
+  interfaceName 6a9e148802acadaa54114400a09553a4
+  interfaces dca7bfb1a37746d89b662b651361e667
+  mName 6a9e148802acadaa54114400a09553a4
+  methods 6a9e148802acadaa54114400a09553a4
+  rules 6a9e148802acadaa54114400a09553a4
+  state 6a9e148802acadaa54114400a09553a4
+import  -/  base-4.10.1.0:Data.Char fe4e3458190deeac19969ce15e33bed9
+import  -/  base-4.10.1.0:Data.Foldable 9ed87455d68e87ff2b5b8725eae9897e
+import  -/  base-4.10.1.0:Data.List 4ab7fa2a1b87502b23af891a384f0506
+import  -/  base-4.10.1.0:Data.OldList 555420b092ca8cf0a8f9666bc0e07dcf
+import  -/  base-4.10.1.0:GHC.Base 782fd99b5e36f3698a26179a49afca64
+import  -/  base-4.10.1.0:GHC.Err 514b3a24b22e9d7d731c2d0d02d10842
+import  -/  base-4.10.1.0:GHC.Show 0a8ce2b5e533d1c2cfb7954e6736be45
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  text-1.2.3.0:Data.Text 0519455f2b04d2a7315c2959461dd14e
+e5d2958d97dd2ada321300d57281720e
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   BSVGenerator.$trModule3
+                   BSVGenerator.$trModule1) -}
+5d66c81ab50d9d92a8e6226faeab3139
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BSVGenerator.$trModule2) -}
+e556af2a8c30b1fdcf6da2cff7d425a8
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("BSVGenerator"#) -}
+9ccf3e54d2076a3ad90a088e7048f258
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS BSVGenerator.$trModule4) -}
+0b1bd18b760b0d606d136c4fa45e0f29
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD"#) -}
+37bcd6e1ee3ed31624d73b09820bd24f
+  $wkillVoidModuleAttributes ::
+    [LexerTypes.ModuleAttribute]
+    -> (# LexerTypes.ModuleAttribute, [LexerTypes.ModuleAttribute] #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0] -}
+4dc94febf129caf08787c42262f6996a
+  $wlvl ::
+    [GHC.Types.Char] -> LexerTypes.Expression -> [GHC.Types.Char]
+  {- Arity: 2, Strictness: <S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: [GHC.Types.Char])
+                   (ww1 :: LexerTypes.Expression) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   ww
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVPackage7
+                      (BSVGenerator.expression2BSV ww1))) -}
+f8dd9ad466b65d66607fbb1944478b8e
+  $wlvl1 ::
+    [GHC.Types.Char] -> LexerTypes.BSVType -> [GHC.Types.Char]
+  {- Arity: 2, Strictness: <L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: [GHC.Types.Char])
+                   (ww1 :: LexerTypes.BSVType) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (BSVGenerator.showBSVType ww1)
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVArgument1
+                      (GHC.Base.++ @ GHC.Types.Char ww BSVGenerator.showBSVCase1))) -}
+265f34158bff7b7e0661131f049293f3
+  $wshowBSVActionAttribute :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showArgumentAttribute1
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      ww
+                      BSVGenerator.showArgumentAttribute10)) -}
+9d63172239d61f941617f5cfcd11008a
+  $wshowBSVArgument ::
+    LexerTypes.Name
+    -> LexerTypes.BSVType
+    -> [LexerTypes.ArgumentAttribute]
+    -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,U><L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.Name)
+                   (ww1 :: LexerTypes.BSVType)
+                   (ww2 :: [LexerTypes.ArgumentAttribute]) ->
+                 case ww2 of wild {
+                   []
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (BSVGenerator.showBSVType ww1)
+                        (GHC.CString.unpackAppendCString# BSVGenerator.showBSVArgument1 ww)
+                   : ipv ipv1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (BSVGenerator.showArgumentAttributes wild)
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           (BSVGenerator.showBSVType ww1)
+                           (GHC.CString.unpackAppendCString#
+                              BSVGenerator.showBSVArgument1
+                              ww)) }) -}
+9921a7046213fd0a8976553038392ade
+  $wshowBSVCase ::
+    LexerTypes.Literal
+    -> LexerTypes.Statement -> LexerTypes.Spacing -> GHC.Base.String
+  {- Arity: 3, Strictness: <S,1*U><L,1*U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.Literal)
+                   (ww1 :: LexerTypes.Statement)
+                   (w :: LexerTypes.Spacing) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (BSVGenerator.expression2BSV ww)
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVCase4
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         (BSVGenerator.showBSVStatement
+                            ww1
+                            (GHC.Types.: @ GHC.Types.Char BSVGenerator.showBSVCase3 w))
+                         BSVGenerator.showBSVCase1))) -}
+d74ab65bbe4ae86f1fe2cd12b3a03548
+  $wshowBSVConstant ::
+    LexerTypes.Name
+    -> LexerTypes.BSVType -> LexerTypes.Literal -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,1*U><S,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.Name)
+                   (ww1 :: LexerTypes.BSVType)
+                   (ww2 :: LexerTypes.Literal) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (BSVGenerator.showBSVType ww1)
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVArgument1
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         ww
+                         (GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVConstant1
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               (BSVGenerator.expression2BSV ww2)
+                               BSVGenerator.showBSVCase1))))) -}
+ddb24ec1112668a17607135d90dc98c6
+  $wshowBSVFunction ::
+    GHC.Base.String
+    -> [LexerTypes.Argument]
+    -> LexerTypes.BSVType
+    -> [LexerTypes.Statement]
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: [LexerTypes.Argument])
+                   (ww2 :: LexerTypes.BSVType)
+                   (ww3 :: [LexerTypes.Statement]) ->
+                 Data.OldList.intercalate_$spoly_go
+                   @ GHC.Types.Char
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVFunction10
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         (BSVGenerator.showBSVType ww2)
+                         (GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVArgument1
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               ww
+                               (GHC.CString.unpackAppendCString#
+                                  BSVGenerator.showBSVFunction9
+                                  (case GHC.Base.map
+                                          @ (LexerTypes.Name, LexerTypes.BSVType,
+                                             [LexerTypes.ArgumentAttribute])
+                                          @ [GHC.Types.Char]
+                                          BSVGenerator.showBSVArgument
+                                          ww1 of wild {
+                                     [] -> BSVGenerator.showBSVFunction7
+                                     : x xs1
+                                     -> GHC.Base.++
+                                          @ GHC.Types.Char
+                                          (Data.OldList.intercalate_$spoly_go
+                                             @ GHC.Types.Char
+                                             x
+                                             (Data.OldList.prependToAll
+                                                @ [GHC.Types.Char]
+                                                BSVGenerator.showArgumentAttributes1
+                                                xs1))
+                                          BSVGenerator.showBSVFunction7 }))))))
+                   (Data.OldList.prependToAll
+                      @ [GHC.Types.Char]
+                      BSVGenerator.showBSVConstants1
+                      (GHC.Types.:
+                         @ [GHC.Types.Char]
+                         (case GHC.Base.map
+                                 @ LexerTypes.Statement
+                                 @ [GHC.Types.Char]
+                                 BSVGenerator.showBSVFunction4
+                                 ww3 of wild {
+                            [] -> GHC.Types.[] @ GHC.Types.Char
+                            : x xs1
+                            -> Data.OldList.intercalate_$spoly_go
+                                 @ GHC.Types.Char
+                                 x
+                                 (Data.OldList.prependToAll
+                                    @ [GHC.Types.Char]
+                                    BSVGenerator.showBSVConstants1
+                                    xs1) })
+                         BSVGenerator.showBSVFunction1))) -}
+702a878b3a60f5ec5e5417a197c85e2f
+  $wshowBSVInterface ::
+    LexerTypes.Name
+    -> [LexerTypes.MethodDec]
+    -> [LexerTypes.InterfaceRef]
+    -> [LexerTypes.InterfaceAttribute]
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,1*U>,
+     Inline: [0] -}
+696c428537ef77c27bc9d132da73be50
+  $wshowBSVMethodBodyAttribute :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showArgumentAttribute1
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      ww
+                      BSVGenerator.showArgumentAttribute10)) -}
+1bd3468fa1381b8cdb01e9735eb7fc71
+  $wshowBSVMethodDec ::
+    LexerTypes.Name
+    -> LexerTypes.ReturnType
+    -> [LexerTypes.Argument]
+    -> [LexerTypes.MethodDecAttribute]
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,1*U><L,1*U><L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.Name)
+                   (ww1 :: LexerTypes.ReturnType)
+                   (ww2 :: [LexerTypes.Argument])
+                   (ww3 :: [LexerTypes.MethodDecAttribute]) ->
+                 case ww3 of wild {
+                   []
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVMethodDec1
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           (BSVGenerator.showBSVReturnType ww1)
+                           (GHC.CString.unpackAppendCString#
+                              BSVGenerator.showBSVArgument1
+                              (GHC.Base.++
+                                 @ GHC.Types.Char
+                                 ww
+                                 (GHC.CString.unpackAppendCString#
+                                    BSVGenerator.showBSVFunction9
+                                    (case GHC.Base.map
+                                            @ (LexerTypes.Name, LexerTypes.BSVType,
+                                               [LexerTypes.ArgumentAttribute])
+                                            @ [GHC.Types.Char]
+                                            BSVGenerator.showBSVArgument
+                                            ww2 of wild1 {
+                                       [] -> BSVGenerator.showBSVFunction7
+                                       : x xs1
+                                       -> GHC.Base.++
+                                            @ GHC.Types.Char
+                                            (Data.OldList.intercalate_$spoly_go
+                                               @ GHC.Types.Char
+                                               x
+                                               (Data.OldList.prependToAll
+                                                  @ [GHC.Types.Char]
+                                                  BSVGenerator.showArgumentAttributes1
+                                                  xs1))
+                                            BSVGenerator.showBSVFunction7 })))))
+                   : ipv ipv1
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        (BSVGenerator.showMethodDecAttributes wild)
+                        (GHC.CString.unpackAppendCString#
+                           BSVGenerator.showBSVMethodDec1
+                           (GHC.Base.++
+                              @ GHC.Types.Char
+                              (BSVGenerator.showBSVReturnType ww1)
+                              (GHC.CString.unpackAppendCString#
+                                 BSVGenerator.showBSVArgument1
+                                 (GHC.Base.++
+                                    @ GHC.Types.Char
+                                    ww
+                                    (GHC.CString.unpackAppendCString#
+                                       BSVGenerator.showBSVFunction9
+                                       (case GHC.Base.map
+                                               @ (LexerTypes.Name, LexerTypes.BSVType,
+                                                  [LexerTypes.ArgumentAttribute])
+                                               @ [GHC.Types.Char]
+                                               BSVGenerator.showBSVArgument
+                                               ww2 of wild1 {
+                                          [] -> BSVGenerator.showBSVFunction7
+                                          : x xs1
+                                          -> GHC.Base.++
+                                               @ GHC.Types.Char
+                                               (Data.OldList.intercalate_$spoly_go
+                                                  @ GHC.Types.Char
+                                                  x
+                                                  (Data.OldList.prependToAll
+                                                     @ [GHC.Types.Char]
+                                                     BSVGenerator.showArgumentAttributes1
+                                                     xs1))
+                                               BSVGenerator.showBSVFunction7 })))))) }) -}
+f93bc3868f9a626218ac292ededcc1ec
+  $wshowBSVModule ::
+    GHC.Base.String
+    -> GHC.Base.String
+    -> [LexerTypes.ModuleAttribute]
+    -> [LexerTypes.BSVstateDec]
+    -> [LexerTypes.ActionDec]
+    -> [LexerTypes.RuleDec]
+    -> [LexerTypes.MethodBody]
+    -> [GHC.Types.Char]
+  {- Arity: 7,
+     Strictness: <L,1*U><L,1*U><S,1*U><L,1*U><L,1*U><L,1*U><L,1*U>,
+     Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String)
+                   (ww1 :: GHC.Base.String)
+                   (ww2 :: [LexerTypes.ModuleAttribute])
+                   (ww3 :: [LexerTypes.BSVstateDec])
+                   (ww4 :: [LexerTypes.ActionDec])
+                   (ww5 :: [LexerTypes.RuleDec])
+                   (ww6 :: [LexerTypes.MethodBody]) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (BSVGenerator.showModuleAttributes ww2)
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      (BSVGenerator.showBSVModuleHeader ww ww1)
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         (BSVGenerator.showBSVModuleStateDecs ww3)
+                         (GHC.Base.++
+                            @ GHC.Types.Char
+                            (BSVGenerator.showBSVModuleActions ww4)
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               (BSVGenerator.showBSVModuleRules ww5)
+                               (GHC.Base.++
+                                  @ GHC.Types.Char
+                                  (BSVGenerator.showBSVModuleMethods ww6)
+                                  BSVGenerator.showBSVModule1)))))) -}
+75c9065004621c9860f096ced4c87c94
+  $wshowBSVModuleAction ::
+    LexerTypes.ActionName
+    -> [LexerTypes.Statement]
+    -> [LexerTypes.ActionAttribute]
+    -> GHC.Base.String
+  {- Arity: 3, Strictness: <L,1*U><L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.ActionName)
+                   (ww1 :: [LexerTypes.Statement])
+                   (ww2 :: [LexerTypes.ActionAttribute]) ->
+                 GHC.Base.++
+                   @ GHC.Types.Char
+                   (BSVGenerator.showBSVActionAttributes ww2)
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVActionHeader2
+                      (GHC.Base.++
+                         @ GHC.Types.Char
+                         ww
+                         (GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVActionHeader1
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               (BSVGenerator.showBSVStatements ww1)
+                               BSVGenerator.showBSVModuleAction1))))) -}
+2fa294773908b98a0d7252f9bf7a47c0
+  $wshowBSVModuleMethod ::
+    LexerTypes.MethodName
+    -> LexerTypes.ReturnType
+    -> LexerTypes.UTArgs
+    -> LexerTypes.Guard
+    -> [LexerTypes.Statement]
+    -> [LexerTypes.MethodBodyAttribute]
+    -> GHC.Base.String
+  {- Arity: 6, Strictness: <L,1*U><L,1*U><L,1*U><S,U><L,1*U><S,1*U>,
+     Inline: [0] -}
+11a8003d8127081469955cbadaeaa949
+  $wshowBSVModuleRule ::
+    LexerTypes.RuleName
+    -> LexerTypes.Guard
+    -> [LexerTypes.Statement]
+    -> [LexerTypes.RuleAttribute]
+    -> GHC.Base.String
+  {- Arity: 4, Strictness: <L,1*U><S,U><L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.RuleName)
+                   (ww1 :: LexerTypes.Guard)
+                   (ww2 :: [LexerTypes.Statement])
+                   (ww3 :: [LexerTypes.RuleAttribute]) ->
+                 let {
+                   fail :: GHC.Prim.Void# -> GHC.Base.String
+                     <join 1> {- Arity: 1, Strictness: <L,A> -}
+                   = \ (ds :: GHC.Prim.Void#)[OneShot] ->
+                     GHC.Base.++
+                       @ GHC.Types.Char
+                       (BSVGenerator.showBSVRuleAttributes ww3)
+                       (GHC.CString.unpackAppendCString#
+                          BSVGenerator.showBSVModuleRule9
+                          (GHC.Base.++
+                             @ GHC.Types.Char
+                             ww
+                             (GHC.CString.unpackAppendCString#
+                                BSVGenerator.showBSVModuleRule8
+                                (GHC.Base.++
+                                   @ GHC.Types.Char
+                                   (BSVGenerator.expression2BSV ww1)
+                                   (GHC.CString.unpackAppendCString#
+                                      BSVGenerator.showBSVModuleRule7
+                                      (case GHC.Base.map
+                                              @ LexerTypes.Statement
+                                              @ [GHC.Types.Char]
+                                              BSVGenerator.showBSVModuleRule6
+                                              ww2 of wild {
+                                         [] -> BSVGenerator.showBSVModuleRule4
+                                         : x xs1
+                                         -> GHC.Base.++
+                                              @ GHC.Types.Char
+                                              (Data.OldList.intercalate_$spoly_go
+                                                 @ GHC.Types.Char
+                                                 x
+                                                 (Data.OldList.prependToAll
+                                                    @ [GHC.Types.Char]
+                                                    BSVGenerator.showBSVModuleRule2
+                                                    xs1))
+                                              BSVGenerator.showBSVModuleRule4 }))))))
+                 } in
+                 case ww1 of wild {
+                   DEFAULT -> fail GHC.Prim.void#
+                   LexerTypes.Literal ds
+                   -> case ds of wild1 {
+                        DEFAULT -> fail GHC.Prim.void#
+                        LexerTypes.LitBool ds1
+                        -> case ds1 of wild2 {
+                             GHC.Types.False -> fail GHC.Prim.void#
+                             GHC.Types.True
+                             -> GHC.CString.unpackAppendCString#
+                                  BSVGenerator.showBSVModuleRules2
+                                  (GHC.Base.++
+                                     @ GHC.Types.Char
+                                     (BSVGenerator.showBSVRuleAttributes ww3)
+                                     (GHC.CString.unpackAppendCString#
+                                        BSVGenerator.showBSVModuleRule9
+                                        (GHC.Base.++
+                                           @ GHC.Types.Char
+                                           ww
+                                           (GHC.CString.unpackAppendCString#
+                                              BSVGenerator.showBSVModuleRule1
+                                              (case GHC.Base.map
+                                                      @ LexerTypes.Statement
+                                                      @ [GHC.Types.Char]
+                                                      BSVGenerator.showBSVModuleRule6
+                                                      ww2 of wild3 {
+                                                 [] -> BSVGenerator.showBSVModuleRule4
+                                                 : x xs1
+                                                 -> GHC.Base.++
+                                                      @ GHC.Types.Char
+                                                      (Data.OldList.intercalate_$spoly_go
+                                                         @ GHC.Types.Char
+                                                         x
+                                                         (Data.OldList.prependToAll
+                                                            @ [GHC.Types.Char]
+                                                            BSVGenerator.showBSVModuleRule2
+                                                            xs1))
+                                                      BSVGenerator.showBSVModuleRule4 }))))) } } }) -}
+f9cd2099495410763cc9600fe03eccdd
+  $wshowBSVPackage ::
+    LexerTypes.BSVPackage
+    -> (# LexerTypes.FileName, LexerTypes.FileContents #)
+  {- Arity: 1,
+     Strictness: <L,U(U,1*U,1*U,1*U,1*U,1*U,1*U,1*U,1*U,A,A)>,
+     Inline: [0],
+     Unfolding: (\ (w :: LexerTypes.BSVPackage) ->
+                 (# case w of wild { LexerTypes.BSVPackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                    GHC.Base.++ @ GHC.Types.Char ds1 BSVGenerator.showBSVPackage11 },
+                    GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVHeader2
+                      (case w of wild { LexerTypes.BSVPackage ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ds11 ->
+                       GHC.Base.++
+                         @ GHC.Types.Char
+                         ds1
+                         (GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVHeader1
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               (BSVGenerator.showBSVImports ds2)
+                               (GHC.Base.++
+                                  @ GHC.Types.Char
+                                  (BSVGenerator.showBSVincludes ds3)
+                                  (GHC.Base.++
+                                     @ GHC.Types.Char
+                                     (BSVGenerator.showBSVInterfaces ds4)
+                                     (GHC.Base.++
+                                        @ GHC.Types.Char
+                                        (BSVGenerator.showBSVConstants ds5)
+                                        (GHC.Base.++
+                                           @ GHC.Types.Char
+                                           (BSVGenerator.showBSVTypeDefs ds6)
+                                           (let {
+                                              z :: [GHC.Types.Char]
+                                              = GHC.Base.++
+                                                  @ GHC.Types.Char
+                                                  (BSVGenerator.showBSVFunctions ds9)
+                                                  (GHC.Base.++
+                                                     @ GHC.Types.Char
+                                                     (BSVGenerator.showBSVModules ds8)
+                                                     BSVGenerator.showBSVfooter)
+                                            } in
+                                            letrec {
+                                              go :: [(LexerTypes.Name,
+                                                      [(LexerTypes.Name, LexerTypes.Literal)])]
+                                                    -> [GHC.Types.Char]
+                                                {- Arity: 1, Strictness: <S,1*U> -}
+                                              = \ (ds :: [(LexerTypes.Name,
+                                                           [(LexerTypes.Name,
+                                                             LexerTypes.Literal)])]) ->
+                                                case ds of wild1 {
+                                                  [] -> z
+                                                  : y ys
+                                                  -> case y of ww { (,) ww1 ww2 ->
+                                                     GHC.Base.++
+                                                       @ GHC.Types.Char
+                                                       (BSVGenerator.$wshowDefInst ww1 ww2)
+                                                       (go ys) } }
+                                            } in
+                                            go ds7))))))) }) #)) -}
+bfba4862753e00382a54e75b31b13e4e
+  $wshowBSVSubInt ::
+    LexerTypes.InterfaceName -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.InterfaceName)
+                   (ww1 :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVSubInt1
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      ww
+                      (GHC.CString.unpackAppendCString#
+                         BSVGenerator.showBSVArgument1
+                         (GHC.Base.++ @ GHC.Types.Char ww1 BSVGenerator.showBSVCase1)))) -}
+898112b5969d26c7d175b7d66026bcb0
+  $wshowDefInst ::
+    LexerTypes.Name
+    -> [(LexerTypes.Name, LexerTypes.Literal)] -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: LexerTypes.Name)
+                   (ww1 :: [(LexerTypes.Name, LexerTypes.Literal)]) ->
+                 Data.OldList.intercalate_$spoly_go
+                   @ GHC.Types.Char
+                   (GHC.CString.unpackAppendCString#
+                      BSVGenerator.showBSVPackage10
+                      (GHC.Base.++ @ GHC.Types.Char ww BSVGenerator.showBSVFunction7))
+                   (Data.OldList.prependToAll
+                      @ [GHC.Types.Char]
+                      BSVGenerator.showBSVConstants1
+                      (GHC.Types.:
+                         @ [GHC.Types.Char]
+                         (GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVPackage9
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               ww
+                               (GHC.CString.unpackAppendCString#
+                                  BSVGenerator.showBSVPackage8
+                                  (case GHC.Base.map
+                                          @ ([GHC.Types.Char], LexerTypes.Expression)
+                                          @ [GHC.Types.Char]
+                                          BSVGenerator.showBSVPackage6
+                                          ww1 of wild {
+                                     [] -> BSVGenerator.showBSVPackage4
+                                     : x xs1
+                                     -> GHC.Base.++
+                                          @ GHC.Types.Char
+                                          (Data.OldList.intercalate_$spoly_go
+                                             @ GHC.Types.Char
+                                             x
+                                             (Data.OldList.prependToAll
+                                                @ [GHC.Types.Char]
+                                                BSVGenerator.showArgumentAttributes1
+                                                xs1))
+                                          BSVGenerator.showBSVPackage4 }))))
+                         BSVGenerator.showBSVPackage1))) -}
+104b7f93d133ecf7cfdcedf9e3f90e66
+  expression2BSV :: LexerTypes.Expression -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+bb0eba057427289694b42e8bcb595b62
+  idPath2BSV :: LexerTypes.ID_Path -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+f1007589110cc2832982f4557653d6d1
+  killVoidModuleAttributes ::
+    [LexerTypes.ModuleAttribute] -> [LexerTypes.ModuleAttribute]
+  {- Arity: 1, Strictness: <S,1*U>m2, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: [LexerTypes.ModuleAttribute]) ->
+                 case BSVGenerator.$wkillVoidModuleAttributes
+                        w of ww { (#,#) ww1 ww2 ->
+                 GHC.Types.: @ LexerTypes.ModuleAttribute ww1 ww2 }) -}
+2fcf9c00093ccfc93dfdd6b1bd049fee
+  showArgumentAttribute ::
+    LexerTypes.ArgumentAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.ArgumentAttribute) ->
+                 case ds of wild {
+                   LexerTypes.Arg_Ready x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute12
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.Arg_Enable x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.Arg_Result x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute8
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.Arg_Prefix x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute7
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.Arg_Port x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute6
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.Arg_Always_Ready -> BSVGenerator.showArgumentAttribute4
+                   LexerTypes.Arg_Always_Enabled
+                   -> BSVGenerator.showArgumentAttribute2
+                   LexerTypes.Arg_Doc x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute1
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10) }) -}
+be6710dc9c768d3723cb8c88a3124eec
+  showArgumentAttribute1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("doc = \""#) -}
+0d8173f29bbc772b4d6e9c4f4d79449b
+  showArgumentAttribute10 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showArgumentAttribute11) -}
+ac722dcf4eff6bcfe3b4f85cdf313845
+  showArgumentAttribute11 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\""#) -}
+c4916f69711d6c1540dab614a1c03443
+  showArgumentAttribute12 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ready = \""#) -}
+0d264e15d770afdcd08cdb7e6e5578dd
+  showArgumentAttribute2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showArgumentAttribute3) -}
+7fab7496b3f2a9bb5db26091a56bef34
+  showArgumentAttribute3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("always_enabled"#) -}
+66e5e5b2380fd1a82f09859584dacd77
+  showArgumentAttribute4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showArgumentAttribute5) -}
+f58bda6d67b71dfc21b2d66a4d50aa50
+  showArgumentAttribute5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("always_ready"#) -}
+22c97583eb20e27feaa015e684a9a78a
+  showArgumentAttribute6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("port = \""#) -}
+86f03f77cebf34299209e4aa50278b75
+  showArgumentAttribute7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("prefix = \""#) -}
+04386c8bc1dd784948d08ec38a89708a
+  showArgumentAttribute8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("result = \""#) -}
+1dcc793e79295159d946fef11ba2fa57
+  showArgumentAttribute9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("enable = \""#) -}
+9859099ec8fea1d3a191e320c991d894
+  showArgumentAttributes ::
+    [LexerTypes.ArgumentAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.ArgumentAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.ArgumentAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showArgumentAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showArgumentAttributes3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showArgumentAttributes3 }) }) -}
+b2fd3b54b14197c4fa668e4a3ddca671
+  showArgumentAttributes1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showArgumentAttributes2) -}
+5efde4492425b94224cdaca61ed4d066
+  showArgumentAttributes2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (", "#) -}
+44dc4962fad9b428a274eecac1e2604f
+  showArgumentAttributes3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showArgumentAttributes4) -}
+c715522cd503d3c853a04709eccb3baa
+  showArgumentAttributes4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" *)"#) -}
+1c54004fd0d08d88528fb4f2a0375f58
+  showArgumentAttributes5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("(* "#) -}
+14bb4c3e4626bcef713ba524563b0cae
+  showBSVActionAttribute ::
+    LexerTypes.ActionAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.ActionAttribute) ->
+                 case w of ww { LexerTypes.Act_Doc ww1 ->
+                 BSVGenerator.$wshowBSVActionAttribute ww1 }) -}
+b297c146549cd1c88b1ef3ad2c37543f
+  showBSVActionAttributes ::
+    [LexerTypes.ActionAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.ActionAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVActionAttributes3
+                        (case GHC.Base.map
+                                @ LexerTypes.ActionAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVActionAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVActionAttributes1
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showBSVActionAttributes1 }) }) -}
+7254930d41f8076fb3df755e6061f1b9
+  showBSVActionAttributes1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVActionAttributes2) -}
+b8f2e0d3cec84960b532be533917b49e
+  showBSVActionAttributes2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" *)\n"#) -}
+61cb74910a99f609ca5212ffd2f1b8d9
+  showBSVActionAttributes3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\t(* "#) -}
+29c6ba0a363d5aefa2481ea8de609e7c
+  showBSVActionHeader :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (name :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVActionHeader2
+                   (GHC.Base.build
+                      @ GHC.Types.Char
+                      (\ @ b
+                         (c :: GHC.Types.Char -> b -> b)[OneShot]
+                         (n :: b)[OneShot] ->
+                       GHC.Base.foldr
+                         @ GHC.Types.Char
+                         @ b
+                         c
+                         (GHC.CString.unpackFoldrCString#
+                            @ b
+                            BSVGenerator.showBSVActionHeader1
+                            c
+                            n)
+                         name))) -}
+fda8fa7605c8d6126e21d674da731733
+  showBSVActionHeader1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t\t = ( action \n\
+                 \\t\t"#) -}
+d182a654db8b1dd0b56fce007526f8fa
+  showBSVActionHeader2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\tAction "#) -}
+e3cf5fd6d3b8ff1ab5c1e68e2e95b710
+  showBSVArgument :: LexerTypes.Argument -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LLS),1*U(U,1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.Argument) ->
+                 case w of ww { (,,) ww1 ww2 ww3 ->
+                 BSVGenerator.$wshowBSVArgument ww1 ww2 ww3 }) -}
+fbbee5d7f92b783da6034e14a6b88c0f
+  showBSVArgument1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" "#) -}
+c35c512d21bdd0743c751cddcc871ecb
+  showBSVCase ::
+    LexerTypes.Case -> LexerTypes.Spacing -> GHC.Base.String
+  {- Arity: 2, Strictness: <S(SL),1*U(1*U,1*U)><L,U>, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: LexerTypes.Case) (w1 :: LexerTypes.Spacing) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 BSVGenerator.$wshowBSVCase ww1 ww2 w1 }) -}
+3cd01674d5a1eeb3b4efbdc35dc7a34c
+  showBSVCase1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVCase2) -}
+f1e43ff0e7c7ea88472293a7034d6e5f
+  showBSVCase2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (";"#) -}
+587774ba28c56a8281d9607a2d4a1f3c
+  showBSVCase3 :: GHC.Types.Char
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.C# '\t'#) -}
+2e90946699b0fc23d8bee1c5a886f319
+  showBSVCase4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" : "#) -}
+1b16d6dcbdb3b26470999dddb7bff5ee
+  showBSVConstant :: LexerTypes.BSVConstantDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LSL),1*U(1*U,1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVConstantDec) ->
+                 case w of ww { (,,) ww1 ww2 ww3 ->
+                 BSVGenerator.$wshowBSVConstant ww1 ww2 ww3 }) -}
+c807a3c0289375fb9627a132fa39db21
+  showBSVConstant1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" = "#) -}
+460ab7a51594a4cd858ae4758f888abb
+  showBSVConstants :: [LexerTypes.BSVConstantDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.BSVConstantDec]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> case GHC.Base.map
+                             @ (LexerTypes.Name, LexerTypes.BSVType, LexerTypes.Literal)
+                             @ [GHC.Types.Char]
+                             BSVGenerator.showBSVConstant
+                             wild of wild1 {
+                        [] -> BSVGenerator.showBSVConstants3
+                        : x xs1
+                        -> GHC.Base.++
+                             @ GHC.Types.Char
+                             (Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVConstants1
+                                   xs1))
+                             BSVGenerator.showBSVConstants3 } }) -}
+58f3383f2170e97339fab35bb17e7a11
+  showBSVConstants1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVConstants2) -}
+5b2da0575e3884ce1f078dc42e06b326
+  showBSVConstants2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t"#) -}
+b25f9326ea3e492d7ed5ac099a79406c
+  showBSVConstants3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVConstants4) -}
+aa07e1db9cbe72f4df02d405097b1753
+  showBSVConstants4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\n\
+                 \\n"#) -}
+0bfc9e657fe698a69cc1920acfbd0d42
+  showBSVFunction :: LexerTypes.BSVFunction -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVFunction) ->
+                 case w of ww { (,,,) ww1 ww2 ww3 ww4 ->
+                 BSVGenerator.$wshowBSVFunction ww1 ww2 ww3 ww4 }) -}
+d9f7e5974bf835555f436b16a1619b14
+  showBSVFunction1 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   BSVGenerator.showBSVFunction2
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+b5b60a46d6ecafad37dd4d51961f6349
+  showBSVFunction10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("function "#) -}
+82606f4de9191c21986166d43fa86820
+  showBSVFunction2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVFunction3) -}
+95fe49905da9fe79484fd47d0f90352e
+  showBSVFunction3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("endfunction"#) -}
+0fbaad656c28533de44c17f88d60924a
+  showBSVFunction4 :: LexerTypes.Statement -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.Statement) ->
+                 BSVGenerator.showBSVStatement x BSVGenerator.showBSVFunction5) -}
+deab3ee3356db5443a18992713492e5a
+  showBSVFunction5 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVFunction6) -}
+c3b9de507dd7ec96c6a5d08d27a124da
+  showBSVFunction6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("  "#) -}
+d3c351f3ec170b161771eb4183bdd154
+  showBSVFunction7 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVFunction8) -}
+dce6b1f124faea5a114aceadfed3ac98
+  showBSVFunction8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (");"#) -}
+caf3ea1be936482d006e76e195d90aec
+  showBSVFunction9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" ("#) -}
+a152b01fb6c6a17f9c2c7aa9d92acb20
+  showBSVFunctions :: [LexerTypes.BSVFunction] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.BSVFunction]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVFunctions3
+                        (case GHC.Base.map
+                                @ (GHC.Base.String, [LexerTypes.Argument], LexerTypes.BSVType,
+                                   [LexerTypes.Statement])
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVFunction
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVConstants3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showBSVFunctions1
+                                      xs1))
+                                BSVGenerator.showBSVConstants3 }) }) -}
+5599c1787401047461648972bf9d93c3
+  showBSVFunctions1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVFunctions2) -}
+673c2f72871074c1dc36ce56f0ad34e5
+  showBSVFunctions2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\n\
+                 \\t"#) -}
+1bcbe5a54dfa985535749ce08fcc4595
+  showBSVFunctions3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\t"#) -}
+5ff39f54c302ca60d26104f73810925c
+  showBSVHeader :: LexerTypes.PackageName -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.PackageName) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVHeader2
+                   (GHC.Base.build
+                      @ GHC.Types.Char
+                      (\ @ b
+                         (c :: GHC.Types.Char -> b -> b)[OneShot]
+                         (n :: b)[OneShot] ->
+                       GHC.Base.foldr
+                         @ GHC.Types.Char
+                         @ b
+                         c
+                         (GHC.CString.unpackFoldrCString#
+                            @ b
+                            BSVGenerator.showBSVHeader1
+                            c
+                            n)
+                         x))) -}
+029e0c9d00db1cb44904cb48f9560913
+  showBSVHeader1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: (";\n\
+                 \\n"#) -}
+3ccd0e015887eb341820621d85f611b0
+  showBSVHeader2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("package "#) -}
+3a98baacf80d9a3bc302ef968b63f29d
+  showBSVImport :: LexerTypes.PackageName -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.PackageName) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVImport2
+                   (GHC.Base.build
+                      @ GHC.Types.Char
+                      (\ @ b
+                         (c :: GHC.Types.Char -> b -> b)[OneShot]
+                         (n :: b)[OneShot] ->
+                       GHC.Base.foldr
+                         @ GHC.Types.Char
+                         @ b
+                         c
+                         (GHC.CString.unpackFoldrCString#
+                            @ b
+                            BSVGenerator.showBSVImport1
+                            c
+                            n)
+                         x))) -}
+790fee9bc94a802066466d39c177574e
+  showBSVImport1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" :: * ;"#) -}
+342923b8d9bee153f6f222fee1a40177
+  showBSVImport2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("import "#) -}
+99ddcc9860eed9b88f408ac77594658d
+  showBSVImports :: [LexerTypes.PackageName] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.PackageName]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> case GHC.Base.map
+                             @ [GHC.Types.Char]
+                             @ [GHC.Types.Char]
+                             BSVGenerator.showBSVImport
+                             wild of wild1 {
+                        [] -> BSVGenerator.showBSVConstants3
+                        : x xs1
+                        -> GHC.Base.++
+                             @ GHC.Types.Char
+                             (Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVConstants1
+                                   xs1))
+                             BSVGenerator.showBSVConstants3 } }) -}
+a59d003f1c1e7de489ffe0b0d662d675
+  showBSVInterface :: LexerTypes.InterfaceDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LLLS),1*U(1*U,1*U,1*U,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.InterfaceDec) ->
+                 case w of ww { (,,,) ww1 ww2 ww3 ww4 ->
+                 BSVGenerator.$wshowBSVInterface ww1 ww2 ww3 ww4 }) -}
+6b37169a2f8605d021e8d91159bedfb1
+  showBSVInterfaces :: [LexerTypes.InterfaceDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.InterfaceDec]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> case GHC.Base.map
+                             @ (LexerTypes.Name, [LexerTypes.MethodDec],
+                                [LexerTypes.InterfaceRef], [LexerTypes.InterfaceAttribute])
+                             @ [GHC.Types.Char]
+                             BSVGenerator.showBSVInterface
+                             wild of wild1 {
+                        [] -> BSVGenerator.showBSVConstants3
+                        : x xs1
+                        -> GHC.Base.++
+                             @ GHC.Types.Char
+                             (Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVFunctions1
+                                   xs1))
+                             BSVGenerator.showBSVConstants3 } }) -}
+76a703cd43d846b5c8e084a161a02842
+  showBSVMethodBodyAttribute ::
+    LexerTypes.MethodBodyAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.MethodBodyAttribute) ->
+                 case w of ww { LexerTypes.Met_Doc ww1 ->
+                 BSVGenerator.$wshowBSVMethodBodyAttribute ww1 }) -}
+191ecf75032d77c2f1cc9d2fda84c718
+  showBSVMethodBodyAttributes ::
+    [LexerTypes.MethodBodyAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.MethodBodyAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.MethodBodyAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVMethodBodyAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVActionAttributes1
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showBSVActionAttributes1 }) }) -}
+027a76c5070bf005acb1dddd4bcbed35
+  showBSVMethodDec :: LexerTypes.MethodDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LLLS),1*U(1*U,1*U,1*U,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.MethodDec) ->
+                 case w of ww { (,,,) ww1 ww2 ww3 ww4 ->
+                 BSVGenerator.$wshowBSVMethodDec ww1 ww2 ww3 ww4 }) -}
+ccc21264a41e852f3af5c2653a501d4f
+  showBSVMethodDec1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("method "#) -}
+0dcf848f34161f86d3a4fdff7beeefa2
+  showBSVModule :: LexerTypes.BSVModuleDec -> GHC.Base.String
+  {- Arity: 1,
+     Strictness: <S(LLLLLSLLLL),1*U(1*U,A,A,1*U,A,1*U,1*U,1*U,1*U,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVModuleDec) ->
+                 case w of ww { LexerTypes.BSVModuleDec ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 ->
+                 BSVGenerator.$wshowBSVModule ww1 ww4 ww6 ww7 ww8 ww9 ww10 }) -}
+db8ed2d628873b2c7a0a70a809aa3c3f
+  showBSVModule1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModule2) -}
+80d60ec6d1874ff65ad9cb41acf0e45d
+  showBSVModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\tendmodule"#) -}
+89ccd157b0b318af561ff980329dc4b4
+  showBSVModuleAction :: LexerTypes.ActionDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LLS),1*U(1*U,1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.ActionDec) ->
+                 case w of ww { (,,) ww1 ww2 ww3 ->
+                 BSVGenerator.$wshowBSVModuleAction ww1 ww2 ww3 }) -}
+63eb763003b6bcd3a8491b9fc0adf14f
+  showBSVModuleAction1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleAction2) -}
+715a616e425f72a58282eb974ac5af31
+  showBSVModuleAction2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\t\tendaction\n\
+                 \\t)"#) -}
+994e61f65447f5ca7359e54c7f3782aa
+  showBSVModuleActions :: [LexerTypes.ActionDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.ActionDec]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVModuleRules2
+                        (case GHC.Base.map
+                                @ (LexerTypes.ActionName, [LexerTypes.Statement],
+                                   [LexerTypes.ActionAttribute])
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVModuleAction
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVModuleActions1
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showBSVModuleMethods1
+                                      xs1))
+                                BSVGenerator.showBSVModuleActions1 }) }) -}
+979df3009d93e25c901984c88e45c72b
+  showBSVModuleActions1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleActions2) -}
+0995dcedfde42aab4ae35d0696de808d
+  showBSVModuleActions2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\n"#) -}
+6f195cc0241693f1c8c512c06c300909
+  showBSVModuleHeader ::
+    GHC.Base.String -> GHC.Base.String -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>,
+     Unfolding: (\ (name :: GHC.Base.String)
+                   (interface :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVModuleHeader1
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      name
+                      (GHC.CString.unpackAppendCString#
+                         BSVGenerator.showBSVFunction9
+                         (GHC.Base.++
+                            @ GHC.Types.Char
+                            interface
+                            BSVGenerator.showBSVFunction7)))) -}
+d6e846663352ef3201d341b4a169450b
+  showBSVModuleHeader1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\tmodule "#) -}
+e1e67a4ff9b055f8cd7074d10784b6b7
+  showBSVModuleMethod :: LexerTypes.MethodBody -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LLLSLS),1*U(1*U,1*U,1*U,U,1*U,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.MethodBody) ->
+                 case w of ww { (,,,,,) ww1 ww2 ww3 ww4 ww5 ww6 ->
+                 BSVGenerator.$wshowBSVModuleMethod ww1 ww2 ww3 ww4 ww5 ww6 }) -}
+b654b0427910ed6c91dd1138e7cc55b8
+  showBSVModuleMethods :: [LexerTypes.MethodBody] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.MethodBody]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVModuleMethods2
+                        (case GHC.Base.map
+                                @ (LexerTypes.MethodName, LexerTypes.ReturnType, LexerTypes.UTArgs,
+                                   LexerTypes.Guard, [LexerTypes.Statement],
+                                   [LexerTypes.MethodBodyAttribute])
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVModuleMethod
+                                wild of wild1 {
+                           [] -> GHC.Types.[] @ GHC.Types.Char
+                           : x xs1
+                           -> Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVModuleMethods1
+                                   xs1) }) }) -}
+461ea25dea4e9c7292520d6cc3ac59fd
+  showBSVModuleMethods1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleMethods2) -}
+730ab951cc7dc008cb007253a0e9da67
+  showBSVModuleMethods2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\n\
+                 \\t\t"#) -}
+87de2ce383db3d0680b92723600f7fb3
+  showBSVModuleRule :: LexerTypes.RuleDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S(LSLL),1*U(1*U,U,1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.RuleDec) ->
+                 case w of ww { (,,,) ww1 ww2 ww3 ww4 ->
+                 BSVGenerator.$wshowBSVModuleRule ww1 ww2 ww3 ww4 }) -}
+1b5fb91a22f6f5325a9f02a4e164c523
+  showBSVModuleRule1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: (";\n\
+                 \\t\t\t"#) -}
+783c45befb1c25b45b609f3c0e3a1a20
+  showBSVModuleRule2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleRule3) -}
+1cf6dc79481e14e9b22ae165d0318a61
+  showBSVModuleRule3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t\t\t"#) -}
+6f5d81dd812aee387375aa71ecaa3e24
+  showBSVModuleRule4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleRule5) -}
+b6ea85edfdbfa740435aa9ef73c97b4b
+  showBSVModuleRule5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t\tendrule"#) -}
+502dafecf24895a26812956bc7114a4a
+  showBSVModuleRule6 :: LexerTypes.Statement -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.Statement) ->
+                 BSVGenerator.showBSVStatement x (GHC.Types.[] @ GHC.Types.Char)) -}
+a51922b3527e1add9fadb9a235f425e2
+  showBSVModuleRule7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: (");\n\
+                 \\t\t\t"#) -}
+6432fe85b8b7d8ada84291c7cda3c505
+  showBSVModuleRule8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("("#) -}
+1ed9ce1e6fe848e6a0a6e3ca1d06fc59
+  showBSVModuleRule9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t\trule "#) -}
+8039162ea98b36b1dfe4c6db872e32d4
+  showBSVModuleRules :: [LexerTypes.RuleDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.RuleDec]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> case GHC.Base.map
+                             @ (LexerTypes.RuleName, LexerTypes.Guard, [LexerTypes.Statement],
+                                [LexerTypes.RuleAttribute])
+                             @ [GHC.Types.Char]
+                             BSVGenerator.showBSVModuleRule
+                             wild of wild1 {
+                        [] -> GHC.Types.[] @ GHC.Types.Char
+                        : x xs1
+                        -> Data.OldList.intercalate_$spoly_go
+                             @ GHC.Types.Char
+                             x
+                             (Data.OldList.prependToAll
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVModuleRules1
+                                xs1) } }) -}
+3d073f0971cd4b0a775f6aa28f27c4ef
+  showBSVModuleRules1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVModuleRules2) -}
+9f89a4165c98db0613920763c408c982
+  showBSVModuleRules2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t\t"#) -}
+1bc878eac21612acce8c9a21f5eef829
+  showBSVModuleStateDec :: LexerTypes.BSVstateDec -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+a89146d4eb33dc04534e5f3c924651c1
+  showBSVModuleStateDecs ::
+    [LexerTypes.BSVstateDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (xs :: [LexerTypes.BSVstateDec]) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVModuleRules2
+                   (case GHC.Base.map
+                           @ LexerTypes.BSVstateDec
+                           @ [GHC.Types.Char]
+                           BSVGenerator.showBSVModuleStateDec
+                           xs of wild {
+                      [] -> BSVGenerator.showBSVModuleActions1
+                      : x xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 BSVGenerator.showBSVModuleRules1
+                                 xs1))
+                           BSVGenerator.showBSVModuleActions1 })) -}
+6c5479fa6a98d5bb58e0358cc0e604e3
+  showBSVModules :: [LexerTypes.BSVModuleDec] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.BSVModuleDec]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> case GHC.Base.map
+                             @ LexerTypes.BSVModuleDec
+                             @ [GHC.Types.Char]
+                             BSVGenerator.showBSVModule
+                             wild of wild1 {
+                        [] -> BSVGenerator.showBSVConstants3
+                        : x xs1
+                        -> GHC.Base.++
+                             @ GHC.Types.Char
+                             (Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVConstants3
+                                   xs1))
+                             BSVGenerator.showBSVConstants3 } }) -}
+7414bbf98668af4cf60fff43ded98231
+  showBSVPackage :: LexerTypes.BSVPackage -> LexerTypes.File
+  {- Arity: 1, Strictness: <L,U(U,U,U,U,U,U,U,U,U,A,A)>m,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVPackage) ->
+                 case BSVGenerator.$wshowBSVPackage w of ww { (#,#) ww1 ww2 ->
+                 (ww1, ww2) }) -}
+7ea841e427f787454ec94f000800e927
+  showBSVPackage1 :: [[GHC.Types.Char]]
+  {- Strictness: m2,
+     Unfolding: (GHC.Types.:
+                   @ [GHC.Types.Char]
+                   BSVGenerator.showBSVPackage2
+                   (GHC.Types.[] @ [GHC.Types.Char])) -}
+13da63f9b1358824b71dc5f48a25704d
+  showBSVPackage10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("\tinstance DefaultValue#("#) -}
+1571331170fa995afd4a351a115aa6da
+  showBSVPackage11 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVPackage12) -}
+b1f818aae004ef60496cb74a54fad819
+  showBSVPackage12 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (".bsv"#) -}
+5c1c3721088ee5b5061f4ff966efc77a
+  showBSVPackage2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVPackage3) -}
+ae0c903cf5e7ee569b3bd96a2e916bed
+  showBSVPackage3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("endinstance\n\
+                 \\n"#) -}
+dbb7b2bfa153827082936031d2cf6026
+  showBSVPackage4 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVPackage5) -}
+76103e76f07a7db83e6ea3bbd38a076f
+  showBSVPackage5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("};"#) -}
+22f0d67ee22de9c7ede7a42da8068cba
+  showBSVPackage6 ::
+    ([GHC.Types.Char], LexerTypes.Expression) -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S(SL),1*U(1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: ([GHC.Types.Char], LexerTypes.Expression)) ->
+                 case w of ww { (,) ww1 ww2 -> BSVGenerator.$wlvl ww1 ww2 }) -}
+2d02ff727ab7344b23c8123042ac1f57
+  showBSVPackage7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (":"#) -}
+7b0dcb1024496594ee53d88d71c42e5b
+  showBSVPackage8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" {"#) -}
+55fbddcb22e85bb80465762e18bf07d2
+  showBSVPackage9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("  defaultValue = "#) -}
+03d5c2eaa67c68fb7e39a469a350a60e
+  showBSVPackages :: [LexerTypes.BSVPackage] -> [LexerTypes.File]
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: [LexerTypes.BSVPackage]) ->
+                 GHC.Base.build
+                   @ (LexerTypes.FileName, LexerTypes.FileContents)
+                   (\ @ b1
+                      (c :: (LexerTypes.FileName, LexerTypes.FileContents)
+                            -> b1 -> b1)[OneShot]
+                      (n :: b1)[OneShot] ->
+                    GHC.Base.foldr
+                      @ LexerTypes.BSVPackage
+                      @ b1
+                      (GHC.Base.mapFB
+                         @ (LexerTypes.FileName, LexerTypes.FileContents)
+                         @ b1
+                         @ LexerTypes.BSVPackage
+                         c
+                         BSVGenerator.showBSVPackage)
+                      n
+                      x)) -}
+64ad015b3bbb334042f521e3da66b557
+  showBSVReturnType :: LexerTypes.ReturnType -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.ReturnType) ->
+                 case ds of wild {
+                   LexerTypes.Action -> BSVGenerator.showBSVReturnType2
+                   LexerTypes.ActionValue x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVReturnType1
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           (BSVGenerator.showBSVType x)
+                           BSVGenerator.showBSVType6)
+                   LexerTypes.Value x -> BSVGenerator.showBSVType x }) -}
+2998e293f34e3fd0670c77a08a2a70af
+  showBSVReturnType1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ActionValue#("#) -}
+984f2a323acb6868076d46389859e4d8
+  showBSVReturnType2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVReturnType3) -}
+ae498d1c035a6159cd6f5baaa177bf20
+  showBSVReturnType3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Action"#) -}
+51f624430f2d6c50ade7603c375a0750
+  showBSVRuleAttribute :: LexerTypes.RuleAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+027d6dddf48959ed89526135d19ca10d
+  showBSVRuleAttributes ::
+    [LexerTypes.RuleAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.RuleAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.RuleAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVRuleAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVActionAttributes1
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showBSVActionAttributes1 }) }) -}
+17efb1779790ebaad63b03df973cee8a
+  showBSVStatement ::
+    LexerTypes.Statement -> LexerTypes.Spacing -> GHC.Base.String
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+f821ae567f6d2cb7e2f9ac585a017bb1
+  showBSVStatementAttribute ::
+    LexerTypes.StatementAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+61b19de48088c7825bd97f79bdcabf69
+  showBSVStatementAttributes ::
+    [LexerTypes.StatementAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.StatementAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.StatementAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVStatementAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVStatementAttributes1
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showBSVStatementAttributes1 }) }) -}
+ee90de8ecdf53b9cfbb5960a3baa4fa0
+  showBSVStatementAttributes1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVStatementAttributes2) -}
+07d34752f1b32a2fba93b447562a713d
+  showBSVStatementAttributes2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: (" *)\n\
+                 \\t\t\t"#) -}
+ed8bc204c625cd861048451f8c7ce32d
+  showBSVStatements :: [LexerTypes.Statement] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.Statement]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVModuleRule3
+                        (case GHC.Base.map
+                                @ LexerTypes.Statement
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVModuleRule6
+                                wild of wild1 {
+                           [] -> GHC.Types.[] @ GHC.Types.Char
+                           : x xs1
+                           -> Data.OldList.intercalate_$spoly_go
+                                @ GHC.Types.Char
+                                x
+                                (Data.OldList.prependToAll
+                                   @ [GHC.Types.Char]
+                                   BSVGenerator.showBSVModuleRule2
+                                   xs1) }) }) -}
+81632e10d5126bb5da365e23690cad56
+  showBSVSubInt :: LexerTypes.InterfaceRef -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.InterfaceRef) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 BSVGenerator.$wshowBSVSubInt ww1 ww2 }) -}
+f065e359753e7f16199ffeb2ca4d0046
+  showBSVSubInt1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("interface "#) -}
+4097259adb89cc0fd01b78ac4d5c7353
+  showBSVType :: LexerTypes.BSVType -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.BSVType) ->
+                 case ds of wild {
+                   LexerTypes.BSV_Bool -> BSVGenerator.showBSVType9
+                   LexerTypes.BSV_Bit n
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVType8
+                        (case GHC.Show.$w$cshowsPrec4
+                                0#
+                                n
+                                (GHC.Types.[] @ GHC.Types.Char) of ww2 { (#,#) ww3 ww4 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww3 ww4)
+                           BSVGenerator.showBSVType6 })
+                   LexerTypes.BSV_Int n
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVType5
+                        (case GHC.Show.$w$cshowsPrec4
+                                0#
+                                n
+                                (GHC.Types.[] @ GHC.Types.Char) of ww2 { (#,#) ww3 ww4 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww3 ww4)
+                           BSVGenerator.showBSVType6 })
+                   LexerTypes.BSV_UInt n
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVType4
+                        (case GHC.Show.$w$cshowsPrec4
+                                0#
+                                n
+                                (GHC.Types.[] @ GHC.Types.Char) of ww2 { (#,#) ww3 ww4 ->
+                         GHC.Base.++
+                           @ GHC.Types.Char
+                           (GHC.Types.: @ GHC.Types.Char ww3 ww4)
+                           BSVGenerator.showBSVType6 })
+                   LexerTypes.BSV_Real -> BSVGenerator.showBSVType2
+                   LexerTypes.BSV_Custom n -> n
+                   LexerTypes.BSV_Maybe ipv -> BSVGenerator.showBSVType1 }) -}
+2357b78f466b73ae551b320dbb384dde
+  showBSVType1 :: GHC.Base.String
+  {- Strictness: x -}
+21eda78214739770c67c804ad1531a37
+  showBSVType10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Bool"#) -}
+2d34eaed7e5e2c3fb53c36e286e822aa
+  showBSVType2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVType3) -}
+b10e37fae70ac674314784099c966999
+  showBSVType3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Real"#) -}
+e1bbc8afdd8649ce47c2caf0821ea636
+  showBSVType4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("UInt#("#) -}
+d79e3b1d3706762f7ef121c8b5006a61
+  showBSVType5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Int#("#) -}
+e402261857e07fb9c42d1fdf06b2127a
+  showBSVType6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVType7) -}
+7b6f0f5fe3714ac763f73fe2bafd0f9f
+  showBSVType7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (")"#) -}
+b21cacf7f5d9d022e3b79de6979f9475
+  showBSVType8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Bit#("#) -}
+ce7e65821306723f03b1243064f89fe0
+  showBSVType9 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVType10) -}
+51b9f80aa191cd60fbb0b2c31365179f
+  showBSVTypeDef :: LexerTypes.BSVTypeDef -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.BSVTypeDef) ->
+                 case ds of wild {
+                   LexerTypes.BSV_Synonym nom typ
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVTypeDef10
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           (BSVGenerator.showBSVType typ)
+                           (GHC.CString.unpackAppendCString#
+                              BSVGenerator.showBSVArgument1
+                              (GHC.Base.++ @ GHC.Types.Char nom BSVGenerator.showBSVCase1)))
+                   LexerTypes.BSV_Enumeration nom enums
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVTypeDef9
+                        (case enums of wild1 {
+                           []
+                           -> GHC.CString.unpackAppendCString#
+                                BSVGenerator.showBSVTypeDef8
+                                (GHC.Base.++ @ GHC.Types.Char nom BSVGenerator.showBSVCase1)
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                (GHC.CString.unpackAppendCString#
+                                   BSVGenerator.showBSVTypeDef8
+                                   (GHC.Base.++ @ GHC.Types.Char nom BSVGenerator.showBSVCase1)) })
+                   LexerTypes.BSV_Struct nom fields
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVTypeDef7
+                        (case GHC.Base.map
+                                @ ([GHC.Types.Char], LexerTypes.BSVType)
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVTypeDef6
+                                fields of wild1 {
+                           []
+                           -> GHC.CString.unpackAppendCString#
+                                BSVGenerator.showBSVTypeDef5
+                                (GHC.Base.++ @ GHC.Types.Char nom BSVGenerator.showBSVTypeDef3)
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showBSVTypeDef1
+                                      xs1))
+                                (GHC.CString.unpackAppendCString#
+                                   BSVGenerator.showBSVTypeDef5
+                                   (GHC.Base.++
+                                      @ GHC.Types.Char
+                                      nom
+                                      BSVGenerator.showBSVTypeDef3)) }) }) -}
+46b3dda11a6a0fc0771f3ae6c655edf6
+  showBSVTypeDef1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVTypeDef2) -}
+d13740eaee557ad13bb01cca7739c039
+  showBSVTypeDef10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("typedef "#) -}
+0898b1a504dad57efa99b8e0bd24b53f
+  showBSVTypeDef2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t  "#) -}
+b372e41395c1904779ef7353ef7b1e08
+  showBSVTypeDef3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVTypeDef4) -}
+2554de7a0c54b7d72bb27e6b336be81e
+  showBSVTypeDef4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" deriving (Bits, Eq) ;"#) -}
+b585f933e561a03d59e8fbe57941ae53
+  showBSVTypeDef5 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("\n\
+                 \\t  } "#) -}
+d6d614d4afe691f6d8322693762b6d30
+  showBSVTypeDef6 ::
+    ([GHC.Types.Char], LexerTypes.BSVType) -> [GHC.Types.Char]
+  {- Arity: 1, Strictness: <S(LS),1*U(1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: ([GHC.Types.Char], LexerTypes.BSVType)) ->
+                 case w of ww { (,) ww1 ww2 -> BSVGenerator.$wlvl1 ww1 ww2 }) -}
+c2a16f478e5560e3133938b6bc186177
+  showBSVTypeDef7 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("typedef struct { "#) -}
+5f0efc6e9494b1c1fb75d7f899edbad9
+  showBSVTypeDef8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("} "#) -}
+9656609882b9df6746fa0c76307c886f
+  showBSVTypeDef9 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("typedef enum {"#) -}
+87fbd138eaffe77b97c466e89f1d80bc
+  showBSVTypeDefs :: [LexerTypes.BSVTypeDef] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.BSVTypeDef]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVFunctions3
+                        (case GHC.Base.map
+                                @ LexerTypes.BSVTypeDef
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showBSVTypeDef
+                                wild of wild1 {
+                           [] -> BSVGenerator.showBSVConstants3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showBSVFunctions1
+                                      xs1))
+                                BSVGenerator.showBSVConstants3 }) }) -}
+b9926ee341b6aa936a658cc17b44bf30
+  showBSVfooter :: GHC.Base.String
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showBSVfooter1) -}
+98abe1a178c084a1a792b563a34504c3
+  showBSVfooter1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("endpackage\n"#) -}
+07ab7379deca4484536aa218852f7a10
+  showBSVinclude :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: GHC.Base.String) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVinclude1
+                   (GHC.Base.build
+                      @ GHC.Types.Char
+                      (\ @ b
+                         (c :: GHC.Types.Char -> b -> b)[OneShot]
+                         (n :: b)[OneShot] ->
+                       GHC.Base.foldr
+                         @ GHC.Types.Char
+                         @ b
+                         c
+                         (GHC.CString.unpackFoldrCString#
+                            @ b
+                            BSVGenerator.showArgumentAttribute11
+                            c
+                            n)
+                         x))) -}
+2ba4c5e8324845502d84128007a92f5f
+  showBSVinclude1 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("`include \""#) -}
+08b7fe74836436597c4b3cbf0ecc1f38
+  showBSVincludes :: [GHC.Base.String] -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: (\ (xs :: [GHC.Base.String]) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVFunctions3
+                   (case GHC.Base.map
+                           @ [GHC.Types.Char]
+                           @ [GHC.Types.Char]
+                           BSVGenerator.showBSVinclude
+                           xs of wild {
+                      [] -> BSVGenerator.showBSVModuleActions1
+                      : x xs1
+                      -> GHC.Base.++
+                           @ GHC.Types.Char
+                           (Data.OldList.intercalate_$spoly_go
+                              @ GHC.Types.Char
+                              x
+                              (Data.OldList.prependToAll
+                                 @ [GHC.Types.Char]
+                                 BSVGenerator.showBSVConstants1
+                                 xs1))
+                           BSVGenerator.showBSVModuleActions1 })) -}
+c5c2d1c524dea0ee203e1832d0d4bcb1
+  showDefInst :: LexerTypes.BSVInstDef -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVInstDef) ->
+                 case w of ww { (,) ww1 ww2 ->
+                 BSVGenerator.$wshowDefInst ww1 ww2 }) -}
+24217e34c2a03c3dbe7ba40b6bc7e1e4
+  showIDPath :: LexerTypes.ID_Path -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+f45f0c510263ae0b786b34f67d66082d
+  showInterfaceAttribute ::
+    LexerTypes.InterfaceAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.InterfaceAttribute) ->
+                 case ds of wild {
+                   LexerTypes.Int_Always_Ready -> BSVGenerator.showArgumentAttribute4
+                   LexerTypes.Int_Always_Enabled
+                   -> BSVGenerator.showArgumentAttribute2
+                   LexerTypes.Int_Doc x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute1
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10) }) -}
+c5d39322c6c75516ef64196200142721
+  showInterfaceAttributes ::
+    [LexerTypes.InterfaceAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.InterfaceAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.InterfaceAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showInterfaceAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showArgumentAttributes3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showArgumentAttributes3 }) }) -}
+caaab51330534e2462ee9d632111b0c1
+  showInterfaceHeader :: LexerTypes.Name -> GHC.Base.String
+  {- Arity: 1, Strictness: <L,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (x :: LexerTypes.Name) ->
+                 GHC.CString.unpackAppendCString#
+                   BSVGenerator.showBSVSubInt1
+                   (GHC.Base.build
+                      @ GHC.Types.Char
+                      (\ @ b
+                         (c :: GHC.Types.Char -> b -> b)[OneShot]
+                         (n :: b)[OneShot] ->
+                       GHC.Base.foldr
+                         @ GHC.Types.Char
+                         @ b
+                         c
+                         (GHC.CString.unpackFoldrCString# @ b BSVGenerator.showBSVCase2 c n)
+                         x))) -}
+cdeb7084b36209933879953f72f15e37
+  showLit :: LexerTypes.Lit -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.Lit) ->
+                 case ds of wild {
+                   DEFAULT -> BSVGenerator.showLit1
+                   LexerTypes.LitString x -> GHC.Show.$fShow[]_$s$cshow1 x
+                   LexerTypes.LitEnum x -> x
+                   LexerTypes.LitInt x -> GHC.Show.$fShowInteger_$cshow x
+                   LexerTypes.LitBool x -> GHC.Show.$fShowBool_$cshow x
+                   LexerTypes.LitReal x -> GHC.Float.$fShowFloat_$cshow x
+                   LexerTypes.LitChar x -> GHC.Show.$fShowChar_$cshow x
+                   LexerTypes.LitSizedInt ds1 x
+                   -> GHC.Show.$fShowInteger_$cshow x }) -}
+6e7d15109dbac861f065ad853ce19950
+  showLit1 :: [GHC.Types.Char]
+  {- Strictness: x -}
+2f908d8d6f5d9387b0fc51377147b1dc
+  showMethodDecAttribute ::
+    LexerTypes.MethodDecAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.MethodDecAttribute) ->
+                 case ds of wild {
+                   LexerTypes.MDc_Ready x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute12
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.MDc_Enable x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute9
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.MDc_Result x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute8
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.MDc_Prefix x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute7
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.MDc_Port x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute6
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10)
+                   LexerTypes.MDc_Always_Ready -> BSVGenerator.showArgumentAttribute4
+                   LexerTypes.MDc_Always_Enabled
+                   -> BSVGenerator.showArgumentAttribute2
+                   LexerTypes.MDc_Doc x
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttribute1
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           x
+                           BSVGenerator.showArgumentAttribute10) }) -}
+b7428f3f9b570ebb10790df17ef8b1f3
+  showMethodDecAttributes ::
+    [LexerTypes.MethodDecAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.MethodDecAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showArgumentAttributes5
+                        (case GHC.Base.map
+                                @ LexerTypes.MethodDecAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showMethodDecAttribute
+                                wild of wild1 {
+                           [] -> BSVGenerator.showArgumentAttributes3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showArgumentAttributes3 }) }) -}
+8559023e23b617d6f6ecfc90d8dad244
+  showModuleAttribute ::
+    LexerTypes.ModuleAttribute -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+3c273947a725dd6f316c45667ea45701
+  showModuleAttributes ::
+    [LexerTypes.ModuleAttribute] -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: [LexerTypes.ModuleAttribute]) ->
+                 case ds of wild {
+                   [] -> GHC.Types.[] @ GHC.Types.Char
+                   : ipv ipv1
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showBSVActionAttributes3
+                        (case BSVGenerator.$wkillVoidModuleAttributes
+                                wild of ww { (#,#) ww1 ww2 ->
+                         case GHC.Base.map
+                                @ LexerTypes.ModuleAttribute
+                                @ [GHC.Types.Char]
+                                BSVGenerator.showModuleAttribute
+                                (GHC.Types.: @ LexerTypes.ModuleAttribute ww1 ww2) of wild1 {
+                           [] -> BSVGenerator.showArgumentAttributes3
+                           : x xs1
+                           -> GHC.Base.++
+                                @ GHC.Types.Char
+                                (Data.OldList.intercalate_$spoly_go
+                                   @ GHC.Types.Char
+                                   x
+                                   (Data.OldList.prependToAll
+                                      @ [GHC.Types.Char]
+                                      BSVGenerator.showArgumentAttributes1
+                                      xs1))
+                                BSVGenerator.showArgumentAttributes3 } }) }) -}
+aedcd74cffa0a965fdb77a91788293b0
+  showUTArgs :: LexerTypes.UTArgs -> [GHC.Base.String]
+  {- Arity: 1, Strictness: <S,1*U> -}
+ea7e65b733eff22d94bb5265a4cd5334
+  showUType :: LexerTypes.UType -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: LexerTypes.UType) ->
+                 case ds of wild {
+                   LexerTypes.U_Int -> BSVGenerator.showUType3
+                   LexerTypes.U_String -> BSVGenerator.showUType1 }) -}
+8fae8038d3164bafb6f9b829647d4629
+  showUType1 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showUType2) -}
+67d598edd48490467708b5facaa6f0c1
+  showUType2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("string"#) -}
+f2c2ebf5c2065dc49fd3aa9f446d4c4e
+  showUType3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showUType4) -}
+dbec08279b8561474ac63e20794e0337
+  showUType4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("int"#) -}
+7c59ce6765eb610dfce33eb4ce01339d
+  showUninterpretedStatement ::
+    LexerTypes.UStatement -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.UStatement) ->
+                 case ds of wild {
+                   LexerTypes.DeclAssign typ nom exp
+                   -> let {
+                        n :: [GHC.Types.Char]
+                        = GHC.CString.unpackAppendCString#
+                            BSVGenerator.showBSVArgument1
+                            (GHC.Base.++
+                               @ GHC.Types.Char
+                               nom
+                               (GHC.CString.unpackAppendCString#
+                                  BSVGenerator.showBSVConstant1
+                                  (BSVGenerator.expression2BSV exp)))
+                      } in
+                      case typ of wild1 {
+                        LexerTypes.U_Int
+                        -> GHC.Base.++ @ GHC.Types.Char BSVGenerator.showUType3 n
+                        LexerTypes.U_String
+                        -> GHC.Base.++ @ GHC.Types.Char BSVGenerator.showUType1 n }
+                   LexerTypes.UAssign nom exp
+                   -> GHC.Base.++
+                        @ GHC.Types.Char
+                        nom
+                        (GHC.CString.unpackAppendCString#
+                           BSVGenerator.showBSVConstant1
+                           (BSVGenerator.expression2BSV exp)) }) -}
+b8a89d693385166c34b4b7d2c15a24e6
+  showVectInit :: LexerTypes.VectorInit -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.VectorInit) ->
+                 case ds of wild {
+                   LexerTypes.Replicate i
+                   -> GHC.CString.unpackAppendCString#
+                        BSVGenerator.showVectInit4
+                        (GHC.Base.++
+                           @ GHC.Types.Char
+                           (BSVGenerator.expression2BSV i)
+                           BSVGenerator.showVectInit2)
+                   LexerTypes.Explicit ipv -> BSVGenerator.showVectInit1 }) -}
+14c3451c6bd054e1240777246a0a7839
+  showVectInit1 :: GHC.Base.String
+  {- Strictness: x -}
+c50ac3995685c932d13e44f481a33631
+  showVectInit2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString#
+                   BSVGenerator.showVectInit3) -}
+dec3111f9d8cdba93f3ed9fce9708ab6
+  showVectInit3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("))"#) -}
+dd60ccb78f3fca15c12c0620a7f23322
+  showVectInit4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("replicate"#) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

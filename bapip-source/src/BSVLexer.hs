@@ -1312,21 +1312,21 @@ idPath :: Parser ID_Path
 idPath = try(do{ i <- identifier'
                ; char '.'
                ; q <- idPath 
-               ; return (ID_Submod_Struct (removePrependedUnderscores i) q)
+               ; return (ID_Submod_Struct (replacePrependedUnderscore i) q)
                } )
       <|>try(do{ i <- identifier' 
                ; wchar '[' 
                ; index <- expression 
                ; wchar ']' 
-               ; return $ ID_Vect (removePrependedUnderscores i) index 
+               ; return $ ID_Vect (replacePrependedUnderscore i) index 
                })
       <|>    do{ i <- identifier' 
-               ; return $ ID (removePrependedUnderscores i)
+               ; return $ ID (replacePrependedUnderscore i)
                }
 
-removePrependedUnderscores :: String -> String 
-removePrependedUnderscores ('_':xs) = removePrependedUnderscores xs
-removePrependedUnderscores xs = xs
+replacePrependedUnderscore :: String -> String 
+replacePrependedUnderscore ('_':xs) = '\x2017' : xs
+replacePrependedUnderscore xs = xs
 
 -- | parses the arguments of a method call.  Enclosed by parentheses and deliniated by commas, these arguments are expressions in the most recursive sense, and may even inclue other method calls (and any other generally valid expression).  In this particular implementation, sets of arguments are parsed separately, depending on whether they contain many, one, or no expressions.
 methodArgs :: Parser [Expression]
@@ -1488,7 +1488,7 @@ name :: Parser String
 name = do { x <- (upper <|> oneOf "_")
 	  ; xs <- many1 (upper <|> lower <|> digit <|> oneOf "_$")
 	  ; whiteSpace
-	  ; return (removePrependedUnderscores (x:xs))
+	  ; return (replacePrependedUnderscore (x:xs))
 	  } <?> "Description Name"
 
 -- | Parses the declaration of a BSV data type.  
@@ -1597,7 +1597,7 @@ moduleAttribute = try ( do { reserved "synthesize"
 			; wchar '\"'
 			; xs <- many stringList
 			; wchar '\"'
-			; return (Descending_Urgency xs)
+			; trace ("!!! - " ++ (show xs)) $ return (Descending_Urgency xs)
 			})
 		<|>try(do{ reserved "execution_order"
 			; wchar '='
@@ -2077,5 +2077,5 @@ killVoids (x:xs) = x : (killVoids xs)
 
 identifier' :: Parser String
 identifier' = do { x <- identifier
-                 ; return (removePrependedUnderscores x)
+                 ; return (replacePrependedUnderscore x)
                  }

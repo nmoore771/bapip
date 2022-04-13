@@ -1,0 +1,106 @@
+
+==================== FINAL INTERFACE ====================
+2022-04-01 02:16:29.361891051 UTC
+
+interface main:Main 8022
+  interface hash: b4cb243e8860113a71a3cf6fb7d66c67
+  ABI hash: 10b1d219c2c98150ed0678b13e1f1ca4
+  export-list hash: cfe8c8b929cd1eecd5bb29bf752d4847
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: bba20fa97e839ad58c578d01af898d2b
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Main.main
+module dependencies:
+package dependencies: BAPIP-0.1.0.0 FloatingHex-0.4
+                      QuickCheck-2.10.1 array-0.5.2.0 async-2.1.1.1 base-4.10.1.0
+                      binary-0.8.5.1 bytestring-0.10.8.2 containers-0.5.10.2 crackNum-1.9
+                      data-binary-ieee754-0.4.4 deepseq-1.4.3.0 directory-1.3.0.2
+                      extra-1.6.8 filepath-1.4.1.2 generic-deriving-1.12.1
+                      ghc-boot-th-8.2.2 ghc-prim-0.5.1.1 ieee754-0.8.0
+                      integer-gmp-1.0.1.0 mtl-2.2.2 parsec-3.1.13.0 pretty-1.1.3.3
+                      primitive-0.6.4.0 process-1.6.1.0 random-1.1 sbv-7.5 split-0.2.3.3
+                      stm-2.4.5.0 syb-0.7 template-haskell-2.12.0.0 text-1.2.3.0
+                      tf-random-0.5 time-1.8.0.2 transformers-0.5.2.0 unix-2.7.2.2
+orphans: text-1.2.3.0:Data.Text.Lazy text-1.2.3.0:Data.Text
+         binary-0.8.5.1:Data.Binary.Generic text-1.2.3.0:Data.Text.Show
+         sbv-7.5:Data.SBV sbv-7.5:Data.SBV.Core.Model
+         stm-2.4.5.0:Control.Monad.STM sbv-7.5:Data.SBV.Control.Utils
+         crackNum-1.9:Data.Numbers.CrackNum
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         sbv-7.5:Data.SBV.Core.Symbolic sbv-7.5:Data.SBV.Core.Kind
+         syb-0.7:Data.Generics.Instances sbv-7.5:Data.SBV.Core.AlgReals
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         transformers-0.5.2.0:Control.Monad.Trans.Error
+         base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Complex base-4.10.1.0:Data.Either
+                         base-4.10.1.0:Data.Functor.Compose base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity
+                         base-4.10.1.0:Data.Functor.Product base-4.10.1.0:Data.Functor.Sum
+                         base-4.10.1.0:Data.List.NonEmpty base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Semigroup base-4.10.1.0:Data.Type.Equality
+                         base-4.10.1.0:Data.Version base-4.10.1.0:Data.Void
+                         base-4.10.1.0:GHC.Exts base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats containers-0.5.10.2:Data.IntMap.Internal
+                         containers-0.5.10.2:Data.IntSet.Internal
+                         containers-0.5.10.2:Data.Map.Internal
+                         containers-0.5.10.2:Data.Sequence.Internal
+                         containers-0.5.10.2:Data.Set.Internal containers-0.5.10.2:Data.Tree
+                         ghc-boot-th-8.2.2:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.2.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.4.0:Control.Monad.Primitive
+                         primitive-0.6.4.0:Data.Primitive.ByteArray
+                         sbv-7.5:Data.SBV.Control.Types sbv-7.5:Data.SBV.Core.Data
+                         template-haskell-2.12.0.0:Language.Haskell.TH.Syntax
+                         text-1.2.3.0:Data.Text text-1.2.3.0:Data.Text.Lazy
+import  -/  BAPIP-0.1.0.0:BAPIP 5ff7510f0360687d5536c4a02a61bdc2
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  ghc-prim-0.5.1.1:GHC.Types b1fd0716441595db508c1a74387bf394
+9d72b2fddb818bcd8919052935e0f1f3
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Main.$trModule3 Main.$trModule1) -}
+3108ceeaf5a318be844de422b45de9d8
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Main.$trModule2) -}
+e5875966b74dad2d29772660b8a75e33
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("Main"#) -}
+33bd129667974f0a0ba4a893af79107d
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS Main.$trModule4) -}
+d026be77cb9ced20e35a61514e0458aa
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("main"#) -}
+81db0155de575954029942b4948946c8
+  main :: GHC.Types.IO ()
+  {- Arity: 1, Strictness: <S,U>,
+     Unfolding: InlineRule (0, True, True)
+                BAPIP.bapip1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R)) -}
+6549585a2dbca4ba1aef738dc8093abe
+  main1 ::
+    GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
+  {- Arity: 1,
+     Unfolding: (GHC.TopHandler.runMainIO1
+                   @ ()
+                   BAPIP.bapip1 `cast` (Sym (GHC.Types.N:IO[0] <()>_R))) -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

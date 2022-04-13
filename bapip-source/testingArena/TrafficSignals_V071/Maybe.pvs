@@ -1,0 +1,26 @@
+% Maybe.pvs
+% author = Nicholas Moore
+% last updated August 27, 2019
+Maybe[A : TYPE, null : A] : THEORY
+BEGIN
+
+Maybe : TYPE = 
+  [# valid : bool
+   , value : A
+  #]
+
+Nothing?(m : Maybe) : bool =  not m`valid
+
+Just?(m : Maybe) : bool = m`valid
+
+Nothing : Maybe = 
+  (# valid := False
+   , value := null
+  #)
+
+Just(val : A) : Maybe =
+  (# valid := True
+   , value := val
+  #)
+
+END Maybe

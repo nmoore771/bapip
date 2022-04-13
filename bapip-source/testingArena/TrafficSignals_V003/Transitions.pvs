@@ -1,0 +1,29 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : TrafficSignals) : TrafficSignals =
+		IF (index = 0) THEN 
+		pre with
+		    [ t := if ( pre`t < 300 )
+			  then ( pre`t + 1 )
+			  else 0
+			endif
+		    , carLamps_EW := carLamps_EW
+		    , carLamps_NS := carLamps_NS
+		    ]
+		ELSE pre
+		ENDIF 
+
+
+	transition ( index : nat, pre, post : TrafficSignals) : bool =
+		post = transition_val (index, pre)
+		
+		
+
+
+	
+end Transitions

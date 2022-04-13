@@ -1,0 +1,119 @@
+
+==================== FINAL INTERFACE ====================
+2022-04-01 02:15:43.804712762 UTC
+
+interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:PVS2BSV 8022
+  interface hash: 07572afad679f8b62005b2a9ccbae512
+  ABI hash: 7cd79edec2d6fd8545b2a44f96cde8c7
+  export-list hash: 517b0820feb41e5eb54fa0ffb8a8c7da
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: aa1a6078e28560b315026c49539ca393
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  PVS2BSV.p2bConstDecl
+  PVS2BSV.p2bType
+  PVS2BSV.p2bTypeDef
+module dependencies: LexerTypes
+package dependencies: base-4.10.1.0 ghc-prim-0.5.1.1
+                      integer-gmp-1.0.1.0
+orphans: base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Either base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Type.Equality base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats
+import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
+  exports: 24099e1d1a603a4b110bad9ae51c8629
+  BSVConstantDec b88fa7e6b37f6f00493a89357f127044
+  BSVType 4a6fa266ef9464fb93f2d34d394bedde
+  BSVTypeDef 8e4fa46f3b3e0dfb841487fd74787a36
+  BSV_Bit b7bdba10c8eb1b1e91e90f40be229e2c
+  BSV_Bool 01eddf3beaa8c7925d8ccb76e15f4fc4
+  BSV_Custom 3e037feb3dae439d4704b3fad55dd49b
+  BSV_Enumeration bedc0fcd727049aa2e0541fbd11f84b4
+  BSV_Int 4204bd688ea42600a7a56fbf7a805572
+  BSV_Real 74fd7cf943d91608036060a198b78300
+  BSV_Synonym dcaabe3758db3247f01951246c828702
+  BSV_UInt 188b355edf0c4b3f1e8d57c4aeebe56f
+  PVSConstantDec 2f2405ef76e2fdf81a05bdc6a4655ac9
+  PVSType 5293579e9cbbf6986dcf46fee97434cb
+  PVSTypeDef 263d5987ddec79fadf35563de5be9f0c
+  PVS_Bit 22acc7100431b38432c9c3c07d2b2a41
+  PVS_Bool 9e0621e80245a1f11c51a0ee4357c949
+  PVS_Custom 3b7a0ad00510c97e677113fc5dcc2393
+  PVS_Enumeration 4c8f7f14ccc0ee1299e205bd31c7048b
+  PVS_Int 00b5ec9b246ed8c7086e269060a6072e
+  PVS_Real 92e906bfc31d0cbaed8d7427f91679ca
+  PVS_Synonym 8a9d46d2cacf21d3788db9f5d6b38bde
+  PVS_UInt db0d5cc35fbfe6395496e1c360f6dd95
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+3602380c6521c3e22186307346fc9627
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   PVS2BSV.$trModule3
+                   PVS2BSV.$trModule1) -}
+2e75f58611f544b4a1a52cce3fa848d9
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS PVS2BSV.$trModule2) -}
+f51a79e21c0eb1747d0fdbff08525919
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("PVS2BSV"#) -}
+8ca939c8b34718848eba76edcc4c73f7
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS PVS2BSV.$trModule4) -}
+ee57aa36a22a69281e0dc1a7053b65ee
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD"#) -}
+3506b0e57e513376acd66dcdab93ec75
+  p2bConstDecl ::
+    LexerTypes.PVSConstantDec -> LexerTypes.BSVConstantDec
+  {- Arity: 1, Strictness: <S,1*U(U,1*U,U)>m,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (LexerTypes.Name, LexerTypes.PVSType,
+                           LexerTypes.Literal)) ->
+                 case ds of wild { (,,) nom typ lit ->
+                 (nom, PVS2BSV.p2bType typ, lit) }) -}
+57625865645cf25fb8882174a4700902
+  p2bType :: LexerTypes.PVSType -> LexerTypes.BSVType
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.PVSType) ->
+                 case ds of wild {
+                   LexerTypes.PVS_Bool -> LexerTypes.BSV_Bool
+                   LexerTypes.PVS_Bit n -> LexerTypes.BSV_Bit n
+                   LexerTypes.PVS_Int n -> LexerTypes.BSV_Int n
+                   LexerTypes.PVS_UInt n -> LexerTypes.BSV_UInt n
+                   LexerTypes.PVS_Real -> LexerTypes.BSV_Real
+                   LexerTypes.PVS_Custom n -> LexerTypes.BSV_Custom n
+                   LexerTypes.PVS_Maybe ipv -> PVS2BSV.p2bType1 }) -}
+af99dd5477a696eca931338fbc719411
+  p2bType1 :: LexerTypes.BSVType
+  {- Strictness: x -}
+7f567c58814012c3a79a293a42233b7b
+  p2bTypeDef :: LexerTypes.PVSTypeDef -> LexerTypes.BSVTypeDef
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: LexerTypes.PVSTypeDef) ->
+                 case ds of wild {
+                   LexerTypes.PVS_Synonym nom typ
+                   -> LexerTypes.BSV_Synonym nom (PVS2BSV.p2bType typ)
+                   LexerTypes.PVS_Enumeration nom enums
+                   -> LexerTypes.BSV_Enumeration nom enums
+                   LexerTypes.PVS_Struct ipv ipv1 -> PVS2BSV.p2bTypeDef1 }) -}
+48d6ad3ff08547dd31bc5dfe8d7dad32
+  p2bTypeDef1 :: LexerTypes.BSVTypeDef
+  {- Strictness: x -}
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

@@ -1,0 +1,1600 @@
+
+==================== FINAL INTERFACE ====================
+2022-04-13 02:59:00.218335033 UTC
+
+interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:ConflictSolver 8022
+  interface hash: 8b6286da864fdaad9d724603512e6f8a
+  ABI hash: debb583616ce9d1f0674dd10bd83ad79
+  export-list hash: c1166f329d37d8d1f2ec1465ca958062
+  orphan hash: bf6a81eeb7eca98acdc71650c17e06cc
+  flag hash: aa1a6078e28560b315026c49539ca393
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  ConflictSolver.applyTypeToLit
+  ConflictSolver.bitLimit
+  ConflictSolver.compute
+  ConflictSolver.concatMerge
+  ConflictSolver.distributeMutexes
+  ConflictSolver.enumToNum
+  ConflictSolver.envLookup
+  ConflictSolver.exposeSchedule
+  ConflictSolver.extractLit
+  ConflictSolver.extractSymbols
+  ConflictSolver.findField
+  ConflictSolver.findFieldType
+  ConflictSolver.findLitType
+  ConflictSolver.findSchedule
+  ConflictSolver.findType
+  ConflictSolver.genSchedule
+  ConflictSolver.getCustomTypeSymbol
+  ConflictSolver.getEnumKind
+  ConflictSolver.getNumberOfConflicts
+  ConflictSolver.getSolvedSchedule
+  ConflictSolver.getSynonymType
+  ConflictSolver.getType
+  ConflictSolver.interpret
+  ConflictSolver.invokeSBV
+  ConflictSolver.lit2SV
+  ConflictSolver.makePredicate
+  ConflictSolver.mergeTypes
+  ConflictSolver.mkEnumKind
+  ConflictSolver.mkVS
+  ConflictSolver.procResults
+  ConflictSolver.sIntN
+  ConflictSolver.sWordN
+  ConflictSolver.shallowEQ
+  ConflictSolver.showAP
+  ConflictSolver.showIDPath
+  ConflictSolver.sizeThemLiterals
+  ConflictSolver.solveConflict
+  ConflictSolver.solveSchedule'
+  ConflictSolver.typeSize
+  ConflictSolver.unMaybeList
+  ConflictSolver.unaddressedConflicts
+  ConflictSolver.Env
+module dependencies: BSV2PVS LexerTypes
+package dependencies: FloatingHex-0.4 QuickCheck-2.10.1
+                      array-0.5.2.0 async-2.1.1.1 base-4.10.1.0 binary-0.8.5.1
+                      bytestring-0.10.8.2 containers-0.5.10.2 crackNum-1.9
+                      data-binary-ieee754-0.4.4 deepseq-1.4.3.0 directory-1.3.0.2
+                      extra-1.6.8 filepath-1.4.1.2 generic-deriving-1.12.1
+                      ghc-boot-th-8.2.2 ghc-prim-0.5.1.1 ieee754-0.8.0
+                      integer-gmp-1.0.1.0 mtl-2.2.2 pretty-1.1.3.3 primitive-0.6.4.0
+                      process-1.6.1.0 random-1.1 sbv-7.5 stm-2.4.5.0 syb-0.7
+                      template-haskell-2.12.0.0 tf-random-0.5 time-1.8.0.2
+                      transformers-0.5.2.0 unix-2.7.2.2
+orphans: sbv-7.5:Data.SBV sbv-7.5:Data.SBV.Core.Model
+         stm-2.4.5.0:Control.Monad.STM sbv-7.5:Data.SBV.Control.Utils
+         crackNum-1.9:Data.Numbers.CrackNum
+         bytestring-0.10.8.2:Data.ByteString.Builder
+         sbv-7.5:Data.SBV.Core.Symbolic sbv-7.5:Data.SBV.Core.Kind
+         syb-0.7:Data.Generics.Instances sbv-7.5:Data.SBV.Core.AlgReals
+         time-1.8.0.2:Data.Time.Format.Parse
+         time-1.8.0.2:Data.Time.LocalTime.Internal.ZonedTime
+         time-1.8.0.2:Data.Time.LocalTime.Internal.LocalTime
+         time-1.8.0.2:Data.Time.Calendar.Gregorian
+         transformers-0.5.2.0:Control.Monad.Trans.Error
+         base-4.10.1.0:GHC.Float base-4.10.1.0:GHC.Base
+family instance modules: base-4.10.1.0:Control.Applicative
+                         base-4.10.1.0:Data.Complex base-4.10.1.0:Data.Either
+                         base-4.10.1.0:Data.Functor.Compose base-4.10.1.0:Data.Functor.Const
+                         base-4.10.1.0:Data.Functor.Identity
+                         base-4.10.1.0:Data.Functor.Product base-4.10.1.0:Data.Functor.Sum
+                         base-4.10.1.0:Data.List.NonEmpty base-4.10.1.0:Data.Monoid
+                         base-4.10.1.0:Data.Semigroup base-4.10.1.0:Data.Type.Equality
+                         base-4.10.1.0:Data.Version base-4.10.1.0:Data.Void
+                         base-4.10.1.0:GHC.Exts base-4.10.1.0:GHC.Generics
+                         base-4.10.1.0:GHC.IO.Exception base-4.10.1.0:GHC.TypeLits
+                         base-4.10.1.0:GHC.TypeNats containers-0.5.10.2:Data.IntMap.Internal
+                         containers-0.5.10.2:Data.IntSet.Internal
+                         containers-0.5.10.2:Data.Map.Internal
+                         containers-0.5.10.2:Data.Sequence.Internal
+                         containers-0.5.10.2:Data.Set.Internal
+                         ghc-boot-th-8.2.2:GHC.ForeignSrcLang.Type
+                         ghc-boot-th-8.2.2:GHC.LanguageExtensions.Type
+                         pretty-1.1.3.3:Text.PrettyPrint.Annotated.HughesPJ
+                         pretty-1.1.3.3:Text.PrettyPrint.HughesPJ
+                         primitive-0.6.4.0:Control.Monad.Primitive
+                         primitive-0.6.4.0:Data.Primitive.ByteArray
+                         sbv-7.5:Data.SBV.Control.Types sbv-7.5:Data.SBV.Core.Data
+                         template-haskell-2.12.0.0:Language.Haskell.TH.Syntax
+import  -/  BSV2PVS eb3ee6b0bd303dee9acbaec2ddf297aa
+  exports: 8e63f2db6cb8b79e8d3539121d9787c0
+  convertMethodToRule 30bab428b259c4d04aea0700a8a9eda2
+  findMethod 32eac5c849ca1b4b165f237db1cd18d7
+  findMod 1dae238848b3e2ea4ed028f62b616a4a
+  genRuleSchedules 7e8f6f71889c351f3ce4fd78e0b9e426
+  instantiateSubmods 434034b2549f4da2c7542196c43543d0
+  letPreproc e8617a36a9fd74128208c6d09afece80
+  migrateAttributes ccbc55a04ef840fd7ae746dd854ac143
+  omniFlatten 0c95bfb73a55eedad1c92edb4644e2ad
+  propagateMethodCalls 5e5fa7200e4079c156871abde9a27456
+  rf2Vec 9e86b2816ac19d8097c475d2511ff9c4
+  scrubValueMethods 2d19e9f66321df9e85ed51b9de5042b4
+  splitStatementPreprocPackage 2ec7ade6130896defd78f036c5b20f06
+  substituteActionMethods efd49bff8a8f4ba581135a384a44b342
+import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
+  exports: 24099e1d1a603a4b110bad9ae51c8629
+  ActionNameAP ed1d67a670c74523be0781098de637f5
+  ActionPath 75d03845d9b5153ed1f38098fefa25af
+  Add 36538cb76d628c0acd4a4cf71078cdb4
+  And e22c6395cd4b23e2790ce49d4543b755
+  BSVModuleDec 6a9e148802acadaa54114400a09553a4
+  BSVPackage dca7bfb1a37746d89b662b651361e667
+  BSVType 4a6fa266ef9464fb93f2d34d394bedde
+  BSVTypeDef 8e4fa46f3b3e0dfb841487fd74787a36
+  BSV_Bit b7bdba10c8eb1b1e91e90f40be229e2c
+  BSV_Bool 01eddf3beaa8c7925d8ccb76e15f4fc4
+  BSV_Custom 3e037feb3dae439d4704b3fad55dd49b
+  BSV_Enumeration bedc0fcd727049aa2e0541fbd11f84b4
+  BSV_Field 63031b90c7604d4fb2a78460ad181c92
+  BSV_Fifo 03f2d7df610a9ffc10dbe487dc910e79
+  BSV_Int 4204bd688ea42600a7a56fbf7a805572
+  BSV_Maybe 1426229b0098b4a14cf6baa02436b871
+  BSV_Reg bebd524f4e8ace342acec9513d4ad26a
+  BSV_RegFile 6a666ae32d2fb0eb369a76cf007b7f25
+  BSV_Struct e68a86d94ad261d6d0d40e01c97f4031
+  BSV_SubModuleDec 4cfcb5f0ea07b81fd12b2088e2957c5e
+  BSV_Synonym dcaabe3758db3247f01951246c828702
+  BSV_UInt 188b355edf0c4b3f1e8d57c4aeebe56f
+  BSV_Vector 3ee79272024b25ce68888eea8399c371
+  BSVstateDec 8c52b7703dbf130a1d71c377ab4031f7
+  Binding a73de62264e667fab5ce9150342bfbb0
+  BitConcat ce09575274ede88737a0901dbf5bea16
+  BitSelect 679dead99df4296b229e1d1889f748e3
+  BitSelectRange 589edace8d5eec8af5245f487ee43fc4
+  BitwiseAND 7e507419ece991ad7ce0f2956c9aa213
+  BitwiseOR 302153d3c58ce21102a7455a65b88105
+  BitwiseXOR c9cc2432ec74bae8bc7895c9ccd99e77
+  DWire 760a4217288639166f942799447c28b7
+  Divide 4e0e22b926cf6cc14d39a04fc286fe36
+  Equals 61c8e1ea5b6b779f6da6a09d78deda00
+  Exp_If 8f8ce8dc133821fef9f9cd8882f50996
+  Exp_MethodCall e0fa569420d352ff8a5c69ead86bec0f
+  Expression 6b58178d3226f5dcfa379df74cd7f6b5
+  Greater 6b9689f45536195da18383e5326b97a8
+  GreaterEquals 6d9a338a7609c353aeb3bdce17362ec6
+  ID 162ab617d5709f209b382d729b114647
+  ID_Path 6b58178d3226f5dcfa379df74cd7f6b5
+  ID_Submod_Struct 463de23e5c7996a7d7e8c379f21535c2
+  ID_Vect ac4504a9362ebe24ddb26ea1baec8978
+  Identifier f34a421e3991b38924384ea37d474049
+  Invalid ed1ca468e26ed28115951dd040fb4279
+  LShift a6a4b281298d1b8a75f764462c15d6a1
+  Less d59e317442af542f318ae1618692d2bb
+  LessEquals 0253bd2afe07783f24a5580881609c67
+  Lit e03304d97e0d6aca513132b576af286a
+  LitBool f9036459d5bfa3180b25936630b48534
+  LitEnum 3534e76614187a07c69c8d39073a6f24
+  LitInt 85e98ff38658a058a373ff0d13101497
+  LitReal 1718a0fd8087fa703023fd43c6f0504f
+  LitSizedInt 8b76517d0d11aa759dbd7f9307ca74b7
+  LitStructConstructor a91bdcbd8e359522c690b7666c6b98b4
+  LitVoid 78667fcb5e09de66105a1d72dda08978
+  Literal 337aee2c7f9cd9dd951f930c9b9dbe73
+  MaybeIf 34bc4228cd97532add7324e8063547f0
+  MethodNameAP 90170f9dfb8fbb02ecf113b23a14484d
+  Mod_Mutually_Exclusive 1bf8807f93263dd15548a7cc35984646
+  ModuleAttribute 38c8cfc922a8b6609d6630c27049fe7f
+  Modulo ef51c13e1735d14b66d320257e21a593
+  Multiply 2e1955b341ad5724899f6d2460f61d10
+  Negative 9890405dd1a0c5764d6155433ae9484e
+  Not 22d1103f357094a67193828970d4b051
+  NotEquals ca898c161ed932983a471d3d692c86bf
+  Or 29cc9a489f4941fb8f760730dd0dff52
+  RPFlag fd68b5813118d833864d10cc9b8844fd
+  RShift 6a6e1d65a10e1f1cbb73413d5cb25175
+  RuleNameAP bb64fa397fcce0c5cadaec7600c325d2
+  RuleSchedule 7b3adb9e814c886706bb5c400eeb330c
+  SubmoduleNameAP 6805540e6cf984bb60a992b485593520
+  Subtract 8f6065598203e3e8d21db427badb1bf6
+  Tagged 0103ea8b59c5429e51d36d50c470f390
+  Valid a42292174e949ee84846f4697e0a0816
+  ValueMethodCall 6e178be71a4412cc4bda1ba94fdf869f
+  attributes 6a9e148802acadaa54114400a09553a4
+  bsv_modules dca7bfb1a37746d89b662b651361e667
+  bsv_typedefs dca7bfb1a37746d89b662b651361e667
+  conflictsWith 7b3adb9e814c886706bb5c400eeb330c
+  executesAfter 7b3adb9e814c886706bb5c400eeb330c
+  executesBefore 7b3adb9e814c886706bb5c400eeb330c
+  isPreemptedBy 7b3adb9e814c886706bb5c400eeb330c
+  mName 6a9e148802acadaa54114400a09553a4
+  methods 6a9e148802acadaa54114400a09553a4
+  preempts 7b3adb9e814c886706bb5c400eeb330c
+  rGuard 7b3adb9e814c886706bb5c400eeb330c
+  rName 7b3adb9e814c886706bb5c400eeb330c
+  rules 6a9e148802acadaa54114400a09553a4
+  state 6a9e148802acadaa54114400a09553a4
+import  -/  base-4.10.1.0:Control.Monad.IO.Class 9d78cd0f73a837f3c00753bd212b9f2c
+import  -/  base-4.10.1.0:Data.Foldable 9ed87455d68e87ff2b5b8725eae9897e
+import  -/  base-4.10.1.0:Data.List 4ab7fa2a1b87502b23af891a384f0506
+import  -/  base-4.10.1.0:Data.Maybe 07738c5485acb328136bb15596f8b845
+import  -/  base-4.10.1.0:Data.OldList 555420b092ca8cf0a8f9666bc0e07dcf
+import  -/  base-4.10.1.0:Data.Traversable 60ea7c2973e63de7d08d5d0269f96e67
+import  -/  base-4.10.1.0:Debug.Trace d6b92a67d41f66511d3d35c0713fec79
+import  -/  base-4.10.1.0:GHC.Base 782fd99b5e36f3698a26179a49afca64
+import  -/  base-4.10.1.0:GHC.Err 514b3a24b22e9d7d731c2d0d02d10842
+import  -/  base-4.10.1.0:GHC.List e3060fbeb44ce0038e6b4dedf2dd9cf1
+import  -/  base-4.10.1.0:GHC.Num 6e1dc5d36d99a802edb39b92bb1923b8
+import  -/  base-4.10.1.0:GHC.Real 3c62834bc25e762eabc44149c4cc142d
+import  -/  base-4.10.1.0:GHC.Show 0a8ce2b5e533d1c2cfb7954e6736be45
+import  -/  base-4.10.1.0:Prelude 31945b7d0084063347fc52506d3a4020
+import  -/  base-4.10.1.0:System.IO 6e5bb580370d8d71dc5888f723cea4b4
+import  -/  containers-0.5.10.2:Data.Map d23af8194022e93d0288135c0af69dae
+import  -/  containers-0.5.10.2:Data.Map.Internal 33ddbf5aa8c0f2ab26fb6dc5be1b1f4c
+import  -/  ghc-prim-0.5.1.1:GHC.Classes 93e2660065dce9329577e83d76d8f0d4
+import  -/  ghc-prim-0.5.1.1:GHC.Types b1fd0716441595db508c1a74387bf394
+import  -/  integer-gmp-1.0.1.0:GHC.Integer.Type 5fa81108482c33b62ec3ac7464eece96
+import  -/  mtl-2.2.2:Control.Monad.Reader 8d63edf5dfaf25ad085eae4468bdd77e
+import  -/  mtl-2.2.2:Control.Monad.Reader.Class 6d33756d93a5919f9374afec232249f4
+import  -/  mtl-2.2.2:Control.Monad.Trans cd1e71195681b00f5e271ed8bc3105bc
+import  -/  sbv-7.5:Data.SBV f84e8a60931ab5f0f2e5f8f0541c485f
+import  -/  sbv-7.5:Data.SBV.Core.Kind a53199dabc5c5876d0f45a56f220300e
+import  -/  sbv-7.5:Data.SBV.Core.Operations 91a1a55a1ae0e6ae62556976b4ac5f3b
+import  -/  sbv-7.5:Data.SBV.Core.Symbolic c7ea669ec68e3380143c5679ce2cefc8
+import  -/  sbv-7.5:Data.SBV.Dynamic 4653987605e61e00d0496235e43b3d21
+import  -/  sbv-7.5:Data.SBV.Provers.Prover 4eb98195cef8fc00faccb68c9662439d
+import  -/  sbv-7.5:Data.SBV.SMT.SMT 914f53df5330f498c65a411082d4cb4f
+d99d47c71080fccedff3801bde970aa8
+  $sfromList ::
+    [(LexerTypes.ID_Path, a)]
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: (\ @ a (ds :: [(LexerTypes.ID_Path, a)]) ->
+                 case ds of wild {
+                   [] -> Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a
+                   : ds1 ds2
+                   -> case ds1 of wild1 { (,) kx x ->
+                      case ds2 of wild2 {
+                        []
+                        -> case kx of dt { DEFAULT ->
+                           Data.Map.Internal.Bin
+                             @ LexerTypes.ID_Path
+                             @ a
+                             1#
+                             dt
+                             x
+                             (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a)
+                             (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a) }
+                        : ipv ipv1
+                        -> case ipv of wild3 { (,) ky ds3 ->
+                           case LexerTypes.$fOrdID_Path_$c< kx ky of wild4 {
+                             GHC.Types.False
+                             -> case kx of dt { DEFAULT ->
+                                ConflictSolver.$sfromList1
+                                  @ a
+                                  (Data.Map.Internal.Bin
+                                     @ LexerTypes.ID_Path
+                                     @ a
+                                     1#
+                                     dt
+                                     x
+                                     (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a)
+                                     (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a))
+                                  wild2 }
+                             GHC.Types.True
+                             -> case kx of dt { DEFAULT ->
+                                ConflictSolver.$wpoly_go13
+                                  @ a
+                                  1#
+                                  (Data.Map.Internal.Bin
+                                     @ LexerTypes.ID_Path
+                                     @ a
+                                     1#
+                                     dt
+                                     x
+                                     (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a)
+                                     (Data.Map.Internal.Tip @ LexerTypes.ID_Path @ a))
+                                  wild2 } } } } } }) -}
+781d9513a471c146fc42cef1d71a093d
+  $sfromList1 ::
+    Data.Map.Internal.Map LexerTypes.ID_Path a
+    -> [(LexerTypes.ID_Path, a)]
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+344bb9277d4d481025e6d2488129cf4f
+  $sinsert_$sgo13 ::
+    LexerTypes.ID_Path
+    -> LexerTypes.ID_Path
+    -> a1
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a1
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a1
+  {- Arity: 4, Strictness: <L,U><S,1*U><L,U><S,1*U> -}
+9e27b3d92cab6471aa49001c8110e2f7
+  $slookup1 ::
+    LexerTypes.ID_Path
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a -> GHC.Base.Maybe a
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+9394b50a6a3990cd7f41aef8e9cba281
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module
+                   ConflictSolver.$trModule3
+                   ConflictSolver.$trModule1) -}
+8d301584e2b16c967b7fb2b650f26c1d
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS ConflictSolver.$trModule2) -}
+01723a0a41cb627b335e473cd63331ff
+  $trModule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ConflictSolver"#) -}
+3a847debe2a34b43d0f37cd8bc6faeac
+  $trModule3 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS ConflictSolver.$trModule4) -}
+6189d6bd2feb48ddd6fe537e6ed44687
+  $trModule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD"#) -}
+8395f538e6b2f35a77fa2a9681d2bd48
+  $wenumToNum ::
+    [LexerTypes.BSVTypeDef] -> GHC.Base.String -> GHC.Prim.Int#
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+c2f78fffbe999ecbcacda1cfd688d9d7
+  $wexposeSchedule ::
+    [LexerTypes.BSVModuleDec]
+    -> GHC.Base.String -> [LexerTypes.RuleSchedule]
+  {- Arity: 2, Strictness: <S,U><L,U>, Inline: [0],
+     Unfolding: (\ (ww :: [LexerTypes.BSVModuleDec])
+                   (w :: GHC.Base.String) ->
+                 case BSV2PVS.getMod w ww of wild {
+                   GHC.Base.Nothing
+                   -> case ConflictSolver.exposeSchedule21
+                      ret_ty [LexerTypes.RuleSchedule]
+                      of {}
+                   GHC.Base.Just x
+                   -> case x of wild1 { LexerTypes.BSVModuleDec ds ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ->
+                      let {
+                        ds11 :: [LexerTypes.MethodBody]
+                        = BSV2PVS.scrubValueMethods_go (BSV2PVS.gatherValueMethods ds9) ds9
+                      } in
+                      ConflictSolver.genSchedule
+                        (LexerTypes.BSVPackage
+                           ConflictSolver.exposeSchedule19
+                           ConflictSolver.exposeSchedule17
+                           ConflictSolver.exposeSchedule15
+                           ConflictSolver.exposeSchedule13
+                           ConflictSolver.exposeSchedule11
+                           ConflictSolver.exposeSchedule9
+                           ConflictSolver.exposeSchedule7
+                           ww
+                           ConflictSolver.exposeSchedule5
+                           ConflictSolver.exposeSchedule3
+                           ConflictSolver.exposeSchedule1)
+                        (LexerTypes.BSVModuleDec
+                           ds
+                           ds1
+                           ds2
+                           ds3
+                           ds4
+                           ds5
+                           ds6
+                           ds7
+                           (GHC.Base.++
+                              @ (LexerTypes.RuleName, LexerTypes.Guard, [LexerTypes.Statement],
+                                 [LexerTypes.RuleAttribute])
+                              ds8
+                              (ConflictSolver.exposeSchedule_$sunMaybeList
+                                 (GHC.Base.map
+                                    @ (LexerTypes.MethodName, LexerTypes.ReturnType,
+                                       LexerTypes.UTArgs, LexerTypes.Guard, [LexerTypes.Statement],
+                                       [LexerTypes.MethodBodyAttribute])
+                                    @ (GHC.Base.Maybe LexerTypes.RuleDec)
+                                    BSV2PVS.convertMethodToRule
+                                    ds11)))
+                           ds11) } }) -}
+c1dedfebed4e6fd09710693725e551fa
+  $wgetEnumKind ::
+    [LexerTypes.BSVTypeDef]
+    -> GHC.Base.String -> (# GHC.Types.Bool, GHC.Prim.Int# #)
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+176f31487a25f2a01903c9d3c8d529e1
+  $wgetType ::
+    [LexerTypes.BSVstateDec]
+    -> LexerTypes.Expression -> GHC.Base.Maybe LexerTypes.BSVType
+  {- Arity: 2, Strictness: <L,U><S,1*U>, Inline: [0] -}
+42302ad95aa7a8c0d53ef6e424ddf059
+  $wgo :: [LexerTypes.RuleSchedule] -> GHC.Prim.Int# -> GHC.Prim.Int#
+  {- Arity: 2, Strictness: <S,1*U><S,U>, Inline: [0] -}
+a890d7443a57667676911560b2e6789d
+  $winvokeSBV ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> LexerTypes.ActionPath
+    -> LexerTypes.Expression
+    -> LexerTypes.ActionPath
+    -> LexerTypes.Expression
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Types.Bool #)
+  {- Arity: 7,
+     Strictness: <L,U><L,U><L,1*U><L,1*U><L,1*U><L,1*U><S,U>,
+     Inline: [0],
+     Unfolding: (\ (w :: [LexerTypes.BSVTypeDef])
+                   (w1 :: [LexerTypes.BSVstateDec])
+                   (ww :: LexerTypes.ActionPath)
+                   (ww1 :: LexerTypes.Expression)
+                   (ww2 :: LexerTypes.ActionPath)
+                   (ww3 :: LexerTypes.Expression)
+                   (w2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case Data.SBV.Dynamic.satWith1
+                        Data.SBV.Provers.Prover.yices
+                        (ConflictSolver.makePredicate
+                           w
+                           w1
+                           (let {
+                              x :: LexerTypes.Expression
+                              = ConflictSolver.sizeThemLiterals
+                                  w
+                                  w1
+                                  (GHC.Base.Nothing @ LexerTypes.BSVType)
+                                  ww1
+                            } in
+                            Debug.Trace.trace
+                              @ LexerTypes.Expression
+                              (LexerTypes.$fShowExpression_$cshow x)
+                              x)
+                           (let {
+                              x :: LexerTypes.Expression
+                              = ConflictSolver.sizeThemLiterals
+                                  w
+                                  w1
+                                  (GHC.Base.Nothing @ LexerTypes.BSVType)
+                                  ww3
+                            } in
+                            Debug.Trace.trace
+                              @ LexerTypes.Expression
+                              (LexerTypes.$fShowExpression_$cshow x)
+                              x))
+                        w2 of ds1 { (#,#) ipv ipv1 ->
+                 case GHC.IO.Handle.Text.hPutStr2
+                        GHC.IO.Handle.FD.stdout
+                        (GHC.CString.unpackAppendCString#
+                           ConflictSolver.invokeSBV4
+                           (GHC.Base.++
+                              @ GHC.Types.Char
+                              (ConflictSolver.showAP ww)
+                              (GHC.CString.unpackAppendCString#
+                                 ConflictSolver.invokeSBV3
+                                 (GHC.Base.++
+                                    @ GHC.Types.Char
+                                    (ConflictSolver.showAP ww2)
+                                    (GHC.CString.unpackAppendCString#
+                                       ConflictSolver.invokeSBV2
+                                       (Data.SBV.SMT.SMT.showSMTResult
+                                          Data.SBV.SMT.SMT.$fShowSatResult10
+                                          Data.SBV.SMT.SMT.$fShowSatResult8
+                                          Data.SBV.SMT.SMT.$fShowSatResult6
+                                          Data.SBV.SMT.SMT.$fShowSatResult4
+                                          Data.SBV.SMT.SMT.$fShowSatResult2
+                                          ipv1 `cast` (Data.SBV.SMT.SMT.N:SatResult[0])))))))
+                        GHC.Types.True
+                        ipv of ds2 { (#,#) ipv2 ipv3 ->
+                 (# ipv2,
+                    Data.SBV.SMT.SMT.$fModelableSatResult_$cmodelExists ipv1 #) } }) -}
+c9de0ead0fc55ed8fd1d5f8f714cc61f
+  $wmkEnumKind ::
+    LexerTypes.BSVTypeDef -> (# GHC.Types.Bool, GHC.Prim.Int# #)
+  {- Arity: 1, Strictness: <S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: LexerTypes.BSVTypeDef) ->
+                 case w of wild {
+                   DEFAULT
+                   -> case ConflictSolver.mkEnumKind1
+                      ret_ty (# GHC.Types.Bool, GHC.Prim.Int# #)
+                      of {}
+                   LexerTypes.BSV_Enumeration n3 enums
+                   -> case GHC.List.$wlenAcc
+                             @ [GHC.Types.Char]
+                             enums
+                             0# of ww2 { DEFAULT ->
+                      case GHC.Integer.Type.integerToInt
+                             (ConflictSolver.bitLimit
+                                (GHC.Integer.Type.smallInteger ww2)) of wild1 { DEFAULT ->
+                      (# GHC.Types.True, wild1 #) } } }) -}
+9dc636c7f161dcd76ce73138212fa8fb
+  $wmkVS ::
+    [LexerTypes.BSVTypeDef]
+    -> LexerTypes.ID_Path
+    -> LexerTypes.BSVType
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 3, Strictness: <L,U><L,1*U><S,1*U>, Inline: [0],
+     Unfolding: (\ (w :: [LexerTypes.BSVTypeDef])
+                   (ww :: LexerTypes.ID_Path)
+                   (ww1 :: LexerTypes.BSVType) ->
+                 case ww1 of wild {
+                   LexerTypes.BSV_Bool
+                   -> let {
+                        g :: GHC.Base.String = ConflictSolver.showIDPath ww
+                      } in
+                      let {
+                        g1 :: GHC.Base.Maybe GHC.Base.String
+                        = GHC.Base.Just @ GHC.Base.String g
+                      } in
+                      (\ (r1 :: Data.SBV.Core.Symbolic.State)
+                         (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       Data.SBV.Core.Symbolic.addSValOptGoal4
+                         GHC.Types.False
+                         (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                         Data.SBV.Core.Kind.KBool
+                         g1
+                         r1
+                         s)
+                        `cast`
+                      (Trans
+                           (Nth:3
+                                (Nth:3
+                                     (Trans
+                                          (<Control.Monad.Trans.Reader.ReaderT
+                                              Data.SBV.Core.Symbolic.State
+                                              GHC.Types.IO
+                                              Data.SBV.Core.Symbolic.State>_R
+                                           ->_R <Data.SBV.Core.Symbolic.State
+                                                 -> Control.Monad.Trans.Reader.ReaderT
+                                                      Data.SBV.Core.Symbolic.State
+                                                      GHC.Types.IO
+                                                      Data.SBV.Core.Symbolic.SVal>_R
+                                           ->_R <Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (<Control.Monad.Trans.Reader.ReaderT
+                                              Data.SBV.Core.Symbolic.State
+                                              GHC.Types.IO
+                                              Data.SBV.Core.Symbolic.State>_R
+                                           ->_R <Data.SBV.Core.Symbolic.State
+                                                 -> Control.Monad.Trans.Reader.ReaderT
+                                                      Data.SBV.Core.Symbolic.State
+                                                      GHC.Types.IO
+                                                      Data.SBV.Core.Symbolic.SVal>_R
+                                           ->_R Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                         <*>_N
+                                                         <Data.SBV.Core.Symbolic.State>_R
+                                                         <GHC.Types.IO>_R
+                                                         <Data.SBV.Core.Symbolic.SVal>_N)))))
+                           (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N))
+                   LexerTypes.BSV_Bit n3
+                   -> let {
+                        w1 :: GHC.Types.Int
+                        = case GHC.Integer.Type.integerToInt n3 of wild1 { DEFAULT ->
+                          GHC.Types.I# wild1 }
+                      } in
+                      let {
+                        nm :: GHC.Base.String = ConflictSolver.showIDPath ww
+                      } in
+                      let {
+                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        = GHC.Base.Just @ GHC.Base.String nm
+                      } in
+                      (\ (eta :: Data.SBV.Core.Symbolic.State)
+                         (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       case w1 of dt { GHC.Types.I# dt1 ->
+                       Data.SBV.Core.Symbolic.addSValOptGoal4
+                         GHC.Types.False
+                         (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                         (Data.SBV.Core.Kind.KBounded GHC.Types.False dt1)
+                         lvl113
+                         eta
+                         eta1 })
+                        `cast`
+                      (Trans
+                           (<Data.SBV.Core.Symbolic.State>_R
+                            ->_R Sym (GHC.Types.N:IO[0] <Data.SBV.Core.Symbolic.SVal>_R))
+                           (Trans
+                                (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                          <*>_N
+                                          <Data.SBV.Core.Symbolic.State>_R
+                                          <GHC.Types.IO>_R
+                                          <Data.SBV.Core.Symbolic.SVal>_N))
+                                (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.BSV_Int n3
+                   -> let {
+                        w1 :: GHC.Types.Int
+                        = case GHC.Integer.Type.integerToInt n3 of wild1 { DEFAULT ->
+                          GHC.Types.I# wild1 }
+                      } in
+                      let {
+                        nm :: GHC.Base.String = ConflictSolver.showIDPath ww
+                      } in
+                      let {
+                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        = GHC.Base.Just @ GHC.Base.String nm
+                      } in
+                      (\ (eta :: Data.SBV.Core.Symbolic.State)
+                         (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       case w1 of dt { GHC.Types.I# dt1 ->
+                       Data.SBV.Core.Symbolic.addSValOptGoal4
+                         GHC.Types.False
+                         (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                         (Data.SBV.Core.Kind.KBounded GHC.Types.True dt1)
+                         lvl113
+                         eta
+                         eta1 })
+                        `cast`
+                      (Trans
+                           (<Data.SBV.Core.Symbolic.State>_R
+                            ->_R Sym (GHC.Types.N:IO[0] <Data.SBV.Core.Symbolic.SVal>_R))
+                           (Trans
+                                (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                          <*>_N
+                                          <Data.SBV.Core.Symbolic.State>_R
+                                          <GHC.Types.IO>_R
+                                          <Data.SBV.Core.Symbolic.SVal>_N))
+                                (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.BSV_UInt n3
+                   -> let {
+                        w1 :: GHC.Types.Int
+                        = case GHC.Integer.Type.integerToInt n3 of wild1 { DEFAULT ->
+                          GHC.Types.I# wild1 }
+                      } in
+                      let {
+                        nm :: GHC.Base.String = ConflictSolver.showIDPath ww
+                      } in
+                      let {
+                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        = GHC.Base.Just @ GHC.Base.String nm
+                      } in
+                      (\ (eta :: Data.SBV.Core.Symbolic.State)
+                         (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       case w1 of dt { GHC.Types.I# dt1 ->
+                       Data.SBV.Core.Symbolic.addSValOptGoal4
+                         GHC.Types.False
+                         (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                         (Data.SBV.Core.Kind.KBounded GHC.Types.False dt1)
+                         lvl113
+                         eta
+                         eta1 })
+                        `cast`
+                      (Trans
+                           (<Data.SBV.Core.Symbolic.State>_R
+                            ->_R Sym (GHC.Types.N:IO[0] <Data.SBV.Core.Symbolic.SVal>_R))
+                           (Trans
+                                (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                          <*>_N
+                                          <Data.SBV.Core.Symbolic.State>_R
+                                          <GHC.Types.IO>_R
+                                          <Data.SBV.Core.Symbolic.SVal>_N))
+                                (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.BSV_Real -> ConflictSolver.mkVS2
+                   LexerTypes.BSV_Custom nom
+                   -> ConflictSolver.getCustomTypeSymbol w w ww nom
+                   LexerTypes.BSV_Maybe t -> ConflictSolver.mkVS1 }) -}
+36e805885de3d5f435449d1fb3d529ba
+  $wpoly_go13 ::
+    GHC.Prim.Int#
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a
+    -> [(LexerTypes.ID_Path, a)]
+    -> Data.Map.Internal.Map LexerTypes.ID_Path a
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U>, Inline: [0] -}
+bc6481c14db6bfc9669c12086e71bb00
+  $wsolveSchedule' ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> [LexerTypes.RuleSchedule]
+    -> GHC.Types.Bool
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [LexerTypes.ModuleAttribute] #)
+  {- Arity: 5, Strictness: <L,U><L,U><S,1*U><L,1*U><S,U>,
+     Inline: [0] -}
+074fae534b241a7e92da013b9ec98ec0
+  $wunMaybeList :: [GHC.Base.Maybe a] -> [a]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+73bd2c1ff5112875fb5e029d7607dfa2
+  type Env =
+    Data.Map.Internal.Map
+      LexerTypes.ID_Path Data.SBV.Core.Symbolic.SVal
+4ee1af39dc5eb39d142a335bd0dd7053
+  applyTypeToLit ::
+    [LexerTypes.BSVTypeDef]
+    -> GHC.Base.Maybe LexerTypes.BSVType
+    -> LexerTypes.Lit
+    -> LexerTypes.Lit
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,1*U> -}
+242fb4fa415166e09878226ab39f30db
+  bitLimit :: GHC.Integer.Type.Integer -> GHC.Integer.Type.Integer
+  {- Arity: 1, Strictness: <S,U> -}
+f213580ea7911c1d8ff986b89bc836ef
+  compute :: LexerTypes.Expression -> GHC.Integer.Type.Integer
+  {- Arity: 1, Strictness: <S,1*U> -}
+196e8a24b2b923a53eb4345ca7f5a11f
+  concatMerge ::
+    [GHC.Base.Maybe LexerTypes.BSVType]
+    -> GHC.Base.Maybe LexerTypes.BSVType
+  {- Arity: 1, Strictness: <L,1*U>m2, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: [GHC.Base.Maybe LexerTypes.BSVType]) ->
+                 GHC.Base.Just
+                   @ LexerTypes.BSVType
+                   (LexerTypes.BSV_Bit
+                      (ConflictSolver.concatMerge_go w ConflictSolver.concatMerge1))) -}
+0689c0106e2dc4dd561135fcdecc8c78
+  concatMerge1 :: GHC.Integer.Type.Integer
+  {- HasNoCafRefs, Unfolding: (0) -}
+e2b4765724e9d026a9465fba7745386c
+  concatMerge_go ::
+    [GHC.Base.Maybe LexerTypes.BSVType]
+    -> GHC.Integer.Type.Integer -> LexerTypes.N
+  {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
+87a4b3291ccb655f0b18e95996a35306
+  distributeMutexes ::
+    LexerTypes.BSVPackage
+    -> LexerTypes.BSVModuleDec
+    -> [LexerTypes.ModuleAttribute]
+    -> LexerTypes.BSVPackage
+  {- Arity: 3, HasNoCafRefs,
+     Strictness: <S,1*U(U,U,U,U,U,U,U,1*U,U,U,U)><L,U(U,U,U,U,U,1*U,U,U,U,U)><L,1*U>,
+     Unfolding: (\ (pkg :: LexerTypes.BSVPackage)
+                   (mod :: LexerTypes.BSVModuleDec)
+                   (mutexes :: [LexerTypes.ModuleAttribute]) ->
+                 case pkg of wild { LexerTypes.BSVPackage ds ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
+                 LexerTypes.BSVPackage
+                   ds
+                   ds1
+                   ds2
+                   ds3
+                   ds4
+                   ds5
+                   ds6
+                   (GHC.Types.:
+                      @ LexerTypes.BSVModuleDec
+                      (case mod of wild1 { LexerTypes.BSVModuleDec ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ->
+                       LexerTypes.BSVModuleDec
+                         ds11
+                         ds12
+                         ds13
+                         ds14
+                         ds15
+                         (GHC.Base.++ @ LexerTypes.ModuleAttribute ds16 mutexes)
+                         ds17
+                         ds18
+                         ds19
+                         ds20 })
+                      (GHC.List.filter
+                         @ LexerTypes.BSVModuleDec
+                         (\ (y :: LexerTypes.BSVModuleDec) ->
+                          case mod of wild1 { LexerTypes.BSVModuleDec ds11 ds12 ds13 ds14 ds15 ds16 ds17 ds18 ds19 ds20 ->
+                          case y of wild2 { LexerTypes.BSVModuleDec ds21 ds22 ds23 ds24 ds25 ds26 ds27 ds28 ds29 ds30 ->
+                          case GHC.Classes.$fEqModule_$s$c== ds11 ds21 of wild3 {
+                            GHC.Types.False -> GHC.Types.True
+                            GHC.Types.True -> GHC.Types.False } } })
+                         ds7))
+                   ds8
+                   ds9
+                   ds10 }) -}
+537b9176321e9a51e0afbb10bac6d684
+  enumToNum ::
+    [LexerTypes.BSVTypeDef]
+    -> GHC.Base.String -> GHC.Integer.Type.Integer
+  {- Arity: 2, Strictness: <S,1*U><L,U>m1, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.BSVTypeDef]) (w1 :: GHC.Base.String) ->
+                 case ConflictSolver.$wenumToNum w w1 of ww { DEFAULT ->
+                 GHC.Integer.Type.S# ww }) -}
+bdf40e338108b87d2a321201e3521060
+  envLookup ::
+    LexerTypes.ID_Path
+    -> ConflictSolver.Env -> Data.SBV.Core.Symbolic.SVal
+  {- Arity: 2, Strictness: <S,U><S,1*U>,
+     Unfolding: InlineRule (2, True, False)
+                (\ (v :: LexerTypes.ID_Path) (e :: ConflictSolver.Env) ->
+                 case ConflictSolver.$slookup1
+                        @ Data.SBV.Core.Symbolic.SVal
+                        v
+                        e of wild {
+                   GHC.Base.Nothing -> ConflictSolver.envLookup1 v
+                   GHC.Base.Just x -> x }) -}
+e2421560336198d2a36cabc7b31df3e9
+  envLookup1 :: LexerTypes.ID_Path -> Data.SBV.Core.Symbolic.SVal
+  {- Arity: 1, Strictness: <B,1*U>x -}
+09918971f6d13102634661f0b8578294
+  exposeSchedule ::
+    LexerTypes.BSVPackage
+    -> GHC.Base.String -> [LexerTypes.RuleSchedule]
+  {- Arity: 2,
+     Strictness: <S(LLLLLLLSLLL),1*U(A,A,A,A,A,A,A,U,A,A,A)><L,U>,
+     Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: LexerTypes.BSVPackage) (w1 :: GHC.Base.String) ->
+                 case w of ww { LexerTypes.BSVPackage ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 ww11 ->
+                 ConflictSolver.$wexposeSchedule ww8 w1 }) -}
+5aa963d50b97e4fe25fd267f4777cafd
+  exposeSchedule1 :: [LexerTypes.HexFile]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.HexFile]
+                   ConflictSolver.exposeSchedule2) -}
+574e15a0034ee0be5bdfd05946b9771e
+  exposeSchedule10 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [BSVTypeDef]"#) -}
+23a760ac0fe44ec705ec5b48d3a34a9c
+  exposeSchedule11 :: [LexerTypes.BSVConstantDec]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.BSVConstantDec]
+                   ConflictSolver.exposeSchedule12) -}
+a26630f3619647f609fc9649aed0393e
+  exposeSchedule12 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [BSVConstantDec]"#) -}
+2166c3de690cad4fddb20cb47b6e73c5
+  exposeSchedule13 :: [LexerTypes.InterfaceDec]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.InterfaceDec]
+                   ConflictSolver.exposeSchedule14) -}
+364b7f59e36fff1abfaf60785f4847e4
+  exposeSchedule14 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [InterfaceDec]"#) -}
+0ebe791e2f198e8b16376054095769ff
+  exposeSchedule15 :: [GHC.Base.String]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [GHC.Base.String]
+                   ConflictSolver.exposeSchedule16) -}
+1a6f460339804828cd0eb7abd861da44
+  exposeSchedule16 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [String]"#) -}
+53b479587890c224d944e8087bd3dd41
+  exposeSchedule17 :: [LexerTypes.PackageName]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.PackageName]
+                   ConflictSolver.exposeSchedule18) -}
+2e5e2124387740031a85632aeff2b8ba
+  exposeSchedule18 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [PackageName]"#) -}
+d159f8fe33176e61034bd11dbf1a7e85
+  exposeSchedule19 :: LexerTypes.PackageName
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ LexerTypes.PackageName
+                   ConflictSolver.exposeSchedule20) -}
+a3b3f77bf277ac9ef703106857576bb3
+  exposeSchedule2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [HexFile]"#) -}
+e18c23ec73da82e4e176e20fe77ea869
+  exposeSchedule20 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww PackageName"#) -}
+0eb284333ea20bc0a138ccdf3d47545b
+  exposeSchedule21 :: LexerTypes.BSVModuleDec
+  {- Strictness: x -}
+e2d304032f2774bf71cb729653d5b880
+  exposeSchedule3 :: [LexerTypes.BSVMacro]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.BSVMacro]
+                   ConflictSolver.exposeSchedule4) -}
+5307d97874406d24d388352c27c2fb2e
+  exposeSchedule4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [BSVMacro]"#) -}
+f05932a69373be40e7c39fad71d65fba
+  exposeSchedule5 :: [LexerTypes.BSVFunction]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.BSVFunction]
+                   ConflictSolver.exposeSchedule6) -}
+7d0c4d5de76ef100991520645c24f283
+  exposeSchedule6 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [BSVFunction]"#) -}
+6707620c36461dda42f4efad8d1ec5d9
+  exposeSchedule7 :: [LexerTypes.BSVInstDef]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.BSVInstDef]
+                   ConflictSolver.exposeSchedule8) -}
+f8054756bee62c59d573fa8c2f3c06f0
+  exposeSchedule8 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("ww [BSVInstDef]"#) -}
+efabc2f41c0ad24397df1d1ad582232a
+  exposeSchedule9 :: [LexerTypes.BSVTypeDef]
+  {- Unfolding: (Control.Exception.Base.absentError
+                   @ [LexerTypes.BSVTypeDef]
+                   ConflictSolver.exposeSchedule10) -}
+28368b396338a7beadb3f6f58921d807
+  exposeSchedule_$sunMaybeList ::
+    [GHC.Base.Maybe LexerTypes.RuleDec] -> [LexerTypes.RuleDec]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+355097e123badf005f88e074a790610f
+  extractLit :: LexerTypes.Lit -> GHC.Integer.Type.Integer
+  {- Arity: 1, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: LexerTypes.Lit) ->
+                 case ds of wild {
+                   DEFAULT -> ConflictSolver.extractLit1
+                   LexerTypes.LitInt x -> x
+                   LexerTypes.LitSizedInt n3 x -> x }) -}
+9e5c669e15b697ca86d4608b4f5567b9
+  extractLit1 :: GHC.Integer.Type.Integer
+  {- Strictness: x -}
+bb5f0a6ff6093ffa44afe5cd36a8914e
+  extractSymbols :: LexerTypes.Expression -> [LexerTypes.ID_Path]
+  {- Arity: 1, Strictness: <S,1*U> -}
+cd938e96c98127f0d60ee1b67b7fe869
+  findField ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSV_Field]
+    -> LexerTypes.ID_Path
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 3, Strictness: <B,A><B,1*U><B,A>x,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: [LexerTypes.BSVTypeDef])
+                   (ds1 :: [LexerTypes.BSV_Field])
+                   (ds2 :: LexerTypes.ID_Path) ->
+                 case ds1 of wild {
+                   [] -> ConflictSolver.findField2
+                   : ipv ipv1 -> ConflictSolver.findField1 }) -}
+6f8fd98612e2a1862439eff0e63a6e70
+  findField1 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+2be3c45ad72f0ecdbbce269304750285
+  findField2 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+029d4a375eb061965183afe09f5ed77e
+  findFieldType ::
+    [LexerTypes.BSVTypeDef]
+    -> [(GHC.Base.String, LexerTypes.BSVType)]
+    -> LexerTypes.ID_Path
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U> -}
+6263721da41677d6d1cafe6ef5bfa97d
+  findLitType :: LexerTypes.Lit -> GHC.Base.Maybe LexerTypes.BSVType
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: LexerTypes.Lit) ->
+                 case ds of wild {
+                   DEFAULT -> GHC.Base.Nothing @ LexerTypes.BSVType
+                   LexerTypes.LitBool x -> ConflictSolver.findLitType1
+                   LexerTypes.LitSizedInt n3 x
+                   -> GHC.Base.Just @ LexerTypes.BSVType (LexerTypes.BSV_Bit n3) }) -}
+fb01063a228fd626dcf80e36d4a08e19
+  findLitType1 :: GHC.Base.Maybe LexerTypes.BSVType
+  {- HasNoCafRefs, Strictness: m2,
+     Unfolding: (GHC.Base.Just
+                   @ LexerTypes.BSVType
+                   LexerTypes.BSV_Bool) -}
+49e96d1557b26ae1e7e619761ce9d02c
+  findSchedule ::
+    [LexerTypes.RuleSchedule]
+    -> LexerTypes.ActionPath -> GHC.Base.Maybe LexerTypes.RuleSchedule
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><L,U> -}
+daa908b6e9d8f6b571a1cbba9aa4d17c
+  findType ::
+    [LexerTypes.BSVstateDec]
+    -> LexerTypes.ID_Path -> LexerTypes.BSVType
+  {- Arity: 2, Strictness: <S,1*U><S,U> -}
+261e74362432a70e4dff471152b9c900
+  genSchedule ::
+    LexerTypes.BSVPackage
+    -> LexerTypes.BSVModuleDec -> [LexerTypes.RuleSchedule]
+  {- Arity: 2,
+     Strictness: <L,U(A,A,A,A,A,A,A,U,A,A,A)><S,U(U,U,U,U,U,U,U,U,1*U,U)>,
+     Unfolding: (\ (universe :: LexerTypes.BSVPackage)
+                   (mod :: LexerTypes.BSVModuleDec) ->
+                 let {
+                   methList :: [LexerTypes.MethodName]
+                   = case mod of wild { LexerTypes.BSVModuleDec ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
+                     GHC.Base.map
+                       @ (LexerTypes.MethodName, LexerTypes.ReturnType, LexerTypes.UTArgs,
+                          LexerTypes.Guard, [LexerTypes.Statement],
+                          [LexerTypes.MethodBodyAttribute])
+                       @ [GHC.Types.Char]
+                       ConflictSolver.genSchedule1
+                       ds10 }
+                 } in
+                 BSV2PVS.genRuleSchedules
+                   universe
+                   (BSV2PVS.propagateMethodCalls
+                      universe
+                      mod
+                      (GHC.Base.map
+                         @ [GHC.Types.Char]
+                         @ LexerTypes.ID_Path
+                         LexerTypes.ID
+                         methList)
+                      (GHC.Types.[] @ LexerTypes.Replacement))
+                   (GHC.Types.[] @ GHC.Base.String)
+                   methList) -}
+029cd6931f29861bd0ef8433c549a4be
+  genSchedule1 ::
+    (LexerTypes.MethodName, LexerTypes.ReturnType, LexerTypes.UTArgs,
+     LexerTypes.Guard, [LexerTypes.Statement],
+     [LexerTypes.MethodBodyAttribute])
+    -> LexerTypes.MethodName
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(SLLLLL),1*U(1*U,A,A,A,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: (LexerTypes.MethodName, LexerTypes.ReturnType,
+                           LexerTypes.UTArgs, LexerTypes.Guard, [LexerTypes.Statement],
+                           [LexerTypes.MethodBodyAttribute])) ->
+                 case ds of wild { (,,,,,) x ds1 ds2 ds3 ds4 ds5 -> x }) -}
+e4cc96513be40a50ee259e5130e155c7
+  getCustomTypeSymbol ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVTypeDef]
+    -> LexerTypes.ID_Path
+    -> GHC.Base.String
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 4, Strictness: <L,U><S,1*U><L,1*U><S,U> -}
+4fc024855eded277c96e37463d401896
+  getEnumKind ::
+    [LexerTypes.BSVTypeDef]
+    -> GHC.Base.String -> Data.SBV.Core.Kind.Kind
+  {- Arity: 2, Strictness: <S,1*U><L,U>m2, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.BSVTypeDef]) (w1 :: GHC.Base.String) ->
+                 case ConflictSolver.$wgetEnumKind w w1 of ww { (#,#) ww1 ww2 ->
+                 Data.SBV.Core.Kind.KBounded ww1 ww2 }) -}
+9d2996858828ea5675060b1e02dcd9e5
+  getNumberOfConflicts :: [LexerTypes.RuleSchedule] -> GHC.Types.Int
+  {- Arity: 1, Strictness: <S,1*U>m, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: [LexerTypes.RuleSchedule]) ->
+                 case ConflictSolver.$wgo w 0# of ww { DEFAULT ->
+                 GHC.Types.I# ww }) -}
+14958cc693b99dffe9b9e24e929e4761
+  getSolvedSchedule ::
+    [LexerTypes.BSVPackage]
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.Types.IO LexerTypes.BSVPackage
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.getSolvedSchedule1
+                  `cast`
+                (<[LexerTypes.BSVPackage]>_R
+                 ->_R <GHC.Base.Maybe GHC.Base.String>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <LexerTypes.BSVPackage>_R)) -}
+34c43d7640ecc1c65a25f02bef37bf49
+  getSolvedSchedule1 ::
+    [LexerTypes.BSVPackage]
+    -> GHC.Base.Maybe GHC.Base.String
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, LexerTypes.BSVPackage #)
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U> -}
+f16c998c1d520c97fa3cff1f3a9347cd
+  getSynonymType ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVTypeDef] -> GHC.Base.String -> LexerTypes.BSVType
+  {- Arity: 3, Strictness: <L,U><S,1*U><S,U> -}
+1746d0b34811736332289d6dba4b467f
+  getType ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> LexerTypes.Expression
+    -> GHC.Base.Maybe LexerTypes.BSVType
+  {- Arity: 3, Strictness: <L,A><L,U><S,1*U>, Inline: [0],
+     Unfolding: InlineRule (3, True, True)
+                (\ (w :: [LexerTypes.BSVTypeDef])
+                   (w1 :: [LexerTypes.BSVstateDec])
+                   (w2 :: LexerTypes.Expression) ->
+                 ConflictSolver.$wgetType w1 w2) -}
+d9b8534556e4f4042f0a7f067456d582
+  interpret ::
+    [LexerTypes.BSVTypeDef]
+    -> ConflictSolver.Env
+    -> LexerTypes.Expression
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 3, Strictness: <L,U><L,U><S,1*U> -}
+d9c879557edca69cd71c8bf735c2ab6c
+  invokeSBV ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> (LexerTypes.ActionPath, LexerTypes.Expression)
+    -> (LexerTypes.ActionPath, LexerTypes.Expression)
+    -> GHC.Types.IO GHC.Types.Bool
+  {- Arity: 5,
+     Strictness: <L,U><L,U><S,1*U(1*U,1*U)><S,1*U(1*U,1*U)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.invokeSBV1
+                  `cast`
+                (<[LexerTypes.BSVTypeDef]>_R
+                 ->_R <[LexerTypes.BSVstateDec]>_R
+                 ->_R <(LexerTypes.ActionPath, LexerTypes.Expression)>_R
+                 ->_R <(LexerTypes.ActionPath, LexerTypes.Expression)>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <GHC.Types.Bool>_R)) -}
+c6c7199a72661f2f7d5576262dae5771
+  invokeSBV1 ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> (LexerTypes.ActionPath, LexerTypes.Expression)
+    -> (LexerTypes.ActionPath, LexerTypes.Expression)
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld, GHC.Types.Bool #)
+  {- Arity: 5,
+     Strictness: <L,U><L,U><S,1*U(1*U,1*U)><S,1*U(1*U,1*U)><S,U>,
+     Inline: [0],
+     Unfolding: InlineRule (5, True, False)
+                (\ (w :: [LexerTypes.BSVTypeDef])
+                   (w1 :: [LexerTypes.BSVstateDec])
+                   (w2 :: (LexerTypes.ActionPath, LexerTypes.Expression))
+                   (w3 :: (LexerTypes.ActionPath, LexerTypes.Expression))
+                   (w4 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w2 of ww { (,) ww1 ww2 ->
+                 case w3 of ww3 { (,) ww4 ww5 ->
+                 ConflictSolver.$winvokeSBV w w1 ww1 ww2 ww4 ww5 w4 } }) -}
+b64df9e5e5aaf027d32a028d086dea1d
+  invokeSBV2 :: GHC.Prim.Addr#
+  {- HasNoCafRefs,
+     Unfolding: ("...\n\
+                 \>   "#) -}
+6ad083c9b13cbfa05b757bdabaecfe13
+  invokeSBV3 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: (" vs "#) -}
+6f541156790978b3ff5da3d76848585f
+  invokeSBV4 :: GHC.Prim.Addr#
+  {- HasNoCafRefs, Unfolding: ("> "#) -}
+4c274bd601371eb41a52f6d7b143a708
+  lit2SV ::
+    [LexerTypes.BSVTypeDef]
+    -> LexerTypes.Lit
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 2, Strictness: <L,U><S,1*U>,
+     Unfolding: (\ (tds :: [LexerTypes.BSVTypeDef])
+                   (ds :: LexerTypes.Lit) ->
+                 case ds of wild {
+                   DEFAULT -> ConflictSolver.lit2SV3
+                   LexerTypes.LitEnum x
+                   -> let {
+                        eta :: Data.SBV.Core.Symbolic.SVal
+                        = case ConflictSolver.$wgetEnumKind tds x of ww { (#,#) ww1 ww2 ->
+                          case Data.SBV.Core.Operations.$wsvInteger
+                                 (Data.SBV.Core.Kind.KBounded ww1 ww2)
+                                 (ConflictSolver.enumToNum tds x) of ww3 { (#,#) ww4 ww5 ->
+                          Data.SBV.Core.Symbolic.SVal ww4 ww5 } }
+                      } in
+                      (\ (eta1 :: Data.SBV.Core.Symbolic.State)
+                         (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       (# eta2, eta #))
+                        `cast`
+                      (Nth:3
+                           (Trans
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Trans
+                                          (<Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                    <*>_N
+                                                    <Data.SBV.Core.Symbolic.State>_R
+                                                    <GHC.Types.IO>_R
+                                                    <Data.SBV.Core.Symbolic.SVal>_N)))
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.LitInt x
+                   -> let {
+                        eta :: Data.SBV.Core.Symbolic.SVal
+                        = case GHC.Integer.Type.integerToInt
+                                 (ConflictSolver.bitLimit x) of wild1 { DEFAULT ->
+                          case Data.SBV.Core.Operations.$wsvInteger
+                                 (Data.SBV.Core.Kind.KBounded GHC.Types.True wild1)
+                                 x of ww { (#,#) ww1 ww2 ->
+                          Data.SBV.Core.Symbolic.SVal ww1 ww2 } }
+                      } in
+                      (\ (eta1 :: Data.SBV.Core.Symbolic.State)
+                         (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       (# eta2, eta #))
+                        `cast`
+                      (Nth:3
+                           (Trans
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Trans
+                                          (<Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                    <*>_N
+                                                    <Data.SBV.Core.Symbolic.State>_R
+                                                    <GHC.Types.IO>_R
+                                                    <Data.SBV.Core.Symbolic.SVal>_N)))
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.LitBool x
+                   -> let {
+                        eta :: Data.SBV.Core.Symbolic.SVal
+                        = case x of wild1 {
+                            GHC.Types.False -> Data.SBV.Core.Operations.svFalse
+                            GHC.Types.True -> Data.SBV.Core.Operations.svTrue }
+                      } in
+                      (\ (eta1 :: Data.SBV.Core.Symbolic.State)
+                         (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       (# eta2, eta #))
+                        `cast`
+                      (Nth:3
+                           (Trans
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Trans
+                                          (<Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                    <*>_N
+                                                    <Data.SBV.Core.Symbolic.State>_R
+                                                    <GHC.Types.IO>_R
+                                                    <Data.SBV.Core.Symbolic.SVal>_N)))
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.LitReal x
+                   -> let {
+                        eta :: Data.SBV.Core.Symbolic.SVal
+                        = case x of dt { GHC.Types.F# dt1 ->
+                          Data.SBV.Core.Symbolic.SVal
+                            Data.SBV.Core.Kind.KFloat
+                            (Data.Either.Left
+                               @ Data.SBV.Core.Concrete.CW
+                               @ (Data.SBV.Core.Symbolic.Cached Data.SBV.Core.Symbolic.SW)
+                               (Data.SBV.Core.Concrete.CW
+                                  Data.SBV.Core.Kind.KFloat
+                                  (Data.SBV.Core.Concrete.CWFloat dt1))) }
+                      } in
+                      (\ (eta1 :: Data.SBV.Core.Symbolic.State)
+                         (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       (# eta2, eta #))
+                        `cast`
+                      (Nth:3
+                           (Trans
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Trans
+                                          (<Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                    <*>_N
+                                                    <Data.SBV.Core.Symbolic.State>_R
+                                                    <GHC.Types.IO>_R
+                                                    <Data.SBV.Core.Symbolic.SVal>_N)))
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.LitSizedInt n3 x
+                   -> let {
+                        eta :: Data.SBV.Core.Symbolic.SVal
+                        = case GHC.Integer.Type.integerToInt n3 of wild1 { DEFAULT ->
+                          case Data.SBV.Core.Operations.$wsvInteger
+                                 (Data.SBV.Core.Kind.KBounded GHC.Types.True wild1)
+                                 x of ww { (#,#) ww1 ww2 ->
+                          Data.SBV.Core.Symbolic.SVal ww1 ww2 } }
+                      } in
+                      (\ (eta1 :: Data.SBV.Core.Symbolic.State)
+                         (eta2 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                       (# eta2, eta #))
+                        `cast`
+                      (Nth:3
+                           (Trans
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Trans
+                                          (<Data.SBV.Core.Symbolic.State>_R
+                                           ->_R Sym (GHC.Types.N:IO[0]
+                                                         <Data.SBV.Core.Symbolic.SVal>_R))
+                                          (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                                    <*>_N
+                                                    <Data.SBV.Core.Symbolic.State>_R
+                                                    <GHC.Types.IO>_R
+                                                    <Data.SBV.Core.Symbolic.SVal>_N)))
+                                (<Data.SBV.Core.Symbolic.SVal>_R
+                                 ->_R Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N)))
+                   LexerTypes.LitStructConstructor -> ConflictSolver.lit2SV2
+                   LexerTypes.LitVoid -> ConflictSolver.lit2SV1 }) -}
+955a705e40393c26aa9fd2aa02189ec6
+  lit2SV1 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+5f3f3583fe90d73366bf6946dcfd3a09
+  lit2SV2 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+08877e50f8123fb0cb3132c837123b14
+  lit2SV3 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+036cc1246172dbc38321ca2f3adb8d07
+  makePredicate ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> LexerTypes.Expression
+    -> LexerTypes.Expression
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><L,U> -}
+66f112ebe94791928fe09859c3a6220d
+  mergeTypes ::
+    GHC.Base.Maybe LexerTypes.BSVType
+    -> GHC.Base.Maybe LexerTypes.BSVType
+    -> GHC.Base.Maybe LexerTypes.BSVType
+  {- Arity: 2, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: GHC.Base.Maybe LexerTypes.BSVType)
+                   (ds1 :: GHC.Base.Maybe LexerTypes.BSVType) ->
+                 case ds of wild {
+                   GHC.Base.Nothing -> ds1
+                   GHC.Base.Just x
+                   -> case ds1 of wild1 {
+                        GHC.Base.Nothing -> wild
+                        GHC.Base.Just y
+                        -> case GHC.Integer.Type.eqInteger#
+                                  (ConflictSolver.typeSize x)
+                                  (ConflictSolver.typeSize y) of wild2 { DEFAULT ->
+                           case GHC.Prim.tagToEnum# @ GHC.Types.Bool wild2 of wild3 {
+                             GHC.Types.False -> GHC.Base.Nothing @ LexerTypes.BSVType
+                             GHC.Types.True
+                             -> GHC.Base.Just
+                                  @ LexerTypes.BSVType
+                                  (LexerTypes.BSV_Bit (ConflictSolver.typeSize x)) } } } }) -}
+24490b3f1fdab06a55789ad0975be80d
+  mkEnumKind :: LexerTypes.BSVTypeDef -> Data.SBV.Core.Kind.Kind
+  {- Arity: 1, Strictness: <S,1*U>m2, Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.BSVTypeDef) ->
+                 case ConflictSolver.$wmkEnumKind w of ww { (#,#) ww1 ww2 ->
+                 Data.SBV.Core.Kind.KBounded ww1 ww2 }) -}
+264123fe5e4bc3901fae0a4421302271
+  mkEnumKind1 :: Data.SBV.Core.Kind.Kind
+  {- Strictness: x -}
+b6d25d8f0530bd95813bd634d7964c54
+  mkVS ::
+    [LexerTypes.BSVTypeDef]
+    -> (LexerTypes.ID_Path, LexerTypes.BSVType)
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 2, Strictness: <L,U><S(LS),1*U(1*U,1*U)>, Inline: [0],
+     Unfolding: InlineRule (2, True, False)
+                (\ (w :: [LexerTypes.BSVTypeDef])
+                   (w1 :: (LexerTypes.ID_Path, LexerTypes.BSVType)) ->
+                 case w1 of ww { (,) ww1 ww2 ->
+                 ConflictSolver.$wmkVS w ww1 ww2 }) -}
+4180cf45b38c688586cc5a212fc0f5bc
+  mkVS1 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+8cdfee2795b07afc3340b3eca1ffceb2
+  mkVS2 ::
+    Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Strictness: x -}
+17cf5adb98ad7fd3dc5120c9f73c8682
+  procResults ::
+    [(LexerTypes.ActionPath, LexerTypes.ActionPath, GHC.Types.Bool)]
+    -> [LexerTypes.ModuleAttribute]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+e8aa9887ec039e2107de34d208c13bad
+  sIntN ::
+    GHC.Types.Int
+    -> GHC.Base.String
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 4,
+     Strictness: <S(S),1*U(U)><L,U><S(LLS(S)LLLLLLLLLLLLLLLLLLLLLL),1*U(A,A,1*U(U),U(U),1*U(U),1*U(U),1*U(U),A,1*U(U),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.sIntN1
+                  `cast`
+                (<GHC.Types.Int>_R
+                 ->_R <GHC.Base.String>_R
+                 ->_R Trans
+                          (<Data.SBV.Core.Symbolic.State>_R
+                           ->_R Sym (GHC.Types.N:IO[0] <Data.SBV.Core.Symbolic.SVal>_R))
+                          (Trans
+                               (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                         <*>_N
+                                         <Data.SBV.Core.Symbolic.State>_R
+                                         <GHC.Types.IO>_R
+                                         <Data.SBV.Core.Symbolic.SVal>_N))
+                               (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N))) -}
+3ccb2e0f354fc30a5dff90a4f8c24b9a
+  sIntN1 ::
+    GHC.Types.Int
+    -> GHC.Base.String
+    -> Data.SBV.Core.Symbolic.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.SBV.Core.Symbolic.SVal #)
+  {- Arity: 4,
+     Strictness: <S(S),1*U(U)><L,U><S(LLS(S)LLLLLLLLLLLLLLLLLLLLLL),1*U(A,A,1*U(U),U(U),1*U(U),1*U(U),1*U(U),A,1*U(U),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (nm :: GHC.Base.String)
+                   (eta :: Data.SBV.Core.Symbolic.State)
+                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of dt { GHC.Types.I# dt1 ->
+                 Data.SBV.Core.Symbolic.addSValOptGoal4
+                   GHC.Types.False
+                   (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                   (Data.SBV.Core.Kind.KBounded GHC.Types.True dt1)
+                   (GHC.Base.Just @ GHC.Base.String nm)
+                   eta
+                   eta1 }) -}
+0bae6248f7ab646e5a252bc8854b2c73
+  sWordN ::
+    GHC.Types.Int
+    -> GHC.Base.String
+    -> Data.SBV.Core.Symbolic.Symbolic Data.SBV.Core.Symbolic.SVal
+  {- Arity: 4,
+     Strictness: <S(S),1*U(U)><L,U><S(LLS(S)LLLLLLLLLLLLLLLLLLLLLL),1*U(A,A,1*U(U),U(U),1*U(U),1*U(U),1*U(U),A,1*U(U),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.sWordN1
+                  `cast`
+                (<GHC.Types.Int>_R
+                 ->_R <GHC.Base.String>_R
+                 ->_R Trans
+                          (<Data.SBV.Core.Symbolic.State>_R
+                           ->_R Sym (GHC.Types.N:IO[0] <Data.SBV.Core.Symbolic.SVal>_R))
+                          (Trans
+                               (Sym (Control.Monad.Trans.Reader.N:ReaderT[0]
+                                         <*>_N
+                                         <Data.SBV.Core.Symbolic.State>_R
+                                         <GHC.Types.IO>_R
+                                         <Data.SBV.Core.Symbolic.SVal>_N))
+                               (Sym (Data.SBV.Core.Symbolic.N:Symbolic[0]) <Data.SBV.Core.Symbolic.SVal>_N))) -}
+3b3edcb220b8e33906ac8560dd23ca18
+  sWordN1 ::
+    GHC.Types.Int
+    -> GHC.Base.String
+    -> Data.SBV.Core.Symbolic.State
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          Data.SBV.Core.Symbolic.SVal #)
+  {- Arity: 4,
+     Strictness: <S(S),1*U(U)><L,U><S(LLS(S)LLLLLLLLLLLLLLLLLLLLLL),1*U(A,A,1*U(U),U(U),1*U(U),1*U(U),1*U(U),A,1*U(U),A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: InlineRule (4, True, False)
+                (\ (w :: GHC.Types.Int)
+                   (nm :: GHC.Base.String)
+                   (eta :: Data.SBV.Core.Symbolic.State)
+                   (eta1 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case w of dt { GHC.Types.I# dt1 ->
+                 Data.SBV.Core.Symbolic.addSValOptGoal4
+                   GHC.Types.False
+                   (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
+                   (Data.SBV.Core.Kind.KBounded GHC.Types.False dt1)
+                   (GHC.Base.Just @ GHC.Base.String nm)
+                   eta
+                   eta1 }) -}
+d07f4cd941b31056ae5e8cd041973843
+  shallowEQ ::
+    LexerTypes.ID_Path -> LexerTypes.ID_Path -> GHC.Types.Bool
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,1*U>,
+     Unfolding: (\ (ds :: LexerTypes.ID_Path)
+                   (ds1 :: LexerTypes.ID_Path) ->
+                 case ds of wild {
+                   LexerTypes.ID_Submod_Struct x ds2
+                   -> case ds1 of wild1 {
+                        LexerTypes.ID_Submod_Struct y ds3 -> GHC.Base.eqString x y
+                        LexerTypes.ID y -> GHC.Base.eqString x y
+                        LexerTypes.ID_Vect y ds3 -> GHC.Base.eqString x y }
+                   LexerTypes.ID x
+                   -> case ds1 of wild1 {
+                        LexerTypes.ID_Submod_Struct y ds2 -> GHC.Base.eqString x y
+                        LexerTypes.ID y -> GHC.Base.eqString x y
+                        LexerTypes.ID_Vect y ds2 -> GHC.Base.eqString x y }
+                   LexerTypes.ID_Vect x ds2
+                   -> case ds1 of wild1 {
+                        LexerTypes.ID_Submod_Struct y ds3 -> GHC.Base.eqString x y
+                        LexerTypes.ID y -> GHC.Base.eqString x y
+                        LexerTypes.ID_Vect y ds3 -> GHC.Base.eqString x y } }) -}
+2f59782cf2ddfbcefcaf972b835fb518
+  showAP :: LexerTypes.ActionPath -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+9725b75bb672859d6cf59c012ef59f7e
+  showIDPath :: LexerTypes.ID_Path -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+09ab647472754807921524ec85466a2c
+  sizeThemLiterals ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> GHC.Base.Maybe LexerTypes.BSVType
+    -> LexerTypes.Expression
+    -> LexerTypes.Expression
+  {- Arity: 4, Strictness: <L,U><L,U><L,U><S,1*U> -}
+26d864d8d5a50bc2749d0c8ad24ffd03
+  solveConflict ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> LexerTypes.RuleSchedule
+    -> LexerTypes.RuleSchedule
+    -> GHC.Types.IO
+         (LexerTypes.ActionPath, LexerTypes.ActionPath, GHC.Types.Bool)
+  {- Arity: 5,
+     Strictness: <L,U><L,U><L,U(U,1*U,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(U,1*U,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.solveConflict1
+                  `cast`
+                (<[LexerTypes.BSVTypeDef]>_R
+                 ->_R <[LexerTypes.BSVstateDec]>_R
+                 ->_R <LexerTypes.RuleSchedule>_R
+                 ->_R <LexerTypes.RuleSchedule>_R
+                 ->_R Sym (GHC.Types.N:IO[0]
+                               <(LexerTypes.ActionPath, LexerTypes.ActionPath,
+                                 GHC.Types.Bool)>_R)) -}
+ad2b03c7275d13c471d22d1d2e9097b1
+  solveConflict1 ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> LexerTypes.RuleSchedule
+    -> LexerTypes.RuleSchedule
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          (LexerTypes.ActionPath, LexerTypes.ActionPath, GHC.Types.Bool) #)
+  {- Arity: 5,
+     Strictness: <L,U><L,U><L,U(U,1*U,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><L,U(U,1*U,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A,A)><S,U>,
+     Unfolding: (\ (tds :: [LexerTypes.BSVTypeDef])
+                   (st :: [LexerTypes.BSVstateDec])
+                   (conf :: LexerTypes.RuleSchedule)
+                   (tst :: LexerTypes.RuleSchedule)
+                   (s :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 case ConflictSolver.$winvokeSBV
+                        tds
+                        st
+                        (LexerTypes.rName tst)
+                        (LexerTypes.rGuard tst)
+                        (LexerTypes.rName conf)
+                        (LexerTypes.rGuard conf)
+                        s of ds1 { (#,#) ipv ipv1 ->
+                 (# ipv,
+                    (LexerTypes.rName tst, LexerTypes.rName conf, ipv1) #) }) -}
+3c0828beb95d3a6f5e63a91e2c69494c
+  solveSchedule' ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> [LexerTypes.RuleSchedule]
+    -> GHC.Integer.Type.Integer
+    -> GHC.Integer.Type.Integer
+    -> GHC.Types.Bool
+    -> GHC.Types.IO [LexerTypes.ModuleAttribute]
+  {- Arity: 7, Strictness: <L,U><L,U><S,1*U><L,A><L,A><L,1*U><S,U>,
+     Unfolding: InlineRule (0, True, True)
+                ConflictSolver.solveSchedule'1
+                  `cast`
+                (<[LexerTypes.BSVTypeDef]>_R
+                 ->_R <[LexerTypes.BSVstateDec]>_R
+                 ->_R <[LexerTypes.RuleSchedule]>_R
+                 ->_R <GHC.Integer.Type.Integer>_R
+                 ->_R <GHC.Integer.Type.Integer>_R
+                 ->_R <GHC.Types.Bool>_R
+                 ->_R Sym (GHC.Types.N:IO[0] <[LexerTypes.ModuleAttribute]>_R)) -}
+d7cc7359b2918336d2269b40a98bc3b8
+  solveSchedule'1 ::
+    [LexerTypes.BSVTypeDef]
+    -> [LexerTypes.BSVstateDec]
+    -> [LexerTypes.RuleSchedule]
+    -> GHC.Integer.Type.Integer
+    -> GHC.Integer.Type.Integer
+    -> GHC.Types.Bool
+    -> GHC.Prim.State# GHC.Prim.RealWorld
+    -> (# GHC.Prim.State# GHC.Prim.RealWorld,
+          [LexerTypes.ModuleAttribute] #)
+  {- Arity: 7, Strictness: <L,U><L,U><S,1*U><L,A><L,A><L,1*U><S,U>,
+     Inline: [0],
+     Unfolding: InlineRule (7, True, True)
+                (\ (w :: [LexerTypes.BSVTypeDef])
+                   (w1 :: [LexerTypes.BSVstateDec])
+                   (w2 :: [LexerTypes.RuleSchedule])
+                   (w3 :: GHC.Integer.Type.Integer)
+                   (w4 :: GHC.Integer.Type.Integer)
+                   (w5 :: GHC.Types.Bool)
+                   (w6 :: GHC.Prim.State# GHC.Prim.RealWorld) ->
+                 ConflictSolver.$wsolveSchedule' w w1 w2 w5 w6) -}
+5e28500205f9b87b62ffe293f2c55c83
+  typeSize :: LexerTypes.BSVType -> GHC.Integer.Type.Integer
+  {- Arity: 1, Strictness: <S,1*U> -}
+fd671cc6c7211aa26124abe6f7930ee6
+  unMaybeList :: GHC.Classes.Eq a => [GHC.Base.Maybe a] -> [a]
+  {- Arity: 2, HasNoCafRefs, Strictness: <L,A><S,1*U>, Inline: [0],
+     Unfolding: InlineRule (2, True, True)
+                (\ @ a (w :: GHC.Classes.Eq a) (w1 :: [GHC.Base.Maybe a]) ->
+                 ConflictSolver.$wunMaybeList @ a w1) -}
+2f2f7f0fde04efeab5d0801e6e6de1bc
+  unMaybeList_$sunMaybeList ::
+    [GHC.Base.Maybe LexerTypes.RuleSchedule]
+    -> [LexerTypes.RuleSchedule]
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
+cca23ab8eebf611fcc2106d7b4e667fb
+  unaddressedConflicts ::
+    LexerTypes.RuleSchedule -> [LexerTypes.ActionPath]
+  {- Arity: 1,
+     Strictness: <L,U(U,A,A,A,A,A,A,A,A,A,A,A,1*U,A,U,U,U,U)> -}
+"SPEC unMaybeList @ RuleDec" forall ($dEq :: GHC.Classes.Eq
+                                               LexerTypes.RuleDec)
+  ConflictSolver.unMaybeList @ (LexerTypes.RuleName,
+                                LexerTypes.Guard, [LexerTypes.Statement],
+                                [LexerTypes.RuleAttribute])
+                             $dEq
+  = ConflictSolver.exposeSchedule_$sunMaybeList
+"SPEC unMaybeList @ RuleSchedule" forall ($dEq :: GHC.Classes.Eq
+                                                    LexerTypes.RuleSchedule)
+  ConflictSolver.unMaybeList @ LexerTypes.RuleSchedule $dEq
+  = ConflictSolver.unMaybeList_$sunMaybeList
+"SPEC/ConflictSolver fromList @ ID_Path _" [orphan] forall @ a
+                                                           ($dOrd :: GHC.Classes.Ord
+                                                                       LexerTypes.ID_Path)
+  Data.Map.Internal.fromList @ LexerTypes.ID_Path @ a $dOrd
+  = ConflictSolver.$sfromList @ a
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: none
+require own pkg trusted: False
+

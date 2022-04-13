@@ -1,0 +1,95 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : ScedTest) : ScedTest =
+		IF (index = 0) THEN 
+		LET wm1 : bool = False
+		  , w9 : bool = if (pre`s9)
+		        then True
+		        else False
+		      endif
+		  , w4 : bool = if (pre`s1)
+		        then False
+		        else if (pre`s3)
+		          then False
+		          else if (pre`s4)
+		            then True
+		            else False
+		          endif
+		        endif
+		      endif
+		  , w1 : bool = if (pre`s1)
+		        then True
+		        else False
+		      endif
+		IN pre with
+		    [ s9 := if (pre`s9)
+		      then w1
+		      else pre`s9
+		    endif
+		    , s8 := if (pre`s1)
+		      then if (pre`s8)
+		        then w4
+		        else pre`s8
+		      endif
+		      else if (pre`s3)
+		        then if (pre`s8)
+		          then w4
+		          else pre`s8
+		        endif
+		        else if (pre`s4)
+		          then if (pre`s8)
+		            then w4
+		            else pre`s8
+		          endif
+		          else if (pre`s8)
+		            then w4
+		            else pre`s8
+		          endif
+		        endif
+		      endif
+		    endif
+		    , s72 := if (pre`s5)
+		      then True
+		      else if (pre`s1)
+		        then if (pre`s71)
+		          then True
+		          else pre`s72
+		        endif
+		        else if (pre`s3)
+		          then if (pre`s71)
+		            then True
+		            else pre`s72
+		          endif
+		          else if (pre`s4)
+		            then pre`s72
+		            else if (pre`s71)
+		              then True
+		              else pre`s72
+		            endif
+		          endif
+		        endif
+		      endif
+		    endif
+		    , s71 := if (pre`s5)
+		      then if (pre`s1)
+		        then pre`s71
+		        else if (pre`s3)
+		          then pre`s71
+		          else if (pre`s4)
+		            then True
+		            else pre`s71
+		          endif
+		        endif
+		      endif
+		      else if (pre`s1)
+		        then if (pre`s71)
+		          then True
+		          else pre`s71
+		        endif
+		        else if (pre`s3)
+		          then if (
