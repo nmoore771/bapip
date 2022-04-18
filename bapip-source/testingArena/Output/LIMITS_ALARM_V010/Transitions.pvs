@@ -1,0 +1,31 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : LIMITS_ALARM) : LIMITS_ALARM =
+		IF (index = 0) THEN 
+		pre with
+		    [ 
+		pre`low_alarm with
+		      [ q := low_alarm`q
+		      ]
+		    , 
+		pre`high_alarm with
+		      [ q := high_alarm`q
+		      ]
+		    ]
+		ELSE pre
+		ENDIF 
+
+
+	transition ( index : nat, pre, post : LIMITS_ALARM) : bool =
+		post = transition_val (index, pre)
+		
+		
+
+
+	
+end Transitions

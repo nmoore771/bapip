@@ -1,23 +1,19 @@
 package TrafficSignals;
 	
-	typedef enum {Green, Yellow, Red}	 Colour;
-	typedef enum {Walk, Stand} PedestrianState;
-	
 	interface TrafficSignals;
 		method Action reset ();
 		method Action pedestrian_request_NS();
 		method Action pedestrian_request_EW();
-		method Colour getlamp_NS();
-		method Colour getlamp_EW();
-		method PedestrianState getPedestrianLamp_NS();
-		method PedestrianState getPedestrianLamp_EW();
+		method Bit#(2) getlamp_NS();
+		method Bit#(2) getlamp_EW();
+		method Bool getPedestrianLamp_NS();
+		method Bool getPedestrianLamp_EW();
 	endinterface
 	
-	(*descending_urgency = "reset, pedestrian_request_NS"*)
-	(*descending_urgency = "reset, pedestrian_request_EW"*)
+	(*descending_urgency = "reset,pedestrian_request_NS,pedestrian_request_EW"*)
 	module mkTrafficSignals (TrafficSignals); 
-		Reg#(Colour) carLamps_NS <- mkReg(Red);
-		Reg#(Colour) carLamps_EW <- mkReg(Red);
+		Reg#(Bit#(2)) carLamps_NS <- mkReg(2);
+		Reg#(Bit#(2)) carLamps_EW <- mkReg(2);
 		Reg#(Bit#(9)) t <- mkReg(0);
 		
 		rule tick;
@@ -27,62 +23,60 @@ package TrafficSignals;
 				t <= 0;
 		endrule
 		
-		rule goYellow_NS (carLamps_NS == Green && t >= 140);
-			carLamps_NS <= Yellow;
+		rule goYellow_NS ((carLamps_NS == 2'd0) && (t == 9'd140));
+			carLamps_NS <= 1;
 		endrule
 		
-		rule goRed_NS (carLamps_NS == Yellow && t >= 160);
-			carLamps_NS <= Red;
+		rule goRed_NS ((carLamps_NS == 2'd1) && (t == 9'd160));
+			carLamps_NS <= 2;
 		endrule
 		
-		rule goGreen_NS (carLamps_NS == Red && t == 0);
-			carLamps_NS <= Green;
+		rule goGreen_NS ((carLamps_NS == 2'd2) && (t == 9'd0));
+			carLamps_NS <= 0;
 		endrule
 		
-		rule goYellow_EW (carLamps_EW == Green && t >= 0);
-			carLamps_EW <= Yellow;
+		rule goYellow_EW ((carLamps_EW == 2'd0) && (t == 9'd0));
+			carLamps_EW <= 1;
 		endrule
 		
-		rule goRed_EW (carLamps_EW == Yellow && t >= 9d20);
-			carLamps_EW <= Red;
+		rule goRed_EW ((carLamps_EW == 2'd1) && (t == 9'd20));
+			carLamps_EW <= 2;
 		endrule
 		
-		rule goGreen_EW  (carLamps_EW == Red && t == 160);
-			carLamps_EW <= Green;
+		rule goGreen_EW  ((carLamps_EW == 2'd2) && (t == 9'd160));
+			carLamps_EW <= 0;
 		endrule
 		
 		method Action reset ();		
-			carLamps_NS <= Red;
-			carLamps_EW <= Red;
-			pedestrianLamps_NS <= Stand;
-			pedestrianLamps_EW <= Stand;
+			carLamps_NS <= 2;
+			carLamps_EW <= 2;
 			t <= 0;
 		endmethod 
 		
 		method Action pedestrian_request_NS();
-			if (carLamps_EW == Green && t < 280) 
+			if (carLamps_EW == 0 && t < 9'd280) 
 				t <= 280;
 		endmethod
 
 		method Action pedestrian_request_EW();
-			if (carLamps_NS == Green && t < 120)
+			if (carLamps_NS == 0 && t < 9'd120)
 				t <= 120;
 		endmethod 
 		
-		method Colour getlamp_NS();
+		method Bit#(2) getlamp_NS();
 			return carLamps_NS;
 		endmethod 
 		
-		method Colour getlamp_EW();
+		method Bit#(2) getlamp_EW();
 			return carLamps_EW;
 		endmethod 
 		
-		method PedestrianState getPedestrianLamp_NS();
-			return carLamps_NS == Green;
+		method Bool getPedestrianLamp_NS();
+			return carLamps_NS == 0;
 		endmethod
 		
-		method PedestrianState getPedestrianLamp_EW();
-			return carLamps_EW == Green;
+		method Bool getPedestrianLamp_EW();
+			return carLamps_EW == 0;
 		endmethod 
 		
 	endmodule : mkTrafficSignals

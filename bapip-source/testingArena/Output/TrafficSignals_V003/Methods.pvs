@@ -1,0 +1,38 @@
+Methods : theory
+
+begin
+
+	importing State
+
+
+	getPedestrianLamp_EW (index : nat, pre : TrafficSignals, mod : TrafficSignals) : bool = IF (index = 0) 
+	  THEN ( pre`carLamps_EW = 0 )
+	  ELSE IF (index = 1) 
+	  THEN ( pre`carLamps_EW = 0 )
+		ELSE False
+		ENDIF ENDIF 
+
+	getPedestrianLamp_NS (index : nat, pre : TrafficSignals, mod : TrafficSignals) : bool = IF (index = 0) 
+	  THEN ( pre`carLamps_NS = 0 )
+	  ELSE IF (index = 1) 
+	  THEN ( pre`carLamps_NS = 0 )
+		ELSE False
+		ENDIF ENDIF 
+
+	getlamp_EW (index : nat, pre : TrafficSignals, mod : TrafficSignals) : Bit(2) = IF (index = 0) 
+	  THEN pre`carLamps_EW
+	  ELSE IF (index = 1) 
+	  THEN pre`carLamps_EW
+		ELSE 0
+		ENDIF ENDIF 
+
+	getlamp_NS (index : nat, pre : TrafficSignals, mod : TrafficSignals) : Bit(2) = IF (index = 0) 
+	  THEN pre`carLamps_NS
+	  ELSE IF (index = 1) 
+	  THEN pre`carLamps_NS
+		ELSE 0
+		ENDIF ENDIF 
+
+
+	
+end Methods
