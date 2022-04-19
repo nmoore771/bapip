@@ -25,10 +25,9 @@ method Bool get_ql();
 	return (low_alarm.get_q());
 endmethod
 
-method ActionValue#(Bool) set_Alarms(x, h, l, eps);
-	let high <- high_alarm.set_Inputs(x, (h - (eps / 2)), (eps / 2));
-	let low <- low_alarm.set_Inputs((l + (eps / 2)), x, (eps / 2));
-	return ( high || low );
+method Action set_Alarms(x, h, l, eps);
+	high_alarm.set_Inputs(x, (h - (eps / 2)), (eps / 2));
+	low_alarm.set_Inputs((l + (eps / 2)), x, (eps / 2));
 endmethod
 
 endmodule : mkLIMITS_ALARM

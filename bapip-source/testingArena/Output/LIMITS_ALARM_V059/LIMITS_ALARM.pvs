@@ -1,0 +1,113 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> LIMITS_ALARM]
+	pre, post, LIMITS_ALARM_var : VAR LIMITS_ALARM
+
+	
+
+%%% Requirements Tables
+
+x, l, h, eps: Var Int(16)
+qh, ql, prev : Var bool
+
+%qh_req(x,h,eps)(t): RECURSIVE bool =
+%	LET prev = qh_req(x,h,eps)(pre(t)) IN
+%	TABLE
+%	| x(pre(t)) > h(pre(t))                                    | True  ||
+%	| x(pre(t)) >= (h(pre(t)) - div(eps(pre(t)),2) - div(eps(pre(t)),2) ) & x(pre(t)) <= (h(pre(t)) - div(eps(pre(t)),2) + div(eps(pre(t)),2) )        | prev  ||
+%	| x(pre(t)) < (h(pre(t)) - div(eps(pre(t)),2) - div(eps(pre(t)),2) )                        | False ||
+%	ENDTABLE
+%	MEASURE rank(t)
+
+qh_req (x,h,eps,prev) : bool =
+       TABLE
+       | x > h		| True ||
+       | x >= (h - div(eps, 2) - div(eps, 2)) AND x <= (h  - div(eps, 2) + div(eps, 2)) | prev ||
+       | x < (h - div(eps, 2) - div(eps, 2)) | False ||
+       ENDTABLE
+
+%ql_req(x,l,eps)(t): RECURSIVE bool = 
+%	LET prev = ql_req(x,l,eps)(pre(t)) IN
+%	TABLE
+%	| x(pre(t)) < l(pre(t))                             | True  ||
+%	| x(pre(t)) <= (l(pre(t)) + div(eps(pre(t)),2) + div(eps(pre(t)),2) ) & x(pre(t)) >= (l(pre(t)) - div(eps(pre(t)),2) + div(eps(pre(t)),2) ) | prev  ||
+%	| x(pre(t)) > (l(pre(t)) + div(eps(pre(t)),2) + div(eps(pre(t)),2) )                 | False ||
+%	ENDTABLE
+%	MEASURE rank(t)
+
+ql_req (x,l,eps,prev) : bool =
+       TABLE
+       | x < l		| True ||
+       | x <= (l + div(eps, 2) + div(eps, 2)) AND x >= (l  - div(eps, 2) + div(eps, 2)) | prev ||
+       | x > (l + div(eps, 2) + div(eps, 2)) | False ||
+       ENDTABLE
+
+
+q_req (qh, ql) : bool =
+	TABLE
+	| qh OR ql          | True  ||
+	| NOT qh AND NOT ql | False ||
+	ENDTABLE
+	
+%  The following transitions have been scheduled.
+%  0	: Methods Invoked = {none} 
+%  	: Input Args = {none} 
+%  
+%  1	: Methods Invoked = {set_Alarms}
+%  	: Input Args = {x_0 : Int(16), h_0 : Int(16), l_0 : Int(16), eps_0 : Int(16)
+%}
+%  
+%  The following arguments must be supplied to invoke the transition predicate.
+%  	index -> The index number corresponding to the schedule you wish to invoke
+%  	pre -> The pre-state of the transition predicate
+%  	post -> The post-state of the transition predicate
+%  	method arguments -> supply the arguments given in the above list of schedules, in the order they appear.
+%  
+%  For an example of how this is intended to work, take a look at the auto-generated consistency theorems below.
+
+   correctness : theorem
+     forall (X : Int(16), H : Int(16), L : Int(16), H : Int(16), EPS : Int(16)) :
+           transition(1,s(0),s(1), X, H, L, EPS)
+       and div(EPS, 2) > 0
+         implies
+             qh_req(X, H, EPS, s(0)`high_alarm`q) = get_qh(0,s(1),s(1))
+	 and ql_req(X, L, EPS, s(0)`low_alarm`q)  = get_ql(0,s(1),s(1))
+	 and q_req( qh_req(X, H, EPS, s(0)`high_alarm`q)
+	          , ql_req(X, L, EPS, s(0)`low_alarm`q)
+		  ) = get_q(0,s(1),s(1))
+
+	
+%|- Consistency_0 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_0 : Theorem
+	  FORALL (i : nat, pre : LIMITS_ALARM) :
+	    EXISTS (post : LIMITS_ALARM) : 
+	      transition(i, pre, post)
+
+	
+%|- consistency_1 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1, x!1, h!1, l!1, eps!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_1 : Theorem
+	  FORALL (i : nat, pre : LIMITS_ALARM, x_0 : Int(16), h_0 : Int(16), l_0 : Int(16), eps_0 : Int(16)) :
+	    EXISTS (post : LIMITS_ALARM) : 
+	      transition(i, pre, post, x_0, h_0, l_0, eps_0)
+
+	
+end Theorems

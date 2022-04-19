@@ -171,10 +171,12 @@ samStmt mod (Switch gd cases z)  = (Switch gd cases' z):[]
           y'' = if (length y') > 1 then (StatementBlock y') else (head y')
 samStmt mod (LocalDec lv stmt z) = (LocalDec lv stmt'' z):[]
     where
+        tracy = "[samStmt] - LocalDec = " ++ (show (LocalDec lv stmt z))
         stmt' = samStmt mod stmt 
         stmt'' = if (length stmt') > 1 then (StatementBlock stmt') else (head stmt')
 samStmt mod (StatementBlock xs)  = (concat (map (samStmt mod) xs))
 samStmt mod x = x:[]
+
 
 addPathToMethBody :: MethodBody -> ID_Path -> MethodBody
 addPathToMethBody (u,v,w,x,y,z) p = (u,v,w,x',y',z)
@@ -1190,7 +1192,7 @@ gatherValueMethods ((x,(ActionValue typ),y,z,a,b):xs) = gatherValueMethods xs
 gatherValueMethods ((x,(Value typ),y,z,a,b):xs) = (x,(Value typ),y,z,a,b) : (gatherValueMethods xs)
 
 convertToFunction :: BSVPackage -> [TransitionTable] -> BSVModuleDec -> String -> [String] -> MethodBody -> ValueMethod
-convertToFunction universe tables mod namo path (nom, (Value typ), _, guard, stmts, atts) = 
+convertToFunction universe tables mod namo path (nom, (Value typ), _, guard, stmts, atts) = trace tracy $
     ( nom
     , (mName mod)
     , namo 
@@ -1200,14 +1202,17 @@ convertToFunction universe tables mod namo path (nom, (Value typ), _, guard, stm
     , wires
     )
   where 
-    tracy = "[convertToFunction] nom = " ++ (nom) ++ "\nexp = " ++ (show expFinal)
+    tracy = "[convertToFunction] nom = " ++ (nom) 
+         ++ "\nresultant exp = " ++ (show expFinal)
+         ++ "\npath = " ++ (show path)
+         ++ "\nexp' = " ++ (show exp')
     exp' = maybe (error "Error! Did not find a return expression!") (id) $ getReturnExp stmts 
-    exp = exp' -- addModuleInfo universe mod (tail path) $ exp'
+    exp =  exp' -- addModuleInfo universe mod (tail path) $ exp' -- 
     exp'' = id exp -- addWireLets mod wires tables exp -- error $ show $ map getTransitionName tables -- 
     st = state mod
     wires = (getReadsBy mod (\ q -> True) [] exp) ++ (getReadsBy mod (\ q -> True) [] guard)
     allWires = getWireNames st
-    expFinal = (applyRootPrefix allWires path exp'')
+    expFinal = (applyRootPrefix allWires ["mod"] exp'')
 
 getTransitionName :: TransitionTable -> ID_Path
 getTransitionName (TransReg x _) = x
@@ -2104,7 +2109,7 @@ pathPrefixReplacement (ID x) (Just (ID x')) z = z
 genTransTable :: BSVPackage -> BSVModuleDec -> [MethodArg] -> [String] -> [RuleSchedule] -> [BSVstateDec] -> [TransitionTable] 
 genTransTable universe mod mArgs prefixes sched states = map (genTrans universe mod [] prefixes (mArgs ++ wireNames) treeHeap) states
   where 
-    tracy = "[genTransTable] - Rule Heap = " ++ (show ruleHeap)
+    tracy = "[genTransTable] - Rule Heap = " ++ (show ruleHeap) ++ "\nTree Heap = " ++ (show treeHeap) ++ "\n\tstates = " ++ (show states)
     ruleHeap = genRuleHeap sched []
     treeHeap = genTreeHeap ruleHeap
     wireNames = getWireNames (state mod)
@@ -2172,11 +2177,9 @@ genTrans uni mod absPath prefixes mArgs (THeap n tree _) (DWire x y z) = (TransD
         x' = if absPath /= [] then mergeIDPaths (strings2idpath absPath) x else x
         redefault = if (z == (Literal LitStructConstructor)) then constructDefaultValue uni mod y else z
         specificTree = makeTreesSpecific mod (DWire x' y z) prefixes mArgs tree Nothing
-genTrans universe mod absPath prefixes mArgs (THeap nom tree hs) (BSV_Reg n x y) = if (n == (ID_Submod_Struct "rg_InitReqDataCount" (ID "lastdata"))) 
-                                                                                      then result 
-                                                                                      else result
+genTrans universe mod absPath prefixes mArgs (THeap nom tree hs) (BSV_Reg n x y) = result
   where 
-    tracy = "[genTrans] register = " ++ (show n) ++ "\nmoduleInstance = " ++ (show (instanceName mod)) ++ "\nstructName = " ++ (show struct) ++ "\nIs a submod = " ++ (show (isSubmod n)) ++ "\nTree Heap Name = " ++ (show nom) ++ "\nrefactored tree = " ++ (show newTree)
+    tracy = "[genTrans] register = " ++ (show n) ++ "\nmoduleInstance = " ++ (show (instanceName mod)) ++ "\nstructName = " ++ (show struct) ++ "\nIs a submod = " ++ (show (isSubmod n)) ++ "\nTree Heap Name = " ++ (show nom) ++ "\ntree = " ++ (show tree) ++ "\nrefactored tree = " ++ (show newTree)
     n' = if absPath /= [] then mergeIDPaths (strings2idpath absPath) n else n
     result = if not (struct == Nothing) 
                 then (TransStruct n'' (map (genTrans universe mod absPath prefixes' mArgs (THeap nom tree hs)) newState)) 
@@ -2477,7 +2480,7 @@ applyRootPrefix m p (Subtract x y) 	= (Subtract (applyRootPrefix m p x) (applyRo
 applyRootPrefix m p (Literal x) 		= (Literal x)
 applyRootPrefix m p (Identifier (ID_Submod_Struct inst path))	= if (elemWith inst m stringPathEq) 
                                                                    then (Identifier (ID_Submod_Struct inst path))
-                                                                   else (Identifier (applyRootPrefix' (ID_Submod_Struct inst path) p))
+                                                                   else (Identifier (nubPath (applyRootPrefix' (ID_Submod_Struct inst path) p)))
 applyRootPrefix m p (Identifier (ID_Vect str index)) = if (elemWith str m stringPathEq) 
                                                          then (Identifier (ID_Vect str (applyRootPrefix m p index))) 
 							 else (Identifier (applyRootPrefix' (ID_Vect str (applyRootPrefix m p index)) p)) 
@@ -2704,6 +2707,15 @@ addLVmoduleInfo u s p (x, y, exp) = (x, y, addModuleInfo u s p exp)
 applyRootPrefix' :: ID_Path -> [String] -> ID_Path
 applyRootPrefix' str [] = str
 applyRootPrefix' str (p:ps) = (ID_Submod_Struct p (applyRootPrefix' str ps))
+
+nubPath :: ID_Path -> ID_Path
+nubPath (ID x) = (ID x)
+nubPath (ID_Vect x y) = (ID_Vect x y)
+nubPath (ID_Submod_Struct x (ID_Submod_Struct y z)) = if x == y
+                                                        then nubPath (ID_Submod_Struct y z)
+                                                        else (ID_Submod_Struct x (nubPath (ID_Submod_Struct y z)))
+nubPath (ID_Submod_Struct x y) = (ID_Submod_Struct x (nubPath y))                                                        
+
 
 removeAtIndex :: Int -> [a] -> [a]
 removeAtIndex i xs = front ++ back'
@@ -3519,7 +3531,7 @@ tailID (ID x) = error "This function is being used improperly"
 tailID (ID_Submod_Struct x y) = y
 
 getPreempts :: BSVPackage -> BSVModuleDec -> [String] -> String -> [String] -> [String] -> [ActionPath] -> ([ActionPath],[ActionPath])
-getPreempts universe mod path rName confs meths implicits = trace tracy $ ( (nub ((fst sortedUrgs) ++ apPrempting)), (nub ((snd sortedUrgs) ++ apPrempted)))  
+getPreempts universe mod path rName confs meths implicits = ( (nub ((fst sortedUrgs) ++ apPrempting)), (nub ((snd sortedUrgs) ++ apPrempted)))  
 -- twace ("[T] - getPreempts - mod " ++ (show mod)) $
     {- if (addressesAllConflicts' confs' premptingRaw premptedbyRaw) 
       then ( (nub ((fst sortedUrgs) ++ apPrempting))

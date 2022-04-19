@@ -1,0 +1,50 @@
+Methods : theory
+
+begin
+
+	importing State
+
+
+	get_q (index : nat, pre : LIMITS_ALARM, mod : HYSTERESIS) : bool = IF (index = 0) 
+	  THEN pre`low_alarm`q
+		ELSE False
+		ENDIF 
+
+	get_q (index : nat, pre : LIMITS_ALARM, mod : HYSTERESIS, x_0: Int(16), h_0: Int(16), l_0: Int(16), eps_0: Int(16)) : bool = IF (index = 1) 
+	  THEN pre`low_alarm`q
+		ELSE False
+		ENDIF 
+
+	get_ql (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM) : bool = IF (index = 0) 
+	  THEN get_q(0, pre, pre`low_alarm)
+		ELSE False
+		ENDIF 
+
+	get_ql (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM, x_0: Int(16), h_0: Int(16), l_0: Int(16), eps_0: Int(16)) : bool = IF (index = 1) 
+	  THEN get_q(1, pre, pre`low_alarm)
+		ELSE False
+		ENDIF 
+
+	get_qh (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM) : bool = IF (index = 0) 
+	  THEN get_q(0, pre, pre`high_alarm)
+		ELSE False
+		ENDIF 
+
+	get_qh (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM, x_0: Int(16), h_0: Int(16), l_0: Int(16), eps_0: Int(16)) : bool = IF (index = 1) 
+	  THEN get_q(1, pre, pre`high_alarm)
+		ELSE False
+		ENDIF 
+
+	get_q (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM) : bool = IF (index = 0) 
+	  THEN ( get_q(0, pre, pre`high_alarm) OR get_q(0, pre, pre`low_alarm) )
+		ELSE False
+		ENDIF 
+
+	get_q (index : nat, pre : LIMITS_ALARM, mod : LIMITS_ALARM, x_0: Int(16), h_0: Int(16), l_0: Int(16), eps_0: Int(16)) : bool = IF (index = 1) 
+	  THEN ( get_q(1, pre, pre`high_alarm) OR get_q(1, pre, pre`low_alarm) )
+		ELSE False
+		ENDIF 
+
+
+	
+end Methods

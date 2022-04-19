@@ -1,0 +1,134 @@
+(|Theorems|
+ (|qh_req_TCC1| 0
+  (|qh_req_TCC1-1| NIL 3859324102 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|qh_req| SUBTYPE "Theorems.eps" "nat")))
+ (|qh_req_TCC2| 0
+  (|qh_req_TCC2-1| NIL 3859324102 ("" (COND-DISJOINT-TCC) NIL NIL) NIL NIL
+   (|qh_req| DISJOINTNESS "TABLE
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.>(Theorems.x, Theorems.h)                                                                                                                                                                                                                                                                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | booleans.AND(reals.>=(Theorems.x, ((number_fields.-)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))), reals.<=(Theorems.x, ((number_fields.+)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2))))) | Theorems.prev  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.<(Theorems.x, ((number_fields.-)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|qh_req_TCC3| 0
+  (|qh_req_TCC3-1| NIL 3859324102 ("" (COND-COVERAGE-TCC) NIL NIL) NIL NIL
+   (|qh_req| COVERAGE "TABLE
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.>(Theorems.x, Theorems.h)                                                                                                                                                                                                                                                                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | booleans.AND(reals.>=(Theorems.x, ((number_fields.-)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))), reals.<=(Theorems.x, ((number_fields.+)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2))))) | Theorems.prev  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.<(Theorems.x, ((number_fields.-)((number_fields.-)(Theorems.h, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ql_req_TCC1| 0
+  (|ql_req_TCC1-1| NIL 3859324102 ("" (COND-DISJOINT-TCC) NIL NIL) NIL NIL
+   (|ql_req| DISJOINTNESS "TABLE
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.<(Theorems.x, Theorems.l)                                                                                                                                                                                                                                                                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | booleans.AND(reals.<=(Theorems.x, ((number_fields.+)((number_fields.+)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))), reals.>=(Theorems.x, ((number_fields.+)((number_fields.-)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2))))) | Theorems.prev  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.>(Theorems.x, ((number_fields.+)((number_fields.+)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ql_req_TCC2| 0
+  (|ql_req_TCC2-1| NIL 3859324102 ("" (COND-COVERAGE-TCC) NIL NIL) NIL NIL
+   (|ql_req| COVERAGE "TABLE
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.<(Theorems.x, Theorems.l)                                                                                                                                                                                                                                                                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | booleans.AND(reals.<=(Theorems.x, ((number_fields.+)((number_fields.+)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))), reals.>=(Theorems.x, ((number_fields.+)((number_fields.-)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2))))) | Theorems.prev  ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+  | reals.>(Theorems.x, ((number_fields.+)((number_fields.+)(Theorems.l, arith_bitwise.div(Theorems.eps, 2)), arith_bitwise.div(Theorems.eps, 2)))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|q_req_TCC1| 0
+  (|q_req_TCC1-1| NIL 3859324102 ("" (COND-DISJOINT-TCC) NIL NIL) NIL NIL
+   (|q_req| DISJOINTNESS "TABLE
+  %------------------------------------------------------------------------+----------------++
+  | booleans.OR(Theorems.qh, Theorems.ql)                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------+----------------++
+  | booleans.AND((booleans.NOT)(Theorems.qh), (booleans.NOT)(Theorems.ql)) | booleans.FALSE ||
+  %------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|q_req_TCC2| 0
+  (|q_req_TCC2-1| NIL 3859324102 ("" (COND-COVERAGE-TCC) NIL NIL) NIL NIL
+   (|q_req| COVERAGE "TABLE
+  %------------------------------------------------------------------------+----------------++
+  | booleans.OR(Theorems.qh, Theorems.ql)                                  | booleans.TRUE  ||
+  %------------------------------------------------------------------------+----------------++
+  | booleans.AND((booleans.NOT)(Theorems.qh), (booleans.NOT)(Theorems.ql)) | booleans.FALSE ||
+  %------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|correctness_TCC1| 0
+  (|correctness_TCC1-1| NIL 3859324102 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness| SUBTYPE "0" "tick[delta_t]")))
+ (|correctness_TCC2| 0
+  (|correctness_TCC2-1| NIL 3859324102 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness| SUBTYPE "1" "tick[delta_t]")))
+ (|correctness_TCC3| 0
+  (|correctness_TCC3-1| NIL 3859324102 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness| SUBTYPE "Theorems.EPS" "nat")))
+ (|correctness| 0
+  (|correctness-1| NIL 3859324120 ("" (GRIND) NIL NIL)
+   ((|get_q| CONST-DECL "bool" |Methods| NIL)
+    (|q_req| CONST-DECL "bool" |Theorems| NIL)
+    (|get_ql| CONST-DECL "bool" |Methods| NIL)
+    (|ql_req| CONST-DECL "bool" |Theorems| NIL)
+    (|get_qh| CONST-DECL "bool" |Methods| NIL)
+    (|get_q| CONST-DECL "bool" |Methods| NIL)
+    (|qh_req| CONST-DECL "bool" |Theorems| NIL)
+    (|transition| CONST-DECL "bool" |Transitions| NIL)
+    (|transition_val| CONST-DECL "LIMITS_ALARM" |Transitions| NIL)
+    (|div| CONST-DECL "nat" |arith_bitwise| NIL)
+    (|posint_exp| APPLICATION-JUDGEMENT "posint" |exponentiation| NIL)
+    (|even_times_int_is_even| APPLICATION-JUDGEMENT "even_int" |integers| NIL)
+    (|int_plus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+    (|int_minus_int_is_int| APPLICATION-JUDGEMENT "int" |integers| NIL)
+    (|rat_div_nzrat_is_rat| APPLICATION-JUDGEMENT "rat" |rationals| NIL)
+    (|real_gt_is_strict_total_order| NAME-JUDGEMENT
+     "(strict_total_order?[real])" |real_props| NIL)
+    (|real_lt_is_strict_total_order| NAME-JUDGEMENT
+     "(strict_total_order?[real])" |real_props| NIL)
+    (|posint_times_posint_is_posint| APPLICATION-JUDGEMENT "posint" |integers|
+     NIL)
+    (|posnat_expt| APPLICATION-JUDGEMENT "posnat" |exponentiation| NIL)
+    (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+     |real_props| NIL)
+    (|minus_nzint_is_nzint| APPLICATION-JUDGEMENT "nzint" |integers| NIL)
+    (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+     |real_props| NIL)
+    (|expt| DEF-DECL "real" |exponentiation| NIL)
+    (|Int| TYPE-EQ-DECL NIL |TypeDefinitions| NIL)
+    (< CONST-DECL "bool" |reals| NIL)
+    (AND CONST-DECL "[bool, bool -> bool]" |booleans| NIL)
+    (^ CONST-DECL "real" |exponentiation| NIL)
+    (>= CONST-DECL "bool" |reals| NIL) (/= CONST-DECL "boolean" |notequal| NIL)
+    (OR CONST-DECL "[bool, bool -> bool]" |booleans| NIL)
+    (|int| NONEMPTY-TYPE-EQ-DECL NIL |integers| NIL)
+    (|integer_pred| CONST-DECL "[rational -> boolean]" |integers| NIL)
+    (|rational| NONEMPTY-TYPE-FROM-DECL NIL |rationals| NIL)
+    (|rational_pred| CONST-DECL "[real -> boolean]" |rationals| NIL)
+    (- CONST-DECL "[numfield -> numfield]" |number_fields| NIL)
+    (|numfield| NONEMPTY-TYPE-EQ-DECL NIL |number_fields| NIL)
+    (<= CONST-DECL "bool" |reals| NIL)
+    (|real| NONEMPTY-TYPE-FROM-DECL NIL |reals| NIL)
+    (|real_pred| CONST-DECL "[number_field -> boolean]" |reals| NIL)
+    (|number_field| NONEMPTY-TYPE-FROM-DECL NIL |number_fields| NIL)
+    (|number_field_pred| CONST-DECL "[number -> boolean]" |number_fields| NIL)
+    (|number| NONEMPTY-TYPE-DECL NIL |numbers| NIL)
+    (NOT CONST-DECL "[bool -> bool]" |booleans| NIL)
+    (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+    (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL))
+   SHOSTAK)))
+

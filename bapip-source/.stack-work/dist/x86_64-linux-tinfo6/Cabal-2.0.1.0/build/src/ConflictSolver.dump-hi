@@ -1,10 +1,10 @@
 
 ==================== FINAL INTERFACE ====================
-2022-04-13 02:59:00.218335033 UTC
+2022-04-18 20:05:08.68865574 UTC
 
 interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:ConflictSolver 8022
-  interface hash: 8b6286da864fdaad9d724603512e6f8a
-  ABI hash: debb583616ce9d1f0674dd10bd83ad79
+  interface hash: 1744a1253da9e48b2ce754281519b5c7
+  ABI hash: edaa146a09cceea849da56658a105f41
   export-list hash: c1166f329d37d8d1f2ec1465ca958062
   orphan hash: bf6a81eeb7eca98acdc71650c17e06cc
   flag hash: aa1a6078e28560b315026c49539ca393
@@ -100,8 +100,8 @@ family instance modules: base-4.10.1.0:Control.Applicative
                          primitive-0.6.4.0:Data.Primitive.ByteArray
                          sbv-7.5:Data.SBV.Control.Types sbv-7.5:Data.SBV.Core.Data
                          template-haskell-2.12.0.0:Language.Haskell.TH.Syntax
-import  -/  BSV2PVS eb3ee6b0bd303dee9acbaec2ddf297aa
-  exports: 8e63f2db6cb8b79e8d3539121d9787c0
+import  -/  BSV2PVS b284fd278f3009e5fc754eaf537b80ed
+  exports: ab56efdee783308bf7a9758900ba631a
   convertMethodToRule 30bab428b259c4d04aea0700a8a9eda2
   findMethod 32eac5c849ca1b4b165f237db1cd18d7
   findMod 1dae238848b3e2ea4ed028f62b616a4a
@@ -395,9 +395,9 @@ c1dedfebed4e6fd09710693725e551fa
     [LexerTypes.BSVstateDec]
     -> LexerTypes.Expression -> GHC.Base.Maybe LexerTypes.BSVType
   {- Arity: 2, Strictness: <L,U><S,1*U>, Inline: [0] -}
-42302ad95aa7a8c0d53ef6e424ddf059
+8fa140b7e72a60b5691177753da7624d
   $wgo :: [LexerTypes.RuleSchedule] -> GHC.Prim.Int# -> GHC.Prim.Int#
-  {- Arity: 2, Strictness: <S,1*U><S,U>, Inline: [0] -}
+  {- Arity: 2, HasNoCafRefs, Strictness: <S,1*U><S,U>, Inline: [0] -}
 a890d7443a57667676911560b2e6789d
   $winvokeSBV ::
     [LexerTypes.BSVTypeDef]
@@ -492,7 +492,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                              (ConflictSolver.bitLimit
                                 (GHC.Integer.Type.smallInteger ww2)) of wild1 { DEFAULT ->
                       (# GHC.Types.True, wild1 #) } } }) -}
-9dc636c7f161dcd76ce73138212fa8fb
+816384a0ddf898da8ba23bcc887ab235
   $wmkVS ::
     [LexerTypes.BSVTypeDef]
     -> LexerTypes.ID_Path
@@ -562,7 +562,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                         nm :: GHC.Base.String = ConflictSolver.showIDPath ww
                       } in
                       let {
-                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        lvl107 :: GHC.Base.Maybe GHC.Base.String
                         = GHC.Base.Just @ GHC.Base.String nm
                       } in
                       (\ (eta :: Data.SBV.Core.Symbolic.State)
@@ -572,7 +572,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                          GHC.Types.False
                          (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
                          (Data.SBV.Core.Kind.KBounded GHC.Types.False dt1)
-                         lvl113
+                         lvl107
                          eta
                          eta1 })
                         `cast`
@@ -596,7 +596,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                         nm :: GHC.Base.String = ConflictSolver.showIDPath ww
                       } in
                       let {
-                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        lvl107 :: GHC.Base.Maybe GHC.Base.String
                         = GHC.Base.Just @ GHC.Base.String nm
                       } in
                       (\ (eta :: Data.SBV.Core.Symbolic.State)
@@ -606,7 +606,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                          GHC.Types.False
                          (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
                          (Data.SBV.Core.Kind.KBounded GHC.Types.True dt1)
-                         lvl113
+                         lvl107
                          eta
                          eta1 })
                         `cast`
@@ -630,7 +630,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                         nm :: GHC.Base.String = ConflictSolver.showIDPath ww
                       } in
                       let {
-                        lvl113 :: GHC.Base.Maybe GHC.Base.String
+                        lvl107 :: GHC.Base.Maybe GHC.Base.String
                         = GHC.Base.Just @ GHC.Base.String nm
                       } in
                       (\ (eta :: Data.SBV.Core.Symbolic.State)
@@ -640,7 +640,7 @@ c9de0ead0fc55ed8fd1d5f8f714cc61f
                          GHC.Types.False
                          (GHC.Base.Nothing @ Data.SBV.Core.Symbolic.Quantifier)
                          (Data.SBV.Core.Kind.KBounded GHC.Types.False dt1)
-                         lvl113
+                         lvl107
                          eta
                          eta1 })
                         `cast`
@@ -679,6 +679,47 @@ bc6481c14db6bfc9669c12086e71bb00
 074fae534b241a7e92da013b9ec98ec0
   $wunMaybeList :: [GHC.Base.Maybe a] -> [a]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>, Inline: [0] -}
+2bf91712e0d88b2a927b8f891226a1da
+  $wunaddressedConflicts ::
+    [LexerTypes.ActionPath]
+    -> [LexerTypes.ActionPath]
+    -> [LexerTypes.ActionPath]
+    -> [LexerTypes.ActionPath]
+    -> [LexerTypes.ActionPath]
+    -> [LexerTypes.ActionPath]
+  {- Arity: 5, HasNoCafRefs,
+     Strictness: <S,1*U><L,1*U><L,1*U><L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: [LexerTypes.ActionPath])
+                   (ww1 :: [LexerTypes.ActionPath])
+                   (ww2 :: [LexerTypes.ActionPath])
+                   (ww3 :: [LexerTypes.ActionPath])
+                   (ww4 :: [LexerTypes.ActionPath]) ->
+                 let {
+                   resolvedConflicts :: [LexerTypes.ActionPath]
+                   = GHC.Base.++
+                       @ LexerTypes.ActionPath
+                       ww1
+                       (GHC.Base.++
+                          @ LexerTypes.ActionPath
+                          ww2
+                          (GHC.Base.++ @ LexerTypes.ActionPath ww3 ww4))
+                 } in
+                 letrec {
+                   go3 :: [LexerTypes.ActionPath] -> [LexerTypes.ActionPath]
+                     {- Arity: 1, Strictness: <S,1*U> -}
+                   = \ (ds :: [LexerTypes.ActionPath]) ->
+                     case ds of wild {
+                       [] -> GHC.Types.[] @ LexerTypes.ActionPath
+                       : y ys
+                       -> case GHC.List.elem
+                                 @ LexerTypes.ActionPath
+                                 LexerTypes.$fEqActionPath
+                                 y
+                                 resolvedConflicts of wild1 {
+                            GHC.Types.False -> GHC.Types.: @ LexerTypes.ActionPath y (go3 ys)
+                            GHC.Types.True -> go3 ys } }
+                 } in
+                 go3 ww) -}
 73bd2c1ff5112875fb5e029d7607dfa2
   type Env =
     Data.Map.Internal.Map
@@ -1016,9 +1057,9 @@ e4cc96513be40a50ee259e5130e155c7
                 (\ (w :: [LexerTypes.BSVTypeDef]) (w1 :: GHC.Base.String) ->
                  case ConflictSolver.$wgetEnumKind w w1 of ww { (#,#) ww1 ww2 ->
                  Data.SBV.Core.Kind.KBounded ww1 ww2 }) -}
-9d2996858828ea5675060b1e02dcd9e5
+94e238c3591abfc9cda3ab184f6029e1
   getNumberOfConflicts :: [LexerTypes.RuleSchedule] -> GHC.Types.Int
-  {- Arity: 1, Strictness: <S,1*U>m, Inline: [0],
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>m, Inline: [0],
      Unfolding: InlineRule (1, True, False)
                 (\ (w :: [LexerTypes.RuleSchedule]) ->
                  case ConflictSolver.$wgo w 0# of ww { DEFAULT ->
@@ -1317,7 +1358,7 @@ b64df9e5e5aaf027d32a028d086dea1d
 264123fe5e4bc3901fae0a4421302271
   mkEnumKind1 :: Data.SBV.Core.Kind.Kind
   {- Strictness: x -}
-b6d25d8f0530bd95813bd634d7964c54
+c901fd9e83a2690637e152ac32c35a3a
   mkVS ::
     [LexerTypes.BSVTypeDef]
     -> (LexerTypes.ID_Path, LexerTypes.BSVType)
@@ -1569,11 +1610,21 @@ fd671cc6c7211aa26124abe6f7930ee6
     [GHC.Base.Maybe LexerTypes.RuleSchedule]
     -> [LexerTypes.RuleSchedule]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-cca23ab8eebf611fcc2106d7b4e667fb
+66632ff3eed9582d1d6a61df8997d49a
   unaddressedConflicts ::
     LexerTypes.RuleSchedule -> [LexerTypes.ActionPath]
-  {- Arity: 1,
-     Strictness: <L,U(U,A,A,A,A,A,A,A,A,A,A,A,1*U,A,U,U,U,U)> -}
+  {- Arity: 1, HasNoCafRefs,
+     Strictness: <S(LLLLLLLLLLLLSLLLLL),1*U(A,A,A,A,A,A,A,A,A,A,A,A,1*U,A,1*U,1*U,1*U,1*U)>,
+     Inline: [0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: LexerTypes.RuleSchedule) ->
+                 case w of ww { LexerTypes.RuleSchedule ww1 ww2 ww3 ww4 ww5 ww6 ww7 ww8 ww9 ww10 ww11 ww12 ww13 ww14 ww15 ww16 ww17 ww18 ->
+                 ConflictSolver.$wunaddressedConflicts
+                   ww13
+                   ww15
+                   ww16
+                   ww17
+                   ww18 }) -}
 "SPEC unMaybeList @ RuleDec" forall ($dEq :: GHC.Classes.Eq
                                                LexerTypes.RuleDec)
   ConflictSolver.unMaybeList @ (LexerTypes.RuleName,

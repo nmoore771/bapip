@@ -73,7 +73,7 @@ solveSchedule' tds st (x:xs) total done sat = do
   return (r ++ rs)
   
 unaddressedConflicts :: RuleSchedule -> [ActionPath]
-unaddressedConflicts rule = trace tracy $ result
+unaddressedConflicts rule = result
   where
       conflicts = conflictsWith rule
       resolvedConflicts = (preempts rule) ++ (isPreemptedBy rule) ++ (executesAfter rule) ++ (executesBefore rule)

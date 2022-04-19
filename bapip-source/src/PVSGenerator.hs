@@ -562,9 +562,15 @@ genIf ((is, str):xs) = ("IF " ++ (intercalate " OR " (map (\ x -> "(index = " ++
 --         its = map (\ (x,_,_,_) -> x ) ts
     
 genMethodCase :: PVSPackage -> PVSstateDec -> ValueMethod -> PVStransition -> String
-genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = result 
+genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = trace tracy $ result 
   where
-    showy = "\n[genMethodCase] - name = " ++ (show name) ++ "\nname2 = " ++ (show name2) ++ "\nraw exp = " ++ (show exp) ++ "\nreads = "++ (show (map idTopLevel (getReadsBy mkBSVModule (\ x -> True) [] exp))) ++ "\nwiresInExp = " ++ (intercalate "\n" (map show wirs)) ++ "\n\nresult = " ++ (result) 
+    tracy = "\n[genMethodCase] - name = " ++ (show name) 
+         ++ "\nname2 = " ++ (show name2) 
+         ++ "\nraw exp = " ++ (show exp) 
+         ++ "\nreads = "++ (show (map idTopLevel (getReadsBy mkBSVModule (\ x -> True) [] exp))) 
+         ++ "\nwiresInExp = " ++ (intercalate "\n" (map show wirs)) 
+         ++ "\npath = " ++ (show path)
+         ++ "\n\nresult = " ++ (result) 
     tables' = getTablesBySubmod uni name2 tables
     wirs = nub $ getWireDeps tables' (Just exp) []
     letsInExp = (wirs)  ++ (extractFifos tables')
@@ -1069,8 +1075,8 @@ unMaybeList ((Nothing):xs) = unMaybeList xs
 
 showPVSTransState :: PVSPackage -> String -> String -> [ID_Path] -> TransitionTable -> String -> String 
 showPVSTransState uni prefix spacer ex (TransMod nom tables) i = if (not (null tables)) 
-    then showPVSTransStateCluster uni st prefix spacer ex (TransMod nom tables) i False
-    else (nom ++ " := " ++ prefix ++ "`" ++ nom)
+    then nom ++ " := " ++ (showPVSTransStateCluster uni st prefix spacer ex (TransMod nom tables) i False)
+    else (nom ++ " := " ++ "pre`" ++ prefix ++ "`" ++ nom)
     where 
         n = nom
         st = (n, (maybe (error "I am Error!") (id) (lookup n (pvs_state uni))))
@@ -1112,7 +1118,7 @@ showPVSTransTree :: PVSPackage -> ID_Path -> String -> String -> Maybe DefaultVa
 showPVSTransTree uni nom prefix spacer dv typ (SpecStem gd (Left exp) fTree) i = showIf ++ space2 ++ showThen ++ space2 ++ showElse ++ space1 ++ "endif"
   where
     showIf =  "if ("++ (showPVSExpression uni [] Nothing (Just typ) gd (Just (prefix, showIDPath uni [] Nothing nom i)) i) ++ ")" 
-    showThen = "then " ++ (showPVSExpression uni [] dv (Just typ) exp (Just (prefix, showIDPath uni [] Nothing nom i)) i)
+    showThen = "then " ++ (showPVSExpression uni [] dv (Just typ) (addPreIfMissing' exp) (Just (prefix, showIDPath uni [] Nothing nom i)) i)
     showElse = "else " ++ (showPVSTransTree uni nom prefix (spacer ++ "  ") dv typ fTree i) 
     space1 = "\n\t\t  " ++ spacer
     space2 = "\n\t\t  " ++ spacer ++ "  "
@@ -1126,11 +1132,15 @@ showPVSTransTree uni nom prefix spacer dv typ (SpecStem gd (Right tTree) fTree) 
 showPVSTransTree uni nom prefix spacer dv typ (SpecLeaf gd texp fexp) i = showIf ++ space2 ++ showThen ++ space2 ++ showElse ++ space1 ++ "endif" 
   where
     showIf =  "if ("++ (showPVSExpression uni [] Nothing (Just typ) gd (Just (prefix, showIDPath uni [] Nothing nom i)) i) ++ ")" 
-    showThen = "then " ++ (showPVSExpression uni [] dv (Just typ) texp (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
-    showElse = "else " ++ (showPVSExpression uni [] dv (Just typ) fexp (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
+    showThen = "then " ++ (showPVSExpression uni [] dv (Just typ) (addPreIfMissing' texp) (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
+    showElse = "else " ++ (showPVSExpression uni [] dv (Just typ) (addPreIfMissing' fexp) (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
     space1 = "\n\t\t  " ++ spacer
     space2 = "\n\t\t  " ++ spacer ++ "  "
-showPVSTransTree uni nom prefix spacer dv typ (SpecEx x) i = (showPVSExpression uni [] dv (Just typ) x (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
+showPVSTransTree uni nom prefix spacer dv typ (SpecEx x) i = (showPVSExpression uni [] dv (Just typ) (addPreIfMissing' x)  (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
+
+addPreIfMissing' :: Expression -> Expression
+addPreIfMissing' (Identifier x) = Identifier $ addPreIfMissing x
+addPreIfMissing' x = x
 
 showPVSTop :: PVSPackage -> PackageName -> [PVStransition] -> Maybe TSPpackage -> String
 showPVSTop uni nom ts tsp = intercalate "\n\n\t" [ header 
@@ -1544,10 +1554,11 @@ showPVSExpression uni lvars dv typ (Subtract x y) z i	= "( " ++ (showPVSExpressi
 showPVSExpression uni lvars dv typ (Literal x) z i		= showLit uni lvars dv typ x z i
 --showPVSExpression uni lvars dv typ (Identifier (ID_StructRef strct path)) _ = strct ++ "`" ++ (showPVSExpression uni lvars dv typ (Identifier path) (Nothing) )
 -- showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x (ID_Submod_Struct "first" y))) z = "first(" ++ x ++ ")`" ++ (showPVSExpression uni lvars dv typ (Identifier y) (Nothing))
-showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x y)) _ i = if (not (containsFifoMethod id))
+showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x y)) _ i = trace tracy $ if (not (containsFifoMethod id))
     then (getinst id') ++ "`" ++ (showPVSExpression uni lvars dv typ (Identifier (getPath id')) (Nothing) i)
     else intercalate "`" ((meth ++ "(" ++ (intercalate "`" before) ++ ")"):(after))
   where
+    tracy = "[showPVSExpression] exp = " ++ (show (Identifier (ID_Submod_Struct x y))) 
     id = (ID_Submod_Struct x y)
     id' = id -- removePathOverlaps id
     getPath (ID_Submod_Struct x y ) = y
@@ -1572,7 +1583,9 @@ showPVSExpression uni lvars dv typ (Exp_If w x y) z i = "if " ++ (showPVSExpress
 showPVSExpression uni lvars (Nothing) typ (Skip) (Nothing) i = error "PVSgen Error! I can't skip an expression at this point unless i know what state element I'm skipping!"
 showPVSExpression uni lvars (Just dv) typ (Skip) z i = showPVSExpression uni lvars Nothing typ dv' z i
     where dv' = fixDV' $ fixDV typ dv
-showPVSExpression uni lvars dv typ (Skip) (Just (prefix, nom)) i = removePathOverlaps' $ prefix ++ "`" ++ nom
+showPVSExpression uni lvars dv typ (Skip) (Just (prefix, nom)) i = trace tracy $ removePathOverlaps' $ prefix ++ "`" ++ nom
+    where
+        tracy = "[showPVSExpression 1] - exp = Skip\nprefix = " ++ (show prefix)
 showPVSExpression uni lvars dv typ (Tagged (Just t) (Valid (Literal (LitStructConstructor)))) z i = result
   where
       tracy = "[showPVSExpression 1] - exp = " ++ (show (LitStructConstructor)) ++ "\ntype = " ++ (show t) ++ "\n\nresult = " ++ (show result)
@@ -1654,6 +1667,13 @@ showPVSExpression uni lvars dv typ (MaybeValue x) z i = "("++ (showPVSExpression
 showPVSExpression uni lvars dv typ (FieldAccess x p) z i = "(" ++ (showPVSExpression uni lvars dv typ x z i) ++ ")`" ++ (showIDPath uni lvars z p i)
 showPVSExpression _ _ _ _ x _ _ = error $ show x 
 
+
+addPreIfMissing :: ID_Path -> ID_Path
+addPreIfMissing (ID_Submod_Struct x y) = if x == "pre" 
+                                            then (ID_Submod_Struct x y)
+                                            else (ID_Submod_Struct "pre" (ID_Submod_Struct x y))
+addPreIfMissing (ID x) = (ID_Submod_Struct "pre" (ID x))
+addPreIfMissing (ID_Vect x y) = (ID_Submod_Struct "pre" (ID_Vect x y))
 
 
 fixDV' :: Expression -> Expression
