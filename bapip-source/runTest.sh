@@ -41,7 +41,7 @@ then
 elif [ "$SELECT" == "F" ] 
 then 
 	SRC=testingArena/Input/RapidIOTID/RapidIO_MainCore.bsv
-	MOD=Ifc_RapidIO_MainCore
+	MOD=RapidIO_MainCore
 	DST=testingArena/Output/TID
 fi
 

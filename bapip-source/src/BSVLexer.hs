@@ -1324,9 +1324,11 @@ idPath = try(do{ i <- identifier'
                ; return $ ID (replacePrependedUnderscore i)
                }
 
+-- smarter to do this AFTER all the important functions... 
 replacePrependedUnderscore :: String -> String 
-replacePrependedUnderscore ('_':xs) = '\x2017' : xs
-replacePrependedUnderscore xs = xs
+replacePrependedUnderscore = id
+--replacePrependedUnderscore ('_':xs) = '\x2017' : xs
+--replacePrependedUnderscore xs = xs
 
 -- | parses the arguments of a method call.  Enclosed by parentheses and deliniated by commas, these arguments are expressions in the most recursive sense, and may even inclue other method calls (and any other generally valid expression).  In this particular implementation, sets of arguments are parsed separately, depending on whether they contain many, one, or no expressions.
 methodArgs :: Parser [Expression]

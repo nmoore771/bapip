@@ -1,0 +1,388 @@
+(|Theorems|
+ (|req_word_pointer_TCC1| 0
+  (|req_word_pointer_TCC1-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC2| 0
+  (|req_word_pointer_TCC2-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC3| 0
+  (|req_word_pointer_TCC3-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC4| 0
+  (|req_word_pointer_TCC4-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC5| 0
+  (|req_word_pointer_TCC5-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC6| 0
+  (|req_word_pointer_TCC6-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC7| 0
+  (|req_word_pointer_TCC7-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC8| 0
+  (|req_word_pointer_TCC8-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC9| 0
+  (|req_word_pointer_TCC9-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 8 -> 1, Theorems.bytemask = 4 -> 1, Theorems.bytemask = 2 -> 1, Theorems.bytemask = 1 -> 1, Theorems.bytemask = 128 -> 0, Theorems.bytemask = 64 -> 0, Theorems.bytemask = 32 -> 0, Theorems.bytemask = 16 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC10| 0
+  (|req_word_pointer_TCC10-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC11| 0
+  (|req_word_pointer_TCC11-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC12| 0
+  (|req_word_pointer_TCC12-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC13| 0
+  (|req_word_pointer_TCC13-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC14| 0
+  (|req_word_pointer_TCC14-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 12 -> 1, Theorems.bytemask = 3 -> 1, Theorems.bytemask = 192 -> 0, Theorems.bytemask = 48 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC15| 0
+  (|req_word_pointer_TCC15-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC16| 0
+  (|req_word_pointer_TCC16-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC17| 0
+  (|req_word_pointer_TCC17-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 7 -> 1, Theorems.bytemask = 224 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC18| 0
+  (|req_word_pointer_TCC18-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC19| 0
+  (|req_word_pointer_TCC19-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC20| 0
+  (|req_word_pointer_TCC20-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 15 -> 1, Theorems.bytemask = 240 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC21| 0
+  (|req_word_pointer_TCC21-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC22| 0
+  (|req_word_pointer_TCC22-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC23| 0
+  (|req_word_pointer_TCC23-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 31 -> 1, Theorems.bytemask = 248 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC24| 0
+  (|req_word_pointer_TCC24-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC25| 0
+  (|req_word_pointer_TCC25-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC26| 0
+  (|req_word_pointer_TCC26-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 63 -> 1, Theorems.bytemask = 252 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC27| 0
+  (|req_word_pointer_TCC27-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC28| 0
+  (|req_word_pointer_TCC28-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC29| 0
+  (|req_word_pointer_TCC29-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytemask = 127 -> 1, Theorems.bytemask = 254 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC30| 0
+  (|req_word_pointer_TCC30-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC31| 0
+  (|req_word_pointer_TCC31-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC32| 0
+  (|req_word_pointer_TCC32-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE "COND Theorems.bytemask = 255 -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC33| 0
+  (|req_word_pointer_TCC33-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC34| 0
+  (|req_word_pointer_TCC34-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC35| 0
+  (|req_word_pointer_TCC35-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC36| 0
+  (|req_word_pointer_TCC36-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC37| 0
+  (|req_word_pointer_TCC37-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC38| 0
+  (|req_word_pointer_TCC38-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC39| 0
+  (|req_word_pointer_TCC39-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC40| 0
+  (|req_word_pointer_TCC40-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC41| 0
+  (|req_word_pointer_TCC41-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC42| 0
+  (|req_word_pointer_TCC42-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_word_pointer| SUBTYPE "0" "TypeDefinitions.Bit(1)")))
+ (|req_word_pointer_TCC43| 0
+  (|req_word_pointer_TCC43-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| DISJOINTNESS
+    "COND Theorems.bytecount = 1 -> COND Theorems.bytemask = 8 -> 1, Theorems.bytemask = 4 -> 1, Theorems.bytemask = 2 -> 1, Theorems.bytemask = 1 -> 1, Theorems.bytemask = 128 -> 0, Theorems.bytemask = 64 -> 0, Theorems.bytemask = 32 -> 0, Theorems.bytemask = 16 -> 0 ENDCOND, Theorems.bytecount = 2 -> COND Theorems.bytemask = 12 -> 1, Theorems.bytemask = 3 -> 1, Theorems.bytemask = 192 -> 0, Theorems.bytemask = 48 -> 0 ENDCOND, Theorems.bytecount = 3 -> COND Theorems.bytemask = 7 -> 1, Theorems.bytemask = 224 -> 0 ENDCOND, Theorems.bytecount = 4 -> COND Theorems.bytemask = 15 -> 1, Theorems.bytemask = 240 -> 0 ENDCOND, Theorems.bytecount = 5 -> COND Theorems.bytemask = 31 -> 1, Theorems.bytemask = 248 -> 0 ENDCOND, Theorems.bytecount = 6 -> COND Theorems.bytemask = 63 -> 1, Theorems.bytemask = 252 -> 0 ENDCOND, Theorems.bytecount = 7 -> COND Theorems.bytemask = 127 -> 1, Theorems.bytemask = 254 -> 0 ENDCOND, Theorems.bytecount = 8 -> COND Theorems.bytemask = 255 -> 0 ENDCOND, Theorems.bytecount = 16 -> 1, Theorems.bytecount = 32 -> 0, Theorems.bytecount = 64 -> 1, Theorems.bytecount = 96 -> 0, Theorems.bytecount = 128 -> 1, Theorems.bytecount = 160 -> 0, Theorems.bytecount = 192 -> 1, Theorems.bytecount = 256 -> 1, Theorems.bytecount = 224 -> 0, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_word_pointer_TCC44| 0
+  (|req_word_pointer_TCC44-1| NIL 3859474480 ("" (COND-COVERAGE-TCC) NIL NIL)
+   NIL NIL
+   (|req_word_pointer| COVERAGE
+    "COND Theorems.bytecount = 1 -> COND Theorems.bytemask = 8 -> 1, Theorems.bytemask = 4 -> 1, Theorems.bytemask = 2 -> 1, Theorems.bytemask = 1 -> 1, Theorems.bytemask = 128 -> 0, Theorems.bytemask = 64 -> 0, Theorems.bytemask = 32 -> 0, Theorems.bytemask = 16 -> 0 ENDCOND, Theorems.bytecount = 2 -> COND Theorems.bytemask = 12 -> 1, Theorems.bytemask = 3 -> 1, Theorems.bytemask = 192 -> 0, Theorems.bytemask = 48 -> 0 ENDCOND, Theorems.bytecount = 3 -> COND Theorems.bytemask = 7 -> 1, Theorems.bytemask = 224 -> 0 ENDCOND, Theorems.bytecount = 4 -> COND Theorems.bytemask = 15 -> 1, Theorems.bytemask = 240 -> 0 ENDCOND, Theorems.bytecount = 5 -> COND Theorems.bytemask = 31 -> 1, Theorems.bytemask = 248 -> 0 ENDCOND, Theorems.bytecount = 6 -> COND Theorems.bytemask = 63 -> 1, Theorems.bytemask = 252 -> 0 ENDCOND, Theorems.bytecount = 7 -> COND Theorems.bytemask = 127 -> 1, Theorems.bytemask = 254 -> 0 ENDCOND, Theorems.bytecount = 8 -> COND Theorems.bytemask = 255 -> 0 ENDCOND, Theorems.bytecount = 16 -> 1, Theorems.bytecount = 32 -> 0, Theorems.bytecount = 64 -> 1, Theorems.bytecount = 96 -> 0, Theorems.bytecount = 128 -> 1, Theorems.bytecount = 160 -> 0, Theorems.bytecount = 192 -> 1, Theorems.bytecount = 256 -> 1, Theorems.bytecount = 224 -> 0, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC1| 0
+  (|req_read_size_TCC1-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "1" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC2| 0
+  (|req_read_size_TCC2-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "2" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC3| 0
+  (|req_read_size_TCC3-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "3" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC4| 0
+  (|req_read_size_TCC4-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "2" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC5| 0
+  (|req_read_size_TCC5-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "3" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC6| 0
+  (|req_read_size_TCC6-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 128 -> 0, Theorems.bytemask = 64 -> 1, Theorems.bytemask = 32 -> 2, Theorems.bytemask = 16 -> 3, Theorems.bytemask = 8 -> 0, Theorems.bytemask = 4 -> 1, Theorems.bytemask = 2 -> 2, Theorems.bytemask = 1 -> 3, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC7| 0
+  (|req_read_size_TCC7-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "4" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC8| 0
+  (|req_read_size_TCC8-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "6" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC9| 0
+  (|req_read_size_TCC9-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "4" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC10| 0
+  (|req_read_size_TCC10-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "6" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC11| 0
+  (|req_read_size_TCC11-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 192 -> 4, Theorems.bytemask = 48 -> 6, Theorems.bytemask = 12 -> 4, Theorems.bytemask = 3 -> 6, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC12| 0
+  (|req_read_size_TCC12-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "5" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC13| 0
+  (|req_read_size_TCC13-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "5" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC14| 0
+  (|req_read_size_TCC14-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 224 -> 5, Theorems.bytemask = 7 -> 5, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC15| 0
+  (|req_read_size_TCC15-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "8" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC16| 0
+  (|req_read_size_TCC16-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "8" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC17| 0
+  (|req_read_size_TCC17-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 240 -> 8, Theorems.bytemask = 15 -> 8, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC18| 0
+  (|req_read_size_TCC18-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "7" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC19| 0
+  (|req_read_size_TCC19-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "7" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC20| 0
+  (|req_read_size_TCC20-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 248 -> 7, Theorems.bytemask = 31 -> 7, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC21| 0
+  (|req_read_size_TCC21-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "9" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC22| 0
+  (|req_read_size_TCC22-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "9" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC23| 0
+  (|req_read_size_TCC23-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 252 -> 9, Theorems.bytemask = 63 -> 9, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC24| 0
+  (|req_read_size_TCC24-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "10" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC25| 0
+  (|req_read_size_TCC25-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "10" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC26| 0
+  (|req_read_size_TCC26-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 254 -> 10, Theorems.bytemask = 127 -> 10, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|req_read_size_TCC27| 0
+  (|req_read_size_TCC27-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "11" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC28| 0
+  (|req_read_size_TCC28-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytemask = 255 -> 11, booleans.TRUE -> 0 ENDCOND" "NIL")))
+ (|req_read_size_TCC29| 0
+  (|req_read_size_TCC29-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "11" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC30| 0
+  (|req_read_size_TCC30-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "12" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC31| 0
+  (|req_read_size_TCC31-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "12" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC32| 0
+  (|req_read_size_TCC32-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "13" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC33| 0
+  (|req_read_size_TCC33-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "13" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC34| 0
+  (|req_read_size_TCC34-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "14" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC35| 0
+  (|req_read_size_TCC35-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "14" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC36| 0
+  (|req_read_size_TCC36-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "15" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC37| 0
+  (|req_read_size_TCC37-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_read_size| SUBTYPE "15" "TypeDefinitions.Bit(1)")))
+ (|req_read_size_TCC38| 0
+  (|req_read_size_TCC38-1| NIL 3859474480 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|req_read_size| DISJOINTNESS
+    "COND Theorems.bytecount = 1 -> COND Theorems.bytemask = 128 -> 0, Theorems.bytemask = 64 -> 1, Theorems.bytemask = 32 -> 2, Theorems.bytemask = 16 -> 3, Theorems.bytemask = 8 -> 0, Theorems.bytemask = 4 -> 1, Theorems.bytemask = 2 -> 2, Theorems.bytemask = 1 -> 3, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 2 -> COND Theorems.bytemask = 192 -> 4, Theorems.bytemask = 48 -> 6, Theorems.bytemask = 12 -> 4, Theorems.bytemask = 3 -> 6, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 3 -> COND Theorems.bytemask = 224 -> 5, Theorems.bytemask = 7 -> 5, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 4 -> COND Theorems.bytemask = 240 -> 8, Theorems.bytemask = 15 -> 8, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 5 -> COND Theorems.bytemask = 248 -> 7, Theorems.bytemask = 31 -> 7, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 6 -> COND Theorems.bytemask = 252 -> 9, Theorems.bytemask = 63 -> 9, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 7 -> COND Theorems.bytemask = 254 -> 10, Theorems.bytemask = 127 -> 10, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 8 -> COND Theorems.bytemask = 255 -> 11, booleans.TRUE -> 0 ENDCOND, Theorems.bytecount = 16 -> 11, Theorems.bytecount = 32 -> 12, Theorems.bytecount = 64 -> 12, Theorems.bytecount = 96 -> 13, Theorems.bytecount = 128 -> 13, Theorems.bytecount = 160 -> 14, Theorems.bytecount = 192 -> 14, Theorems.bytecount = 224 -> 15, Theorems.bytecount = 256 -> 15, booleans.TRUE -> 0 ENDCOND"
+    "NIL")))
+ (|correctness_1_TCC1| 0
+  (|correctness_1_TCC1-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness_1| SUBTYPE "Theorems.x2" "TypeDefinitions.Bit(8)")))
+ (|correctness_1_TCC2| 0
+  (|correctness_1_TCC2-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness_1| SUBTYPE "0" "tick[delta_t]")))
+ (|correctness_1_TCC3| 0
+  (|correctness_1_TCC3-1| NIL 3859474480 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|correctness_1| SUBTYPE "1" "tick[delta_t]")))
+ (|correctness_1| 0
+  (|correctness_1-1| NIL 3859474513 ("" (POSTPONE) NIL NIL) NIL SHOSTAK))
+ (|correctness_total| 0
+  (|correctness_total-1| NIL 3859474549
+   ("" (SPLIT)
+    (("1" (EXPAND CORRECTNESS_1)
+      (("1" (SKOLEM!)
+        (("1" (FLATTEN)
+          (("1" (EXPAND VALID_BYTEMASK)
+            (("1" (SPLIT)
+              (("1" (GRIND) NIL NIL) ("2" (GRIND) NIL NIL)
+               ("3" (GRIND) NIL NIL) ("4" (GRIND) NIL NIL)
+               ("5" (GRIND) NIL NIL) ("6" (GRIND) NIL NIL)
+               ("7" (GRIND) NIL NIL) ("8" (GRIND) NIL NIL)
+               ("9" (GRIND) NIL NIL) ("10" (GRIND) NIL NIL)
+               ("11" (GRIND) NIL NIL) ("12" (GRIND) NIL NIL)
+               ("13" (GRIND) NIL NIL) ("14" (GRIND) NIL NIL)
+               ("15" (GRIND) NIL NIL) ("16" (GRIND) NIL NIL)
+               ("17" (GRIND) NIL NIL) ("18" (GRIND) NIL NIL)
+               ("19" (GRIND) NIL NIL) ("20" (GRIND) NIL NIL)
+               ("21" (GRIND) NIL NIL) ("22" (GRIND) NIL NIL)
+               ("23" (GRIND) NIL NIL) ("24" (GRIND) NIL NIL)
+               ("25" (GRIND) NIL NIL))
+              NIL))
+            NIL))
+          NIL))
+        NIL))
+      NIL)
+     ("2" (EXPAND CORRECTNESS_2)
+      (("2" (SKOLEM!)
+        (("2" (FLATTEN)
+          (("2" (EXPAND VALID_BYTEMASK)
+            (("2" (EXPAND VALID_BYTECOUNT)
+              (("2" (SPLIT)
+                (("1" (SPLIT)
+                  (("1" (GRIND) NIL NIL) ("2" (GRIND) NIL NIL)
+                   ("3" (GRIND) NIL NIL) ("4" (GRIND) NIL NIL)
+                   ("5" (GRIND) NIL NIL) ("6" (GRIND) NIL NIL)
+                   ("7" (GRIND) NIL NIL) ("8" (GRIND) NIL NIL)
+                   ("9" (GRIND) NIL NIL) ("10" (GRIND) NIL NIL)
+                   ("11" (GRIND) NIL NIL) ("12" (GRIND) NIL NIL)
+                   ("13" (GRIND) NIL NIL) ("14" (GRIND) NIL NIL)
+                   ("15" (GRIND) NIL NIL) ("16" (GRIND) NIL NIL)
+                   ("17" (GRIND) NIL NIL))
+                  NIL)
+                 ("2" (GRIND) NIL NIL) ("3" (GRIND) NIL NIL)
+                 ("4" (GRIND) NIL NIL) ("5" (GRIND) NIL NIL)
+                 ("6" (GRIND) NIL NIL) ("7" (GRIND) NIL NIL)
+                 ("8" (GRIND) NIL NIL) ("9" (GRIND) NIL NIL)
+                 ("10" (GRIND) NIL NIL) ("11" (GRIND) NIL NIL)
+                 ("12" (GRIND) NIL NIL) ("13" (GRIND) NIL NIL)
+                 ("14" (GRIND) NIL NIL) ("15" (GRIND) NIL NIL)
+                 ("16" (GRIND) NIL NIL) ("17" (GRIND) NIL NIL)
+                 ("18" (GRIND) NIL NIL) ("19" (GRIND) NIL NIL)
+                 ("20" (GRIND) NIL NIL) ("21" (GRIND) NIL NIL)
+                 ("22" (GRIND) NIL NIL) ("23" (GRIND) NIL NIL)
+                 ("24" (GRIND) NIL NIL) ("25" (GRIND) NIL NIL))
+                NIL))
+              NIL))
+            NIL))
+          NIL))
+        NIL))
+      NIL))
+    NIL)
+   ((|correctness_2| FORMULA-DECL NIL |Theorems| NIL)
+    (|outputs_Size_| CONST-DECL "Size" |Methods| NIL)
+    (|req_read_size| CONST-DECL "Bit(1)" |Theorems| NIL)
+    (|correctness_1| FORMULA-DECL NIL |Theorems| NIL)
+    (|outputs_WdPointer_| CONST-DECL "WdPointer" |Methods| NIL)
+    (|req_word_pointer| CONST-DECL "Bit(1)" |Theorems| NIL)
+    (|transition| CONST-DECL "bool" |Transitions| NIL)
+    (|transition_val| CONST-DECL "RapidIO_InitEncoder_WdPtr_Size" |Transitions|
+     NIL)
+    (|valid_bytecount| CONST-DECL "bool" |Theorems| NIL)
+    (|valid_bytemask| CONST-DECL "bool" |Theorems| NIL))
+   SHOSTAK)))
+

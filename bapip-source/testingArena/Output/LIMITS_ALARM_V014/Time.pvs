@@ -1,8 +1,0 @@
-Time: THEORY
- BEGIN
-
-  time: TYPE+ = nonneg_real
-
-  non_initial_time: TYPE+ = posreal
- END Time
-

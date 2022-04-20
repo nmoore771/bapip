@@ -1,0 +1,1102 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : RapidIO_MainCore) : RapidIO_MainCore =
+		IF (index = 0) THEN 
+		LET wr_TxMasterEn : bool = False
+		IN pre with
+		    [ rio_ModRxPktFtypeAnalyse := 
+		LET wr_TxRdy_MReqIn : bool = outputs_TxReady_From_MReq_(0, pre, pre`rio_ModInsMaintenanceReqIFC)
+		  , wr_TxRdy_TReqIn : bool = outputs_TxReady_From_TReq_(0, pre, pre`rio_ModInsTgtReqIFC)
+		  , wr_TxRdy_IRespIn : bool = outputs_TxReady_From_IResp_(0, pre, pre`rio_ModInsInitRespIFC)
+		  , wr_MreqIfcPkt : Maybe[MaintenanceReqIfcPkt, mkMaintenanceReqIfcPkt] = Nothing[MaintenanceReqIfcPkt,mkMaintenanceReqIfcPkt]
+		  , wr_MreqIfcData : MaintenanceReqIfcData = LET x : MaintenanceReqIfcData = mkMaintenanceReqIfcData
+			  IN x WITH [ mreq_tt := 0
+				, mreq_data := 0
+				, mreq_crf := False
+				, mreq_prio := 0
+				, mreq_ftype := 0
+				, mreq_ttype := 0
+				, mreq_dest_id := 0
+				, mreq_source_id := 0
+				, mreq_tid := 0
+				, mreq_offset := 0
+				, mreq_byte_en := 0
+				, mreq_byte_count := 0
+				, mreq_local := False
+			  ]
+		  , wr_MReqIfcCntrl : MaintenanceReqIfcCntrl = LET x : MaintenanceReqIfcCntrl = mkMaintenanceReqIfcCntrl
+			  IN x WITH [ mreq_sof := False
+				, mreq_eof := False
+				, mreq_vld := False
+			  ]
+		  , wr_TgtReqIfcPkt : Maybe[TargetReqIfcPkt, mkTargetReqIfcPkt] = LET x : TargetReqIfcPkt = mkTargetReqIfcPkt
+			  IN Just[TargetReqIfcPkt,LET x : TargetReqIfcPkt = mkTargetReqIfcPkt
+			  IN x WITH [ treqcntrl := LET x : TargetReqIfcCntrl = mkTargetReqIfcCntrl
+			  IN x WITH [ treq_sof := False
+				, treq_eof := False
+				, treq_vld := False
+			  ]
+				, treqdata := LET x : TargetReqIfcData = mkTargetReqIfcData
+			  IN x WITH [ treq_tt := 0
+				, treq_data := 0
+				, treq_crf := False
+				, treq_prio := 0
+				, treq_ftype := 0
+				, treq_destid := 0
+				, treq_sourceid := 0
+				, treq_tid := 0
+				, treq_ttype := 0
+				, treq_addr := 0
+				, treq_byte_count := 0
+				, treq_byte_en := 0
+			  ]
+				, treqmsg := LET x : TargetReqIfcMsg = mkTargetReqIfcMsg
+			  IN x WITH [ treq_db_info := 0
+				, treq_msg_len := 0
+				, treq_msg_seg := 0
+				, treq_mbox := 0
+				, treq_letter := 0
+			  ]
+			  ]]( x WITH [ treqcntrl := LET x : TargetReqIfcCntrl = mkTargetReqIfcCntrl
+			  IN x WITH [ treq_sof := False
+				, treq_eof := False
+				, treq_vld := False
+			  ]
+				, treqdata := LET x : TargetReqIfcData = mkTargetReqIfcData
+			  IN x WITH [ treq_tt := 0
+				, treq_data := 0
+				, treq_crf := False
+				, treq_prio := 0
+				, treq_ftype := 0
+				, treq_destid := 0
+				, treq_sourceid := 0
+				, treq_tid := 0
+				, treq_ttype := 0
+				, treq_addr := 0
+				, treq_byte_count := 0
+				, treq_byte_en := 0
+			  ]
+				, treqmsg := LET x : TargetReqIfcMsg = mkTargetReqIfcMsg
+			  IN x WITH [ treq_db_info := 0
+				, treq_msg_len := 0
+				, treq_msg_seg := 0
+				, treq_mbox := 0
+				, treq_letter := 0
+			  ]
+			  ])
+		  , wr_TgtReqIfcMsg : TargetReqIfcMsg = LET x : TargetReqIfcMsg = mkTargetReqIfcMsg
+			  IN x WITH [ treq_db_info := 0
+				, treq_msg_len := 0
+				, treq_msg_seg := 0
+				, treq_mbox := 0
+				, treq_letter := 0
+			  ]
+		  , wr_TgtReqIfcData : TargetReqIfcData = LET x : TargetReqIfcData = mkTargetReqIfcData
+			  IN x WITH [ treq_tt := 0
+				, treq_data := 0
+				, treq_crf := False
+				, treq_prio := 0
+				, treq_ftype := 0
+				, treq_destid := 0
+				, treq_sourceid := 0
+				, treq_tid := 0
+				, treq_ttype := 0
+				, treq_addr := 0
+				, treq_byte_count := 0
+				, treq_byte_en := 0
+			  ]
+		  , wr_TgtReqIfcCntrl : TargetReqIfcCntrl = LET x : TargetReqIfcCntrl = mkTargetReqIfcCntrl
+			  IN x WITH [ treq_sof := False
+				, treq_eof := False
+				, treq_vld := False
+			  ]
+		  , wr_InitRespIfcPkt : InitiatorRespIfcPkt = LET x : InitiatorRespIfcPkt = mkInitiatorRespIfcPkt
+			  IN Just[InitiatorRespIfcPkt,LET x : InitiatorRespIfcPkt = mkInitiatorRespIfcPkt
+			  IN x WITH [ irespcntrl := LET x : InitRespIfcCntrl = mkInitRespIfcCntrl
+			  IN x WITH [ iresp_sof := False
+				, iresp_eof := False
+				, iresp_vld := False
+			  ]
+				, irespdata := LET x : InitRespIfcData = mkInitRespIfcData
+			  IN x WITH [ iresp_tt := 0
+				, iresp_data := 0
+				, iresp_crf := False
+				, iresp_prio := 0
+				, iresp_ftype := 0
+				, iresp_ttype := 0
+				, iresp_destid := 0
+				, iresp_sourceid := 0
+				, iresp_status := 0
+				, iresp_tid := 0
+				, iresp_local := False
+			  ]
+				, irespmsg := LET x : InitRespIfcMsg = mkInitRespIfcMsg
+			  IN x WITH [ iresp_msg_seg := 0
+				, iresp_mbox := 0
+				, iresp_letter := 0
+			  ]
+			  ]]( x WITH [ irespcntrl := LET x : InitRespIfcCntrl = mkInitRespIfcCntrl
+			  IN x WITH [ iresp_sof := False
+				, iresp_eof := False
+				, iresp_vld := False
+			  ]
+				, irespdata := LET x : InitRespIfcData = mkInitRespIfcData
+			  IN x WITH [ iresp_tt := 0
+				, iresp_data := 0
+				, iresp_crf := False
+				, iresp_prio := 0
+				, iresp_ftype := 0
+				, iresp_ttype := 0
+				, iresp_destid := 0
+				, iresp_sourceid := 0
+				, iresp_status := 0
+				, iresp_tid := 0
+				, iresp_local := False
+			  ]
+				, irespmsg := LET x : InitRespIfcMsg = mkInitRespIfcMsg
+			  IN x WITH [ iresp_msg_seg := 0
+				, iresp_mbox := 0
+				, iresp_letter := 0
+			  ]
+			  ])
+		  , wr_InitRespIfcMsg : InitRespIfcMsg = LET x : InitRespIfcMsg = mkInitRespIfcMsg
+			  IN x WITH [ iresp_msg_seg := 0
+				, iresp_mbox := 0
+				, iresp_letter := 0
+			  ]
+		  , wr_InitRespIfcData : InitRespIfcData = LET x : InitRespIfcData = mkInitRespIfcData
+			  IN x WITH [ iresp_tt := 0
+				, iresp_data := 0
+				, iresp_crf := False
+				, iresp_prio := 0
+				, iresp_ftype := 0
+				, iresp_ttype := 0
+				, iresp_destid := 0
+				, iresp_sourceid := 0
+				, iresp_status := 0
+				, iresp_tid := 0
+				, iresp_local := False
+			  ]
+		  , wr_InitRespIfcCntrl : InitRespIfcCntrl = LET x : InitRespIfcCntrl = mkInitRespIfcCntrl
+			  IN x WITH [ iresp_sof := False
+				, iresp_eof := False
+				, iresp_vld := False
+			  ]
+		  , wr_RxTT : TT = outputs_TTReceived_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_MaxPktCount : Bit(4) = outputs_MaxPktCount_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxPrioField : Prio = outputs_RxPrioField_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxSourceId : SourceId = outputs_RxSourceId_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxDestId : DestId = outputs_RxDestId_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype11MessageData : Maybe[Ftype11MessageData, mkFtype11MessageData] = outputs_RxFtype11Data_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype13ResponseData : Maybe[Data, mkData] = outputs_RxFtype13ResponseData_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype8MaintainData : Maybe[Data, mkData] = outputs_RxFtype8MaintainData_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype6StreamData : Maybe[Ftype6StreamData, mkFtype6StreamData] = outputs_RxFtype6StreamData_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype13ResponsePkt : Maybe[FType13_ResponseClass, mkFType13_ResponseClass] = outputs_RxFtype13ResponseClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype11MessageHeaderPkt : Maybe[FType11_MESSAGEClass, mkFType11_MESSAGEClass] = outputs_RxFtype11MsgHeader_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype10DoorBellPkt : Maybe[FType10_DOORBELLClass, mkFType10_DOORBELLClass] = outputs_RxFtype10DoorBellClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype8MainPkt : Maybe[FType8_MaintenanceClass, mkFType8_MaintenanceClass] = outputs_RxFtype8MainReqClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype6StreamPkt : Maybe[FType6_StreamWrClass, mkFType6_StreamWrClass] = outputs_RxFtype6StreamClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype5WritePkt : Maybe[FType5_WriteClass, mkFType5_WriteClass] = outputs_RxFtype5WriteClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxFtype2ReqPkt : Maybe[FType2_RequestClass, mkFType2_RequestClass] = outputs_RxFtype2ReqClass_(0, pre, pre`rio_ModRxPktParsing)
+		  , wr_RxPktInfo : ReceivedPktsInfo = outputs_ReceivedPkts_(0, pre, pre`rio_ModRxPktParsing)
+		IN pre`rio_ModRxPktFtypeAnalyse with
+		      [ rg_LastDataDev16 := pre`rio_ModRxPktFtypeAnalyse`rg_LastDataDev16
+		      , rg_Ftype6StreamData := pre`rio_ModRxPktFtypeAnalyse`rg_Ftype6StreamData
+		      , rg_Ftype6TempDataDev8 := pre`rio_ModRxPktFtypeAnalyse`rg_Ftype6TempDataDev8
+		      , rg_TmpStreamDataDev16 := pre`rio_ModRxPktFtypeAnalyse`rg_TmpStreamDataDev16
+		      , rg_ByteCountValid := pre`rio_ModRxPktFtypeAnalyse`rg_ByteCountValid
+		      , rg_PktCount := pre`rio_ModRxPktFtypeAnalyse`rg_PktCount
+		      , rg_RxByteEn := pre`rio_ModRxPktFtypeAnalyse`rg_RxByteEn
+		      , rg_RxByteCount := pre`rio_ModRxPktFtypeAnalyse`rg_RxByteCount
+		      ]
+		    , rio_ModRxPktParsing := 
+		LET wr_ConfigOffset : Offset = 0
+		  , wr_TxReady_In : bool = outputs_TxReadyOut_From_Analyze_(0, pre, pre`rio_ModRxPktFtypeAnalyse)
+		  , wr_PktCount : Bit(4) = 0
+		  , wr_DataPkt : DataPkt = 0
+		  , wr_HeaderPkt : DataPkt = 0
+		  , wr_PktParseRx_crf : bool = False
+		  , wr_PktParseRx_rem : Bit(4) = 0
+		  , wr_PktParseRx_data : DataPkt = 0
+		  , wr_PktParseRx_VLD : bool = False
+		  , wr_PktParseRx_EOF : bool = False
+		  , wr_PktParseRx_SOF : bool = False
+		IN pre`rio_ModRxPktParsing with
+		      [ rg_RespClassData := pre`rio_ModRxPktParsing`rg_RespClassData
+		      , rg_Dev16TempRespData := pre`rio_ModRxPktParsing`rg_Dev16TempRespData
+		      , rg_Dev8TempRespData := pre`rio_ModRxPktParsing`rg_Dev8TempRespData
+		      , rg_Ftype11LastPktDev16 := pre`rio_ModRxPktParsing`rg_Ftype11LastPktDev16
+		      , rg_Ftype11Tmp_MessageData := pre`rio_ModRxPktParsing`rg_Ftype11Tmp_MessageData
+		      , rg_Ftype11PktCount := pre`rio_ModRxPktParsing`rg_Ftype11PktCount
+		      , rg_HeaderPktFtype11 := pre`rio_ModRxPktParsing`rg_HeaderPktFtype11
+		      , rg_Ftype11_MessageData := pre`rio_ModRxPktParsing`rg_Ftype11_MessageData
+		      , rg_Ftype11_MessageHeader := pre`rio_ModRxPktParsing`rg_Ftype11_MessageHeader
+		      , rg_Ftype10_DoorBellClass := pre`rio_ModRxPktParsing`rg_Ftype10_DoorBellClass
+		      , rg_MaintenanceWrData := pre`rio_ModRxPktParsing`rg_MaintenanceWrData
+		      , rg_UpperBitOffset := pre`rio_ModRxPktParsing`rg_UpperBitOffset
+		      , rg_Ftype6LastPkt := pre`rio_ModRxPktParsing`rg_Ftype6LastPkt
+		      , rg_HeaderPktFtype6 := pre`rio_ModRxPktParsing`rg_HeaderPktFtype6
+		      , rg_Ftype6PktCount := pre`rio_ModRxPktParsing`rg_Ftype6PktCount
+		      , rg_Ftype6LastData := pre`rio_ModRxPktParsing`rg_Ftype6LastData
+		      , rg_Ftype6XAMSBSDev16 := pre`rio_ModRxPktParsing`rg_Ftype6XAMSBSDev16
+		      , rg_Ftype6AddrDev16 := pre`rio_ModRxPktParsing`rg_Ftype6AddrDev16
+		      , rg_StreamData := pre`rio_ModRxPktParsing`rg_StreamData
+		      , rg_TmpStreamDataDev16 := pre`rio_ModRxPktParsing`rg_TmpStreamDataDev16
+		      , rg_TmpStreamDataDev8 := pre`rio_ModRxPktParsing`rg_TmpStreamDataDev8
+		      , rg_Ftype5TempData := pre`rio_ModRxPktParsing`rg_Ftype5TempData
+		      , rg_Ftype5Addr := pre`rio_ModRxPktParsing`rg_Ftype5Addr
+		      , pkt_Separation := 
+		LET wr_VLD : bool = False
+		  , wr_EOF : bool = False
+		  , wr_SOF : bool = False
+		  , wr_IncomingPkt : DataPkt = 0
+		IN pre`rio_ModRxPktParsing`pkt_Separation with
+		        [ rg_EOF := pre`rio_ModRxPktParsing`pkt_Separation`rg_EOF
+		        , rg_LastPkt := pre`rio_ModRxPktParsing`pkt_Separation`rg_LastPkt
+		        , rg_PktCount := pre`rio_ModRxPktParsing`pkt_Separation`rg_PktCount
+		        , rg_DataPkt := pre`rio_ModRxPktParsing`pkt_Separation`rg_DataPkt
+		        , rg_HeaderPkt := pre`rio_ModRxPktParsing`pkt_Separation`rg_HeaderPkt
+		        ]
+		      , rg_Ftype13_ResponseClass := pre`rio_ModRxPktParsing`rg_Ftype13_ResponseClass
+		      , rg_Ftype8_MaintenanceClass := pre`rio_ModRxPktParsing`rg_Ftype8_MaintenanceClass
+		      , rg_Ftype6_StreamWrClass := pre`rio_ModRxPktParsing`rg_Ftype6_StreamWrClass
+		      , rg_Ftype5_WrClass := pre`rio_ModRxPktParsing`rg_Ftype5_WrClass
+		      , rg_Ftype2_ReqClass := pre`rio_ModRxPktParsing`rg_Ftype2_ReqClass
+		      , rg_RxRem := pre`rio_ModRxPktParsing`rg_RxRem
+		      , rg_HopCountReceived := pre`rio_ModRxPktParsing`rg_HopCountReceived
+		      , rg_SrcIDReceived := pre`rio_ModRxPktParsing`rg_SrcIDReceived
+		      , rg_DestIDReceived := pre`rio_ModRxPktParsing`rg_DestIDReceived
+		      , rg_PrioReceived := pre`rio_ModRxPktParsing`rg_PrioReceived
+		      , rg_TTReceived := pre`rio_ModRxPktParsing`rg_TTReceived
+		      , rg_LastPkt := pre`rio_ModRxPktParsing`rg_LastPkt
+		      , rg_PktCount := pre`rio_ModRxPktParsing`rg_PktCount
+		      , rg_DataPkt := pre`rio_ModRxPktParsing`rg_DataPkt
+		      , rg_HeaderPkt := pre`rio_ModRxPktParsing`rg_HeaderPkt
+		      ]
+		    , rio_ModInsIOPktGeneration := 
+		LET wr_PktGenTranmitIfcFirst : Transmit_Pkt = LET x : Transmit_Pkt = mkTransmit_Pkt
+			  IN x WITH [ sof := False
+				, eof := False
+				, vld := False
+				, data := 0
+				, txrem := 0
+				, crf := False
+			  ]
+		  , wr_TxRem_Ftype13 : Bit(4) = 0
+		  , wr_TxRem_Ftype11 : Bit(4) = 0
+		  , wr_TxRem_Ftype10 : Bit(4) = 0
+		  , wr_TxRem_Ftype8 : Bit(4) = 0
+		  , wr_TxRem_Ftype6 : Bit(4) = 0
+		  , wr_TxRem_Ftype5 : Bit(4) = 0
+		  , wr_TxRem_Ftype2 : Bit(4) = 0
+		  , wr_EOF_Ftype13Vld : bool = False
+		  , wr_EOF_Ftype11Vld : bool = False
+		  , wr_EOF_Ftype10Vld : bool = False
+		  , wr_EOF_Ftype8Vld : bool = False
+		  , wr_EOF_Ftype6Vld : bool = False
+		  , wr_EOF_Ftype5Vld : bool = False
+		  , wr_EOF_Ftype2Vld : bool = False
+		  , wr_SOF_Ftype13Vld : bool = False
+		  , wr_SOF_Ftype11Vld : bool = False
+		  , wr_SOF_Ftype10Vld : bool = False
+		  , wr_SOF_Ftype8Vld : bool = False
+		  , wr_SOF_Ftype6Vld : bool = False
+		  , wr_SOF_Ftype5Vld : bool = False
+		  , wr_SOF_Ftype2Vld : bool = False
+		  , wr_OutputFtype13Vld : bool = False
+		  , wr_OutputFtype11Vld : bool = False
+		  , wr_OutputFtype10Vld : bool = False
+		  , wr_OutputFtype8Vld : bool = False
+		  , wr_OutputFtype6Vld : bool = False
+		  , wr_OutputFtype5Vld : bool = False
+		  , wr_OutputFtype2Vld : bool = False
+		  , wr_OutputFtype13DataPkt : DataPkt = 0
+		  , wr_OutputFtype11DataPkt : DataPkt = 0
+		  , wr_OutputFtype10DataPkt : DataPkt = 0
+		  , wr_OutputFtype8MRespDataPkt : DataPkt = 0
+		  , wr_OutputFtype6DataPkt : DataPkt = 0
+		  , wr_OutputFtype5DataPkt : DataPkt = 0
+		  , wr_OutputFtype2DataPkt : DataPkt = 0
+		  , rg_SourceId : SourceId = 0
+		  , rg_DestId : DestId = 0
+		  , wr_r_x : Bit(6480) = 0
+		  , wr_d_x : Bit(6464) = 0
+		  , wr_z : Bit(6432) = 0
+		  , wr_y : Bit(6448) = 0
+		  , wr_x : Bit(6416) = 0
+		  , wr_RxReady_In : bool = False
+		  , wr_InitReqDataCount : InitReqDataInput = outputs_InitReqDataCount_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_MaintainRespInput : MaintenanceRespIfcPkt = outputs_MaintainRespIfcPkt_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_TgtRespInput : TargetRespIfcPkt = outputs_TgtRespIfcPkt_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_InitReqInput : InitiatorReqIfcPkt = outputs_InitReqIfcPkt_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype13RespInput : FType13_ResponseClass = outputs_Ftype13_IORespPacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype11MESSAGECsInput : FType11_MESSAGEClass = outputs_Ftype11_MESSAGEClass_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype9DataStreamInput : FType9_DataStreamingClass = outputs_Ftype9_DataStreamingPacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype10DOORBELLCsInput : FType10_DOORBELLClass = outputs_Ftype10_MgDOORBELLClass_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype8MtnRespInput : FType8_MaintenanceClass = outputs_Ftype8_IOMaintenancePacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype6WrStreamInput : FType6_StreamWrClass = outputs_Ftype6_IOStreamWrClassPacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype5WrCsInput : FType5_WriteClass = outputs_Ftype5_IOWrClassPacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_Ftype2ReqInput : FType2_RequestClass = outputs_Ftype2_IOReqClassPacket_(0, pre, pre`rio_ModInsConcatenation)
+		  , ff_TransmitPktIfcFIFO_enq = pre`rio_ModInsIOPktGeneration`ff_TransmitPktIfcFIFO
+		  , ff_TransmitPktIfcFIFO_deq = ff_TransmitPktIfcFIFO_enq
+		  , ff_TransmitPktIfcFIFO_clear = ff_TransmitPktIfcFIFO_deq
+		IN pre`rio_ModInsIOPktGeneration with
+		      [ rg_MaintainTempData1 := pre`rio_ModInsIOPktGeneration`rg_MaintainTempData1
+		      , rg_MaintainTempData := pre`rio_ModInsIOPktGeneration`rg_MaintainTempData
+		      , rg_Ftype6LastData4Delay := pre`rio_ModInsIOPktGeneration`rg_Ftype6LastData4Delay
+		      , rg_Ftype6DataValid1Delayed := pre`rio_ModInsIOPktGeneration`rg_Ftype6DataValid1Delayed
+		      , rg_Ftype6LastData3Delay := pre`rio_ModInsIOPktGeneration`rg_Ftype6LastData3Delay
+		      , rg_Ftype11DataValid := pre`rio_ModInsIOPktGeneration`rg_Ftype11DataValid
+		      , rg_Ftype11LastDeta2Delay := pre`rio_ModInsIOPktGeneration`rg_Ftype11LastDeta2Delay
+		      , rg_Ftype6LastData2Delay := pre`rio_ModInsIOPktGeneration`rg_Ftype6LastData2Delay
+		      , rg_Ftype6DataInput := pre`rio_ModInsIOPktGeneration`rg_Ftype6DataInput
+		      , rg_Ftype6DataValid := pre`rio_ModInsIOPktGeneration`rg_Ftype6DataValid
+		      , ff_TransmitPktIfcFIFO := ff_TransmitPktIfcFIFO_clear
+		      , 
+		rg_Ftype13InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`ttype
+		        , status := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`status
+		        , tgtTID := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`tgtTID
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype13InputValid`data
+		        ]
+		      , 
+		rg_Ftype11InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`ftype
+		        , msglen := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`msglen
+		        , ssize := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`ssize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`srcTID
+		        , letter := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`letter
+		        , mbox := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`mbox
+		        , msgseg := pre`rio_ModInsIOPktGeneration`rg_Ftype11InputValid`msgseg
+		        ]
+		      , 
+		rg_Ftype10InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid`ftype
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid`srcTID
+		        , info_msb := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid`info_msb
+		        , info_lsb := pre`rio_ModInsIOPktGeneration`rg_Ftype10InputValid`info_lsb
+		        ]
+		      , 
+		rg_Ftype8MRespInputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`ttype
+		        , size := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`size
+		        , tranID := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`tranID
+		        , config_offset := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`config_offset
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`wdptr
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputValid`data
+		        ]
+		      , 
+		rg_Ftype6InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype6InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype6InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype6InputValid`ftype
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype6InputValid`addr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype6InputValid`xamsbs
+		        ]
+		      , 
+		rg_Ftype5InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`ttype
+		        , wrsize := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`wrsize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`srcTID
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`addr
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`wdptr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`xamsbs
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype5InputValid`data
+		        ]
+		      , 
+		rg_Ftype2InputValid := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`ttype
+		        , rdsize := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`rdsize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`srcTID
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`addr
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`wdptr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype2InputValid`xamsbs
+		        ]
+		      , rg_Ftype13RespData := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespData
+		      , rg_Ftype11DataValidDelayed := pre`rio_ModInsIOPktGeneration`rg_Ftype11DataValidDelayed
+		      , rg_Ftype5DataValidDelayed := pre`rio_ModInsIOPktGeneration`rg_Ftype5DataValidDelayed
+		      , rg_Ftype6DataValidDelayed := pre`rio_ModInsIOPktGeneration`rg_Ftype6DataValidDelayed
+		      , rg_MRespHeaderNotComplete := pre`rio_ModInsIOPktGeneration`rg_MRespHeaderNotComplete
+		      , rg_Ftype13HeaderNotComplete1 := pre`rio_ModInsIOPktGeneration`rg_Ftype13HeaderNotComplete1
+		      , rg_Ftype13HeaderNotComplete := pre`rio_ModInsIOPktGeneration`rg_Ftype13HeaderNotComplete
+		      , rg_Ftype8HeaderNotComplete3 := pre`rio_ModInsIOPktGeneration`rg_Ftype8HeaderNotComplete3
+		      , rg_Ftype8HeaderNotComplete2 := pre`rio_ModInsIOPktGeneration`rg_Ftype8HeaderNotComplete2
+		      , rg_Ftype8HeaderNotComplete1 := pre`rio_ModInsIOPktGeneration`rg_Ftype8HeaderNotComplete1
+		      , rg_Ftype8HeaderNotComplete := pre`rio_ModInsIOPktGeneration`rg_Ftype8HeaderNotComplete
+		      , rg_Ftype6HeaderNotComplete1 := pre`rio_ModInsIOPktGeneration`rg_Ftype6HeaderNotComplete1
+		      , rg_Ftype6HeaderNotComplete := pre`rio_ModInsIOPktGeneration`rg_Ftype6HeaderNotComplete
+		      , rg_Ftype5HeaderNotComplete1 := pre`rio_ModInsIOPktGeneration`rg_Ftype5HeaderNotComplete1
+		      , rg_Ftype5HeaderNotComplete := pre`rio_ModInsIOPktGeneration`rg_Ftype5HeaderNotComplete
+		      , rg_CurrentMaintainRespByteCount := pre`rio_ModInsIOPktGeneration`rg_CurrentMaintainRespByteCount
+		      , rg_CurrentTgtRespByteCount := pre`rio_ModInsIOPktGeneration`rg_CurrentTgtRespByteCount
+		      , rg_CurrentInitReqByteCount := pre`rio_ModInsIOPktGeneration`rg_CurrentInitReqByteCount
+		      , rg_InitReqByteCount := pre`rio_ModInsIOPktGeneration`rg_InitReqByteCount
+		      , rg_OutputDataPkt := pre`rio_ModInsIOPktGeneration`rg_OutputDataPkt
+		      , 
+		rg_MaintainRespInput2Delay := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay with
+		        [ 
+		mrespcntrl := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespcntrl with
+		          [ mresp_sof := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespcntrl`mresp_sof
+		          , mresp_eof := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespcntrl`mresp_eof
+		          , mresp_vld := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespcntrl`mresp_vld
+		          ]
+		        , 
+		mrespdata := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata with
+		          [ mresp_tt := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_tt
+		          , mresp_data := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_data
+		          , mresp_crf := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_crf
+		          , mresp_prio := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_prio
+		          , mresp_ftype := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_ftype
+		          , mresp_ttype := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_ttype
+		          , mresp_dest_id := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_dest_id
+		          , mresp_hop_count := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_hop_count
+		          , mresp_tid := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_tid
+		          , mresp_local := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_local
+		          , mresp_status := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput2Delay`mrespdata`mresp_status
+		          ]
+		        ]
+		      , 
+		rg_MaintainRespInput1Delay := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay with
+		        [ 
+		mrespcntrl := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespcntrl with
+		          [ mresp_sof := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespcntrl`mresp_sof
+		          , mresp_eof := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespcntrl`mresp_eof
+		          , mresp_vld := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespcntrl`mresp_vld
+		          ]
+		        , 
+		mrespdata := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata with
+		          [ mresp_tt := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_tt
+		          , mresp_data := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_data
+		          , mresp_crf := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_crf
+		          , mresp_prio := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_prio
+		          , mresp_ftype := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_ftype
+		          , mresp_ttype := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_ttype
+		          , mresp_dest_id := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_dest_id
+		          , mresp_hop_count := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_hop_count
+		          , mresp_tid := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_tid
+		          , mresp_local := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_local
+		          , mresp_status := pre`rio_ModInsIOPktGeneration`rg_MaintainRespInput1Delay`mrespdata`mresp_status
+		          ]
+		        ]
+		      , 
+		rg_TgtRespInput2Delay := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay with
+		        [ 
+		trespcntrl := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespcntrl with
+		          [ tresp_sof := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespcntrl`tresp_sof
+		          , tresp_eof := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespcntrl`tresp_eof
+		          , tresp_vld := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespcntrl`tresp_vld
+		          , tresp_dsc := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespcntrl`tresp_dsc
+		          ]
+		        , 
+		trespdata := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata with
+		          [ tresp_tt := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_tt
+		          , tresp_data := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_data
+		          , tresp_crf := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_crf
+		          , tresp_prio := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_prio
+		          , tresp_ftype := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_ftype
+		          , tresp_dest_id := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_dest_id
+		          , tresp_status := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_status
+		          , tresp_tid := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_tid
+		          , tresp_ttype := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_ttype
+		          , tresp_no_data := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespdata`tresp_no_data
+		          ]
+		        , 
+		trespmsg := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespmsg with
+		          [ tresp_msg_seg := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespmsg`tresp_msg_seg
+		          , tresp_mbox := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespmsg`tresp_mbox
+		          , tresp_letter := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput2Delay`trespmsg`tresp_letter
+		          ]
+		        ]
+		      , 
+		rg_TgtRespInput1Delay := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay with
+		        [ 
+		trespcntrl := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespcntrl with
+		          [ tresp_sof := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespcntrl`tresp_sof
+		          , tresp_eof := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespcntrl`tresp_eof
+		          , tresp_vld := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespcntrl`tresp_vld
+		          , tresp_dsc := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespcntrl`tresp_dsc
+		          ]
+		        , 
+		trespdata := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata with
+		          [ tresp_tt := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_tt
+		          , tresp_data := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_data
+		          , tresp_crf := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_crf
+		          , tresp_prio := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_prio
+		          , tresp_ftype := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_ftype
+		          , tresp_dest_id := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_dest_id
+		          , tresp_status := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_status
+		          , tresp_tid := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_tid
+		          , tresp_ttype := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_ttype
+		          , tresp_no_data := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespdata`tresp_no_data
+		          ]
+		        , 
+		trespmsg := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespmsg with
+		          [ tresp_msg_seg := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespmsg`tresp_msg_seg
+		          , tresp_mbox := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespmsg`tresp_mbox
+		          , tresp_letter := pre`rio_ModInsIOPktGeneration`rg_TgtRespInput1Delay`trespmsg`tresp_letter
+		          ]
+		        ]
+		      , 
+		rg_InitReqInput2Delay := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay with
+		        [ 
+		ireqcntrl := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqcntrl with
+		          [ ireq_sof := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqcntrl`ireq_sof
+		          , ireq_eof := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqcntrl`ireq_eof
+		          , ireq_vld := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqcntrl`ireq_vld
+		          , ireq_dsc := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqcntrl`ireq_dsc
+		          ]
+		        , 
+		ireqdata := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata with
+		          [ ireq_tt := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_tt
+		          , ireq_data := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_data
+		          , ireq_crf := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_crf
+		          , ireq_prio := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_prio
+		          , ireq_ftype := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_ftype
+		          , ireq_destid := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_destid
+		          , ireq_addr := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_addr
+		          , ireq_hopcount := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_hopcount
+		          , ireq_tid := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_tid
+		          , ireq_ttype := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_ttype
+		          , ireq_byte_count := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_byte_count
+		          , ireq_byte_en := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_byte_en
+		          , ireq_local := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqdata`ireq_local
+		          ]
+		        , 
+		ireqmsg := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg with
+		          [ ireq_db_info := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg`ireq_db_info
+		          , ireq_msg_len := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg`ireq_msg_len
+		          , ireq_msg_seg := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg`ireq_msg_seg
+		          , ireq_mbox := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg`ireq_mbox
+		          , ireq_letter := pre`rio_ModInsIOPktGeneration`rg_InitReqInput2Delay`ireqmsg`ireq_letter
+		          ]
+		        ]
+		      , 
+		rg_InitReqInput1Delay := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay with
+		        [ 
+		ireqcntrl := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqcntrl with
+		          [ ireq_sof := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqcntrl`ireq_sof
+		          , ireq_eof := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqcntrl`ireq_eof
+		          , ireq_vld := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqcntrl`ireq_vld
+		          , ireq_dsc := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqcntrl`ireq_dsc
+		          ]
+		        , 
+		ireqdata := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata with
+		          [ ireq_tt := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_tt
+		          , ireq_data := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_data
+		          , ireq_crf := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_crf
+		          , ireq_prio := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_prio
+		          , ireq_ftype := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_ftype
+		          , ireq_destid := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_destid
+		          , ireq_addr := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_addr
+		          , ireq_hopcount := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_hopcount
+		          , ireq_tid := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_tid
+		          , ireq_ttype := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_ttype
+		          , ireq_byte_count := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_byte_count
+		          , ireq_byte_en := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_byte_en
+		          , ireq_local := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqdata`ireq_local
+		          ]
+		        , 
+		ireqmsg := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg with
+		          [ ireq_db_info := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg`ireq_db_info
+		          , ireq_msg_len := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg`ireq_msg_len
+		          , ireq_msg_seg := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg`ireq_msg_seg
+		          , ireq_mbox := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg`ireq_mbox
+		          , ireq_letter := pre`rio_ModInsIOPktGeneration`rg_InitReqInput1Delay`ireqmsg`ireq_letter
+		          ]
+		        ]
+		      , 
+		rg_Ftype13RespInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`ttype
+		        , status := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`status
+		        , tgtTID := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`tgtTID
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype13RespInputDelay`data
+		        ]
+		      , 
+		rg_Ftype11MsgCsInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`ftype
+		        , msglen := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`msglen
+		        , ssize := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`ssize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`srcTID
+		        , letter := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`letter
+		        , mbox := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`mbox
+		        , msgseg := pre`rio_ModInsIOPktGeneration`rg_Ftype11MsgCsInputDelay`msgseg
+		        ]
+		      , 
+		rg_Ftype10DoorbellCsInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay`ftype
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay`srcTID
+		        , info_msb := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay`info_msb
+		        , info_lsb := pre`rio_ModInsIOPktGeneration`rg_Ftype10DoorbellCsInputDelay`info_lsb
+		        ]
+		      , 
+		rg_Ftype8MRespInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`ttype
+		        , size := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`size
+		        , tranID := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`tranID
+		        , config_offset := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`config_offset
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`wdptr
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype8MRespInputDelay`data
+		        ]
+		      , 
+		rg_Ftype6WrStreamInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype6WrStreamInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype6WrStreamInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype6WrStreamInputDelay`ftype
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype6WrStreamInputDelay`addr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype6WrStreamInputDelay`xamsbs
+		        ]
+		      , 
+		rg_Ftype5WrCsInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`ttype
+		        , wrsize := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`wrsize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`srcTID
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`addr
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`wdptr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`xamsbs
+		        , data := pre`rio_ModInsIOPktGeneration`rg_Ftype5WrCsInputDelay`data
+		        ]
+		      , 
+		rg_Ftype2ReqInputDelay := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay with
+		        [ tt := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`tt
+		        , ftype := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`ftype
+		        , ttype := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`ttype
+		        , rdsize := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`rdsize
+		        , srcTID := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`srcTID
+		        , addr := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`addr
+		        , wdptr := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`wdptr
+		        , xamsbs := pre`rio_ModInsIOPktGeneration`rg_Ftype2ReqInputDelay`xamsbs
+		        ]
+		      , rg_InitReqInputData := (outputs_InitReqIfcPkt_(0, pre, pre`rio_ModInsConcatenation))`ireqdata`ireq_data
+		      , rg_TxRem := pre`rio_ModInsIOPktGeneration`rg_TxRem
+		      , pkgen_VLD_n := pre`rio_ModInsIOPktGeneration`pkgen_VLD_n
+		      , pkgen_DSC_n := pre`rio_ModInsIOPktGeneration`pkgen_DSC_n
+		      , pkgen_EOF_n := pre`rio_ModInsIOPktGeneration`pkgen_EOF_n
+		      , pkgen_SOF_n := pre`rio_ModInsIOPktGeneration`pkgen_SOF_n
+		      , 
+		rg_InitReqDataCount := pre`rio_ModInsIOPktGeneration`rg_InitReqDataCount with
+		        [ lastdata := (outputs_InitReqDataCount_(0, pre, pre`rio_ModInsConcatenation))`lastdata
+		        , datacount := (outputs_InitReqDataCount_(0, pre, pre`rio_ModInsConcatenation))`datacount
+		        ]
+		      ]
+		    , rio_ModInsConcatenation := 
+		LET wr_Ftype11_MESSAGEPkt : FType11_MESSAGEClass = LET x : FType11_MESSAGEClass = mkFType11_MESSAGEClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, msglen := 0
+				, ssize := 0
+				, srcTID := 0
+				, letter := 0
+				, mbox := 0
+				, msgseg := 0
+			  ]
+		  , wr_Ftype10_DOORBELLPkt : FType10_DOORBELLClass = LET x : FType10_DOORBELLClass = mkFType10_DOORBELLClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, srcTID := 0
+				, info_msb := 0
+				, info_lsb := 0
+			  ]
+		  , wr_Ftype8_MaintenanceResp : FType8_MaintenanceClass = LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, ttype := 0
+				, size := 0
+				, tranID := 0
+				, config_offset := 0
+				, wdptr := 0
+				, data := Nothing[Data,mkData]
+			  ]
+		  , wr_Ftype13_Response : FType13_ResponseClass = LET x : FType13_ResponseClass = mkFType13_ResponseClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, ttype := 0
+				, status := 0
+				, tgtTID := 0
+				, data := Nothing[Data,mkData]
+			  ]
+		  , wr_Ftype6_StreamWrPkt : FType6_StreamWrClass = LET x : FType6_StreamWrClass = mkFType6_StreamWrClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, addr := 0
+				, xamsbs := 0
+			  ]
+		  , wr_Ftype5_WritePkt : FType5_WriteClass = LET x : FType5_WriteClass = mkFType5_WriteClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, ttype := 0
+				, wrsize := 0
+				, srcTID := 0
+				, addr := 0
+				, wdptr := 0
+				, xamsbs := 0
+				, data := Nothing[Data,mkData]
+			  ]
+		  , wr_Ftype2_RequestPkt : FType2_RequestClass = LET x : FType2_RequestClass = mkFType2_RequestClass
+			  IN x WITH [ tt := 0
+				, ftype := 0
+				, ttype := 0
+				, rdsize := 0
+				, srcTID := 0
+				, addr := 0
+				, wdptr := 0
+				, xamsbs := 0
+			  ]
+		  , wr_Read : bool = False
+		  , wr_MaintainRespIfc : MaintenanceRespIfcPkt = outputs_MaintainRespIfcPkt_(0, pre, pre`rio_ModInsMaintenanceRespIFC)
+		  , wr_MrespEOF : bool = False
+		  , wr_MrespSOF : bool = False
+		  , wr_TgtRespIfc : TargetRespIfcPkt = outputs_TgtRespIfcPkt_(0, pre, pre`rio_ModInsTgtRespIFC)
+		  , wr_TrespEOF : bool = False
+		  , wr_TrespSOF : bool = False
+		  , wr_x : Bit(6416) = 0
+		  , wr_InitReqIfc : InitiatorReqIfcPkt = outputs_InitReqIfcPkt_(0, pre, pre`rio_ModInsInitReqIFC)
+		  , wr_IreqEOF : bool = False
+		  , wr_IreqSOF : bool = False
+		  , wr_RxReadyIn : bool = outputs_RxRdy_From_Dest_(0, pre, pre`rio_ModInsIOPktGeneration)
+		  , wr_MaintenanceRespIfcPkt : MaintenanceRespIfcPkt = outputs_MaintainRespIfcPkt_(0, pre, pre`rio_ModInsMaintenanceRespIFC)
+		  , wr_TgtRespIfcPkt : TargetRespIfcPkt = outputs_TgtRespIfcPkt_(0, pre, pre`rio_ModInsTgtRespIFC)
+		  , wr_InitReqIfcPkt : InitiatorReqIfcPkt = outputs_InitReqIfcPkt_(0, pre, pre`rio_ModInsInitReqIFC)
+		IN pre`rio_ModInsConcatenation with
+		      [ mod_ConvertByteCountToSizeWdPtr := 
+		LET wr_WdPointer : WdPointer = 0
+		  , wr_Size : Size = 0
+		  , wr_ByteEn : ByteEn = 0
+		  , wr_ByteCount : ByteCount = 0
+		  , wr_Read : bool = False
+		IN pre`rio_ModInsConcatenation`mod_ConvertByteCountToSizeWdPtr with
+		        [ reg_WdPointer := pre`rio_ModInsConcatenation`mod_ConvertByteCountToSizeWdPtr`reg_WdPointer
+		        , reg_Size := pre`rio_ModInsConcatenation`mod_ConvertByteCountToSizeWdPtr`reg_Size
+		        ]
+		      , rg_DataCount := pre`rio_ModInsConcatenation`rg_DataCount
+		      , rg_LastData := pre`rio_ModInsConcatenation`rg_LastData
+		      ]
+		    , rio_ModInsMaintenanceReqIFC := 
+		LET wr_MReqIfcPkt : MaintenanceReqIfcPkt = if (Just?(outputs_MaintainReqIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse)))
+		        then LET mreqifc = (outputs_MaintainReqIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse))`value
+			IN mreqifc
+		        else LET x : MaintenanceReqIfcPkt = mkMaintenanceReqIfcPkt
+			  IN x WITH [ mreqcntrl := LET x : MaintenanceReqIfcCntrl = mkMaintenanceReqIfcCntrl
+			  IN x WITH [ mreq_sof := False
+				, mreq_eof := False
+				, mreq_vld := False
+			  ]
+				, mreqdata := LET x : MaintenanceReqIfcData = mkMaintenanceReqIfcData
+			  IN x WITH [ mreq_tt := 0
+				, mreq_data := 0
+				, mreq_crf := False
+				, mreq_prio := 0
+				, mreq_ftype := 0
+				, mreq_ttype := 0
+				, mreq_dest_id := 0
+				, mreq_source_id := 0
+				, mreq_tid := 0
+				, mreq_offset := 0
+				, mreq_byte_en := 0
+				, mreq_byte_count := 0
+				, mreq_local := False
+			  ]
+			  ]
+		      endif
+		  , wr_MReq_Rdy : bool = False
+		IN pre`rio_ModInsMaintenanceReqIFC
+		    , rio_ModInsTgtReqIFC := 
+		LET wr_TargetReqIfcPktFirst : TargetReqIfcPkt = LET x : TargetReqIfcPkt = mkTargetReqIfcPkt
+			  IN x WITH [ treqcntrl := LET x : TargetReqIfcCntrl = mkTargetReqIfcCntrl
+			  IN x WITH [ treq_sof := False
+				, treq_eof := False
+				, treq_vld := False
+			  ]
+				, treqdata := LET x : TargetReqIfcData = mkTargetReqIfcData
+			  IN x WITH [ treq_tt := 0
+				, treq_data := 0
+				, treq_crf := False
+				, treq_prio := 0
+				, treq_ftype := 0
+				, treq_destid := 0
+				, treq_sourceid := 0
+				, treq_tid := 0
+				, treq_ttype := 0
+				, treq_addr := 0
+				, treq_byte_count := 0
+				, treq_byte_en := 0
+			  ]
+				, treqmsg := LET x : TargetReqIfcMsg = mkTargetReqIfcMsg
+			  IN x WITH [ treq_db_info := 0
+				, treq_msg_len := 0
+				, treq_msg_seg := 0
+				, treq_mbox := 0
+				, treq_letter := 0
+			  ]
+			  ]
+		  , wr_TgtReq_rdy : bool = False
+		  , wr_TargetReqIfcPkt : TargetReqIfcPkt = if (Just?(outputs_TargetReqIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse)))
+		        then LET tgtreqifc = (outputs_TargetReqIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse))`value
+			IN tgtreqifc
+		        else LET x : TargetReqIfcPkt = mkTargetReqIfcPkt
+			  IN x WITH [ treqcntrl := LET x : TargetReqIfcCntrl = mkTargetReqIfcCntrl
+			  IN x WITH [ treq_sof := False
+				, treq_eof := False
+				, treq_vld := False
+			  ]
+				, treqdata := LET x : TargetReqIfcData = mkTargetReqIfcData
+			  IN x WITH [ treq_tt := 0
+				, treq_data := 0
+				, treq_crf := False
+				, treq_prio := 0
+				, treq_ftype := 0
+				, treq_destid := 0
+				, treq_sourceid := 0
+				, treq_tid := 0
+				, treq_ttype := 0
+				, treq_addr := 0
+				, treq_byte_count := 0
+				, treq_byte_en := 0
+			  ]
+				, treqmsg := LET x : TargetReqIfcMsg = mkTargetReqIfcMsg
+			  IN x WITH [ treq_db_info := 0
+				, treq_msg_len := 0
+				, treq_msg_seg := 0
+				, treq_mbox := 0
+				, treq_letter := 0
+			  ]
+			  ]
+		      endif
+		  , ff_TargetReqIfcFIFOF_enq = pre`rio_ModInsTgtReqIFC`ff_TargetReqIfcFIFOF
+		  , ff_TargetReqIfcFIFOF_deq = ff_TargetReqIfcFIFOF_enq
+		  , ff_TargetReqIfcFIFOF_clear = ff_TargetReqIfcFIFOF_deq
+		IN pre`rio_ModInsTgtReqIFC with
+		      [ ff_TargetReqIfcFIFOF := ff_TargetReqIfcFIFOF_clear
+		      ]
+		    , rio_ModInsInitRespIFC := 
+		LET wr_InitRespIfcPktFirst : InitiatorRespIfcPkt = LET x : InitiatorRespIfcPkt = mkInitiatorRespIfcPkt
+			  IN x WITH [ irespcntrl := LET x : InitRespIfcCntrl = mkInitRespIfcCntrl
+			  IN x WITH [ iresp_sof := False
+				, iresp_eof := False
+				, iresp_vld := False
+			  ]
+				, irespdata := LET x : InitRespIfcData = mkInitRespIfcData
+			  IN x WITH [ iresp_tt := 0
+				, iresp_data := 0
+				, iresp_crf := False
+				, iresp_prio := 0
+				, iresp_ftype := 0
+				, iresp_ttype := 0
+				, iresp_destid := 0
+				, iresp_sourceid := 0
+				, iresp_status := 0
+				, iresp_tid := 0
+				, iresp_local := False
+			  ]
+				, irespmsg := LET x : InitRespIfcMsg = mkInitRespIfcMsg
+			  IN x WITH [ iresp_msg_seg := 0
+				, iresp_mbox := 0
+				, iresp_letter := 0
+			  ]
+			  ]
+		  , wr_InitRespIfcPkt : InitiatorRespIfcPkt = if (Just?(outputs_InitRespIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse)))
+		        then LET initrespifc = (outputs_InitRespIfcPkt_(0, pre, pre`rio_ModRxPktFtypeAnalyse))`value
+			IN initrespifc
+		        else LET x : InitiatorRespIfcPkt = mkInitiatorRespIfcPkt
+			  IN x WITH [ irespcntrl := LET x : InitRespIfcCntrl = mkInitRespIfcCntrl
+			  IN x WITH [ iresp_sof := False
+				, iresp_eof := False
+				, iresp_vld := False
+			  ]
+				, irespdata := LET x : InitRespIfcData = mkInitRespIfcData
+			  IN x WITH [ iresp_tt := 0
+				, iresp_data := 0
+				, iresp_crf := False
+				, iresp_prio := 0
+				, iresp_ftype := 0
+				, iresp_ttype := 0
+				, iresp_destid := 0
+				, iresp_sourceid := 0
+				, iresp_status := 0
+				, iresp_tid := 0
+				, iresp_local := False
+			  ]
+				, irespmsg := LET x : InitRespIfcMsg = mkInitRespIfcMsg
+			  IN x WITH [ iresp_msg_seg := 0
+				, iresp_mbox := 0
+				, iresp_letter := 0
+			  ]
+			  ]
+		      endif
+		  , wr_iresp_rdy : bool = False
+		  , wr_iresp_vld_n : bool = False
+		  , wr_iresp_eof_n : bool = False
+		  , wr_iresp_sof_n : bool = False
+		  , ff_InitRespIfcFIFO_enq = pre`rio_ModInsInitRespIFC`ff_InitRespIfcFIFO
+		  , ff_InitRespIfcFIFO_deq = ff_InitRespIfcFIFO_enq
+		  , ff_InitRespIfcFIFO_clear = ff_InitRespIfcFIFO_deq
+		IN pre`rio_ModInsInitRespIFC with
+		      [ ff_InitRespIfcFIFO := ff_InitRespIfcFIFO_clear
+		      ]
+		    , rio_ModInsMaintenanceRespIFC := 
+		LET wr_RxReady_In : bool = outputs_RxRdy_From_Concat_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_MRespIfcData : MaintenanceRespIfcData = LET x : MaintenanceRespIfcData = mkMaintenanceRespIfcData
+			  IN x WITH [ mresp_tt := 0
+				, mresp_data := 0
+				, mresp_crf := False
+				, mresp_prio := 0
+				, mresp_ftype := 0
+				, mresp_ttype := 0
+				, mresp_dest_id := 0
+				, mresp_hop_count := 0
+				, mresp_tid := 0
+				, mresp_local := False
+				, mresp_status := 0
+			  ]
+		  , wr_MRespIfcCntrl : MaintenanceRespIfcCntrl = LET x : MaintenanceRespIfcCntrl = mkMaintenanceRespIfcCntrl
+			  IN x WITH [ mresp_sof := False
+				, mresp_eof := False
+				, mresp_vld := False
+			  ]
+		  , wr_mresp_hopcount : Bit(8) = 0
+		  , wr_mresp_status : Status = 0
+		  , wr_mresp_local : bool = False
+		  , wr_mresp_tid : TranId = 0
+		  , wr_mresp_destid : DestId = 0
+		  , wr_mresp_ttype : Tpye = 0
+		  , wr_mresp_ftype : Tpye = 0
+		  , wr_mresp_prio : Prio = 0
+		  , wr_mresp_crf : bool = False
+		  , wr_mresp_data : Data = 0
+		  , wr_mresp_tt : TT = 0
+		  , wr_mresp_vld : bool = False
+		  , wr_mresp_eof : bool = False
+		  , wr_mresp_sof : bool = False
+		IN pre`rio_ModInsMaintenanceRespIFC
+		    , rio_ModInsTgtRespIFC := 
+		LET wr_RxReady_In : bool = outputs_RxRdy_From_Concat_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_TRespIfcMsg : TargetRespIfcMsg = LET x : TargetRespIfcMsg = mkTargetRespIfcMsg
+			  IN x WITH [ tresp_msg_seg := 0
+				, tresp_mbox := 0
+				, tresp_letter := 0
+			  ]
+		  , wr_TRespIfcData : TargetRespIfcData = LET x : TargetRespIfcData = mkTargetRespIfcData
+			  IN x WITH [ tresp_tt := 0
+				, tresp_data := 0
+				, tresp_crf := False
+				, tresp_prio := 0
+				, tresp_ftype := 0
+				, tresp_dest_id := 0
+				, tresp_status := 0
+				, tresp_tid := 0
+				, tresp_ttype := 0
+				, tresp_no_data := True
+			  ]
+		  , wr_TRespIfcCntrl : TargetRespIfcCntrl = LET x : TargetRespIfcCntrl = mkTargetRespIfcCntrl
+			  IN x WITH [ tresp_sof := False
+				, tresp_eof := False
+				, tresp_vld := False
+				, tresp_dsc := False
+			  ]
+		  , wr_tresp_letter : Mletter = 0
+		  , wr_tresp_mbox : Bit(2) = 0
+		  , wr_tresp_msg_seg : MsgSeg = 0
+		  , wr_tresp_no_data : bool = False
+		  , wr_tresp_ttype : Tpye = 0
+		  , wr_tresp_tid : TranId = 0
+		  , wr_tresp_status : Status = 0
+		  , wr_tresp_destid : DestId = 0
+		  , wr_tresp_ftype : Tpye = 0
+		  , wr_tresp_prio : Prio = 0
+		  , wr_tresp_crf : bool = False
+		  , wr_tresp_data : Data = 0
+		  , wr_tresp_tt : TT = 0
+		  , wr_tresp_dsc : bool = False
+		  , wr_tresp_vld : bool = False
+		  , wr_tresp_eof : bool = False
+		  , wr_tresp_sof : bool = False
+		IN pre`rio_ModInsTgtRespIFC
+		    , rio_ModInsInitReqIFC := 
+		LET wr_RxReady_In : bool = outputs_RxRdy_From_Concat_(0, pre, pre`rio_ModInsConcatenation)
+		  , wr_IReqIfcMsg : InitReqIfcMsg = LET x : InitReqIfcMsg = mkInitReqIfcMsg
+			  IN x WITH [ ireq_db_info := 0
+				, ireq_msg_len := 0
+				, ireq_msg_seg := 0
+				, ireq_mbox := 0
+				, ireq_letter := 0
+			  ]
+		  , wr_IReqIfcData : InitReqIfcData = LET x : InitReqIfcData = mkInitReqIfcData
+			  IN x WITH [ ireq_tt := 0
+				, ireq_data := 0
+				, ireq_crf := False
+				, ireq_prio := 0
+				, ireq_ftype := 0
+				, ireq_destid := 0
+				, ireq_addr := 0
+				, ireq_hopcount := 0
+				, ireq_tid := 0
+				, ireq_ttype := 0
+				, ireq_byte_count := 0
+				, ireq_byte_en := 0
+				, ireq_local := False
+			  ]
+		  , wr_IReqIfcCntrl : InitReqIfcCntrl = LET x : InitReqIfcCntrl = mkInitReqIfcCntrl
+			  IN x WITH [ ireq_sof := False
+				, ireq_eof := False
+				, ireq_vld := False
+				, ireq_dsc := False
+			  ]
+		  , wr_Read : bool = False
+		  , wr_ireq_letter : Bit(2) = 0
+		  , wr_ireq_mbox : Bit(6) = 0
+		  , wr_ireq_msg_seg : MsgSeg = 0
+		  , wr_ireq_msg_len : MsgLen = 0
+		  , wr_ireq_db_info : DoorBell = 0
+		  , wr_ireq_local : bool = False
+		  , wr_ireq_byte_en : ByteEn = 0
+		  , wr_ireq_byte_count : ByteCount = 0
+		  , wr_ireq_ttype : Tpye = 0
+		  , wr_ireq_tid : TranId = 0
+		  , wr_ireq_hopcount : Bit(8) = 0
+		  , wr_ireq_addr : Addr = 0
+		  , wr_ireq_destid : DestId = 0
+		  , wr_ireq_ftype : Tpye = 0
+		  , wr_ireq_prio : Prio = 0
+		  , wr_ireq_crf : bool = False
+		  , wr_ireq_data : Data = 0
+		  , wr_ireq_tt : TT = 0
+		  , wr_ireq_dsc : bool = False
+		  , wr_ireq_vld : bool = False
+		  , wr_ireq_eof : bool = False
+		  , wr_ireq_sof : bool = False
+		IN pre`rio_ModInsInitReqIFC with
+		      [ rg_Ready := pre`rio_ModInsInitReqIFC`rg_Ready
+		      ]
+		    ]
+		ELSE pre
+		ENDIF 
+
+
+	transition ( index : nat, pre, post : RapidIO_MainCore) : bool =
+		post = transition_val (index, pre)
+		
+		
+
+
+	
+end Transitions

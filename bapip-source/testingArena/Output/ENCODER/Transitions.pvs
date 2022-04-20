@@ -1,0 +1,449 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size) : RapidIO_InitEncoder_WdPtr_Size =
+		IF (index = 0) THEN 
+		LET wr_ByteEn : ByteEn = 0
+		  , wr_ByteCount : ByteCount = 0
+		  , wr_Read : bool = False
+		  , wr_WdPointer : WdPointer = COND
+			  wr_ByteCount = 256 -> 1
+			, wr_ByteCount = 224 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 192 -> if ( wr_Read = True )
+			  then 1
+			  else 0
+			endif
+			, wr_ByteCount = 160 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 128 -> 1
+			, wr_ByteCount = 96 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 64 -> 1
+			, wr_ByteCount = 32 -> 0
+			, wr_ByteCount = 16 -> 1
+			, wr_ByteCount = 8 -> if ( wr_ByteEn = 255 )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 7 -> if ( wr_ByteEn = 254 )
+			  then 0
+			  else if ( wr_ByteEn = 127 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 6 -> if ( wr_ByteEn = 252 )
+			  then 0
+			  else if ( wr_ByteEn = 63 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 5 -> if ( wr_ByteEn = 248 )
+			  then 0
+			  else if ( wr_ByteEn = 31 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 4 -> if ( wr_ByteEn = 240 )
+			  then 0
+			  else if ( wr_ByteEn = 15 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 3 -> if ( wr_ByteEn = 224 )
+			  then 0
+			  else if ( wr_ByteEn = 7 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 2 -> if ( wr_ByteEn = 192 )
+			  then 0
+			  else if ( wr_ByteEn = 48 )
+			  then 0
+			  else if ( wr_ByteEn = 12 )
+			  then 1
+			  else if ( wr_ByteEn = 3 )
+			  then 1
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			, wr_ByteCount = 1 -> if ( wr_ByteEn = 128 )
+			  then 0
+			  else if ( wr_ByteEn = 64 )
+			  then 0
+			  else if ( wr_ByteEn = 32 )
+			  then 0
+			  else if ( wr_ByteEn = 16 )
+			  then 0
+			  else if ( wr_ByteEn = 8 )
+			  then 1
+			  else if ( wr_ByteEn = 4 )
+			  then 1
+			  else if ( wr_ByteEn = 2 )
+			  then 1
+			  else if ( wr_ByteEn = 1 )
+			  then 1
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			, True -> 1
+		ENDCOND
+		  , wr_Size : Size = COND
+			  wr_ByteCount = 256 -> 15
+			, wr_ByteCount = 224 -> if ( wr_Read = True )
+			  then 15
+			  else 0
+			endif
+			, wr_ByteCount = 192 -> if ( wr_Read = True )
+			  then 14
+			  else 0
+			endif
+			, wr_ByteCount = 160 -> if ( wr_Read = True )
+			  then 14
+			  else 0
+			endif
+			, wr_ByteCount = 128 -> 13
+			, wr_ByteCount = 96 -> if ( wr_Read = True )
+			  then 13
+			  else 0
+			endif
+			, wr_ByteCount = 64 -> 12
+			, wr_ByteCount = 32 -> 12
+			, wr_ByteCount = 16 -> 11
+			, wr_ByteCount = 8 -> if ( wr_ByteEn = 255 )
+			  then 11
+			  else 0
+			endif
+			, wr_ByteCount = 7 -> if ( wr_ByteEn = 254 )
+			  then 10
+			  else if ( wr_ByteEn = 127 )
+			  then 10
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 6 -> if ( wr_ByteEn = 252 )
+			  then 9
+			  else if ( wr_ByteEn = 63 )
+			  then 9
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 5 -> if ( wr_ByteEn = 248 )
+			  then 7
+			  else if ( wr_ByteEn = 31 )
+			  then 7
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 4 -> if ( wr_ByteEn = 240 )
+			  then 8
+			  else if ( wr_ByteEn = 15 )
+			  then 8
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 3 -> if ( wr_ByteEn = 224 )
+			  then 5
+			  else if ( wr_ByteEn = 7 )
+			  then 5
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 2 -> if ( wr_ByteEn = 192 )
+			  then 4
+			  else if ( wr_ByteEn = 48 )
+			  then 6
+			  else if ( wr_ByteEn = 12 )
+			  then 4
+			  else if ( wr_ByteEn = 3 )
+			  then 6
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			, wr_ByteCount = 1 -> if ( wr_ByteEn = 128 )
+			  then 0
+			  else if ( wr_ByteEn = 64 )
+			  then 1
+			  else if ( wr_ByteEn = 32 )
+			  then 2
+			  else if ( wr_ByteEn = 16 )
+			  then 3
+			  else if ( wr_ByteEn = 8 )
+			  then 0
+			  else if ( wr_ByteEn = 4 )
+			  then 1
+			  else if ( wr_ByteEn = 2 )
+			  then 2
+			  else if ( wr_ByteEn = 1 )
+			  then 3
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			, True -> 15
+		ENDCOND
+		IN pre with
+		    [ reg_WdPointer := wr_WdPointer
+		    , reg_Size := wr_Size
+		    ]
+		ELSE pre
+		ENDIF 
+
+	transition_val (index : nat, pre : RapidIO_InitEncoder_WdPtr_Size, value_2 : ByteEn, value_1 : ByteCount, value_0 : bool) : RapidIO_InitEncoder_WdPtr_Size =
+		IF (index = 1) THEN 
+		LET wr_ByteEn : ByteEn = value_2
+		  , wr_ByteCount : ByteCount = value_1
+		  , wr_Read : bool = value_0
+		  , wr_WdPointer : WdPointer = COND
+			  wr_ByteCount = 256 -> 1
+			, wr_ByteCount = 224 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 192 -> if ( wr_Read = True )
+			  then 1
+			  else 0
+			endif
+			, wr_ByteCount = 160 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 128 -> 1
+			, wr_ByteCount = 96 -> if ( wr_Read = True )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 64 -> 1
+			, wr_ByteCount = 32 -> 0
+			, wr_ByteCount = 16 -> 1
+			, wr_ByteCount = 8 -> if ( wr_ByteEn = 255 )
+			  then 0
+			  else 0
+			endif
+			, wr_ByteCount = 7 -> if ( wr_ByteEn = 254 )
+			  then 0
+			  else if ( wr_ByteEn = 127 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 6 -> if ( wr_ByteEn = 252 )
+			  then 0
+			  else if ( wr_ByteEn = 63 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 5 -> if ( wr_ByteEn = 248 )
+			  then 0
+			  else if ( wr_ByteEn = 31 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 4 -> if ( wr_ByteEn = 240 )
+			  then 0
+			  else if ( wr_ByteEn = 15 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 3 -> if ( wr_ByteEn = 224 )
+			  then 0
+			  else if ( wr_ByteEn = 7 )
+			  then 1
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 2 -> if ( wr_ByteEn = 192 )
+			  then 0
+			  else if ( wr_ByteEn = 48 )
+			  then 0
+			  else if ( wr_ByteEn = 12 )
+			  then 1
+			  else if ( wr_ByteEn = 3 )
+			  then 1
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			, wr_ByteCount = 1 -> if ( wr_ByteEn = 128 )
+			  then 0
+			  else if ( wr_ByteEn = 64 )
+			  then 0
+			  else if ( wr_ByteEn = 32 )
+			  then 0
+			  else if ( wr_ByteEn = 16 )
+			  then 0
+			  else if ( wr_ByteEn = 8 )
+			  then 1
+			  else if ( wr_ByteEn = 4 )
+			  then 1
+			  else if ( wr_ByteEn = 2 )
+			  then 1
+			  else if ( wr_ByteEn = 1 )
+			  then 1
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			, True -> 1
+		ENDCOND
+		  , wr_Size : Size = COND
+			  wr_ByteCount = 256 -> 15
+			, wr_ByteCount = 224 -> if ( wr_Read = True )
+			  then 15
+			  else 0
+			endif
+			, wr_ByteCount = 192 -> if ( wr_Read = True )
+			  then 14
+			  else 0
+			endif
+			, wr_ByteCount = 160 -> if ( wr_Read = True )
+			  then 14
+			  else 0
+			endif
+			, wr_ByteCount = 128 -> 13
+			, wr_ByteCount = 96 -> if ( wr_Read = True )
+			  then 13
+			  else 0
+			endif
+			, wr_ByteCount = 64 -> 12
+			, wr_ByteCount = 32 -> 12
+			, wr_ByteCount = 16 -> 11
+			, wr_ByteCount = 8 -> if ( wr_ByteEn = 255 )
+			  then 11
+			  else 0
+			endif
+			, wr_ByteCount = 7 -> if ( wr_ByteEn = 254 )
+			  then 10
+			  else if ( wr_ByteEn = 127 )
+			  then 10
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 6 -> if ( wr_ByteEn = 252 )
+			  then 9
+			  else if ( wr_ByteEn = 63 )
+			  then 9
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 5 -> if ( wr_ByteEn = 248 )
+			  then 7
+			  else if ( wr_ByteEn = 31 )
+			  then 7
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 4 -> if ( wr_ByteEn = 240 )
+			  then 8
+			  else if ( wr_ByteEn = 15 )
+			  then 8
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 3 -> if ( wr_ByteEn = 224 )
+			  then 5
+			  else if ( wr_ByteEn = 7 )
+			  then 5
+			  else 0
+			endif
+			endif
+			, wr_ByteCount = 2 -> if ( wr_ByteEn = 192 )
+			  then 4
+			  else if ( wr_ByteEn = 48 )
+			  then 6
+			  else if ( wr_ByteEn = 12 )
+			  then 4
+			  else if ( wr_ByteEn = 3 )
+			  then 6
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			, wr_ByteCount = 1 -> if ( wr_ByteEn = 128 )
+			  then 0
+			  else if ( wr_ByteEn = 64 )
+			  then 1
+			  else if ( wr_ByteEn = 32 )
+			  then 2
+			  else if ( wr_ByteEn = 16 )
+			  then 3
+			  else if ( wr_ByteEn = 8 )
+			  then 0
+			  else if ( wr_ByteEn = 4 )
+			  then 1
+			  else if ( wr_ByteEn = 2 )
+			  then 2
+			  else if ( wr_ByteEn = 1 )
+			  then 3
+			  else 0
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			, True -> 15
+		ENDCOND
+		IN pre with
+		    [ reg_WdPointer := wr_WdPointer
+		    , reg_Size := wr_Size
+		    ]
+		ELSE pre
+		ENDIF 
+
+
+	transition ( index : nat, pre, post : RapidIO_InitEncoder_WdPtr_Size) : bool =
+		post = transition_val (index, pre)
+		
+		
+
+	transition ( index : nat, pre, post : RapidIO_InitEncoder_WdPtr_Size, value_2 : ByteEn, value_1 : ByteCount, value_0 : bool) : bool =
+		post = transition_val (index, pre, value_2, value_1, value_0)
+		
+		
+
+
+	
+end Transitions

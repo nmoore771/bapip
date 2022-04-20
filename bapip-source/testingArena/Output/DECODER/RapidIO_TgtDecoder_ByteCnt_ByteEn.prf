@@ -1,0 +1,227 @@
+(|Theorems|
+ (DC_TCC1 0
+  (DC_TCC1-1 NIL 3859466078 ("" (EXISTENCE-TCC) NIL NIL) NIL NIL
+   (DC EXISTENCE "" "[nat -> TypeDefinitions.Bit(8)]")))
+ (|req_ByteEnable_TCC1| 0
+  (|req_ByteEnable_TCC1-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "128" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC2| 0
+  (|req_ByteEnable_TCC2-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "8" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC3| 0
+  (|req_ByteEnable_TCC3-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 128, Theorems.wdptr = 1 -> 8 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC4| 0
+  (|req_ByteEnable_TCC4-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "64" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC5| 0
+  (|req_ByteEnable_TCC5-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "4" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC6| 0
+  (|req_ByteEnable_TCC6-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 64, Theorems.wdptr = 1 -> 4 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC7| 0
+  (|req_ByteEnable_TCC7-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "32" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC8| 0
+  (|req_ByteEnable_TCC8-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "2" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC9| 0
+  (|req_ByteEnable_TCC9-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 32, Theorems.wdptr = 1 -> 2 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC10| 0
+  (|req_ByteEnable_TCC10-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "16" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC11| 0
+  (|req_ByteEnable_TCC11-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "1" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC12| 0
+  (|req_ByteEnable_TCC12-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 16, Theorems.wdptr = 1 -> 1 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC13| 0
+  (|req_ByteEnable_TCC13-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "192" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC14| 0
+  (|req_ByteEnable_TCC14-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "12" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC15| 0
+  (|req_ByteEnable_TCC15-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 192, Theorems.wdptr = 1 -> 12 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC16| 0
+  (|req_ByteEnable_TCC16-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "224" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC17| 0
+  (|req_ByteEnable_TCC17-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "7" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC18| 0
+  (|req_ByteEnable_TCC18-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 224, Theorems.wdptr = 1 -> 7 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC19| 0
+  (|req_ByteEnable_TCC19-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "48" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC20| 0
+  (|req_ByteEnable_TCC20-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "3" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC21| 0
+  (|req_ByteEnable_TCC21-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 48, Theorems.wdptr = 1 -> 3 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC22| 0
+  (|req_ByteEnable_TCC22-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "248" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC23| 0
+  (|req_ByteEnable_TCC23-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "31" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC24| 0
+  (|req_ByteEnable_TCC24-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 248, Theorems.wdptr = 1 -> 31 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC25| 0
+  (|req_ByteEnable_TCC25-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "240" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC26| 0
+  (|req_ByteEnable_TCC26-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "15" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC27| 0
+  (|req_ByteEnable_TCC27-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 240, Theorems.wdptr = 1 -> 15 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC28| 0
+  (|req_ByteEnable_TCC28-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "252" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC29| 0
+  (|req_ByteEnable_TCC29-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "63" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC30| 0
+  (|req_ByteEnable_TCC30-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 252, Theorems.wdptr = 1 -> 63 ENDCOND" "NIL")))
+ (|req_ByteEnable_TCC31| 0
+  (|req_ByteEnable_TCC31-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "254" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC32| 0
+  (|req_ByteEnable_TCC32-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "127" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC33| 0
+  (|req_ByteEnable_TCC33-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 254, Theorems.wdptr = 1 -> 127 ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC34| 0
+  (|req_ByteEnable_TCC34-1| NIL 3859466078 ("" (SUBTYPE-TCC) NIL NIL) NIL NIL
+   (|req_ByteEnable| SUBTYPE "255" "TypeDefinitions.Bit(8)")))
+ (|req_ByteEnable_TCC35| 0
+  (|req_ByteEnable_TCC35-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> 255, Theorems.wdptr = 1 -> Theorems.DC(0) ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC36| 0
+  (|req_ByteEnable_TCC36-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> Theorems.DC(1), Theorems.wdptr = 1 -> Theorems.DC(2) ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC37| 0
+  (|req_ByteEnable_TCC37-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> Theorems.DC(3), Theorems.wdptr = 1 -> Theorems.DC(4) ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC38| 0
+  (|req_ByteEnable_TCC38-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> Theorems.DC(5), Theorems.wdptr = 1 -> Theorems.DC(6) ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC39| 0
+  (|req_ByteEnable_TCC39-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE
+    "COND Theorems.wdptr = 0 -> Theorems.DC(7), Theorems.wdptr = 1 -> Theorems.DC(8) ENDCOND"
+    "NIL")))
+ (|req_ByteEnable_TCC40| 0
+  (|req_ByteEnable_TCC40-1| NIL 3859466078 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|req_ByteEnable| COVERAGE "TABLE
+                        %+--------------------+--------------------++
+                        |[ Theorems.wdptr = 0 | Theorems.wdptr = 1 ]|
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 0  | 128                | 8                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 1  | 64                 | 4                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 2  | 32                 | 2                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 3  | 16                 | 1                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 4  | 192                | 12                 ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 5  | 224                | 7                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 6  | 48                 | 3                  ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 7  | 248                | 31                 ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 8  | 240                | 15                 ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 9  | 252                | 63                 ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 10 | 254                | 127                ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 11 | 255                | Theorems.DC(0)     ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 12 | Theorems.DC(1)     | Theorems.DC(2)     ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 13 | Theorems.DC(3)     | Theorems.DC(4)     ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 14 | Theorems.DC(5)     | Theorems.DC(6)     ||
+  %----------------------+--------------------+--------------------++
+  | Theorems.rwsize = 15 | Theorems.DC(7)     | Theorems.DC(8)     ||
+  %----------------------+--------------------+--------------------++
+ENDTABLE"
+    "NIL")))
+ (|correctness| 0
+  (|correctness-1| NIL 3859466080
+   ("" (SKOLEM!)
+    (("" (FLATTEN)
+      (("" (EXPAND FN_BYTECOUNTDECODER)
+        (("" (EXPAND REQ_BYTEENABLE)
+          (("" (SPLIT)
+            (("1" (FLATTEN)
+              (("1" (SPLIT)
+                (("1" (REPLACE*) (("1" (LIFT-IF) (("1" (SMASH) NIL NIL)) NIL))
+                  NIL)
+                 ("2" (SMASH) NIL NIL))
+                NIL))
+              NIL)
+             ("2" (SMASH) NIL NIL))
+            NIL))
+          NIL))
+        NIL))
+      NIL))
+    NIL)
+   ((|req_ByteEnable| CONST-DECL "Bit(8)" |Theorems| NIL)
+    (|real_le_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+     |real_props| NIL)
+    (|fn_ByteCountDecoder| CONST-DECL "Decode_ByteCount" |TypeDefinitions|
+     NIL))
+   SHOSTAK)))
+

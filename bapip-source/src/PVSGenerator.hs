@@ -562,7 +562,7 @@ genIf ((is, str):xs) = ("IF " ++ (intercalate " OR " (map (\ x -> "(index = " ++
 --         its = map (\ (x,_,_,_) -> x ) ts
     
 genMethodCase :: PVSPackage -> PVSstateDec -> ValueMethod -> PVStransition -> String
-genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = trace tracy $ result 
+genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = result 
   where
     tracy = "\n[genMethodCase] - name = " ++ (show name) 
          ++ "\nname2 = " ++ (show name2) 
@@ -1086,7 +1086,7 @@ showPVSTransState uni prefix spacer ex (TransStruct nom tables) i = showPVSTrans
         st = (n, (maybe (error "I am Error!") (id) (lookup n (pvs_state uni))))
 showPVSTransState uni prefix spacer ex (TransReg nom tree) i = nom' ++ (showPVSTransTree uni nom prefix spacer Nothing typ tree i)
     {-if ( nom' == "rg_InitReqDataCount") 
-                                                                  then trace tracy $ nom' ++ (showPVSTransTree uni nom prefix spacer Nothing typ tree i)
+                                                                  then nom' ++ (showPVSTransTree uni nom prefix spacer Nothing typ tree i)
                                                                   else nom' ++ (showPVSTransTree uni nom prefix spacer Nothing typ tree i)-}
     where 
       nom' = ((showIDPath uni [] rep (getIDRoot nom) i) ++ " := ")
@@ -1139,6 +1139,9 @@ showPVSTransTree uni nom prefix spacer dv typ (SpecLeaf gd texp fexp) i = showIf
 showPVSTransTree uni nom prefix spacer dv typ (SpecEx x) i = (showPVSExpression uni [] dv (Just typ) (addPreIfMissing' x)  (Just (prefix, showIDPath uni [] Nothing nom i)) i) 
 
 addPreIfMissing' :: Expression -> Expression
+addPreIfMissing' (Identifier (ID x)) = if ("wr_" `isPrefixOf` x || "value_" `isPrefixOf` x)
+    then (Identifier (ID x))
+    else Identifier $ addPreIfMissing (ID x)
 addPreIfMissing' (Identifier x) = Identifier $ addPreIfMissing x
 addPreIfMissing' x = x
 
@@ -1279,6 +1282,7 @@ showProofTheory :: PVSPackage -> PackageName -> [PVStransition] -> Maybe TSPpack
 showProofTheory uni _ _ Nothing = "%test1 : theorem <antecedents>\n\t\t%implies <consequents>"
 showProofTheory uni nom ts (Just tsp) = proof ++ "\n\n" ++ ( header ++ transitions ++ transHistory ++ tables {- ++ history -} ++ initialCondition ++ results)
   where 
+    tracy = "[showProofTheory] nom = " ++ nom 
     iTrans = getInputTrans ts
     (ind, var, val, modtrans) = iTrans
     transo = (ind, var, val, modtrans)
@@ -1305,9 +1309,11 @@ genInit :: String -> String
 genInit x = "(init(t) IMPLIES mk" ++ x ++ "(s(t)))" 
     
 getInputTrans :: [PVStransition] -> PVStransition
-getInputTrans [] = error "PVSgen Error!Input method transition not found during theorem generation!"
+getInputTrans [] = error "PVSgen Error! Input method transition not found during theorem generation!"
 getInputTrans ((x, (("set_Inputs",ms):[]), y, z):xs) =  (x, (("set_Inputs", ms):[]), y, z)
 getInputTrans ((w, x, y, z):xs) = getInputTrans xs
+  where
+      tracy = "[genInputTrans] everything = " ++ (show ((w, x, y, z):xs))
     
 getPair :: PVSPackage -> [TSPTable] -> PVStransition -> ((ID_Path, String) -> String) -> String
 getPair uni tsps trans transform = intercalate "\n\t     AND " (map transform pairs)
@@ -1318,7 +1324,7 @@ getPair uni tsps trans transform = intercalate "\n\t     AND " (map transform pa
     pairs = zip outs meths
 
 createEquivalencePairings :: PVSPackage -> String -> (ID_Path, String) -> String
-createEquivalencePairings uni nom (x, y) = (showPVSExpression uni [] Nothing badType (Identifier x) Nothing "") ++ "(next(t)) = " ++ y ++ "(1, s(next(t)))"    
+createEquivalencePairings uni nom (x, y) = (showPVSExpression uni [] Nothing badType (Identifier x) Nothing "") ++ "(next(t)) = " ++ y ++ "(0, s(next(t)), s(next(t)))"
 
     
 createHistoryPairings :: String -> (String, String) -> String
@@ -1554,7 +1560,7 @@ showPVSExpression uni lvars dv typ (Subtract x y) z i	= "( " ++ (showPVSExpressi
 showPVSExpression uni lvars dv typ (Literal x) z i		= showLit uni lvars dv typ x z i
 --showPVSExpression uni lvars dv typ (Identifier (ID_StructRef strct path)) _ = strct ++ "`" ++ (showPVSExpression uni lvars dv typ (Identifier path) (Nothing) )
 -- showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x (ID_Submod_Struct "first" y))) z = "first(" ++ x ++ ")`" ++ (showPVSExpression uni lvars dv typ (Identifier y) (Nothing))
-showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x y)) _ i = trace tracy $ if (not (containsFifoMethod id))
+showPVSExpression uni lvars dv typ (Identifier (ID_Submod_Struct x y)) _ i = if (not (containsFifoMethod id))
     then (getinst id') ++ "`" ++ (showPVSExpression uni lvars dv typ (Identifier (getPath id')) (Nothing) i)
     else intercalate "`" ((meth ++ "(" ++ (intercalate "`" before) ++ ")"):(after))
   where
@@ -1583,7 +1589,7 @@ showPVSExpression uni lvars dv typ (Exp_If w x y) z i = "if " ++ (showPVSExpress
 showPVSExpression uni lvars (Nothing) typ (Skip) (Nothing) i = error "PVSgen Error! I can't skip an expression at this point unless i know what state element I'm skipping!"
 showPVSExpression uni lvars (Just dv) typ (Skip) z i = showPVSExpression uni lvars Nothing typ dv' z i
     where dv' = fixDV' $ fixDV typ dv
-showPVSExpression uni lvars dv typ (Skip) (Just (prefix, nom)) i = trace tracy $ removePathOverlaps' $ prefix ++ "`" ++ nom
+showPVSExpression uni lvars dv typ (Skip) (Just (prefix, nom)) i = removePathOverlaps' $ prefix ++ "`" ++ nom
     where
         tracy = "[showPVSExpression 1] - exp = Skip\nprefix = " ++ (show prefix)
 showPVSExpression uni lvars dv typ (Tagged (Just t) (Valid (Literal (LitStructConstructor)))) z i = result

@@ -1,0 +1,256 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> RapidIO_InitEncoder_WdPtr_Size]
+	pre, post, RapidIO_InitEncoder_WdPtr_Size_var : VAR RapidIO_InitEncoder_WdPtr_Size
+
+	valid_bytemask (bytemask : Bit(8)) : bool =
+		bytemask = 128
+	or bytemask = 64
+	or bytemask = 32
+	or bytemask = 16
+	or bytemask = 8
+	or bytemask = 4
+	or bytemask = 2
+	or bytemask = 1
+	or bytemask = 192
+	or bytemask = 48
+	or bytemask = 12
+	or bytemask = 3
+	or bytemask = 224
+	or bytemask = 7
+	or bytemask = 240
+	or bytemask = 15
+	or bytemask = 248
+	or bytemask = 31
+	or bytemask = 252
+	or bytemask = 63
+	or bytemask = 252
+	or bytemask = 63
+	or bytemask = 254
+	or bytemask = 127
+	or bytemask = 255
+
+		valid_bytecount (bytecount : Bit(8)) : bool = 
+		bytecount = 1
+	or bytecount = 2
+	or bytecount = 3
+	or bytecount = 4
+	or bytecount = 5
+	or bytecount = 6
+	or bytecount = 7
+	or bytecount = 8
+	or bytecount = 16
+	or bytecount = 32
+	or bytecount = 64
+	or bytecount = 96
+	or bytecount = 128
+	or bytecount = 160
+	or bytecount = 192
+	or bytecount = 224
+	or bytecount = 256
+
+
+	req_word_pointer(bytemask : Bit(8), bytecount : Bit(8)) : Bit(1) =
+	COND
+		bytecount = 1     ->
+		COND
+			bytemask = 8   -> 1
+		, bytemask = 4   -> 1
+		, bytemask = 2   -> 1
+		, bytemask = 1   -> 1
+			, bytemask = 128 -> 0
+		, bytemask = 64  -> 0
+		, bytemask = 32  -> 0
+		, bytemask = 16  -> 0
+		ENDCOND
+		, bytecount = 2     -> 
+		COND
+			bytemask = 12  -> 1
+		, bytemask = 3   -> 1
+		, bytemask = 192 -> 0
+		, bytemask = 48  -> 0
+		ENDCOND
+		, bytecount = 3     ->
+		COND
+			bytemask = 7   -> 1
+			, bytemask = 224 -> 0
+		ENDCOND
+			, bytecount = 4     ->
+		COND
+		bytemask = 15  -> 1
+			, bytemask = 240 -> 0
+		ENDCOND
+		, bytecount = 5     ->
+		COND
+			bytemask = 31  -> 1
+			, bytemask = 248 -> 0
+		ENDCOND
+			, bytecount = 6     ->
+		COND
+		bytemask = 63  -> 1
+			, bytemask = 252 -> 0
+		ENDCOND
+		, bytecount = 7     ->
+		COND
+		bytemask = 127 -> 1
+			, bytemask = 254 -> 0
+		ENDCOND
+		, bytecount = 8     ->
+		COND
+			bytemask = 255 -> 0
+		ENDCOND
+		, bytecount = 16    -> 1
+		, bytecount = 32    -> 0
+		, bytecount = 64    -> 1
+		, bytecount = 96    -> 0
+			, bytecount = 128   -> 1
+		, bytecount = 160   -> 0
+		, bytecount = 192   -> 1
+		, bytecount = 256   -> 1	     
+		, bytecount = 224   -> 0
+		, True -> 0
+	ENDCOND
+
+	req_read_size(bytemask : Bit(8), bytecount : Bit(8)) : Bit(1) =
+	COND
+		bytecount = 1     ->
+		COND
+			bytemask = 128 -> 0
+		, bytemask = 64  -> 1
+		, bytemask = 32  -> 2
+		, bytemask = 16  -> 3
+			, bytemask = 8   -> 0
+		, bytemask = 4   -> 1
+		, bytemask = 2   -> 2
+		, bytemask = 1   -> 3
+		, True -> 0
+		ENDCOND
+		, bytecount = 2     -> 
+		COND
+		bytemask = 192 -> 4
+		, bytemask = 48  -> 6
+			, bytemask = 12  -> 4
+		, bytemask = 3   -> 6
+		, True -> 0
+		ENDCOND
+		, bytecount = 3     ->
+		COND
+			bytemask = 224 -> 5
+			, bytemask = 7   -> 5
+		, True -> 0
+		ENDCOND
+			, bytecount = 4     ->
+		COND
+			bytemask = 240 -> 8
+		, bytemask = 15  -> 8
+		, True -> 0
+		ENDCOND
+		, bytecount = 5     ->
+		COND
+			bytemask = 248 -> 7
+			, bytemask = 31  -> 7
+		, True -> 0
+		ENDCOND
+			, bytecount = 6     ->
+		COND
+			bytemask = 252 -> 9
+		, bytemask = 63  -> 9
+		, True -> 0
+		ENDCOND
+		, bytecount = 7     ->
+		COND
+			bytemask = 254 -> 10
+		, bytemask = 127 -> 10
+		, True -> 0
+		ENDCOND
+		, bytecount = 8     ->
+		COND
+			bytemask = 255 -> 11
+		, True -> 0
+		ENDCOND
+		, bytecount = 16    -> 11
+		, bytecount = 32    -> 12
+		, bytecount = 64    -> 12
+		, bytecount = 96    -> 13
+			, bytecount = 128   -> 13
+		, bytecount = 160   -> 14
+		, bytecount = 192   -> 14
+		, bytecount = 224   -> 15
+		, bytecount = 256   -> 15
+		, True -> 0
+	ENDCOND
+
+	correctness_1 : theorem 
+	forall(x1 : ByteEn, x2 : ByteCount, x3 : bool) :
+		x3 = True
+		and valid_bytemask(x1)
+		and valid_bytecount(x2)
+		and transition(1, s(0),s(1), x1, x2, x3)
+		implies req_word_pointer(x1, x2) = outputs_WdPointer_(1,s(1),s(1),x1,x2,x3)
+
+	correctness_2 : theorem 
+	forall(x1 : ByteEn, x2 : ByteCount, x3 : bool) :
+		x3 = True
+		and valid_bytemask(x1)
+		and valid_bytecount(x2)
+		and transition(1, s(0),s(1), x1, x2, x3)
+		implies req_read_size(x1, x2) = outputs_Size_(1,s(1),s(1),x1,x2,x3)
+
+	correctness_total : theorem
+	correctness_1 and correctness_2
+
+%  The following transitions have been scheduled.
+%  0	: Methods Invoked = {none} 
+%  	: Input Args = {none} 
+%  
+%  1	: Methods Invoked = {inputs_Read, inputs_ByteCount, inputs_ByteEn}
+%  	: Input Args = {value_2 : ByteEn, value_1 : ByteCount, value_0 : bool
+%}
+%  
+%  The following arguments must be supplied to invoke the transition predicate.
+%  	index -> The index number corresponding to the schedule you wish to invoke
+%  	pre -> The pre-state of the transition predicate
+%  	post -> The post-state of the transition predicate
+%  	method arguments -> supply the arguments given in the above list of schedules, in the order they appear.
+%  
+%  For an example of how this is intended to work, take a look at the auto-generated consistency theorems below.
+
+	%test1 : theorem <antecedents>
+		%implies <consequents>
+
+	
+%|- consistency_0 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_0 : Theorem
+	FORALL (i : nat, pre : RapidIO_InitEncoder_WdPtr_Size) :
+		EXISTS (post : RapidIO_InitEncoder_WdPtr_Size) : 
+		transition(i, pre, post)
+
+	
+%|- consistency_1 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1, value!3, value!2, value!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_1 : Theorem
+	FORALL (i : nat, pre : RapidIO_InitEncoder_WdPtr_Size, value_2 : ByteEn, value_1 : ByteCount, value_0 : bool) :
+		EXISTS (post : RapidIO_InitEncoder_WdPtr_Size) : 
+		transition(i, pre, post, value_2, value_1, value_0)
+
+	
+end Theorems
+

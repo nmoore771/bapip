@@ -1,0 +1,45 @@
+Transitions : theory
+
+begin
+
+	importing Methods
+
+
+	transition_val (index : nat, pre : mkAlrm_int) : mkAlrm_int =
+		IF (index = 0) THEN 
+		pre with
+		    [ hi := pre`hi
+		    , lo := pre`lo
+		    ]
+		ELSE pre
+		ENDIF 
+
+	transition_val (index : nat, pre : mkAlrm_int, inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)) : mkAlrm_int =
+		IF (index = 1) THEN 
+		pre with
+		    [ hi := if ( inp_in_0 > thi_in_0 )
+			  then True
+			  else False
+			endif
+		    , lo := if ( inp_in_0 < tlo_in_0 )
+			  then True
+			  else False
+			endif
+		    ]
+		ELSE pre
+		ENDIF 
+
+
+	transition ( index : nat, pre, post : mkAlrm_int) : bool =
+		post = transition_val (index, pre)
+		
+		
+
+	transition ( index : nat, pre, post : mkAlrm_int, inp_in_0 : Int(16), tlo_in_0 : Int(16), thi_in_0 : Int(16)) : bool =
+		post = transition_val (index, pre, inp_in_0, tlo_in_0, thi_in_0)
+		
+		
+
+
+	
+end Transitions

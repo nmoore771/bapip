@@ -1,0 +1,25 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing TypeDefinitions
+
+	
+
+	
+
+	
+%  The following schedules have been generated.
+%  
+% None!
+%  Apparently, however, although the module under examination is exists, it is not stateful!
+%  This might be because it is full of Wires and not state holding elements like Registers etc.
+%  As such, no transitions have actually been generated.  
+
+	%test1 : theorem <antecedents>
+		%implies <consequents>
+
+	
+
+	
+end Theorems

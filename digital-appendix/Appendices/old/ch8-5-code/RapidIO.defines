@@ -1,0 +1,93 @@
+/*
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- RapidIO IO Defines IP Core
+--
+-- This file is the part of the RapidIO Interconnect v3.0 IP Core Project
+--
+-- Description
+-- It contains various format type definitions. 
+--
+-- Author(s):
+-- Chidhambaranathan (cnaathan@gmail.com)
+--
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+-- 
+-- Copyright (c) 2013, Indian Institute of Technology Madras (IIT Madras)
+-- All rights reserved.
+--
+-- Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+--
+-- 1. Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+-- 2. Redistributions in binary form must reproduce the above copyright notice, this list of conditions and 
+--    the following disclaimer in the documentation and/or other materials provided with the distribution.
+-- 3. Neither the name of IIT Madras  nor the names of its contributors may be used to endorse or 
+--    promote products derived from this software without specific prior written permission.
+--
+-- THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, 
+-- INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+-- IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, 
+-- OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; 
+-- OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, 
+-- OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-- 
+--------------------------------------------------------------------------------------------------------------------------------------------------------
+*/
+
+
+// Request FTYPE Definitions
+`define RIO_FTYPE0_IMPLDFN 			4'd0 // User Defined
+`define RIO_FTYPE1_INTERVENTION_REQUEST		4'd1
+`define RIO_FTYPE2_REQUEST 			4'd2
+    							// -- Type 3 and 4 reserved
+`define RIO_FTYPE5_WRITE 			4'd5
+`define RIO_FTYPE6_STREAM_WR 			4'd6
+`define RIO_FTYPE7_FLOWCNTL			4'd7
+`define RIO_FTYPE8_MAINTAIN 			4'd8
+`define RIO_FTYPE9_DATASTREAM			4'd9
+
+// Doorbell and Message
+`define RIO_FTYPE10_DOORBELL			4'd10
+`define RIO_FTYPE11_MESSAGE			4'd11
+
+// FTYPE Response Definitions
+    							// -- Type 12 and 14 reserved
+`define RIO_FTYPE13_RESPONSE 			4'd13
+`define RIO_FTYPE15_IMPLDFN 			4'd15 // User Defined
+/*
+`define RIO_DATA				64
+`define RIO_DATA1				8
+*/
+
+`define RIO_DATA				128
+`define RIO_DATA_16				16
+`define RIO_DATA_32				32
+`define RIO_DATA_96				96
+// Ftype 5
+`define RIO_DATA_80				80
+`define RIO_DATA_112				112
+`define RIO_DATA_48				48
+
+//Ftype 11
+
+`define RIO_DATA_56				56
+`define RIO_DATA_72				72
+
+
+//Ftype 10
+`define RIO_DATA_64				64
+
+
+
+/*
+
+
+`define RIO_DATA				256
+`define RIO_DATA1				32
+
+*/
+/*
+`define RIO_DATA				512
+`define RIO_DATA1				64
+
+*/
+

@@ -1,0 +1,58 @@
+Methods : theory
+
+begin
+
+	importing State
+
+
+	get_lo (index : nat, pre : mkAlrm_int, mod : mkAlrm_int) : bool = IF (index = 0) 
+	  THEN mod`lo
+		ELSE False
+		ENDIF 
+
+	get_lo (index : nat, pre : mkAlrm_int, mod : mkAlrm_int, inp_in_0: Int(16), tlo_in_0: Int(16), thi_in_0: Int(16)) : bool = IF (index = 1) 
+	  THEN mod`lo
+		ELSE False
+		ENDIF 
+
+	get_hi (index : nat, pre : mkAlrm_int, mod : mkAlrm_int) : bool = IF (index = 0) 
+	  THEN mod`hi
+		ELSE False
+		ENDIF 
+
+	get_hi (index : nat, pre : mkAlrm_int, mod : mkAlrm_int, inp_in_0: Int(16), tlo_in_0: Int(16), thi_in_0: Int(16)) : bool = IF (index = 1) 
+	  THEN mod`hi
+		ELSE False
+		ENDIF 
+
+	get_alrm_int (index : nat, pre : mkAlrm_int, mod : mkAlrm_int) : bool = IF (index = 0) 
+	  THEN if ( mod`hi AND mod`lo )
+			  then True
+			  else if ( mod`hi AND (NOT mod`lo) )
+			  then True
+			  else if ( (NOT mod`hi) AND mod`lo )
+			  then True
+			  else False
+			endif
+			endif
+			endif
+		ELSE False
+		ENDIF 
+
+	get_alrm_int (index : nat, pre : mkAlrm_int, mod : mkAlrm_int, inp_in_0: Int(16), tlo_in_0: Int(16), thi_in_0: Int(16)) : bool = IF (index = 1) 
+	  THEN if ( mod`hi AND mod`lo )
+			  then True
+			  else if ( mod`hi AND (NOT mod`lo) )
+			  then True
+			  else if ( (NOT mod`hi) AND mod`lo )
+			  then True
+			  else False
+			endif
+			endif
+			endif
+		ELSE False
+		ENDIF 
+
+
+	
+end Methods

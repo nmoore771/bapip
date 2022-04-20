@@ -1,0 +1,45 @@
+Theorems[(IMPORTING Time) delta_t:posreal] : theory
+
+begin
+
+	importing Transitions
+	importing ClockTick[delta_t]
+
+	t: VAR tick
+
+	s : VAR [tick -> RapidIO_MainCore]
+	pre, post, RapidIO_MainCore_var : VAR RapidIO_MainCore
+
+	
+
+	
+%  The following transitions have been scheduled.
+%  0	: Methods Invoked = {none} 
+%  	: Input Args = {none} 
+%  
+%  The following arguments must be supplied to invoke the transition predicate.
+%  	index -> The index number corresponding to the schedule you wish to invoke
+%  	pre -> The pre-state of the transition predicate
+%  	post -> The post-state of the transition predicate
+%  	method arguments -> supply the arguments given in the above list of schedules, in the order they appear.
+%  
+%  For an example of how this is intended to work, take a look at the auto-generated consistency theorems below.
+
+	%test1 : theorem <antecedents>
+		%implies <consequents>
+
+	
+%|- consistency_0 : PROOF
+%|- (then (skolem!)
+%|-       (inst + "transition_val (i!1,pre!1)")
+%|-       (rewrite transition)
+%|-       (rewrite transition_val)
+%|-       (assert))
+%|- QED
+	consistency_0 : Theorem
+	  FORALL (i : nat, pre : RapidIO_MainCore) :
+	    EXISTS (post : RapidIO_MainCore) : 
+	      transition(i, pre, post)
+
+	
+end Theorems

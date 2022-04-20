@@ -1,0 +1,124 @@
+(|Theorems|
+ (|ALRM_INT_req_3_TCC1| 0
+  (|ALRM_INT_req_3_TCC1-1| NIL 3859452029 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_3| DISJOINTNESS "TABLE
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(Theorems.hi(Theorems.t), Theorems.lo(Theorems.t)))                                     | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(Theorems.hi(Theorems.t), ((booleans.NOT)(Theorems.lo(Theorems.t))))) | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(((booleans.NOT)(Theorems.hi(Theorems.t))), Theorems.lo(Theorems.t))) | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(((booleans.NOT)(Theorems.hi(Theorems.t))), ((booleans.NOT)(Theorems.lo(Theorems.t))))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ALRM_INT_req_3_TCC2| 0
+  (|ALRM_INT_req_3_TCC2-1| NIL 3859452029 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_3| COVERAGE "TABLE
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(Theorems.hi(Theorems.t), Theorems.lo(Theorems.t)))                                     | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(Theorems.hi(Theorems.t), ((booleans.NOT)(Theorems.lo(Theorems.t))))) | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(((booleans.NOT)(Theorems.hi(Theorems.t))), Theorems.lo(Theorems.t))) | booleans.TRUE  ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+  | (booleans.AND(((booleans.NOT)(Theorems.hi(Theorems.t))), ((booleans.NOT)(Theorems.lo(Theorems.t))))) | booleans.FALSE ||
+  %------------------------------------------------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ALRM_INT_req_2_TCC1| 0
+  (|ALRM_INT_req_2_TCC1-1| NIL 3859452029 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_2| DISJOINTNESS "TABLE
+  %----------------------------------------------------------------+----------------++
+  | (reals.<(Theorems.inp(Theorems.t), Theorems.tlo(Theorems.t)))  | booleans.TRUE  ||
+  %----------------------------------------------------------------+----------------++
+  | (reals.>=(Theorems.inp(Theorems.t), Theorems.tlo(Theorems.t))) | booleans.FALSE ||
+  %----------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ALRM_INT_req_2_TCC2| 0
+  (|ALRM_INT_req_2_TCC2-1| NIL 3859452029 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_2| COVERAGE "TABLE
+  %----------------------------------------------------------------+----------------++
+  | (reals.<(Theorems.inp(Theorems.t), Theorems.tlo(Theorems.t)))  | booleans.TRUE  ||
+  %----------------------------------------------------------------+----------------++
+  | (reals.>=(Theorems.inp(Theorems.t), Theorems.tlo(Theorems.t))) | booleans.FALSE ||
+  %----------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ALRM_INT_req_1_TCC1| 0
+  (|ALRM_INT_req_1_TCC1-1| NIL 3859452029 ("" (COND-DISJOINT-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_1| DISJOINTNESS "TABLE
+  %----------------------------------------------------------------+----------------++
+  | (reals.>(Theorems.inp(Theorems.t), Theorems.thi(Theorems.t)))  | booleans.TRUE  ||
+  %----------------------------------------------------------------+----------------++
+  | (reals.<=(Theorems.inp(Theorems.t), Theorems.thi(Theorems.t))) | booleans.FALSE ||
+  %----------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|ALRM_INT_req_1_TCC2| 0
+  (|ALRM_INT_req_1_TCC2-1| NIL 3859452029 ("" (COND-COVERAGE-TCC) NIL NIL) NIL
+   NIL
+   (|ALRM_INT_req_1| COVERAGE "TABLE
+  %----------------------------------------------------------------+----------------++
+  | (reals.>(Theorems.inp(Theorems.t), Theorems.thi(Theorems.t)))  | booleans.TRUE  ||
+  %----------------------------------------------------------------+----------------++
+  | (reals.<=(Theorems.inp(Theorems.t), Theorems.thi(Theorems.t))) | booleans.FALSE ||
+  %----------------------------------------------------------------+----------------++
+ENDTABLE"
+    "NIL")))
+ (|mkAlrm_int_REQ| 0
+  (|mkAlrm_int_REQ-1| NIL 3859452205 ("" (GRIND) NIL NIL)
+   ((|get_hi| CONST-DECL "bool" |Methods| NIL)
+    (|get_lo| CONST-DECL "bool" |Methods| NIL)
+    (|get_alrm_int| CONST-DECL "bool" |Methods| NIL)
+    (|mkmkAlrm_int| CONST-DECL "bool" |State| NIL)
+    (|init| CONST-DECL "bool" |ClockTick| NIL)
+    (|ALRM_INT_req_1| CONST-DECL "bool" |Theorems| NIL)
+    (|ALRM_INT_req_2| CONST-DECL "bool" |Theorems| NIL)
+    (|ALRM_INT_req_3| CONST-DECL "bool" |Theorems| NIL)
+    (|transition| CONST-DECL "bool" |Transitions| NIL)
+    (|transition_val| CONST-DECL "mkAlrm_int" |Transitions| NIL)
+    (|next| CONST-DECL "tick" |ClockTick| NIL)
+    (|number| NONEMPTY-TYPE-DECL NIL |numbers| NIL)
+    (|boolean| NONEMPTY-TYPE-DECL NIL |booleans| NIL)
+    (|number_field_pred| CONST-DECL "[number -> boolean]" |number_fields| NIL)
+    (|number_field| NONEMPTY-TYPE-FROM-DECL NIL |number_fields| NIL)
+    (|real_pred| CONST-DECL "[number_field -> boolean]" |reals| NIL)
+    (|real| NONEMPTY-TYPE-FROM-DECL NIL |reals| NIL)
+    (|bool| NONEMPTY-TYPE-EQ-DECL NIL |booleans| NIL)
+    (>= CONST-DECL "bool" |reals| NIL)
+    (|nonneg_real| NONEMPTY-TYPE-EQ-DECL NIL |real_types| NIL)
+    (> CONST-DECL "bool" |reals| NIL)
+    (|posreal| NONEMPTY-TYPE-EQ-DECL NIL |real_types| NIL)
+    (|delta_t| FORMAL-CONST-DECL "posreal" |Theorems| NIL)
+    (|nnreal_plus_posreal_is_posreal| APPLICATION-JUDGEMENT "posreal"
+     |real_types| NIL)
+    (|real_lt_is_strict_total_order| NAME-JUDGEMENT
+     "(strict_total_order?[real])" |real_props| NIL)
+    (|posint_exp| APPLICATION-JUDGEMENT "posint" |exponentiation| NIL)
+    (|real_gt_is_strict_total_order| NAME-JUDGEMENT
+     "(strict_total_order?[real])" |real_props| NIL)
+    (|nnreal_times_nnreal_is_nnreal| APPLICATION-JUDGEMENT "nnreal"
+     |real_types| NIL)
+    (|real_ge_is_total_order| NAME-JUDGEMENT "(total_order?[real])"
+     |real_props| NIL)
+    (NOT CONST-DECL "[bool -> bool]" |booleans| NIL)
+    (|time| NONEMPTY-TYPE-EQ-DECL NIL |Time| NIL)
+    (|rational_pred| CONST-DECL "[real -> boolean]" |rationals| NIL)
+    (|rational| NONEMPTY-TYPE-FROM-DECL NIL |rationals| NIL)
+    (|integer_pred| CONST-DECL "[rational -> boolean]" |integers| NIL)
+    (|int| NONEMPTY-TYPE-EQ-DECL NIL |integers| NIL)
+    (|nat| NONEMPTY-TYPE-EQ-DECL NIL |naturalnumbers| NIL)
+    (= CONST-DECL "[T, T -> boolean]" |equalities| NIL)
+    (|numfield| NONEMPTY-TYPE-EQ-DECL NIL |number_fields| NIL)
+    (* CONST-DECL "[numfield, numfield -> numfield]" |number_fields| NIL)
+    (|tick| TYPE-EQ-DECL NIL |ClockTick| NIL))
+   SHOSTAK)))
+

@@ -1,0 +1,1503 @@
+TypeDefinitions : theory
+
+begin
+
+	importing arith_bitwise
+	importing Maybe
+	importing FIFO
+
+	Int(n : int): TYPE = {i:int | -(2^(n-1)) <= i AND i < 2^(n-1)}
+	UInt(n : int): TYPE = {i:int | 0 <= i AND i < 2^n}
+	Bit(n : int): TYPE = {i:int | 0 <= i AND i < 2^n}
+
+	mkInt(n : int) : Int(n) = 0
+	mkUInt(n : int) : UInt(n) = 0
+	mkBit(n : int) : Bit(n) = 0
+
+	q_depth : int = 12
+
+	RegSize : type = Bit(32)
+
+	mkRegSize : RegSize = 0
+	SRL : type = Bit(16)
+
+	mkSRL : SRL = 0
+	Flag : type = Bit(1)
+
+	mkFlag : Flag = 0
+	COS : type = Bit(8)
+
+	mkCOS : COS = 0
+	QueueData : type = Bit(192)
+
+	mkQueueData : QueueData = 0
+	DataPkt : type = Bit(64)
+
+	mkDataPkt : DataPkt = 0
+	Mletter : type = Bit(2)
+
+	mkMletter : Mletter = 0
+	Status : type = Bit(4)
+
+	mkStatus : Status = 0
+	Offset : type = Bit(21)
+
+	mkOffset : Offset = 0
+	MsgSeg : type = Bit(4)
+
+	mkMsgSeg : MsgSeg = 0
+	MsgLen : type = Bit(4)
+
+	mkMsgLen : MsgLen = 0
+	DoorBell : type = Bit(16)
+
+	mkDoorBell : DoorBell = 0
+	WdPointer : type = Bit(1)
+
+	mkWdPointer : WdPointer = 0
+	WrSize : type = Bit(4)
+
+	mkWrSize : WrSize = 0
+	RdSize : type = Bit(4)
+
+	mkRdSize : RdSize = 0
+	Size : type = Bit(4)
+
+	mkSize : Size = 0
+	ByteCount : type = Bit(9)
+
+	mkByteCount : ByteCount = 0
+	ByteEn : type = Bit(8)
+
+	mkByteEn : ByteEn = 0
+	TT : type = Bit(2)
+
+	mkTT : TT = 0
+	Prio : type = Bit(2)
+
+	mkPrio : Prio = 0
+	SourceId : type = Bit(32)
+
+	mkSourceId : SourceId = 0
+	DestId : type = Bit(32)
+
+	mkDestId : DestId = 0
+	TranId : type = Bit(8)
+
+	mkTranId : TranId = 0
+	Tpye : type = Bit(4)
+
+	mkTpye : Tpye = 0
+	Data : type = Bit(64)
+
+	mkData : Data = 0
+	Addr : type = Bit(50)
+
+	mkAddr : Addr = 0
+
+	
+
+	RxIncomingPacket : type = 
+	 [# rx_sof : bool
+	  , rx_eof : bool
+	  , rx_vld : bool
+	  , rx_data : DataPkt
+	  , rx_rem : Bit(4)
+	  , rx_crf : bool
+	 #] 
+
+	MaintenanceRespIfcData : type = 
+	 [# mresp_tt : TT
+	  , mresp_data : Data
+	  , mresp_crf : bool
+	  , mresp_prio : Prio
+	  , mresp_ftype : Tpye
+	  , mresp_ttype : Tpye
+	  , mresp_dest_id : DestId
+	  , mresp_hop_count : Bit(8)
+	  , mresp_tid : TranId
+	  , mresp_local : bool
+	  , mresp_status : Status
+	 #] 
+
+	MaintenanceRespIfcCntrl : type = 
+	 [# mresp_sof : bool
+	  , mresp_eof : bool
+	  , mresp_vld : bool
+	 #] 
+
+	MaintenanceRespIfcPkt : type = 
+	 [# mrespcntrl : MaintenanceRespIfcCntrl
+	  , mrespdata : MaintenanceRespIfcData
+	 #] 
+
+	MaintenanceReqIfcData : type = 
+	 [# mreq_tt : TT
+	  , mreq_data : Data
+	  , mreq_crf : bool
+	  , mreq_prio : Prio
+	  , mreq_ftype : Tpye
+	  , mreq_ttype : Tpye
+	  , mreq_dest_id : DestId
+	  , mreq_source_id : SourceId
+	  , mreq_tid : TranId
+	  , mreq_offset : Offset
+	  , mreq_byte_en : ByteEn
+	  , mreq_byte_count : ByteCount
+	  , mreq_local : bool
+	 #] 
+
+	MaintenanceReqIfcCntrl : type = 
+	 [# mreq_sof : bool
+	  , mreq_eof : bool
+	  , mreq_vld : bool
+	 #] 
+
+	MaintenanceReqIfcPkt : type = 
+	 [# mreqcntrl : MaintenanceReqIfcCntrl
+	  , mreqdata : MaintenanceReqIfcData
+	 #] 
+
+	TargetRespIfcMsg : type = 
+	 [# tresp_msg_seg : MsgSeg
+	  , tresp_mbox : Bit(2)
+	  , tresp_letter : Mletter
+	 #] 
+
+	TargetRespIfcData : type = 
+	 [# tresp_tt : TT
+	  , tresp_data : Data
+	  , tresp_crf : bool
+	  , tresp_prio : Prio
+	  , tresp_ftype : Tpye
+	  , tresp_dest_id : DestId
+	  , tresp_status : Status
+	  , tresp_tid : TranId
+	  , tresp_ttype : Tpye
+	  , tresp_no_data : bool
+	 #] 
+
+	TargetRespIfcCntrl : type = 
+	 [# tresp_sof : bool
+	  , tresp_eof : bool
+	  , tresp_vld : bool
+	  , tresp_dsc : bool
+	 #] 
+
+	TargetRespIfcPkt : type = 
+	 [# trespcntrl : TargetRespIfcCntrl
+	  , trespdata : TargetRespIfcData
+	  , trespmsg : TargetRespIfcMsg
+	 #] 
+
+	TargetReqIfcMsg : type = 
+	 [# treq_db_info : DoorBell
+	  , treq_msg_len : MsgLen
+	  , treq_msg_seg : MsgSeg
+	  , treq_mbox : Bit(6)
+	  , treq_letter : Mletter
+	 #] 
+
+	TargetReqIfcData : type = 
+	 [# treq_tt : TT
+	  , treq_data : Data
+	  , treq_crf : bool
+	  , treq_prio : Prio
+	  , treq_ftype : Tpye
+	  , treq_destid : DestId
+	  , treq_sourceid : SourceId
+	  , treq_tid : TranId
+	  , treq_ttype : Tpye
+	  , treq_addr : Addr
+	  , treq_byte_count : ByteCount
+	  , treq_byte_en : ByteEn
+	 #] 
+
+	TargetReqIfcCntrl : type = 
+	 [# treq_sof : bool
+	  , treq_eof : bool
+	  , treq_vld : bool
+	 #] 
+
+	TargetReqIfcPkt : type = 
+	 [# treqcntrl : TargetReqIfcCntrl
+	  , treqdata : TargetReqIfcData
+	  , treqmsg : TargetReqIfcMsg
+	 #] 
+
+	InitRespIfcMsg : type = 
+	 [# iresp_msg_seg : MsgSeg
+	  , iresp_mbox : Bit(2)
+	  , iresp_letter : Mletter
+	 #] 
+
+	InitRespIfcData : type = 
+	 [# iresp_tt : TT
+	  , iresp_data : Data
+	  , iresp_crf : bool
+	  , iresp_prio : Prio
+	  , iresp_ftype : Tpye
+	  , iresp_ttype : Tpye
+	  , iresp_destid : DestId
+	  , iresp_sourceid : SourceId
+	  , iresp_status : Status
+	  , iresp_tid : TranId
+	  , iresp_local : bool
+	 #] 
+
+	InitRespIfcCntrl : type = 
+	 [# iresp_sof : bool
+	  , iresp_eof : bool
+	  , iresp_vld : bool
+	 #] 
+
+	InitiatorRespIfcPkt : type = 
+	 [# irespcntrl : InitRespIfcCntrl
+	  , irespdata : InitRespIfcData
+	  , irespmsg : InitRespIfcMsg
+	 #] 
+
+	InitReqIfcMsg : type = 
+	 [# ireq_db_info : DoorBell
+	  , ireq_msg_len : MsgLen
+	  , ireq_msg_seg : MsgSeg
+	  , ireq_mbox : Bit(6)
+	  , ireq_letter : Mletter
+	 #] 
+
+	InitReqIfcData : type = 
+	 [# ireq_tt : TT
+	  , ireq_data : Data
+	  , ireq_crf : bool
+	  , ireq_prio : Prio
+	  , ireq_ftype : Tpye
+	  , ireq_destid : DestId
+	  , ireq_addr : Addr
+	  , ireq_hopcount : Bit(8)
+	  , ireq_tid : TranId
+	  , ireq_ttype : Tpye
+	  , ireq_byte_count : ByteCount
+	  , ireq_byte_en : ByteEn
+	  , ireq_local : bool
+	 #] 
+
+	InitReqIfcCntrl : type = 
+	 [# ireq_sof : bool
+	  , ireq_eof : bool
+	  , ireq_vld : bool
+	  , ireq_dsc : bool
+	 #] 
+
+	InitiatorReqIfcPkt : type = 
+	 [# ireqcntrl : InitReqIfcCntrl
+	  , ireqdata : InitReqIfcData
+	  , ireqmsg : InitReqIfcMsg
+	 #] 
+
+	Target_Info : type = 
+	 [# letter : Mletter
+	  , mbox : Bit(2)
+	  , msgseg : MsgSeg
+	 #] 
+
+	FType13_MsgPassingRespClass : type = 
+	 [# ftype : Tpye
+	  , ttype : Tpye
+	  , status : Status
+	  , tgtTID : TranId
+	 #] 
+
+	FType13_ResponseClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , ttype : Tpye
+	  , status : Status
+	  , tgtTID : TranId
+	  , data : Maybe[Data, mkData]
+	 #] 
+
+	Ftype11MessageData : type = 
+	 [# ftype11LastData : bool
+	  , ftype11Data : Data
+	 #] 
+
+	FType11_MESSAGEClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , msglen : MsgLen
+	  , ssize : Size
+	  , srcTID : TranId
+	  , letter : Mletter
+	  , mbox : Bit(2)
+	  , msgseg : MsgSeg
+	 #] 
+
+	FType10_DOORBELLClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , srcTID : TranId
+	  , info_msb : Bit(8)
+	  , info_lsb : Bit(8)
+	 #] 
+
+	FType9_DataStreamingClass : type = 
+	 [# ftype : Tpye
+	  , cos : COS
+	  , start : Flag
+	  , ends : Flag
+	  , rsv : Bit(3)
+	  , xheader : Flag
+	  , odd : Flag
+	  , pad : Flag
+	  , srl : SRL
+	  , data : Data
+	 #] 
+
+	FType8_MaintenanceClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , ttype : Tpye
+	  , size : Status
+	  , tranID : TranId
+	  , config_offset : Offset
+	  , wdptr : WdPointer
+	  , data : Maybe[Data, mkData]
+	 #] 
+
+	FType7_FlowCntl : type = 
+	 [# 
+	 #] 
+
+	Ftype6StreamData : type = 
+	 [# ftype6LastData : bool
+	  , ftype6Data : Data
+	 #] 
+
+	FType6_StreamWrClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , addr : Bit(45)
+	  , xamsbs : Bit(2)
+	 #] 
+
+	FType5_WriteClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , ttype : Tpye
+	  , wrsize : Size
+	  , srcTID : TranId
+	  , addr : Bit(45)
+	  , wdptr : WdPointer
+	  , xamsbs : Bit(2)
+	  , data : Maybe[Data, mkData]
+	 #] 
+
+	FType2_RequestClass : type = 
+	 [# tt : TT
+	  , ftype : Tpye
+	  , ttype : Tpye
+	  , rdsize : Size
+	  , srcTID : TranId
+	  , addr : Bit(45)
+	  , wdptr : WdPointer
+	  , xamsbs : Bit(2)
+	 #] 
+
+	FType1_InterventionRequest : type = 
+	 [# 
+	 #] 
+
+	Decode_ByteCount : type = 
+	 [# bytecount_dec : ByteCount
+	  , byteen_dec : ByteEn
+	 #] 
+
+	InitReqDataInput : type = 
+	 [# lastdata : bool
+	  , datacount : Bit(4)
+	 #] 
+
+	ReceivedPktsInfo : type = 
+	 [# headerpkt : DataPkt
+	  , datapkt : DataPkt
+	  , pktcount : Bit(4)
+	  , lastpkt : bool
+	 #] 
+
+	Transmit_Pkt : type = 
+	 [# sof : bool
+	  , eof : bool
+	  , vld : bool
+	  , data : DataPkt
+	  , txrem : Bit(4)
+	  , crf : bool
+	 #] 
+
+	mkRxIncomingPacket : RxIncomingPacket
+	= (# rx_sof := False
+         , rx_eof := False
+         , rx_vld := False
+         , rx_data := 0
+         , rx_rem := 0
+         , rx_crf := False
+	#)
+
+	mkMaintenanceRespIfcData : MaintenanceRespIfcData
+	= (# mresp_tt := 0
+         , mresp_data := 0
+         , mresp_crf := False
+         , mresp_prio := 0
+         , mresp_ftype := 0
+         , mresp_ttype := 0
+         , mresp_dest_id := 0
+         , mresp_hop_count := 0
+         , mresp_tid := 0
+         , mresp_local := False
+         , mresp_status := 0
+	#)
+
+	mkMaintenanceRespIfcCntrl : MaintenanceRespIfcCntrl
+	= (# mresp_sof := False
+         , mresp_eof := False
+         , mresp_vld := False
+	#)
+
+	mkMaintenanceRespIfcPkt : MaintenanceRespIfcPkt
+	= (# mrespcntrl := mkMaintenanceRespIfcCntrl
+         , mrespdata := mkMaintenanceRespIfcData
+	#)
+
+	mkMaintenanceReqIfcData : MaintenanceReqIfcData
+	= (# mreq_tt := 0
+         , mreq_data := 0
+         , mreq_crf := False
+         , mreq_prio := 0
+         , mreq_ftype := 0
+         , mreq_ttype := 0
+         , mreq_dest_id := 0
+         , mreq_source_id := 0
+         , mreq_tid := 0
+         , mreq_offset := 0
+         , mreq_byte_en := 0
+         , mreq_byte_count := 0
+         , mreq_local := False
+	#)
+
+	mkMaintenanceReqIfcCntrl : MaintenanceReqIfcCntrl
+	= (# mreq_sof := False
+         , mreq_eof := False
+         , mreq_vld := False
+	#)
+
+	mkMaintenanceReqIfcPkt : MaintenanceReqIfcPkt
+	= (# mreqcntrl := mkMaintenanceReqIfcCntrl
+         , mreqdata := mkMaintenanceReqIfcData
+	#)
+
+	mkTargetRespIfcMsg : TargetRespIfcMsg
+	= (# tresp_msg_seg := 0
+         , tresp_mbox := 0
+         , tresp_letter := 0
+	#)
+
+	mkTargetRespIfcData : TargetRespIfcData
+	= (# tresp_tt := 0
+         , tresp_data := 0
+         , tresp_crf := False
+         , tresp_prio := 0
+         , tresp_ftype := 0
+         , tresp_dest_id := 0
+         , tresp_status := 0
+         , tresp_tid := 0
+         , tresp_ttype := 0
+         , tresp_no_data := True
+	#)
+
+	mkTargetRespIfcCntrl : TargetRespIfcCntrl
+	= (# tresp_sof := False
+         , tresp_eof := False
+         , tresp_vld := False
+         , tresp_dsc := False
+	#)
+
+	mkTargetRespIfcPkt : TargetRespIfcPkt
+	= (# trespcntrl := mkTargetRespIfcCntrl
+         , trespdata := mkTargetRespIfcData
+         , trespmsg := mkTargetRespIfcMsg
+	#)
+
+	mkTargetReqIfcMsg : TargetReqIfcMsg
+	= (# treq_db_info := 0
+         , treq_msg_len := 0
+         , treq_msg_seg := 0
+         , treq_mbox := 0
+         , treq_letter := 0
+	#)
+
+	mkTargetReqIfcData : TargetReqIfcData
+	= (# treq_tt := 0
+         , treq_data := 0
+         , treq_crf := False
+         , treq_prio := 0
+         , treq_ftype := 0
+         , treq_destid := 0
+         , treq_sourceid := 0
+         , treq_tid := 0
+         , treq_ttype := 0
+         , treq_addr := 0
+         , treq_byte_count := 0
+         , treq_byte_en := 0
+	#)
+
+	mkTargetReqIfcCntrl : TargetReqIfcCntrl
+	= (# treq_sof := False
+         , treq_eof := False
+         , treq_vld := False
+	#)
+
+	mkTargetReqIfcPkt : TargetReqIfcPkt
+	= (# treqcntrl := mkTargetReqIfcCntrl
+         , treqdata := mkTargetReqIfcData
+         , treqmsg := mkTargetReqIfcMsg
+	#)
+
+	mkInitRespIfcMsg : InitRespIfcMsg
+	= (# iresp_msg_seg := 0
+         , iresp_mbox := 0
+         , iresp_letter := 0
+	#)
+
+	mkInitRespIfcData : InitRespIfcData
+	= (# iresp_tt := 0
+         , iresp_data := 0
+         , iresp_crf := False
+         , iresp_prio := 0
+         , iresp_ftype := 0
+         , iresp_ttype := 0
+         , iresp_destid := 0
+         , iresp_sourceid := 0
+         , iresp_status := 0
+         , iresp_tid := 0
+         , iresp_local := False
+	#)
+
+	mkInitRespIfcCntrl : InitRespIfcCntrl
+	= (# iresp_sof := False
+         , iresp_eof := False
+         , iresp_vld := False
+	#)
+
+	mkInitiatorRespIfcPkt : InitiatorRespIfcPkt
+	= (# irespcntrl := mkInitRespIfcCntrl
+         , irespdata := mkInitRespIfcData
+         , irespmsg := mkInitRespIfcMsg
+	#)
+
+	mkInitReqIfcMsg : InitReqIfcMsg
+	= (# ireq_db_info := 0
+         , ireq_msg_len := 0
+         , ireq_msg_seg := 0
+         , ireq_mbox := 0
+         , ireq_letter := 0
+	#)
+
+	mkInitReqIfcData : InitReqIfcData
+	= (# ireq_tt := 0
+         , ireq_data := 0
+         , ireq_crf := False
+         , ireq_prio := 0
+         , ireq_ftype := 0
+         , ireq_destid := 0
+         , ireq_addr := 0
+         , ireq_hopcount := 0
+         , ireq_tid := 0
+         , ireq_ttype := 0
+         , ireq_byte_count := 0
+         , ireq_byte_en := 0
+         , ireq_local := False
+	#)
+
+	mkInitReqIfcCntrl : InitReqIfcCntrl
+	= (# ireq_sof := False
+         , ireq_eof := False
+         , ireq_vld := False
+         , ireq_dsc := False
+	#)
+
+	mkInitiatorReqIfcPkt : InitiatorReqIfcPkt
+	= (# ireqcntrl := mkInitReqIfcCntrl
+         , ireqdata := mkInitReqIfcData
+         , ireqmsg := mkInitReqIfcMsg
+	#)
+
+	mkTarget_Info : Target_Info
+	= (# letter := 0
+         , mbox := 0
+         , msgseg := 0
+	#)
+
+	mkFType13_MsgPassingRespClass : FType13_MsgPassingRespClass
+	= (# ftype := 0
+         , ttype := 0
+         , status := 0
+         , tgtTID := 0
+	#)
+
+	mkFType13_ResponseClass : FType13_ResponseClass
+	= (# tt := 0
+         , ftype := 0
+         , ttype := 0
+         , status := 0
+         , tgtTID := 0
+         , data := Nothing[Data,mkData]
+	#)
+
+	mkFtype11MessageData : Ftype11MessageData
+	= (# ftype11LastData := False
+         , ftype11Data := 0
+	#)
+
+	mkFType11_MESSAGEClass : FType11_MESSAGEClass
+	= (# tt := 0
+         , ftype := 0
+         , msglen := 0
+         , ssize := 0
+         , srcTID := 0
+         , letter := 0
+         , mbox := 0
+         , msgseg := 0
+	#)
+
+	mkFType10_DOORBELLClass : FType10_DOORBELLClass
+	= (# tt := 0
+         , ftype := 0
+         , srcTID := 0
+         , info_msb := 0
+         , info_lsb := 0
+	#)
+
+	mkFType9_DataStreamingClass : FType9_DataStreamingClass
+	= (# ftype := 0
+         , cos := 0
+         , start := 0
+         , ends := 0
+         , rsv := 0
+         , xheader := 0
+         , odd := 0
+         , pad := 0
+         , srl := 0
+         , data := 0
+	#)
+
+	mkFType8_MaintenanceClass : FType8_MaintenanceClass
+	= (# tt := 0
+         , ftype := 0
+         , ttype := 0
+         , size := 0
+         , tranID := 0
+         , config_offset := 0
+         , wdptr := 0
+         , data := Nothing[Data,mkData]
+	#)
+
+	
+
+	mkFtype6StreamData : Ftype6StreamData
+	= (# ftype6LastData := False
+         , ftype6Data := 0
+	#)
+
+	mkFType6_StreamWrClass : FType6_StreamWrClass
+	= (# tt := 0
+         , ftype := 0
+         , addr := 0
+         , xamsbs := 0
+	#)
+
+	mkFType5_WriteClass : FType5_WriteClass
+	= (# tt := 0
+         , ftype := 0
+         , ttype := 0
+         , wrsize := 0
+         , srcTID := 0
+         , addr := 0
+         , wdptr := 0
+         , xamsbs := 0
+         , data := Nothing[Data,mkData]
+	#)
+
+	mkFType2_RequestClass : FType2_RequestClass
+	= (# tt := 0
+         , ftype := 0
+         , ttype := 0
+         , rdsize := 0
+         , srcTID := 0
+         , addr := 0
+         , wdptr := 0
+         , xamsbs := 0
+	#)
+
+	
+
+	mkDecode_ByteCount : Decode_ByteCount
+	= (# bytecount_dec := 0
+         , byteen_dec := 0
+	#)
+
+	mkInitReqDataInput : InitReqDataInput
+	= (# lastdata := False
+         , datacount := 0
+	#)
+
+	mkReceivedPktsInfo : ReceivedPktsInfo
+	= (# headerpkt := 0
+         , datapkt := 0
+         , pktcount := 0
+         , lastpkt := False
+	#)
+
+	mkTransmit_Pkt : Transmit_Pkt
+	= (# sof := False
+         , eof := False
+         , vld := False
+         , data := 0
+         , txrem := 0
+         , crf := False
+	#)
+
+	fn_ByteEnDataGeneration (datain: Data, byte_en: ByteEn, data_0: Bit(6416)) : Bit(64)
+		= if ( byte_en = 255 )
+			  then datain
+			  else if ( byte_en = 127 )
+			  then ( bitConcat (data_0, (bitSelect(datain, ( ( 64 - ( div((64 ), (8)) ) ) - 1 ), 0)), 55))
+			  else if ( byte_en = 254 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( div((64 ), (8)) ))), data_0, 6416))
+			  else if ( byte_en = 63 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( 64 - ( div((64 ), (4)) ) ) - 1 ), 0)), 47)), 6463))
+			  else if ( byte_en = 252 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( div((64 ), (4)) ))), ( bitConcat (data_0, data_0, 6416)), 12832))
+			  else if ( byte_en = 15 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( div((64 ), (2)) ) - 1 ), 0)), 31)), 6447)), 12863)), 19279))
+			  else if ( byte_en = 240 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( div((64 ), (2)) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664))
+			  else if ( byte_en = 31 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( 5 * ( div((64 ), (8)) ) ) - 1 ), 0)), 39)), 6455)), 12871))
+			  else if ( byte_en = 3 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( 2 * ( div((64 ), (8)) ) ) - 1 ), 0)), 15)), 6431)), 12847)), 19263)), 25679)), 32095))
+			  else if ( byte_en = 7 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( 3 * ( div((64 ), (8)) ) ) - 1 ), 0)), 23)), 6439)), 12855)), 19271)), 25687))
+			  else if ( byte_en = 12 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 4 * ( div((64 ), (8)) ) ) - 1 ), ( 2 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, data_0, 6416)), 12832)), 12847)), 19263)), 25679)), 32095))
+			  else if ( byte_en = 248 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( 3 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248))
+			  else if ( byte_en = 48 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 6 * ( div((64 ), (8)) ) ) - 1 ), ( 4 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 25679)), 32095))
+			  else if ( byte_en = 224 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( 5 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 32080))
+			  else if ( byte_en = 192 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( 6 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 32080)), 38496))
+			  else if ( byte_en = 1 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, (bitSelect(datain, ( ( div((64 ), (8)) ) - 1 ), 0)), 7)), 6423)), 12839)), 19255)), 25671)), 32087)), 38503))
+			  else if ( byte_en = 2 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 2 * ( div((64 ), (8)) ) ) - 1 ), ( div((64 ), (8)) ))), data_0, 6416)), 6423)), 12839)), 19255)), 25671)), 32087)), 38503))
+			  else if ( byte_en = 4 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 3 * ( div((64 ), (8)) ) ) - 1 ), ( 2 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, data_0, 6416)), 12832)), 12839)), 19255)), 25671)), 32087)), 38503))
+			  else if ( byte_en = 8 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 4 * ( div((64 ), (8)) ) ) - 1 ), ( 3 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 19255)), 25671)), 32087)), 38503))
+			  else if ( byte_en = 16 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 5 * ( div((64 ), (8)) ) ) - 1 ), ( 4 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 25671)), 32087)), 38503))
+			  else if ( byte_en = 32 )
+			  then ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 6 * ( div((64 ), (8)) ) ) - 1 ), ( 5 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 32080)), 32087)), 38503))
+			  else if ( byte_en = 64 )
+			  then ( bitConcat (data_0, ( bitConcat ((bitSelect(datain, ( ( 7 * ( div((64 ), (8)) ) ) - 1 ), ( 6 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 32080)), 38496)), 38503))
+			  else if ( byte_en = 128 )
+			  then ( bitConcat ((bitSelect(datain, ( 64 - 1 ), ( 7 * ( div((64 ), (8)) ) ))), ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, ( bitConcat (data_0, data_0, 6416)), 12832)), 19248)), 25664)), 32080)), 38496)), 44912))
+			  else datain
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+
+	toTranIdfromTargetInfo (data: Target_Info) : TranId
+		= ( bitConcat (data`letter, ( bitConcat (data`mbox, data`msgseg, 4)), 6))
+
+	fn_Dev8Ftype10DoorBellPkt (pktCount: Bit(4), inHeaderPkt: DataPkt) : FType10_DOORBELLClass
+		= LET x : FType10_DOORBELLClass = mkFType10_DOORBELLClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, srcTID := (bitSelect(inHeaderPkt, 87, 80))
+				, info_msb := (bitSelect(inHeaderPkt, 79, 72))
+				, info_lsb := (bitSelect(inHeaderPkt, 71, 64))
+			  ]
+
+	fn_Dev8Ftype13ResponsePkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt, ttype: Tpye, respData: Data) : FType13_ResponseClass
+		= COND
+			  ttype = 8 -> if ( pktCount = 1 )
+			  then LET x : FType13_ResponseClass = mkFType13_ResponseClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, status := (bitSelect(inHeaderPkt, 91, 88))
+				, tgtTID := (bitSelect(inHeaderPkt, 87, 80))
+				, data := Just[Data,mkData](respData)
+			  ]
+			  else mkFType13_ResponseClass
+			endif
+			, ttype = 0 -> if ( pktCount = 1 )
+			  then LET x : FType13_ResponseClass = mkFType13_ResponseClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, status := (bitSelect(inHeaderPkt, 91, 88))
+				, tgtTID := (bitSelect(inHeaderPkt, 87, 80))
+				, data := Nothing[Data,mkData]
+			  ]
+			  else mkFType13_ResponseClass
+			endif
+			, True -> mkFType13_ResponseClass
+		ENDCOND
+
+	fn_Dev8Ftype11MessagePkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType11_MESSAGEClass
+		= LET x : FType11_MESSAGEClass = mkFType11_MESSAGEClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, msglen := (bitSelect(inHeaderPkt, 95, 92))
+				, ssize := (bitSelect(inHeaderPkt, 91, 88))
+				, srcTID := (bitSelect(inHeaderPkt, 87, 80))
+				, letter := (bitSelect(inHeaderPkt, 79, 78))
+				, mbox := (bitSelect(inHeaderPkt, 77, 76))
+				, msgseg := (bitSelect(inHeaderPkt, 75, 72))
+			  ]
+
+	fn_Dev8Ftype8MaintanenceRequestPkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType8_MaintenanceClass
+		= LET lv_wdptr : WdPointer = 0
+			, lv_offset : Offset = 0
+			IN COND
+			  (bitSelect(inHeaderPkt, 95, 92)) = 0 -> if ( pktCount = 1 )
+			  then LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, size := (bitSelect(inHeaderPkt, 91, 88))
+				, tranID := (bitSelect(inHeaderPkt, 87, 80))
+				, config_offset := (bitSelect(inHeaderPkt, 71, 51))
+				, wdptr := (bitSelect(inHeaderPkt, 50))
+				, data := Nothing[Data,mkData]
+			  ]
+			  else mkFType8_MaintenanceClass
+			endif
+			, (bitSelect(inHeaderPkt, 95, 92)) = 1 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, size := (bitSelect(inHeaderPkt, 91, 88))
+				, tranID := (bitSelect(inHeaderPkt, 87, 80))
+				, config_offset := (bitSelect(inHeaderPkt, 71, 51))
+				, wdptr := (bitSelect(inHeaderPkt, 50))
+				, data := Nothing[Data,mkData]
+			  ]
+			, (bitSelect(inHeaderPkt, 95, 92)) = 2 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, size := (bitSelect(inHeaderPkt, 91, 88))
+				, tranID := (bitSelect(inHeaderPkt, 87, 80))
+				, config_offset := 0
+				, wdptr := 0
+				, data := Nothing[Data,mkData]
+			  ]
+			, (bitSelect(inHeaderPkt, 95, 92)) = 3 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, size := (bitSelect(inHeaderPkt, 91, 88))
+				, tranID := (bitSelect(inHeaderPkt, 87, 80))
+				, config_offset := 0
+				, wdptr := 0
+				, data := Nothing[Data,mkData]
+			  ]
+			, True -> mkFType8_MaintenanceClass
+		ENDCOND
+
+	fn_Dev8Ftype6StreamPktHeader (pktCount: Bit(4), inHeaderPkt: DataPkt) : FType6_StreamWrClass
+		= LET x : FType6_StreamWrClass = mkFType6_StreamWrClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, addr := (bitSelect(inHeaderPkt, 95, 51))
+				, xamsbs := (bitSelect(inHeaderPkt, 49, 48))
+			  ]
+
+	fn_Dev8Ftype5WritePkt (ftype: Tpye, pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt, dataReceived: Data) : FType5_WriteClass
+		= LET x : FType5_WriteClass = mkFType5_WriteClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, wrsize := (bitSelect(inHeaderPkt, 91, 88))
+				, srcTID := (bitSelect(inHeaderPkt, 87, 80))
+				, addr := (bitSelect(inHeaderPkt, 79, 35))
+				, wdptr := (bitSelect(inHeaderPkt, 34))
+				, xamsbs := (bitSelect(inHeaderPkt, 33, 32))
+				, data := Just[Data,mkData](dataReceived)
+			  ]
+
+	fn_Dev8Ftype2RequestPkt (ftype: Tpye, pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType2_RequestClass
+		= LET x : FType2_RequestClass = mkFType2_RequestClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 95, 92))
+				, rdsize := (bitSelect(inHeaderPkt, 91, 88))
+				, srcTID := (bitSelect(inHeaderPkt, 87, 80))
+				, addr := (bitSelect(inHeaderPkt, 79, 35))
+				, wdptr := (bitSelect(inHeaderPkt, 34))
+				, xamsbs := (bitSelect(inHeaderPkt, 33, 32))
+			  ]
+
+	fn_Dev16Ftype10DoorBellPkt (pktCount: Bit(4), inHeaderPkt: DataPkt) : FType10_DOORBELLClass
+		= LET x : FType10_DOORBELLClass = mkFType10_DOORBELLClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, srcTID := (bitSelect(inHeaderPkt, 71, 64))
+				, info_msb := (bitSelect(inHeaderPkt, 63, 56))
+				, info_lsb := (bitSelect(inHeaderPkt, 55, 48))
+			  ]
+
+	fn_Dev16Ftype13ResponsePkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt, respData: Data) : FType13_ResponseClass
+		= COND
+			  (bitSelect(inHeaderPkt, 87, 84)) = 8 -> if ( pktCount = 1 )
+			  then LET x : FType13_ResponseClass = mkFType13_ResponseClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, status := (bitSelect(inHeaderPkt, 75, 72))
+				, tgtTID := (bitSelect(inHeaderPkt, 71, 64))
+				, data := Just[Data,mkData](respData)
+			  ]
+			  else mkFType13_ResponseClass
+			endif
+			, (bitSelect(inHeaderPkt, 87, 84)) = 0 -> if ( pktCount = 1 )
+			  then LET x : FType13_ResponseClass = mkFType13_ResponseClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, status := (bitSelect(inHeaderPkt, 75, 72))
+				, tgtTID := (bitSelect(inHeaderPkt, 71, 64))
+				, data := Nothing[Data,mkData]
+			  ]
+			  else mkFType13_ResponseClass
+			endif
+			, True -> mkFType13_ResponseClass
+		ENDCOND
+
+	fn_Dev16Ftype11MessagePkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType11_MESSAGEClass
+		= LET x : FType11_MESSAGEClass = mkFType11_MESSAGEClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, msglen := (bitSelect(inHeaderPkt, 79, 76))
+				, ssize := (bitSelect(inHeaderPkt, 75, 72))
+				, srcTID := (bitSelect(inHeaderPkt, 71, 64))
+				, letter := (bitSelect(inHeaderPkt, 63, 62))
+				, mbox := (bitSelect(inHeaderPkt, 61, 60))
+				, msgseg := (bitSelect(inHeaderPkt, 59, 56))
+			  ]
+
+	fn_Dev16Ftype8MaintanenceRequestPkt (pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType8_MaintenanceClass
+		= COND
+			  (bitSelect(inHeaderPkt, 79, 76)) = 0 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, size := (bitSelect(inHeaderPkt, 75, 72))
+				, tranID := (bitSelect(inHeaderPkt, 71, 64))
+				, config_offset := (bitSelect(inHeaderPkt, 55, 35))
+				, wdptr := (bitSelect(inDataPkt, 34))
+				, data := Nothing[Data,mkData]
+			  ]
+			, (bitSelect(inHeaderPkt, 79, 76)) = 1 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, size := (bitSelect(inHeaderPkt, 75, 72))
+				, tranID := (bitSelect(inHeaderPkt, 71, 64))
+				, config_offset := (bitSelect(inHeaderPkt, 55, 35))
+				, wdptr := (bitSelect(inDataPkt, 34))
+				, data := Nothing[Data,mkData]
+			  ]
+			, (bitSelect(inHeaderPkt, 79, 76)) = 2 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, size := (bitSelect(inHeaderPkt, 75, 72))
+				, tranID := (bitSelect(inHeaderPkt, 71, 64))
+				, config_offset := 0
+				, wdptr := 0
+				, data := Nothing[Data,mkData]
+			  ]
+			, (bitSelect(inHeaderPkt, 79, 76)) = 3 -> LET x : FType8_MaintenanceClass = mkFType8_MaintenanceClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, size := (bitSelect(inHeaderPkt, 75, 72))
+				, tranID := (bitSelect(inHeaderPkt, 71, 64))
+				, config_offset := 0
+				, wdptr := 0
+				, data := Nothing[Data,mkData]
+			  ]
+			, True -> mkFType8_MaintenanceClass
+		ENDCOND
+
+	fn_Dev16Ftype6StreamPktHeader (pktCount: Bit(4), inHeaderPkt: DataPkt) : FType6_StreamWrClass
+		= LET x : FType6_StreamWrClass = mkFType6_StreamWrClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, addr := (bitSelect(inHeaderPkt, 79, 35))
+				, xamsbs := (bitSelect(inHeaderPkt, 33, 32))
+			  ]
+
+	fn_Dev16Ftype5WritePkt (ftype: Tpye, pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt, dataReceived: Data) : FType5_WriteClass
+		= LET lv_Addr : Bit(29) = 0
+			, lv_xamsbs : Bit(2) = 0
+			, lv_wdptr : Bit(1) = 0
+			, lv_Data : Data = 0
+			IN LET x : FType5_WriteClass = mkFType5_WriteClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, wrsize := (bitSelect(inHeaderPkt, 75, 72))
+				, srcTID := (bitSelect(inHeaderPkt, 71, 64))
+				, addr := (bitSelect(inHeaderPkt, 63, 19))
+				, wdptr := (bitSelect(inHeaderPkt, 18))
+				, xamsbs := (bitSelect(inHeaderPkt, 17, 16))
+				, data := Just[Data,mkData](dataReceived)
+			  ]
+
+	fn_Dev16Ftype2RequestPkt (ftype: Tpye, pktCount: Bit(4), inHeaderPkt: DataPkt, inDataPkt: DataPkt) : FType2_RequestClass
+		= LET x : FType2_RequestClass = mkFType2_RequestClass
+			  IN x WITH [ tt := (bitSelect(inHeaderPkt, 117, 116))
+				, ftype := (bitSelect(inHeaderPkt, 115, 112))
+				, ttype := (bitSelect(inHeaderPkt, 79, 76))
+				, rdsize := (bitSelect(inHeaderPkt, 75, 72))
+				, srcTID := (bitSelect(inHeaderPkt, 71, 64))
+				, addr := (bitSelect(inHeaderPkt, 63, 19))
+				, wdptr := (bitSelect(inHeaderPkt, 18))
+				, xamsbs := (bitSelect(inHeaderPkt, 17, 16))
+			  ]
+
+	fn_ByteCountDecoder (wr_Read: bool, wr_Size: Size, wr_WdPtr: Bit(1)) : Decode_ByteCount
+		= COND
+			  wr_Size = 0 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 8
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 128
+			  ]
+			endif
+			, wr_Size = 1 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 4
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 64
+			  ]
+			endif
+			, wr_Size = 2 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 2
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 32
+			  ]
+			endif
+			, wr_Size = 3 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 1
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 1
+				, byteen_dec := 16
+			  ]
+			endif
+			, wr_Size = 4 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 2
+				, byteen_dec := 12
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 2
+				, byteen_dec := 192
+			  ]
+			endif
+			, wr_Size = 5 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 3
+				, byteen_dec := 7
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 3
+				, byteen_dec := 224
+			  ]
+			endif
+			, wr_Size = 6 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 2
+				, byteen_dec := 3
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 2
+				, byteen_dec := 48
+			  ]
+			endif
+			, wr_Size = 7 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 5
+				, byteen_dec := 31
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 5
+				, byteen_dec := 248
+			  ]
+			endif
+			, wr_Size = 8 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 4
+				, byteen_dec := 15
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 4
+				, byteen_dec := 240
+			  ]
+			endif
+			, wr_Size = 9 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 6
+				, byteen_dec := 63
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 6
+				, byteen_dec := 252
+			  ]
+			endif
+			, wr_Size = 10 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 7
+				, byteen_dec := 127
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 7
+				, byteen_dec := 254
+			  ]
+			endif
+			, wr_Size = 11 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 16
+				, byteen_dec := 255
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 8
+				, byteen_dec := 255
+			  ]
+			endif
+			, wr_Size = 12 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 64
+				, byteen_dec := 255
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 32
+				, byteen_dec := 255
+			  ]
+			endif
+			, wr_Size = 13 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 128
+				, byteen_dec := 255
+			  ]
+			  else if ( wr_Read = True )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 96
+				, byteen_dec := 255
+			  ]
+			  else mkDecode_ByteCount
+			endif
+			endif
+			, wr_Size = 14 -> if ( wr_Read = True )
+			  then if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 192
+				, byteen_dec := 255
+			  ]
+			  else LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 160
+				, byteen_dec := 255
+			  ]
+			endif
+			  else mkDecode_ByteCount
+			endif
+			, wr_Size = 15 -> if ( wr_WdPtr = 1 )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 256
+				, byteen_dec := 255
+			  ]
+			  else if ( wr_Read = True )
+			  then LET x : Decode_ByteCount = mkDecode_ByteCount
+			  IN x WITH [ bytecount_dec := 224
+				, byteen_dec := 255
+			  ]
+			  else mkDecode_ByteCount
+			endif
+			endif
+		ENDCOND
+
+	fn_Dev8Ftype13ResponseDataCreation (ftype_pkt: FType13_ResponseClass, old_data: Bit(6448), new_data: Bit(6480)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 8 -> ( bitConcat (old_data, new_data, 6480))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype8MtnRespDataCreation (ftype_pkt: FType8_MaintenanceClass, old_data: Bit(6480), new_data: Bit(6448)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 1 -> ( bitConcat (old_data, new_data, 6448))
+			, ftype_pkt`ttype = 2 -> ( bitConcat (old_data, new_data, 6448))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype6SWriteDataPktCreation (ftype_pkt: FType6_StreamWrClass, old_data: Bit(6480), new_data: Bit(6448)) : DataPkt
+		= if ( ftype_pkt`ftype = 6 )
+			  then ( bitConcat (old_data, new_data, 6448))
+			  else 0
+			endif
+
+	fn_Dev8Ftype5DataCreation (ftype_pkt: FType5_WriteClass, data_in: Bit(6496), new_data: Bit(6432)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (data_in, new_data, 6432))
+			, ftype_pkt`ttype = 5 -> ( bitConcat (data_in, new_data, 6432))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype13ResponsePktCreation (ftype_pkt: FType13_ResponseClass, prio: Bit(2), tt: Bit(2), destid: Bit(8), sourceid: Bit(8), data: Bit(6480)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 0 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, 0, 80)), 88)), 92)), 96)), 104)), 112)), 116)), 118)), 120))
+			, ftype_pkt`ttype = 1 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, 0, 80)), 88)), 92)), 96)), 104)), 112)), 116)), 118)), 120))
+			, ftype_pkt`ttype = 8 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, data, 6480)), 6488)), 6492)), 6496)), 6504)), 6512)), 6516)), 6518)), 6520))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype11MessageCsDataPktCreation (ftype_pkt: FType11_MESSAGEClass, data_in: Bit(6456), new_data: Bit(6472)) : DataPkt
+		= if ( ftype_pkt`ftype = 11 )
+			  then ( bitConcat (data_in, new_data, 6472))
+			  else 0
+			endif
+
+	fn_Dev8Ftype11MessageCsHeaderPktCreation (ftype_pkt: FType11_MESSAGEClass, prio: Bit(2), tt: Bit(2), srcid: Bit(8), destid: Bit(8), data_in: Bit(64)) : DataPkt
+		= if ( ftype_pkt`ftype = 11 )
+			  then ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`msglen, ( bitConcat (ftype_pkt`ssize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat (ftype_pkt`letter, ( bitConcat (ftype_pkt`mbox, ( bitConcat (ftype_pkt`msgseg, (bitSelect(data_in, ( 64 - 1 ), ( 64 - 56 ))), 55)), 59)), 61)), 63)), 71)), 75)), 79)), 87)), 95)), 99)), 101)), 103))
+			  else 0
+			endif
+
+	fn_Dev8Ftype10DOORBELLPktCreation (ftype_pkt: FType10_DOORBELLClass, prio: Bit(2), tt: Bit(2), destid: Bit(8), srcid: Bit(8), wr_d_x: Bit(6464)) : DataPkt
+		= if ( ftype_pkt`ftype = 10 )
+			  then ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (0, ( bitConcat (ftype_pkt`srcTID, ( bitConcat (ftype_pkt`info_msb, ( bitConcat (ftype_pkt`info_lsb, wr_d_x, 6464)), 6472)), 6480)), 6488)), 6496)), 6504)), 6512)), 6516)), 6518)), 6520))
+			  else 0
+			endif
+
+	fn_Dev8Ftype8MtnRespHeaderCreation (ftype_pkt: FType8_MaintenanceClass, prio: Prio, tt: Bit(2), destid: Bit(8), srcid: Bit(8), hop_count: Bit(8), data: Bit(6448)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 0 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat ((bitSelect(ftype_pkt`config_offset, 20, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (0, 0, 48)), 50)), 51)), 71)), 79)), 87)), 91)), 95)), 103)), 111)), 115)), 117)), 119))
+			, ftype_pkt`ttype = 1 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat ((bitSelect(ftype_pkt`config_offset, 20, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (0, data, 6448)), 6450)), 6451)), 6471)), 6479)), 6487)), 6491)), 6495)), 6503)), 6511)), 6515)), 6517)), 6519))
+			, ftype_pkt`ttype = 2 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (0, data, 6448)), 6472)), 6480)), 6488)), 6492)), 6496)), 6504)), 6512)), 6516)), 6518)), 6520))
+			, ftype_pkt`ttype = 3 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (0, 0, 48)), 72)), 80)), 88)), 92)), 96)), 104)), 112)), 116)), 118)), 120))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype6SWriteHdrPktCreation (ftype_pkt: FType6_StreamWrClass, prio: Bit(2), tt: Bit(2), destId: Bit(8), sourceId: Bit(8), resv: Bit(1), data: Bit(64)) : DataPkt
+		= if ( ftype_pkt`ftype = 6 )
+			  then ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destId, ( bitConcat (sourceId, ( bitConcat (ftype_pkt`addr, ( bitConcat (resv, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data, ( 64 - 1 ), ( 64 - 48 ))), 47)), 49)), 50)), 95)), 103)), 111)), 115)), 117)), 119))
+			  else 0
+			endif
+
+	fn_Dev8Ftype5HeaderCreation (ftype_pkt: FType5_WriteClass, dest_id: Bit(8), source_id: Bit(8), prio: Prio, tt: Bit(2), data_in: Bit(64)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`wrsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data_in, ( 64 - 1 ), ( 64 - 32 ))), 31)), 33)), 34)), 78)), 86)), 90)), 94)), 102)), 110)), 114)), 116)), 118))
+			, ftype_pkt`ttype = 5 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`wrsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data_in, ( 64 - 1 ), ( 64 - 32 ))), 31)), 33)), 34)), 78)), 86)), 90)), 94)), 102)), 110)), 114)), 116)), 118))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev8Ftype2HeaderCreation (ftype_pkt: FType2_RequestClass, dest_id: Bit(8), source_id: Bit(8), prio: Prio, tt: Bit(2), zero: Bit(6416), zero1: Bit(6416)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, ( bitConcat (zero, zero1, 6416)), 12832)), 12834)), 12835)), 12879)), 12887)), 12891)), 12895)), 12903)), 12911)), 12915)), 12917)), 12919))
+			, ftype_pkt`ttype = 12 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, ( bitConcat (zero, zero1, 6416)), 12832)), 12834)), 12835)), 12879)), 12887)), 12891)), 12895)), 12903)), 12911)), 12915)), 12917)), 12919))
+			, ftype_pkt`ttype = 13 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, ( bitConcat (zero, zero1, 6416)), 12832)), 12834)), 12835)), 12879)), 12887)), 12891)), 12895)), 12903)), 12911)), 12915)), 12917)), 12919))
+			, ftype_pkt`ttype = 14 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, ( bitConcat (zero, zero1, 6416)), 12832)), 12834)), 12835)), 12879)), 12887)), 12891)), 12895)), 12903)), 12911)), 12915)), 12917)), 12919))
+			, ftype_pkt`ttype = 15 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, ( bitConcat (zero, zero1, 6416)), 12832)), 12834)), 12835)), 12879)), 12887)), 12891)), 12895)), 12903)), 12911)), 12915)), 12917)), 12919))
+			, True -> 0
+		ENDCOND
+
+	fn_TxByteRemain (value: ByteCount) : Bit(3)
+		= COND
+			  value = 7 -> 6
+			, value = 6 -> 5
+			, value = 5 -> 4
+			, value = 4 -> 3
+			, value = 3 -> 2
+			, value = 2 -> 1
+			, value = 1 -> 0
+			, True -> 0
+		ENDCOND
+
+	fn_MsgLenToByteCount (value: MsgLen) : Bit(9)
+		= COND
+			  value = 0 -> 8
+			, value = 1 -> 24
+			, value = 2 -> 40
+			, value = 3 -> 56
+			, value = 4 -> 72
+			, value = 5 -> 88
+			, value = 6 -> 104
+			, value = 7 -> 130
+			, value = 8 -> 146
+			, value = 9 -> 162
+			, value = 10 -> 178
+			, value = 11 -> 194
+			, value = 12 -> 210
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype13ResponseDataCreation (ftype_pkt: FType13_ResponseClass, old_data: Bit(6464), new_data: Bit(6464)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 8 -> ( bitConcat (old_data, new_data, 6464))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype8MtnRespDataCreation (ftype_pkt: FType8_MaintenanceClass, data_old: Bit(6496), data: Bit(6432)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 1 -> ( bitConcat (data_old, data, 6432))
+			, ftype_pkt`ttype = 2 -> ( bitConcat (data_old, data, 6432))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype6SWriteDataPktCreation (ftype_pkt: FType6_StreamWrClass, data_old: Bit(6496), data: Bit(6432)) : DataPkt
+		= if ( ftype_pkt`ftype = 6 )
+			  then ( bitConcat (data_old, data, 6432))
+			  else 0
+			endif
+
+	fn_Dev16Ftype5DataCreation (ftype_pkt: FType5_WriteClass, data_in: Bit(64112), new_data: Bit(6416)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (data_in, new_data, 6416))
+			, ftype_pkt`ttype = 5 -> ( bitConcat (data_in, new_data, 6416))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype13ResponsePktCreation (ftype_pkt: FType13_ResponseClass, prio: Prio, tt: TT, destid: Bit(16), sourceid: Bit(16), data: Bit(6464)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 0 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, 0, 64)), 72)), 76)), 80)), 96)), 112)), 116)), 118)), 120))
+			, ftype_pkt`ttype = 1 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, 0, 64)), 72)), 76)), 80)), 96)), 112)), 116)), 118)), 120))
+			, ftype_pkt`ttype = 8 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (sourceid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`status, ( bitConcat (ftype_pkt`tgtTID, data, 6464)), 6472)), 6476)), 6480)), 6496)), 6512)), 6516)), 6518)), 6520))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype10DOORBELLPktCreation (ftype_pkt: FType10_DOORBELLClass, prio: Prio, tt: TT, destid: Bit(16), srcid: Bit(16), wr_d_x: Bit(6448)) : DataPkt
+		= ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (0, ( bitConcat (ftype_pkt`srcTID, ( bitConcat (ftype_pkt`info_msb, ( bitConcat (ftype_pkt`info_lsb, wr_d_x, 6448)), 6456)), 6464)), 6472)), 6480)), 6496)), 6512)), 6516)), 6518)), 6520))
+
+	fn_Dev16Ftype11MessageCsDataPktCreation (ftype_pkt: FType11_MESSAGEClass, headerdata: Bit(8), data_in: Bit(64)) : DataPkt
+		= if ( ftype_pkt`ftype = 11 )
+			  then ( bitConcat (headerdata, ( bitConcat (data_in, 0, 56)), 120))
+			  else 0
+			endif
+
+	fn_Dev16Ftype11MessageCsHeaderPktCreation (ftype_pkt: FType11_MESSAGEClass, prio: Bit(2), tt: Bit(2), srcid: Bit(16), destid: Bit(16), data_in: Bit(64)) : DataPkt
+		= if ( ftype_pkt`ftype = 11 )
+			  then ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`msglen, ( bitConcat (ftype_pkt`ssize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat (ftype_pkt`letter, ( bitConcat (ftype_pkt`mbox, ( bitConcat (ftype_pkt`msgseg, (bitSelect(data_in, 63, 8)), 55)), 59)), 61)), 63)), 71)), 75)), 79)), 95)), 111)), 115)), 117)), 119))
+			  else 0
+			endif
+
+	fn_Dev16Ftype8MtnRespHeaderCreation (ftype_pkt: FType8_MaintenanceClass, prio: Prio, tt: TT, destid: Bit(16), srcid: Bit(16), hop_count: Bit(8), data: Bit(6432)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 0 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (ftype_pkt`config_offset, ( bitConcat (ftype_pkt`wdptr, ( bitConcat (0, 0, 32)), 34)), 35)), 56)), 64)), 72)), 76)), 80)), 96)), 112)), 116)), 118)), 120))
+			, ftype_pkt`ttype = 1 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (ftype_pkt`config_offset, ( bitConcat (ftype_pkt`wdptr, ( bitConcat (0, data, 6432)), 6434)), 6435)), 6456)), 6464)), 6472)), 6476)), 6480)), 6496)), 6512)), 6516)), 6518)), 6520))
+			, ftype_pkt`ttype = 2 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (0, data, 6432)), 6456)), 6464)), 6472)), 6476)), 6480)), 6496)), 6512)), 6516)), 6518)), 6520))
+			, ftype_pkt`ttype = 3 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destid, ( bitConcat (srcid, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`size, ( bitConcat (ftype_pkt`tranID, ( bitConcat (hop_count, ( bitConcat (0, 0, 32)), 56)), 64)), 72)), 76)), 80)), 96)), 112)), 116)), 118)), 120))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype6SWriteHdrPktCreation (ftype_pkt: FType6_StreamWrClass, prio: Prio, tt: TT, destId: Bit(16), sourceId: Bit(16), resv: Bit(8), data: Bit(64)) : DataPkt
+		= if ( ftype_pkt`ftype = 6 )
+			  then ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (destId, ( bitConcat (sourceId, ( bitConcat (ftype_pkt`addr, ( bitConcat (0, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data, ( 64 - 1 ), ( 64 - 32 ))), 31)), 33)), 34)), 79)), 95)), 111)), 115)), 117)), 119))
+			  else 0
+			endif
+
+	fn_Dev16Ftype5HeaderCreation (ftype_pkt: FType5_WriteClass, dest_id: Bit(16), source_id: Bit(16), prio: Prio, tt: TT, data_in: Bit(64)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`wrsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data_in, ( 64 - 1 ), ( 64 - 16 ))), 15)), 17)), 18)), 62)), 70)), 74)), 78)), 94)), 110)), 114)), 116)), 118))
+			, ftype_pkt`ttype = 5 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`wrsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, (bitSelect(data_in, ( 64 - 1 ), ( 64 - 16 ))), 15)), 17)), 18)), 62)), 70)), 74)), 78)), 94)), 110)), 114)), 116)), 118))
+			, True -> 0
+		ENDCOND
+
+	fn_Dev16Ftype2HeaderCreation (ftype_pkt: FType2_RequestClass, dest_id: Bit(16), source_id: Bit(16), prio: Prio, tt: Bit(2), zero: Bit(6416)) : DataPkt
+		= COND
+			  ftype_pkt`ttype = 4 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, zero, 6416)), 6418)), 6419)), 6463)), 6471)), 6475)), 6479)), 6495)), 6511)), 6515)), 6517)), 6519))
+			, ftype_pkt`ttype = 12 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, zero, 6416)), 6418)), 6419)), 6463)), 6471)), 6475)), 6479)), 6495)), 6511)), 6515)), 6517)), 6519))
+			, ftype_pkt`ttype = 13 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, zero, 6416)), 6418)), 6419)), 6463)), 6471)), 6475)), 6479)), 6495)), 6511)), 6515)), 6517)), 6519))
+			, ftype_pkt`ttype = 14 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, zero, 6416)), 6418)), 6419)), 6463)), 6471)), 6475)), 6479)), 6495)), 6511)), 6515)), 6517)), 6519))
+			, ftype_pkt`ttype = 15 -> ( bitConcat (0, ( bitConcat (prio, ( bitConcat (tt, ( bitConcat (ftype_pkt`ftype, ( bitConcat (dest_id, ( bitConcat (source_id, ( bitConcat (ftype_pkt`ttype, ( bitConcat (ftype_pkt`rdsize, ( bitConcat (ftype_pkt`srcTID, ( bitConcat ((bitSelect(ftype_pkt`addr, 44, 0)), ( bitConcat (ftype_pkt`wdptr, ( bitConcat (ftype_pkt`xamsbs, zero, 6416)), 6418)), 6419)), 6463)), 6471)), 6475)), 6479)), 6495)), 6511)), 6515)), 6517)), 6519))
+			, True -> 0
+		ENDCOND
+
+	fn_ByteCountRoundOff (value: ByteCount) : ByteCount
+		= if ( value > 72 )
+			  then 80
+			  else if ( value > 64 )
+			  then 72
+			  else if ( value > 56 )
+			  then 64
+			  else if ( value > 48 )
+			  then 56
+			  else if ( value > 40 )
+			  then 48
+			  else if ( value > 32 )
+			  then 40
+			  else if ( value > 24 )
+			  then 32
+			  else if ( value > 16 )
+			  then 24
+			  else if ( value > 8 )
+			  then 16
+			  else 8
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+			endif
+
+	
+end TypeDefinitions

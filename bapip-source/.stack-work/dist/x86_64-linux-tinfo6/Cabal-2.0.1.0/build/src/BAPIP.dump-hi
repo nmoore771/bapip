@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2022-04-18 22:32:04.623540093 UTC
+2022-04-20 19:59:53.565479805 UTC
 
 interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:BAPIP 8022
-  interface hash: 97a4be72eae398fb0ef411059aa49520
-  ABI hash: 5ff7510f0360687d5536c4a02a61bdc2
-  export-list hash: 7d9dde5938e9290dfd354ee22911c1e6
+  interface hash: 3ee78009798e69b9456a75df5dda4f70
+  ABI hash: b4de54b26b669aa4812393ed7430e588
+  export-list hash: a2f5b302623b0c55a3a08cbbc5dfb895
   orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
   flag hash: aa1a6078e28560b315026c49539ca393
   sig of: Nothing
@@ -33,6 +33,7 @@ exports:
   BAPIP.runMacroPreprocessing
   BAPIP.scrubUnderscore
   BAPIP.showHelp
+  BAPIP.swapUnderscores
   BAPIP.writeFileList
 module dependencies: BSV2PVS BSVGenerator BSVLexer ConflictSolver
                      HEXLexer LexerTypes LiteralLexer MacroProcessor PVS2BSV
@@ -85,7 +86,7 @@ family instance modules: base-4.10.1.0:Control.Applicative
                          sbv-7.5:Data.SBV.Control.Types sbv-7.5:Data.SBV.Core.Data
                          template-haskell-2.12.0.0:Language.Haskell.TH.Syntax
                          text-1.2.3.0:Data.Text text-1.2.3.0:Data.Text.Lazy
-import  -/  BSV2PVS 6b093cf327e2ec2cd1d6dfb47c20902b
+import  -/  BSV2PVS 61084953c1ad3a924a042c8d2f5d86bc
   exports: ab56efdee783308bf7a9758900ba631a
   bsv2pvs 0bd517946d8b462af0565efd7d1ac47a
   strings2idpath ac1cacfb7d38e56850f736a3238339b6
@@ -93,7 +94,7 @@ import  -/  BSVGenerator 1e8f5f4e7330e872fac61a6792e9e7e2
   exports: 1655fca8e40a18e42b012041e7204bcb
   showBSVPackage 7414bbf98668af4cf60fff43ded98231
   showBSVPackages 03d5c2eaa67c68fb7e39a469a350a60e
-import  -/  BSVLexer 6aaf2ae11e30c50025bd90358119342b
+import  -/  BSVLexer 794361fb412f0f1884f4eeec845f47d9
   exports: b32c42d5194fb94f9cfacaa64ab4e943
   getImports 3fc405de4ec744896080234afe2ad7ff
   getOmnia ad2d6712f05809d2308b3da67cfeabb7
@@ -111,6 +112,7 @@ import  -/  LexerTypes ea2837b19066a45c4d666600c2728879
   BSVPackage dca7bfb1a37746d89b662b651361e667
   File c24aa2ddc97c4de99fb79219c2e2ad5c
   HexFile d5583e90e36cd3f094dbc709feddd25d
+  ID 162ab617d5709f209b382d729b114647
   ID_Path 6b58178d3226f5dcfa379df74cd7f6b5
   Mode 2882a2cad63f6474f30d3fc20714ae61
   P2B 94256f01c4bf628f158742f371a9d75f
@@ -134,7 +136,7 @@ import  -/  MacroProcessor 2c2415f09b4b3233b0792b794431eae7
   runBSVMacros 1fa066d430ee4c5f091118d6b4ea48bc
 import  -/  PVS2BSV 7cd79edec2d6fd8545b2a44f96cde8c7
   exports: 517b0820feb41e5eb54fa0ffb8a8c7da
-import  -/  PVSGenerator 8110fbce38149891efd6196b25f19641
+import  -/  PVSGenerator 8720540b89228661b064754516f4f01c
   exports: 365c2a1307dc17ef5f7bd2b855d9893b
   showPVSPackage 3850dba28f87abcdc155c19a0d85e57d
 import  -/  SourceFiles 51270efe185be5c6763a4b8edd8bc350
@@ -749,7 +751,7 @@ a616e5049d03d5a095ef60bd34a256b6
     -> GHC.Prim.State# GHC.Prim.RealWorld
     -> (# GHC.Prim.State# GHC.Prim.RealWorld, () #)
   {- Arity: 4, Strictness: <S,1*U><L,U><L,U><S,U> -}
-5302b00625f41635c0121a347f4b1742
+b2c1ff765805b592039140b163e90a79
   procHexFiles ::
     GHC.IO.FilePath
     -> [GHC.IO.FilePath] -> GHC.Types.IO [LexerTypes.HexFile]
@@ -760,7 +762,7 @@ a616e5049d03d5a095ef60bd34a256b6
                 (<GHC.IO.FilePath>_R
                  ->_R <[GHC.IO.FilePath]>_R
                  ->_R Sym (GHC.Types.N:IO[0] <[LexerTypes.HexFile]>_R)) -}
-752c6f28d61111cb7a0cb3d8fbda9069
+b9777b631820df402ddf995d1a6557d4
   procHexFiles1 ::
     GHC.IO.FilePath
     -> [GHC.IO.FilePath]
@@ -773,7 +775,7 @@ a616e5049d03d5a095ef60bd34a256b6
                  let {
                    toProc :: [[GHC.Types.Char]]
                    = let {
-                       lvl103 :: [GHC.Types.Char]
+                       lvl109 :: [GHC.Types.Char]
                        = GHC.List.reverse1
                            @ GHC.Types.Char
                            (GHC.List.dropWhile
@@ -789,7 +791,7 @@ a616e5049d03d5a095ef60bd34a256b6
                        @ [GHC.Types.Char]
                        @ [GHC.Types.Char]
                        (\ (x :: [GHC.Types.Char]) ->
-                        GHC.Base.++ @ GHC.Types.Char lvl103 x)
+                        GHC.Base.++ @ GHC.Types.Char lvl109 x)
                        toProc'
                  } in
                  case GHC.IO.Handle.Text.hPutStr2
@@ -934,7 +936,7 @@ b26f806188708e0d98d91e8116fb0cc2
 ac5aaa5f4cd4405d0e28124715d09fe3
   runBSV2BSV6 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 1#) -}
-5489f89c54e8ef3e878cc6235a3679ae
+fae429068b706ef19d00112ab3594aec
   runMacroPreprocessing ::
     GHC.Base.String -> GHC.Base.String -> GHC.Types.IO GHC.Base.String
   {- Arity: 3, Strictness: <S,U><L,1*U><S,U>,
@@ -944,7 +946,7 @@ ac5aaa5f4cd4405d0e28124715d09fe3
                 (<GHC.Base.String>_R
                  ->_R <GHC.Base.String>_R
                  ->_R Sym (GHC.Types.N:IO[0] <GHC.Base.String>_R)) -}
-3fabe5c1a9c70ea584b7c8f4776f1c30
+fe46fbd47e3b3f37e6f80b6b51ca070c
   runMacroPreprocessing1 ::
     GHC.Base.String
     -> GHC.Base.String
@@ -955,7 +957,7 @@ ac5aaa5f4cd4405d0e28124715d09fe3
                    (filePath :: GHC.Base.String)
                    (eta :: GHC.Prim.State# GHC.Prim.RealWorld) ->
                  let {
-                   lvl103 :: [GHC.Types.Char]
+                   lvl109 :: [GHC.Types.Char]
                    = GHC.List.reverse1
                        @ GHC.Types.Char
                        (GHC.List.dropWhile
@@ -978,7 +980,7 @@ ac5aaa5f4cd4405d0e28124715d09fe3
                        [] -> (# eta1, GHC.Types.[] @ GHC.Base.String #)
                        : y ys
                        -> case GHC.IO.Handle.FD.openFile1
-                                 (GHC.Base.++ @ GHC.Types.Char lvl103 y)
+                                 (GHC.Base.++ @ GHC.Types.Char lvl109 y)
                                  GHC.IO.IOMode.ReadMode
                                  eta1 of ds1 { (#,#) ipv ipv1 ->
                           case GHC.IO.Handle.Text.hGetContents1
@@ -1010,16 +1012,11 @@ b52a8cc524b998103b79f4cdfbb7f73d
     [[GHC.Types.Char]]
     -> LexerTypes.FileContents -> LexerTypes.FileContents
   {- Arity: 2, Strictness: <S,1*U><S,1*U> -}
-91bac77f134a6a6f1a518025eda226ae
+49da69ee04aaf61108257f5c5f31287f
   scrubUnderscore :: GHC.Base.String -> GHC.Base.String
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
-     Unfolding: InlineRule (1, True, False)
-                (\ (ds :: [GHC.Types.Char]) ->
-                 case ds of wild {
-                   [] -> GHC.Types.[] @ GHC.Types.Char
-                   : ds1 xs
-                   -> case ds1 of wild1 { GHC.Types.C# ds2 ->
-                      case ds2 of ds3 { DEFAULT -> wild '_'# -> xs } } }) -}
+     Unfolding: InlineRule (1, True, True)
+                (\ (xs :: GHC.Base.String) -> xs) -}
 c603d1c243b8fc15dc9e1a90edd2093b
   showHelp :: GHC.Types.IO ()
   {- Arity: 1,
@@ -1034,6 +1031,9 @@ c603d1c243b8fc15dc9e1a90edd2093b
                    GHC.IO.Handle.FD.stdout
                    SourceFiles.readMe
                    GHC.Types.False) -}
+464b3e7ffbbe91cdc2475a8092c3961c
+  swapUnderscores :: GHC.Base.String -> GHC.Base.String
+  {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
 b10c91d18930cfa7aef25e7b2f9febd2
   writeFileList :: [LexerTypes.File] -> GHC.Types.IO ()
   {- Arity: 2, Strictness: <S,1*U><S,U>,

@@ -1,0 +1,374 @@
+State : theory
+
+begin
+
+	importing TypeDefinitions
+
+	RapidIO_InitEncoder_WdPtr_Size : type =
+		[# reg_WdPointer : WdPointer
+		 , reg_Size : Size
+		#]
+
+	RapidIO_InitiatorReqIFC : type =
+		[# rg_Ready : bool
+		#]
+
+	RapidIO_TargetRespIFC : type =
+		[# 
+		#]
+
+	RapidIO_MaintenanceRespIFC : type =
+		[# 
+		#]
+
+	RapidIO_InComingPkt_Separation : type =
+		[# rg_EOF : bool
+		 , rg_LastPkt : bool
+		 , rg_PktCount : Bit(4)
+		 , rg_DataPkt : DataPkt
+		 , rg_HeaderPkt : DataPkt
+		#]
+
+	RapidIO_IOPktConcatenation : type =
+		[# mod_ConvertByteCountToSizeWdPtr : RapidIO_InitEncoder_WdPtr_Size
+		 , rg_DataCount : Bit(4)
+		 , rg_LastData : bool
+		#]
+
+	RapidIO_PktTransportParse : type =
+		[# rg_RespClassData : Maybe[Data, mkData]
+		 , rg_Dev16TempRespData : Bit(8)
+		 , rg_Dev8TempRespData : Bit(64)
+		 , rg_Ftype11LastPktDev16 : bool
+		 , rg_Ftype11Tmp_MessageData : Bit(64)
+		 , rg_Ftype11PktCount : Bit(4)
+		 , rg_HeaderPktFtype11 : Bit(128)
+		 , rg_Ftype11_MessageData : Maybe[Ftype11MessageData, mkFtype11MessageData]
+		 , rg_Ftype11_MessageHeader : Maybe[FType11_MESSAGEClass, mkFType11_MESSAGEClass]
+		 , rg_Ftype10_DoorBellClass : Maybe[FType10_DOORBELLClass, mkFType10_DOORBELLClass]
+		 , rg_MaintenanceWrData : Maybe[Data, mkData]
+		 , rg_UpperBitOffset : Bit(16)
+		 , rg_Ftype6LastPkt : bool
+		 , rg_HeaderPktFtype6 : DataPkt
+		 , rg_Ftype6PktCount : Bit(4)
+		 , rg_Ftype6LastData : bool
+		 , rg_Ftype6XAMSBSDev16 : Bit(2)
+		 , rg_Ftype6AddrDev16 : Bit(29)
+		 , rg_StreamData : Maybe[Ftype6StreamData, mkFtype6StreamData]
+		 , rg_TmpStreamDataDev16 : Bit(64)
+		 , rg_TmpStreamDataDev8 : Bit(64)
+		 , rg_Ftype5TempData : Bit(56)
+		 , rg_Ftype5Addr : Bit(29)
+		 , pkt_Separation : RapidIO_InComingPkt_Separation
+		 , rg_Ftype13_ResponseClass : Maybe[FType13_ResponseClass, mkFType13_ResponseClass]
+		 , rg_Ftype8_MaintenanceClass : Maybe[FType8_MaintenanceClass, mkFType8_MaintenanceClass]
+		 , rg_Ftype6_StreamWrClass : Maybe[FType6_StreamWrClass, mkFType6_StreamWrClass]
+		 , rg_Ftype5_WrClass : Maybe[FType5_WriteClass, mkFType5_WriteClass]
+		 , rg_Ftype2_ReqClass : Maybe[FType2_RequestClass, mkFType2_RequestClass]
+		 , rg_RxRem : Maybe[Bit(4), mkBit(4)]
+		 , rg_HopCountReceived : Bit(8)
+		 , rg_SrcIDReceived : SourceId
+		 , rg_DestIDReceived : DestId
+		 , rg_PrioReceived : Prio
+		 , rg_TTReceived : TT
+		 , rg_LastPkt : bool
+		 , rg_PktCount : Bit(4)
+		 , rg_DataPkt : DataPkt
+		 , rg_HeaderPkt : DataPkt
+		#]
+
+	RapidIO_InitiatorRespIFC : type =
+		[# ff_InitRespIfcFIFO : FIFO[InitiatorRespIfcPkt]
+		#]
+
+	RapidIO_TargetReqIFC : type =
+		[# ff_TargetReqIfcFIFOF : FIFO[TargetReqIfcPkt]
+		#]
+
+	RapidIO_MaintenanceReqIFC : type =
+		[# 
+		#]
+
+	RapidIO_IOPkt_Generation : type =
+		[# rg_MaintainTempData1 : Bit(64)
+		 , rg_MaintainTempData : Bit(64)
+		 , rg_Ftype6LastData4Delay : bool
+		 , rg_Ftype6DataValid1Delayed : Data
+		 , rg_Ftype6LastData3Delay : bool
+		 , rg_Ftype11DataValid : Data
+		 , rg_Ftype11LastDeta2Delay : bool
+		 , rg_Ftype6LastData2Delay : bool
+		 , rg_Ftype6DataInput : Data
+		 , rg_Ftype6DataValid : Data
+		 , ff_TransmitPktIfcFIFO : FIFO[Transmit_Pkt]
+		 , rg_Ftype13InputValid : FType13_ResponseClass
+		 , rg_Ftype11InputValid : FType11_MESSAGEClass
+		 , rg_Ftype10InputValid : FType10_DOORBELLClass
+		 , rg_Ftype8MRespInputValid : FType8_MaintenanceClass
+		 , rg_Ftype6InputValid : FType6_StreamWrClass
+		 , rg_Ftype5InputValid : FType5_WriteClass
+		 , rg_Ftype2InputValid : FType2_RequestClass
+		 , rg_Ftype13RespData : Data
+		 , rg_Ftype11DataValidDelayed : Data
+		 , rg_Ftype5DataValidDelayed : Data
+		 , rg_Ftype6DataValidDelayed : Data
+		 , rg_MRespHeaderNotComplete : bool
+		 , rg_Ftype13HeaderNotComplete1 : bool
+		 , rg_Ftype13HeaderNotComplete : bool
+		 , rg_Ftype8HeaderNotComplete3 : bool
+		 , rg_Ftype8HeaderNotComplete2 : bool
+		 , rg_Ftype8HeaderNotComplete1 : bool
+		 , rg_Ftype8HeaderNotComplete : bool
+		 , rg_Ftype6HeaderNotComplete1 : bool
+		 , rg_Ftype6HeaderNotComplete : bool
+		 , rg_Ftype5HeaderNotComplete1 : bool
+		 , rg_Ftype5HeaderNotComplete : bool
+		 , rg_CurrentMaintainRespByteCount : ByteCount
+		 , rg_CurrentTgtRespByteCount : ByteCount
+		 , rg_CurrentInitReqByteCount : ByteCount
+		 , rg_InitReqByteCount : ByteCount
+		 , rg_OutputDataPkt : DataPkt
+		 , rg_MaintainRespInput2Delay : MaintenanceRespIfcPkt
+		 , rg_MaintainRespInput1Delay : MaintenanceRespIfcPkt
+		 , rg_TgtRespInput2Delay : TargetRespIfcPkt
+		 , rg_TgtRespInput1Delay : TargetRespIfcPkt
+		 , rg_InitReqInput2Delay : InitiatorReqIfcPkt
+		 , rg_InitReqInput1Delay : InitiatorReqIfcPkt
+		 , rg_Ftype13RespInputDelay : FType13_ResponseClass
+		 , rg_Ftype11MsgCsInputDelay : FType11_MESSAGEClass
+		 , rg_Ftype10DoorbellCsInputDelay : FType10_DOORBELLClass
+		 , rg_Ftype8MRespInputDelay : FType8_MaintenanceClass
+		 , rg_Ftype6WrStreamInputDelay : FType6_StreamWrClass
+		 , rg_Ftype5WrCsInputDelay : FType5_WriteClass
+		 , rg_Ftype2ReqInputDelay : FType2_RequestClass
+		 , rg_InitReqInputData : Data
+		 , rg_TxRem : Bit(3)
+		 , pkgen_VLD_n : bool
+		 , pkgen_DSC_n : bool
+		 , pkgen_EOF_n : bool
+		 , pkgen_SOF_n : bool
+		 , rg_InitReqDataCount : InitReqDataInput
+		#]
+
+	RapidIO_RxPktFTypeAnalyse : type =
+		[# rg_LastDataDev16 : bool
+		 , rg_Ftype6StreamData : Data
+		 , rg_Ftype6TempDataDev8 : Bit(8)
+		 , rg_TmpStreamDataDev16 : Bit(56)
+		 , rg_ByteCountValid : bool
+		 , rg_PktCount : Bit(4)
+		 , rg_RxByteEn : ByteEn
+		 , rg_RxByteCount : ByteCount
+		#]
+
+	RapidIO_MainCore : type =
+		[# rio_ModRxPktFtypeAnalyse : RapidIO_RxPktFTypeAnalyse
+		 , rio_ModRxPktParsing : RapidIO_PktTransportParse
+		 , rio_ModInsIOPktGeneration : RapidIO_IOPkt_Generation
+		 , rio_ModInsConcatenation : RapidIO_IOPktConcatenation
+		 , rio_ModInsMaintenanceReqIFC : RapidIO_MaintenanceReqIFC
+		 , rio_ModInsTgtReqIFC : RapidIO_TargetReqIFC
+		 , rio_ModInsInitRespIFC : RapidIO_InitiatorRespIFC
+		 , rio_ModInsMaintenanceRespIFC : RapidIO_MaintenanceRespIFC
+		 , rio_ModInsTgtRespIFC : RapidIO_TargetRespIFC
+		 , rio_ModInsInitReqIFC : RapidIO_InitiatorReqIFC
+		#]
+
+	RapidIO_InitEncoder_WdPtr_Size_var : var RapidIO_InitEncoder_WdPtr_Size
+
+	mkRapidIO_InitEncoder_WdPtr_Size (RapidIO_InitEncoder_WdPtr_Size_var) : bool
+	=	RapidIO_InitEncoder_WdPtr_Size_var`reg_WdPointer	 = 0
+	AND	RapidIO_InitEncoder_WdPtr_Size_var`reg_Size	 = 0
+
+
+	RapidIO_InitiatorReqIFC_var : var RapidIO_InitiatorReqIFC
+
+	mkRapidIO_InitiatorReqIFC (RapidIO_InitiatorReqIFC_var) : bool
+	=	RapidIO_InitiatorReqIFC_var`rg_Ready	 = False
+
+
+	RapidIO_TargetRespIFC_var : var RapidIO_TargetRespIFC
+
+	mkRapidIO_TargetRespIFC (RapidIO_TargetRespIFC_var) : bool
+	=	True
+
+
+	RapidIO_MaintenanceRespIFC_var : var RapidIO_MaintenanceRespIFC
+
+	mkRapidIO_MaintenanceRespIFC (RapidIO_MaintenanceRespIFC_var) : bool
+	=	True
+
+
+	RapidIO_InComingPkt_Separation_var : var RapidIO_InComingPkt_Separation
+
+	mkRapidIO_InComingPkt_Separation (RapidIO_InComingPkt_Separation_var) : bool
+	=	RapidIO_InComingPkt_Separation_var`rg_EOF	 = False
+	AND	RapidIO_InComingPkt_Separation_var`rg_LastPkt	 = False
+	AND	RapidIO_InComingPkt_Separation_var`rg_PktCount	 = 0
+	AND	RapidIO_InComingPkt_Separation_var`rg_DataPkt	 = 0
+	AND	RapidIO_InComingPkt_Separation_var`rg_HeaderPkt	 = 0
+
+
+	RapidIO_IOPktConcatenation_var : var RapidIO_IOPktConcatenation
+
+	mkRapidIO_IOPktConcatenation (RapidIO_IOPktConcatenation_var) : bool
+	=	mkRapidIO_InitEncoder_WdPtr_Size (RapidIO_IOPktConcatenation_var`mod_ConvertByteCountToSizeWdPtr)
+	AND	RapidIO_IOPktConcatenation_var`rg_DataCount	 = 0
+	AND	RapidIO_IOPktConcatenation_var`rg_LastData	 = False
+
+
+	RapidIO_PktTransportParse_var : var RapidIO_PktTransportParse
+
+	mkRapidIO_PktTransportParse (RapidIO_PktTransportParse_var) : bool
+	=	RapidIO_PktTransportParse_var`rg_RespClassData	 = Nothing[Data,mkData]
+	AND	RapidIO_PktTransportParse_var`rg_Dev16TempRespData	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Dev8TempRespData	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype11LastPktDev16	 = False
+	AND	RapidIO_PktTransportParse_var`rg_Ftype11Tmp_MessageData	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype11PktCount	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_HeaderPktFtype11	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype11_MessageData	 = Nothing[Ftype11MessageData,mkFtype11MessageData]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype11_MessageHeader	 = Nothing[FType11_MESSAGEClass,mkFType11_MESSAGEClass]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype10_DoorBellClass	 = Nothing[FType10_DOORBELLClass,mkFType10_DOORBELLClass]
+	AND	RapidIO_PktTransportParse_var`rg_MaintenanceWrData	 = Nothing[Data,mkData]
+	AND	RapidIO_PktTransportParse_var`rg_UpperBitOffset	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6LastPkt	 = False
+	AND	RapidIO_PktTransportParse_var`rg_HeaderPktFtype6	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6PktCount	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6LastData	 = False
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6XAMSBSDev16	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6AddrDev16	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_StreamData	 = Nothing[Ftype6StreamData,mkFtype6StreamData]
+	AND	RapidIO_PktTransportParse_var`rg_TmpStreamDataDev16	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_TmpStreamDataDev8	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype5TempData	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_Ftype5Addr	 = 0
+	AND	mkRapidIO_InComingPkt_Separation (RapidIO_PktTransportParse_var`pkt_Separation)
+	AND	RapidIO_PktTransportParse_var`rg_Ftype13_ResponseClass	 = Nothing[FType13_ResponseClass,mkFType13_ResponseClass]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype8_MaintenanceClass	 = Nothing[FType8_MaintenanceClass,mkFType8_MaintenanceClass]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype6_StreamWrClass	 = Nothing[FType6_StreamWrClass,mkFType6_StreamWrClass]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype5_WrClass	 = Nothing[FType5_WriteClass,mkFType5_WriteClass]
+	AND	RapidIO_PktTransportParse_var`rg_Ftype2_ReqClass	 = Nothing[FType2_RequestClass,mkFType2_RequestClass]
+	AND	RapidIO_PktTransportParse_var`rg_RxRem	 = Nothing[Bit(4),mkBit(4)]
+	AND	RapidIO_PktTransportParse_var`rg_HopCountReceived	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_SrcIDReceived	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_DestIDReceived	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_PrioReceived	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_TTReceived	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_LastPkt	 = False
+	AND	RapidIO_PktTransportParse_var`rg_PktCount	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_DataPkt	 = 0
+	AND	RapidIO_PktTransportParse_var`rg_HeaderPkt	 = 0
+
+
+	RapidIO_InitiatorRespIFC_var : var RapidIO_InitiatorRespIFC
+
+	mkRapidIO_InitiatorRespIFC (RapidIO_InitiatorRespIFC_var) : bool
+	=	mkFIFO(RapidIO_InitiatorRespIFC_var`ff_InitRespIfcFIFO, 8)
+
+
+	RapidIO_TargetReqIFC_var : var RapidIO_TargetReqIFC
+
+	mkRapidIO_TargetReqIFC (RapidIO_TargetReqIFC_var) : bool
+	=	mkFIFO(RapidIO_TargetReqIFC_var`ff_TargetReqIfcFIFOF, 8)
+
+
+	RapidIO_MaintenanceReqIFC_var : var RapidIO_MaintenanceReqIFC
+
+	mkRapidIO_MaintenanceReqIFC (RapidIO_MaintenanceReqIFC_var) : bool
+	=	True
+
+
+	RapidIO_IOPkt_Generation_var : var RapidIO_IOPkt_Generation
+
+	mkRapidIO_IOPkt_Generation (RapidIO_IOPkt_Generation_var) : bool
+	=	RapidIO_IOPkt_Generation_var`rg_MaintainTempData1	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_MaintainTempData	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6LastData4Delay	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6DataValid1Delayed	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6LastData3Delay	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype11DataValid	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype11LastDeta2Delay	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6LastData2Delay	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6DataInput	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6DataValid	 = 0
+	AND	mkFIFO(RapidIO_IOPkt_Generation_var`ff_TransmitPktIfcFIFO, 8)
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype13InputValid	 = mkFType13_ResponseClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype11InputValid	 = mkFType11_MESSAGEClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype10InputValid	 = mkFType10_DOORBELLClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8MRespInputValid	 = mkFType8_MaintenanceClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6InputValid	 = mkFType6_StreamWrClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype5InputValid	 = mkFType5_WriteClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype2InputValid	 = mkFType2_RequestClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype13RespData	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype11DataValidDelayed	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype5DataValidDelayed	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6DataValidDelayed	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_MRespHeaderNotComplete	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype13HeaderNotComplete1	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype13HeaderNotComplete	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8HeaderNotComplete3	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8HeaderNotComplete2	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8HeaderNotComplete1	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8HeaderNotComplete	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6HeaderNotComplete1	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6HeaderNotComplete	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype5HeaderNotComplete1	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype5HeaderNotComplete	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_CurrentMaintainRespByteCount	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_CurrentTgtRespByteCount	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_CurrentInitReqByteCount	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_InitReqByteCount	 = 511
+	AND	RapidIO_IOPkt_Generation_var`rg_OutputDataPkt	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_MaintainRespInput2Delay	 = mkMaintenanceRespIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_MaintainRespInput1Delay	 = mkMaintenanceRespIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_TgtRespInput2Delay	 = mkTargetRespIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_TgtRespInput1Delay	 = mkTargetRespIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_InitReqInput2Delay	 = mkInitiatorReqIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_InitReqInput1Delay	 = mkInitiatorReqIfcPkt
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype13RespInputDelay	 = mkFType13_ResponseClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype11MsgCsInputDelay	 = mkFType11_MESSAGEClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype10DoorbellCsInputDelay	 = mkFType10_DOORBELLClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype8MRespInputDelay	 = mkFType8_MaintenanceClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype6WrStreamInputDelay	 = mkFType6_StreamWrClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype5WrCsInputDelay	 = mkFType5_WriteClass
+	AND	RapidIO_IOPkt_Generation_var`rg_Ftype2ReqInputDelay	 = mkFType2_RequestClass
+	AND	RapidIO_IOPkt_Generation_var`rg_InitReqInputData	 = 0
+	AND	RapidIO_IOPkt_Generation_var`rg_TxRem	 = 0
+	AND	RapidIO_IOPkt_Generation_var`pkgen_VLD_n	 = False
+	AND	RapidIO_IOPkt_Generation_var`pkgen_DSC_n	 = False
+	AND	RapidIO_IOPkt_Generation_var`pkgen_EOF_n	 = False
+	AND	RapidIO_IOPkt_Generation_var`pkgen_SOF_n	 = False
+	AND	RapidIO_IOPkt_Generation_var`rg_InitReqDataCount	 = mkInitReqDataInput
+
+
+	RapidIO_RxPktFTypeAnalyse_var : var RapidIO_RxPktFTypeAnalyse
+
+	mkRapidIO_RxPktFTypeAnalyse (RapidIO_RxPktFTypeAnalyse_var) : bool
+	=	RapidIO_RxPktFTypeAnalyse_var`rg_LastDataDev16	 = False
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_Ftype6StreamData	 = 0
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_Ftype6TempDataDev8	 = 0
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_TmpStreamDataDev16	 = 0
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_ByteCountValid	 = False
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_PktCount	 = 0
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_RxByteEn	 = 0
+	AND	RapidIO_RxPktFTypeAnalyse_var`rg_RxByteCount	 = 0
+
+
+	RapidIO_MainCore_var : var RapidIO_MainCore
+
+	mkRapidIO_MainCore (RapidIO_MainCore_var) : bool
+	=	mkRapidIO_RxPktFTypeAnalyse (RapidIO_MainCore_var`rio_ModRxPktFtypeAnalyse)
+	AND	mkRapidIO_PktTransportParse (RapidIO_MainCore_var`rio_ModRxPktParsing)
+	AND	mkRapidIO_IOPkt_Generation (RapidIO_MainCore_var`rio_ModInsIOPktGeneration)
+	AND	mkRapidIO_IOPktConcatenation (RapidIO_MainCore_var`rio_ModInsConcatenation)
+	AND	mkRapidIO_MaintenanceReqIFC (RapidIO_MainCore_var`rio_ModInsMaintenanceReqIFC)
+	AND	mkRapidIO_TargetReqIFC (RapidIO_MainCore_var`rio_ModInsTgtReqIFC)
+	AND	mkRapidIO_InitiatorRespIFC (RapidIO_MainCore_var`rio_ModInsInitRespIFC)
+	AND	mkRapidIO_MaintenanceRespIFC (RapidIO_MainCore_var`rio_ModInsMaintenanceRespIFC)
+	AND	mkRapidIO_TargetRespIFC (RapidIO_MainCore_var`rio_ModInsTgtRespIFC)
+	AND	mkRapidIO_InitiatorReqIFC (RapidIO_MainCore_var`rio_ModInsInitReqIFC)
+
+
+	
+end State

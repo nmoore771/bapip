@@ -1066,6 +1066,9 @@ crushModAttsSA ((Sta_Doc x):ys) = ((Sta_Doc x):(crushModAttsSA ys))
 genTransitions :: BSVPackage -> String -> (Integer, [ID_Path]) -> PVStransition
 genTransitions uni topMod (num, reqMeths') = (num, revisedArgsList, valMeths, transTables)
   where 
+    tracy = "[genTransitions] topMod = " ++ (show topMod)
+         ++ "\nreqMeths' = " ++ (show reqMeths')
+         ++ "\nrevisedArgsList = " ++ (show revisedArgsList) 
     mod = maybe (error "Module Not found! ") (id) $ findMod uni topMod
     reqMeths = map lastID reqMeths'
     newMod = propagateMethodCalls uni mod reqMeths' []
@@ -1192,8 +1195,7 @@ gatherValueMethods ((x,(ActionValue typ),y,z,a,b):xs) = gatherValueMethods xs
 gatherValueMethods ((x,(Value typ),y,z,a,b):xs) = (x,(Value typ),y,z,a,b) : (gatherValueMethods xs)
 
 convertToFunction :: BSVPackage -> [TransitionTable] -> BSVModuleDec -> String -> [String] -> MethodBody -> ValueMethod
-convertToFunction universe tables mod namo path (nom, (Value typ), _, guard, stmts, atts) = trace tracy $
-    ( nom
+convertToFunction universe tables mod namo path (nom, (Value typ), _, guard, stmts, atts) = ( nom
     , (mName mod)
     , namo 
     , path
@@ -1998,6 +2000,8 @@ propagateMethodCalls universe mod meths replacements = update mod
                                  (getReplacements universe x (nub (filterForModule mCalls x))) 
                                  ) (instances mod)
     update x = x {rules = ruleList, methods = methList, instances = newInstances}
+    tracy2 = "[propagateMethodCalls] - methodNames = " ++ (show meths)
+          ++ "\nmodule methods = " ++ (show (methods mod))
     tracy = "[propagateMethodCalls] - methodNames = " ++ (show meths) ++ "\nmethods = " ++ (show methds) ++ "\nrule list = " ++ (intercalate "\n- " (map show ruleList)) ++ "\nMCalls = " ++ (intercalate "\n- " (map show mCalls))
     h1 = (applyReplacements replacements (unMaybeList (map convertMethodToRule methds)))
 
@@ -4001,7 +4005,7 @@ findMethod' :: BSVModuleDec -> [MethodBody] -> ID_Path -> Maybe MethodBody
 findMethod' _ [] x = Nothing -- error $ "BSV2PVS Error! Method not found: " ++ x    
 findMethod' mod ((u,v,w,x,y,z):ms) (ID i) = if u == i' then Just (u,v,w,x,y,z) else findMethod' mod ms (ID i') 
     where 
-        i' = if "_" `isPrefixOf` i then (tail i) else i
+        i' = id i -- if "_" `isPrefixOf` i then (tail i) else i
         showy = "[findMethod'] i = " ++ (show i) ++ "\nu = " ++ (show u)
 findMethod' mod ms (ID_Submod_Struct x y) = findMethod' mod midmod y
     where
