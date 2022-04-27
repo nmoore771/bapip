@@ -1,11 +1,11 @@
 
 ==================== FINAL INTERFACE ====================
-2022-04-20 19:59:48.93549603 UTC
+2022-04-26 13:57:48.354525099 UTC
 
 interface BAPIP-0.1.0.0-IeoLXJJUcqyHz2cFv4cIMD:BSV2PVS 8022
-  interface hash: 19acf0540604a6e6770d8e3811688008
-  ABI hash: 61084953c1ad3a924a042c8d2f5d86bc
-  export-list hash: ab56efdee783308bf7a9758900ba631a
+  interface hash: 684aaa43c86538a51f153d9bb9b4037c
+  ABI hash: 30286a8fbec138891fd845ec4c231c76
+  export-list hash: 878cf3fe588260c7f372a78e427d849f
   orphan hash: 8e15c2efbf85be1778a4d11a3544a4a8
   flag hash: aa1a6078e28560b315026c49539ca393
   sig of: Nothing
@@ -17,7 +17,6 @@ exports:
   BSV2PVS.addPathToMethBody
   BSV2PVS.addStructPrefix
   BSV2PVS.addTagModuleInfo
-  BSV2PVS.addWireLets
   BSV2PVS.addressesAllConflicts
   BSV2PVS.addressesAllConflicts'
   BSV2PVS.amalgamateLets
@@ -291,7 +290,6 @@ exports:
   BSV2PVS.migrateAttributes
   BSV2PVS.migrateModAttributes
   BSV2PVS.migrateRuleAttributes
-  BSV2PVS.mkLocalVars
   BSV2PVS.notNothing
   BSV2PVS.nubPath
   BSV2PVS.omniFlatten
@@ -808,7 +806,7 @@ fabd7a47c01d7eae3703972176882833
     -> (# [LexerTypes.RuleSchedule],
           [([LexerTypes.ActionPath], LexerTypes.ActionPath)] #)
   {- Arity: 3, Strictness: <S,1*U><L,U><L,U>, Inline: [0] -}
-731d673bae1e4202613e07ae3429860f
+cf585d8da44500190f36140aa0cc5e7c
   $wapplyNumbering ::
     GHC.Types.Int
     -> LexerTypes.MethodName
@@ -833,7 +831,7 @@ fabd7a47c01d7eae3703972176882833
                  let {
                    newArgs :: [([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)]
                    = let {
-                       lvl565 :: [GHC.Types.Char]
+                       lvl564 :: [GHC.Types.Char]
                        = GHC.CString.unpackAppendCString#
                            BSV2PVS.applyNumbering2
                            (case ww of ww7 { GHC.Types.I# ww8 ->
@@ -848,7 +846,7 @@ fabd7a47c01d7eae3703972176882833
                        @ ([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)
                        (\ (ds :: ([GHC.Types.Char], GHC.Base.Maybe LexerTypes.BSVType)) ->
                         case ds of wild { (,) afst asnd ->
-                        (GHC.Base.++ @ GHC.Types.Char afst lvl565, asnd) })
+                        (GHC.Base.++ @ GHC.Types.Char afst lvl564, asnd) })
                        ww3
                  } in
                  (# ww1, ww2, newArgs, ww4,
@@ -1488,7 +1486,7 @@ e00ca7f5555f3c1e1b863dc747f0512b
                            @ (GHC.Base.String, [LexerTypes.MethodBody])
                            BSV2PVS.interfaceLookup1
                            w1) }) -}
-2ae782157e51ab5739cd2b86061ebcbd
+8490b5cd4a3e39f83d495df8172b8c7a
   $wisClearAnterior ::
     LexerTypes.BSVPackage
     -> LexerTypes.BSVModuleDec
@@ -1503,7 +1501,7 @@ e00ca7f5555f3c1e1b863dc747f0512b
                    (ww :: [LexerTypes.Statement])
                    (w2 :: [LexerTypes.ID_Path]) ->
                  let {
-                   lvl565 :: [LexerTypes.ID_Path]
+                   lvl564 :: [LexerTypes.ID_Path]
                    = let {
                        z :: [LexerTypes.ID_Path]
                        = let {
@@ -1543,7 +1541,7 @@ e00ca7f5555f3c1e1b863dc747f0512b
                  GHC.List.filter
                    @ LexerTypes.ID_Path
                    (\ (x :: LexerTypes.ID_Path) ->
-                    GHC.List.elem @ LexerTypes.ID_Path LexerTypes.$fEqID_Path x lvl565)
+                    GHC.List.elem @ LexerTypes.ID_Path LexerTypes.$fEqID_Path x lvl564)
                    w2) -}
 e4caa42953f6436aacffff942e795b67
   $wisDeqAnterior ::
@@ -2419,35 +2417,6 @@ de8f95c1e8f683d14607bab3bbc1962f
 2ab656cda3a897e3419f0edbd2c3eb14
   addTagModuleInfo1 :: LexerTypes.MaybeTag
   {- Strictness: x -}
-82d657e74a7484c0f5e1772b0309ee9d
-  addWireLets ::
-    LexerTypes.BSVModuleDec
-    -> [LexerTypes.ID_Path]
-    -> [LexerTypes.TransitionTable]
-    -> LexerTypes.Expression
-    -> LexerTypes.Expression
-  {- Arity: 4,
-     Strictness: <L,U(A,A,U,A,A,A,U,A,A,A)><S,1*U><L,U><L,U>,
-     Unfolding: (\ (mod :: LexerTypes.BSVModuleDec)
-                   (wires :: [LexerTypes.ID_Path])
-                   (tables :: [LexerTypes.TransitionTable])
-                   (exp :: LexerTypes.Expression) ->
-                 case GHC.Base.map
-                        @ LexerTypes.TransitionTable
-                        @ (LexerTypes.ID_Path,
-                           Data.Either.Either
-                             (GHC.Base.Maybe LexerTypes.BSVType)
-                             (GHC.Base.Maybe LexerTypes.PVSType),
-                           LexerTypes.Expression)
-                        (BSV2PVS.mkLocalVars mod)
-                        (Data.Maybe.catMaybes1
-                           @ LexerTypes.TransitionTable
-                           (GHC.Base.map
-                              @ LexerTypes.ID_Path
-                              @ (GHC.Base.Maybe LexerTypes.TransitionTable)
-                              (BSV2PVS.lookupWireTable tables)
-                              wires)) of wild {
-                   [] -> exp : ds1 ds2 -> LexerTypes.Binding wild exp }) -}
 42b69623d71dc7ecef51803648be2cb2
   addressesAllConflicts ::
     [GHC.Base.String]
@@ -2608,7 +2577,7 @@ ba1d5b6784c0b0be6387c012dea409c5
   applyLocalDecs_go ::
     [LexerTypes.Statement] -> [LexerTypes.Statement]
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U> -}
-83cda389c8681a2b643b8ffa467d55ac
+a28cf78ed4bf0f69dbe1c90aff3c540e
   applyNumbering ::
     (GHC.Types.Int, LexerTypes.MethodBody) -> LexerTypes.MethodBody
   {- Arity: 1, Strictness: <S(LS),1*U(1*U(U),1*U(U,U,U,U,1*U,U))>m,
@@ -5458,7 +5427,7 @@ c1d39035febd90a4f2a6a91bffb892f4
                 (\ (ds :: (LexerTypes.ActionName, [LexerTypes.Statement],
                            [LexerTypes.ActionAttribute])) ->
                  case ds of wild { (,,) x ds1 ds2 -> x }) -}
-46bc50fdd207b8face53a2c410e36141
+9a65366407f4efbfd223c7f125c3a6e2
   isClearAnterior ::
     LexerTypes.BSVPackage
     -> LexerTypes.BSVModuleDec
@@ -6586,30 +6555,6 @@ fe34314d7743185952eaba4dca831156
                     @ LexerTypes.RuleAttribute
                     ww4
                     (BSV2PVS.getModAttsSR ww3)) }) -}
-18b0229d3c01eba1fe95c2e3f217d4c4
-  mkLocalVars ::
-    LexerTypes.BSVModuleDec
-    -> LexerTypes.TransitionTable -> LexerTypes.LocalVar
-  {- Arity: 2, Strictness: <L,1*U(A,A,1*U,A,A,A,1*U,A,A,A)><S,1*U>m,
-     Inline: [0],
-     Unfolding: InlineRule (2, True, False)
-                (\ (w :: LexerTypes.BSVModuleDec)
-                   (w1 :: LexerTypes.TransitionTable) ->
-                 case w1 of wild {
-                   DEFAULT -> BSV2PVS.mkLocalVars1
-                   LexerTypes.TransDWire i tree dv
-                   -> (i,
-                       Data.Either.Left
-                         @ (GHC.Base.Maybe LexerTypes.BSVType)
-                         @ (GHC.Base.Maybe LexerTypes.PVSType)
-                         (GHC.Base.Just
-                            @ LexerTypes.BSVType
-                            (case w of wild1 { LexerTypes.BSVModuleDec ds1 ds2 ds3 ds4 ds5 ds6 ds7 ds8 ds9 ds10 ->
-                             BSV2PVS.getStateType wild1 ds7 i })),
-                       BSV2PVS.expressionizeSpecificTree tree) }) -}
-953b3ed035173c907376c742d21f2cb0
-  mkLocalVars1 :: LexerTypes.LocalVar
-  {- Strictness: x -}
 a7365845b632b17b20544c15b7aa3d6c
   notNothing :: GHC.Base.Maybe a -> GHC.Types.Bool
   {- Arity: 1, HasNoCafRefs, Strictness: <S,1*U>,
@@ -8279,7 +8224,7 @@ bc1e985a05a8a02bbdeafed9ce0c19a7
     -> [LexerTypes.InterfaceRef]
     -> LexerTypes.ID_Path
   {- Arity: 3, Strictness: <S,U><S,U><S,1*U> -}
-865340d074ff3fb80265d00924942864
+0560ffa28e61cfc0eaa0be5332e5463c
   string2IDPath :: GHC.Base.String -> LexerTypes.ID_Path
   {- Arity: 1, Strictness: <S,1*U>,
      Unfolding: (\ (xs :: GHC.Base.String) ->
@@ -8294,7 +8239,7 @@ bc1e985a05a8a02bbdeafed9ce0c19a7
                         xs of ww { (#,#) ww1 ww2 ->
                  BSV2PVS.strings2idpath
                    (GHC.Types.: @ [GHC.Types.Char] ww1 ww2) }) -}
-61b0b6c4f295dac123bfb11faf8ca6ca
+ca72fd433519a3ad11b2baac56ce26e2
   string2IDPath1 :: GHC.Stack.Types.CallStack
   {- Strictness: m2,
      Unfolding: (GHC.Stack.Types.PushCallStack
@@ -8308,7 +8253,7 @@ bc1e985a05a8a02bbdeafed9ce0c19a7
 1b6e540663cb1639569f49f8b02c2b2b
   string2IDPath11 :: GHC.Prim.Addr#
   {- HasNoCafRefs, Unfolding: ("splitOn"#) -}
-41014696790403c8aa04537c4dbc82d0
+7036bb150a1d9562d66e3e059175a2dd
   string2IDPath2 :: GHC.Stack.Types.SrcLoc
   {- Strictness: m,
      Unfolding: (GHC.Stack.Types.SrcLoc
@@ -8325,9 +8270,9 @@ bc1e985a05a8a02bbdeafed9ce0c19a7
 b278ea23e946052f1b24e4c3e5f0e4a0
   string2IDPath4 :: GHC.Types.Int
   {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 37#) -}
-00783489214871ab3e8478e66afcc10f
+ad9db7f8985643ed289d74aaafb10147
   string2IDPath5 :: GHC.Types.Int
-  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3575#) -}
+  {- HasNoCafRefs, Strictness: m, Unfolding: (GHC.Types.I# 3577#) -}
 7fc2dabac220055ae9774ad90b86c3c7
   string2IDPath6 :: [GHC.Types.Char]
   {- Unfolding: (GHC.CString.unpackCString#

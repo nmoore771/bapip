@@ -1222,9 +1222,11 @@ getTransitionName (TransVect x _ _) = x
 getTransitionName (TransStruct x _) = (ID x)
 getTransitionName (TransDWire x _ _) = x
     
-addWireLets :: BSVModuleDec -> [ID_Path] -> [TransitionTable] -> Expression -> Expression
+{-addWireLets :: BSVModuleDec -> [ID_Path] -> [TransitionTable] -> Expression -> Expression
 addWireLets mod wires tables exp = if (null lvs) then exp else (Binding lvs exp) -- error $ show $ wires -- 
     where
+        tracy = "[addWireLets] wires - " ++ (show wires) 
+             ++ "\n exp = " ++ (show exp)
         wireTables = catMaybes $ map (lookupWireTable tables) wires
         lvs = map (mkLocalVars mod) wireTables 
         
@@ -1233,7 +1235,7 @@ mkLocalVars mod (TransDWire i tree dv) = (i, (Left (Just typ)), exp)
   where
       st = state mod
       typ = getStateType mod st i
-      exp = expressionizeSpecificTree tree
+      exp = expressionizeSpecificTree tree-}
       
 expressionizeSpecificTree :: SpecificTree -> Expression
 expressionizeSpecificTree (SpecStem gd (Left texp) ftree) = (Exp_If gd texp (expressionizeSpecificTree ftree))

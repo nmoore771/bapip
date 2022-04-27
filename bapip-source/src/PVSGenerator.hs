@@ -562,7 +562,7 @@ genIf ((is, str):xs) = ("IF " ++ (intercalate " OR " (map (\ x -> "(index = " ++
 --         its = map (\ (x,_,_,_) -> x ) ts
     
 genMethodCase :: PVSPackage -> PVSstateDec -> ValueMethod -> PVStransition -> String
-genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = result 
+genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) = trace tracy $ result 
   where
     tracy = "\n[genMethodCase] - name = " ++ (show name) 
          ++ "\nname2 = " ++ (show name2) 
@@ -570,6 +570,8 @@ genMethodCase uni st (name, name2, path, _, ret, exp, wires) (index,x,y,tables) 
          ++ "\nreads = "++ (show (map idTopLevel (getReadsBy mkBSVModule (\ x -> True) [] exp))) 
          ++ "\nwiresInExp = " ++ (intercalate "\n" (map show wirs)) 
          ++ "\npath = " ++ (show path)
+         ++ "\nwire Stuff = " ++ (show wireStuff)
+         ++ "\nlets = " ++ (show lets)
          ++ "\n\nresult = " ++ (result) 
     tables' = getTablesBySubmod uni name2 tables
     wirs = nub $ getWireDeps tables' (Just exp) []
@@ -933,8 +935,12 @@ genLets uni xs prefix i = concat [ header
     footer = "\n\t\tIN "
 
 showLet :: PVSPackage -> TransitionTable -> String -> String -> [String]
-showLet uni (TransDWire nom tree dv) prefix i = ((showIDPath uni [] Nothing nom i) ++ " : " ++ (showPVSType uni typ) ++ " = " ++ (showPVSTransTree uni nom prefix "    " (Just dv) typ tree i)):[]
+showLet uni (TransDWire nom tree dv) prefix i = trace tracy $ ((showIDPath uni [] Nothing nom i) ++ " : " ++ (showPVSType uni typ) ++ " = " ++ (showPVSTransTree uni nom prefix "    " (Just dv) typ tree i)):[]
   where
+      tracy = "--------------------\n[showLet] name = " ++ (show nom)
+          ++ "\nstatedecs = " ++ (show (pvs_state uni)) 
+          ++ "\ntype = " ++ (show typ) 
+          ++ "\n---------------------\n"
       mod = getState (pvs_state uni) (showIDPath uni [] Nothing nom i)
       typ = getTypeFromState uni (pvs_typedefs uni) (pvs_state uni) [] Nothing (ID_Submod_Struct (fst mod) nom)
 showLet uni (TransFIFO nom enq deq clear) prefix i = [ namo ++ "_enq = " ++ (showPVSTransTree uni nom prefix "    " (Just (Identifier (ID_Submod_Struct prefix nom))) typ enq i)
